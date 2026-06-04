@@ -1,33 +1,390 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TD - Transformacion Digital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TD — Transformación Digital en la Empresa · IUB 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; color: #17202a; background: #f7f9fb; }
-    main { max-width: 980px; margin: 0 auto; padding: 40px 20px; }
-    h1 { margin-bottom: 8px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 24px; }
-    a { display: block; padding: 14px 16px; background: white; border: 1px solid #d8dee6; border-radius: 8px; color: #0f5b8f; text-decoration: none; font-weight: 650; }
-    a:hover { border-color: #0f5b8f; }
-    p { line-height: 1.55; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1E2843;
+      --accent: #2d3a5e;
+      --gold: #FFDF2D;
+      --green: #2e7d32;
+      --red: #c62828;
+      --light-bg: #F4F6FA;
+      --card-bg: #ffffff;
+      --text: #212121;
+      --muted: #546e7a;
+      --border: #DEDFE4;
+      --radius: 12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.65; }
+
+    /* ── HEADER ── */
+    header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 2.4rem 1.2rem 2.2rem; }
+    .wrap { max-width: 1120px; margin: 0 auto; }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .brand { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .85rem; opacity: .9; }
+    .nav { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .nav a { display: inline-flex; align-items: center; text-decoration: none; border-radius: 10px; font-weight: 800; font-size: .86rem; border: 1px solid rgba(255,255,255,.3); padding: .55rem .9rem; color: #fff; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: 2rem; align-items: end; padding-top: 2.8rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.04; max-width: 840px; }
+    .lead { margin-top: 1rem; max-width: 690px; color: rgba(255,255,255,.86); font-size: 1.05rem; }
+    .hero-actions { display: flex; gap: .7rem; margin-top: 1.4rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: .45rem; text-decoration: none; border-radius: 10px; font-weight: 800; font-size: .86rem; border: 1px solid rgba(255,255,255,.3); padding: .55rem .9rem; color: #fff; }
+    .btn.gold { background: var(--gold); color: var(--primary); border-color: var(--gold); }
+    .panel { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); border-radius: var(--radius); padding: 1.1rem; }
+    .panel h2 { font-size: 1rem; color: var(--gold); margin-bottom: .7rem; }
+    .metric { display: flex; justify-content: space-between; gap: 1rem; padding: .45rem 0; border-bottom: 1px solid rgba(255,255,255,.12); font-size: .9rem; }
+    .metric:last-child { border-bottom: 0; }
+
+    /* ── MAIN ── */
+    main { padding: 2rem 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    .card h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .6rem; }
+    .card p { color: var(--muted); font-size: .92rem; line-height: 1.7; }
+    .card ul { margin: .6rem 0 0 1.2rem; color: var(--muted); font-size: .92rem; line-height: 1.9; }
+
+    .section-title { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1.5rem 0 1rem; flex-wrap: wrap; }
+    .section-title h2 { color: var(--primary); font-size: 1.35rem; }
+    .section-title p { color: var(--muted); font-size: .9rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .week { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,.03); display: grid; gap: .6rem; min-height: 170px; }
+    .week h3 { color: var(--primary); font-size: .98rem; }
+    .week p { color: var(--muted); font-size: .85rem; }
+    .week a, .tool a { align-self: end; color: var(--primary); font-weight: 800; text-decoration: none; border-top: 1px solid var(--border); padding-top: .7rem; display: block; }
+    .week a:hover, .tool a:hover { color: var(--accent); }
+    .tags { display: flex; gap: .35rem; flex-wrap: wrap; }
+    .tag { border: 1px solid var(--border); border-radius: 999px; padding: .18rem .55rem; font-size: .72rem; font-weight: 800; color: var(--accent); background: #fff; }
+    .tag.gold-tag { background: var(--gold); border-color: var(--gold); color: var(--primary); }
+    .tag.red-tag { background: #fce8e8; border-color: #f5c6c6; color: var(--red); }
+    .tag.green-tag { background: #e8f5e9; border-color: #c8e6c9; color: var(--green); }
+
+    .tool { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,.03); }
+    .tool h3 { color: var(--primary); font-size: .98rem; margin-bottom: .4rem; }
+    .tool p { color: var(--muted); font-size: .85rem; margin-bottom: .6rem; }
+
+    .milestones { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .milestone { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; display: flex; align-items: center; gap: 1rem; }
+    .milestone-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .icon-p1 { background: #fce8e8; }
+    .icon-p2 { background: #fff8e1; }
+    .icon-final { background: #e8f5e9; }
+    .milestone h3 { color: var(--primary); font-size: .95rem; }
+    .milestone p { color: var(--muted); font-size: .82rem; }
+
+    .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .rule { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; display: flex; align-items: flex-start; gap: .8rem; }
+    .rule-num { width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 800; font-size: .9rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .rule h3 { color: var(--primary); font-size: .95rem; margin-bottom: .2rem; }
+    .rule p { color: var(--muted); font-size: .82rem; }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .contact-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; }
+    .contact-card h3 { color: var(--primary); font-size: 1rem; margin-bottom: .5rem; }
+    .contact-card p { color: var(--muted); font-size: .88rem; margin-bottom: .3rem; }
+    .contact-card a { color: var(--accent); font-weight: 700; text-decoration: none; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.6rem 1.2rem; color: var(--muted); font-size: .84rem; text-align: center; }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; padding-top: 2rem; }
+      .nav a { flex: 1; justify-content: center; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>TD - Transformacion Digital en la Empresa</h1>
-    <p>Repositorio academico para trabajar el modulo con enfoque practico, caso transversal Mercado360 y evaluaciones por entregables.</p>
-    <section class="grid" aria-label="Navegacion principal">
-      <a href="PLAN_CONTENIDO_TD.md">Plan maestro</a>
-      <a href="Caso_Estudio_Mercado360.md">Caso Mercado360</a>
-      <a href="evaluaciones/">Evaluaciones</a>
-      <a href="exposiciones/">Exposiciones</a>
-      <a href="semana1/">Semana 1</a>
-      <a href="semana5/">Parcial 1</a>
-      <a href="semana10/">Parcial 2</a>
-      <a href="semana14/">Final</a>
-    </section>
-  </main>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">IUB · TD · Inteligencia de Negocios · 2026</div>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#semanas">Semanas</a>
+        <a href="#casos">Casos</a>
+        <a href="#evaluaciones">Evaluaciones</a>
+        <a href="#recursos">Recursos</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <div>
+        <h1>Transformación Digital en la Empresa</h1>
+        <p class="lead">Módulo gamificado con enfoque práctico: diagnóstico de madurez digital, caso transversal Mercado360, proyectos por etapas y evaluaciones tipo ECO (Estudio de Caso Operativo) que te preparan para la transformación real de organizaciones.</p>
+        <div class="hero-actions">
+          <a class="btn gold" href="semana1/index.html">Iniciar Semana 1</a>
+          <a class="btn" href="#semanas">Ver ruta completa</a>
+        </div>
+      </div>
+      <aside class="panel" aria-label="Resumen del módulo">
+        <h2>Resumen operativo</h2>
+        <div class="metric"><span>Semanas de contenido</span><strong>14</strong></div>
+        <div class="metric"><span>Casos de estudio</span><strong>4</strong></div>
+        <div class="metric"><span>Parciales</span><strong>2</strong></div>
+        <div class="metric"><span>Evaluación final</span><strong>LogisCaribe</strong></div>
+        <div class="metric"><span>Corte transversal</span><strong>Mercado360</strong></div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- BIENVENIDA -->
+  <section class="card" aria-labelledby="bienvenida">
+    <h2 id="bienvenida">Bienvenido al módulo TD</h2>
+    <p>Este repositorio concentra todo el material del módulo <strong>Transformación Digital en la Empresa</strong> para el programa de Inteligencia de Negocios del Instituto Universitario Bautista. El módulo se estructura en <strong>14 semanas</strong> con un caso formativo transversal (Mercado360) que se desarrolla progresivamente, y tres evaluaciones ECO (Estudio de Caso Operativo) donde aplicas los conceptos a organizaciones reales.</p>
+    <ul>
+      <li><strong>Caso formativo:</strong> Mercado360 — supermercado regional que debe acelerar su transformación digital.</li>
+      <li><strong>Parcial 1 (Semana 5):</strong> RetailNova — diagnóstico de madurez digital en retail.</li>
+      <li><strong>Parcial 2 (Semana 10):</strong> SaludConecta — transformación digital en clínica ambulatoria.</li>
+      <li><strong>Final (Semana 14):</strong> LogisCaribe — hoja de ruta integral de transformación.</li>
+    </ul>
+  </section>
+
+  <!-- HITOS -->
+  <section aria-labelledby="hitos">
+    <div class="section-title">
+      <h2 id="hitos">Hitos del módulo</h2>
+      <p>Las tres fechas clave del semestre.</p>
+    </div>
+    <div class="milestones">
+      <div class="milestone">
+        <div class="milestone-icon icon-p1">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c62828" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div>
+          <h3>Semana 5 — Parcial 1</h3>
+          <p>RetailNova: diagnóstico de madurez digital. Primer corte acumulativo.</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-icon icon-p2">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f57f17" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <h3>Semana 10 — Parcial 2</h3>
+          <p>SaludConecta: estrategia de transformación digital. Segundo corte.</p>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-icon icon-final">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div>
+          <h3>Semana 14 — Final</h3>
+          <p>LogisCaribe: hoja de ruta completa de transformación digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGLAS -->
+  <section aria-labelledby="reglas" style="margin-top:1.5rem">
+    <div class="section-title">
+      <h2 id="reglas">Reglas del módulo</h2>
+      <p>Normas fundamentales para el trabajo académico.</p>
+    </div>
+    <div class="rules">
+      <div class="rule">
+        <div class="rule-num">1</div>
+        <div>
+          <h3>Documenta tu proceso</h3>
+          <p>Cada sesión requiere evidencias en la plantilla oficial. Los entregables sin soporte documentado no se aceptan.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">2</div>
+        <div>
+          <h3>逢星期一提交</h3>
+          <p>Los entregables se publican el lunes a más tardar. No se reciben entregas extemporáneas sin justificación previa.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">3</div>
+        <div>
+          <h3>Trabaja sobre el caso real</h3>
+          <p>Todas las actividades aplican al caso Mercado360 o al caso asignado. No se admiten trabajos genéricos sin relación con los escenarios del módulo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVEGACIÓN POR SEMANAS -->
+  <section id="semanas" aria-labelledby="semanas-title" style="margin-top:1.5rem">
+    <div class="section-title">
+      <h2 id="semanas-title">Ruta semanal</h2>
+      <p>14 semanas organizadas por eje temático.</p>
+    </div>
+    <div class="grid" id="weeks"></div>
+  </section>
+
+  <!-- CASOS DE ESTUDIO -->
+  <section id="casos" aria-labelledby="casos-title" style="margin-top:1.5rem">
+    <div class="section-title">
+      <h2 id="casos-title">Casos de estudio</h2>
+      <p>Cuatro organizaciones que atraviesan procesos de transformación digital.</p>
+    </div>
+    <div class="grid">
+      <article class="tool">
+        <h3>Mercado360</h3>
+        <p>Caso formativo transversal. Supermercado regional que debe digitalizar operaciones, canales y cultura organizacional a lo largo del semestre.</p>
+        <a href="casos/retailnova/DOSSIER.md">Ver dossier</a>
+      </article>
+      <article class="tool">
+        <h3>RetailNova</h3>
+        <p>Parcial 1 — Semana 5. Cadena de tiendas por departamento que enfrenta disruptura omnicanal y necesita un plan de madurez digital.</p>
+        <a href="evaluaciones/Parcial1_RetailNova.md">Ver evaluación</a>
+      </article>
+      <article class="tool">
+        <h3>SaludConecta</h3>
+        <p>Parcial 2 — Semana 10. Clínica ambulatoria que debe transformar su modelo de atención usando tecnologías habilitadoras.</p>
+        <a href="evaluaciones/Parcial2_SaludConecta.md">Ver evaluación</a>
+      </article>
+      <article class="tool">
+        <h3>LogisCaribe</h3>
+        <p>Evaluación Final — Semana 14. Empresa logística del Caribe colombiano con desafíos de visibilidad, automatización y scaling digital.</p>
+        <a href="evaluaciones/Final_LogisCaribe.md">Ver evaluación</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- EVALUACIONES -->
+  <section id="evaluaciones" aria-labelledby="evaluaciones-title" style="margin-top:1.5rem">
+    <div class="section-title">
+      <h2 id="evaluaciones-title">Evaluaciones</h2>
+      <p>Parciales y examen final con rúbricas y plantillas.</p>
+    </div>
+    <div class="grid">
+      <article class="tool">
+        <h3>Parcial 1 — RetailNova</h3>
+        <p>Diagnóstico de madurez digital en retail. Semanas 1-4. Rúbrica con 5 criterios.</p>
+        <a href="evaluaciones/Parcial1_RetailNova.md">Descargar evaluación</a>
+      </article>
+      <article class="tool">
+        <h3>Parcial 2 — SaludConecta</h3>
+        <p>Estrategia de transformación digital. Semanas 6-9. Rúbrica con 6 criterios.</p>
+        <a href="evaluaciones/Parcial2_SaludConecta.md">Descargar evaluación</a>
+      </article>
+      <article class="tool">
+        <h3>Final — LogisCaribe</h3>
+        <p>Hoja de ruta integral de transformación. Semanas 11-13. Rúbrica con 7 criterios.</p>
+        <a href="evaluaciones/Final_LogisCaribe.md">Descargar evaluación</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section id="recursos" aria-labelledby="recursos-title" style="margin-top:1.5rem">
+    <div class="section-title">
+      <h2 id="recursos-title">Recursos</h2>
+      <p>Herramientas de apoyo, juegos formativos y materiales complementarios.</p>
+    </div>
+    <div class="grid">
+      <article class="tool">
+        <h3>Bibliografía</h3>
+        <p>Referencias académicas y lecturas recomendadas organizadas por semana.</p>
+        <a href="docs/BIBLIOGRAFIA.md">Ver bibliografía</a>
+      </article>
+      <article class="tool">
+        <h3>Juego: Tipo Test S1</h3>
+        <p>Quiz gamificado sobre conceptos de la Semana 1 — Diagnóstico Digital.</p>
+        <a href="recursos/juego_tipo_test_s1.md">Abrir juego</a>
+      </article>
+      <article class="tool">
+        <h3>Actividad: Journey Map S2</h3>
+        <p>Plantilla para mapear la experiencia del consumidor digital en la Semana 2.</p>
+        <a href="recursos/actividad_journey_map_s2.md">Abrir actividad</a>
+      </article>
+      <article class="tool">
+        <h3>Juego: Quejómetro</h3>
+        <p>Dinámica grupal para identificar puntos de fricción en procesos digitales.</p>
+        <a href="recursos/juego_quejometro.md">Abrir juego</a>
+      </article>
+      <article class="tool">
+        <h3>Juego: Empresa Espejo</h3>
+        <p>Actividad para comparar la madurez digital propia con基准 del sector.</p>
+        <a href="recursos/juego_empresa_espejo.md">Abrir juego</a>
+      </article>
+      <article class="tool">
+        <h3>Juego: Quiz Tecnologías S4</h3>
+        <p>Quiz gamificado sobre tecnologías habilitadoras de la transformación digital.</p>
+        <a href="recursos/juego_quiz_tecnologias_s4.md">Abrir juego</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section aria-labelledby="contacto" style="margin-top:1.5rem">
+    <div class="section-title">
+      <h2 id="contacto">Contacto y soporte</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Docente del módulo</h3>
+        <p><strong>Diego Domínguez Tapia</strong></p>
+        <p>Instituto Universitario Bautista — IUB</p>
+        <p>Programa: Inteligencia de Negocios</p>
+        <p>Modalidad: Presencial con apoyo virtual</p>
+      </div>
+      <div class="contact-card">
+        <h3>Repositorio</h3>
+        <p>Este material vive en OneDrive + GitHub Pages.</p>
+        <p>Usa la sección de <a href="#recursos">recursos</a> para acceder a la bibliografía completa y guías de configuración.</p>
+      </div>
+      <div class="contact-card">
+        <h3>Formato de entregas</h3>
+        <p>Plantillas oficiales en cada carpeta de semana.</p>
+        <p>Exporta tus documentos a PDF y súbelo a la plataforma del curso antes del plazo indicado.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  TD — Transformación Digital en la Empresa · Instituto Universitario Bautista · Inteligencia de Negocios · 2026 · Prof. Diego Domínguez Tapia
+</footer>
+
+<script>
+  const weeks = [
+    [1,  "Diagnóstico Digital",                   "RA1", "Fundamentos, ecosistema digital y punto de partida"],
+    [2,  "Consumidor Digital",                    "RA1", "Comportamiento, journey map y expectativas"],
+    [3,  "Procesos y Automatización",             "RA2", "Flujos, tareas, RPA y eficiencia operativa"],
+    [4,  "Tecnologías Habilitadoras",             "RA2", "Cloud, IA, IoT, Blockchain y datos"],
+    [5,  "Parcial 1 — RetailNova",               "RA1-RA2", "Diagnóstico de madurez digital — actividad en clase", true],
+    [6,  "Innovación y Design Thinking",          "RA3", "Ideación, prototipado y validación con usuarios"],
+    [7,  "Datos y Analítica",                     "RA3", "Métricas, KPIs digitales y toma de decisiones"],
+    [8,  "Cultura Digital",                       "RA3", "Cambio organizacional, gestión del talento y liderazgo"],
+    [9,  "Riesgos y Ciberseguridad",              "RA4", "Amenazas digitales, compliance y continuidad"],
+    [10, "Parcial 2 — SaludConecta",             "RA3-RA4", "Estrategia de transformación — actividad en clase", true],
+    [11, "Modelo de Negocio Digital",             "RA4", "Canvas digital, monetización y escalabilidad"],
+    [12, "Hoja de Ruta",                          "RA5", "Planificación, priorización y roadmap estratégico"],
+    [13, "Viabilidad",                            "RA5", "Análisis financiero, ROI y plan de implementación"],
+    [14, "Evaluación Final — LogisCaribe",       "RA5", "Proyecto integrador y cierre del módulo", true]
+  ];
+
+  document.getElementById("weeks").innerHTML = weeks.map(([n, title, ra, desc, isEval]) => `
+    <article class="week">
+      <div>
+        <div class="tags">
+          <span class="tag">Semana ${n}</span>
+          <span class="tag">${ra}</span>
+          ${isEval ? '<span class="tag red-tag">Evaluación</span>' : ''}
+        </div>
+        <h3>${title}</h3>
+        <p>${desc}</p>
+      </div>
+      <a href="semana${n}/index.html">Abrir material</a>
+    </article>
+  `).join("");
+</script>
+
 </body>
 </html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 5 — Parcial 1: RetailNova | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    .badge-partial { display: inline-block; background: rgba(198,40,40,.3); border: 1px solid rgba(255,255,255,.5); border-radius: 20px; padding: .3rem 1rem; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .8rem; margin-left: .5rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .partial-banner { background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%); color: #fff; border-radius: var(--radius); padding: 1.8rem 2rem; margin-bottom: 2rem; text-align: center; }
+    .partial-banner .icon { font-size: 3rem; margin-bottom: .8rem; }
+    .partial-banner h2 { color: var(--gold); font-size: 1.6rem; margin-bottom: .5rem; }
+    .partial-banner p { opacity: .9; margin-bottom: .4rem; font-size: .95rem; }
+    .partial-banner .case-name { display: inline-block; background: rgba(255,255,255,.2); border-radius: 8px; padding: .3rem 1rem; margin-top: .5rem; font-weight: 700; }
+    .partial-banner .time-badge { display: inline-block; background: rgba(255,223,45,.25); border: 1px solid var(--gold); border-radius: 8px; padding: .2rem .8rem; margin-top: .8rem; font-size: .88rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    .rubric-table { font-size: .85rem; }
+    .rubric-table th { background: var(--accent); }
+    .rubric-table td:first-child { font-weight: 700; color: var(--primary); width: 200px; }
+
+    .section-block { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 1.5rem; border-left: 6px solid var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .section-block h3 { color: var(--primary); font-size: 1.05rem; margin-bottom: .8rem; border-left: none; padding-left: 0; }
+    .section-block .points-badge { display: inline-block; background: var(--primary); color: var(--gold); border-radius: 20px; padding: .1rem .7rem; font-size: .78rem; font-weight: 700; margin-left: .5rem; }
+    .section-block p { font-size: .9rem; margin-bottom: .6rem; }
+
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: .7rem; font-size: .92rem; }
+    .checklist li::before { content: '☐'; font-size: 1.1rem; flex-shrink: 0; color: var(--accent); }
+    .checklist li.done::before { content: '☑'; color: var(--green); }
+
+    .resources-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .resource-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; display: flex; gap: .8rem; align-items: flex-start; }
+    .resource-card .ricon { font-size: 2rem; flex-shrink: 0; }
+    .resource-card h4 { font-size: .92rem; color: var(--primary); margin-bottom: .3rem; }
+    .resource-card p { font-size: .82rem; color: var(--muted); margin: 0; }
+    .resource-card a { color: var(--accent); font-weight: 600; font-size: .85rem; text-decoration: none; }
+    .resource-card a:hover { text-decoration: underline; }
+
+    .criteria-card { background: #f3e5f5; border-radius: 10px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; }
+    .criteria-card h4 { color: var(--primary); font-size: .95rem; margin-bottom: .5rem; }
+    .criteria-card ul { font-size: .88rem; padding-left: 1.2rem; margin: 0; }
+    .criteria-card li { margin-bottom: .3rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="badge-module">TD — Transformación Digital</span>
+  <span class="badge-partial">⚠️ Parcial 1</span>
+  <h1>Semana 5 — Evaluación Parcial</h1>
+  <p>IUB — Inteligencia de Negocios</p>
+  <p> Caso evaluado: <strong>RetailNova S.A.S.</strong></p>
+  <div class="time-badge">⏱️ 90 minutos &nbsp;|&nbsp; 📊 100 puntos &nbsp;|&nbsp; 📋 25% de la nota final</div>
+</header>
+
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/">← Volver al módulo</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana4/">Semana 4</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana6/">Semana 6 →</a>
+</nav>
+
+<main>
+
+  <!-- Banner del parcial -->
+  <div class="partial-banner">
+    <div class="icon">📋</div>
+    <h2>Parcial 1 — Diagnóstico de Madurez Digital</h2>
+    <p>Aplica los conceptos de las semanas 1–4 al caso RetailNova S.A.S.</p>
+    <p>No es un examen de memoria. Es un ejercicio de análisis y priorización.</p>
+    <span class="case-name">🏪 RetailNova S.A.S. — Boutique de moda femenina</span>
+  </div>
+
+  <!-- Sección A -->
+  <div class="section-block">
+    <h3>Sección A — Diagnóstico de Madurez Digital <span class="points-badge">20 pts</span></h3>
+    <p>Evalúa el nivel de madurez digital de RetailNova usando un modelo reconocido (Gartner, MIT o McKinsey). Debes cubrir al menos 5 dimensiones y justificar con evidencia del dossier.</p>
+    <p><strong>Tiempo sugerido:</strong> 20 minutos</p>
+    <table>
+      <tr><th>Lo que se espera</th><th>Lo que NO se acepta</th></tr>
+      <tr><td>Modelo citado con sus niveles explicados</td><td>Nombre del modelo sin explicar cómo funciona</td></tr>
+      <tr><td>Nivel de madurez justificado con evidencia del dossier</td><td>"RetailNova está en nivel 3" sin justificación</td></tr>
+      <tr><td>Al menos 5 dimensiones evaluadas</td><td>Menos de 5 dimensiones o dimensiones genéricas</td></tr>
+      <tr><td>Conexión entre dimensiones y datos del caso</td><td>Copiar textual del modelo sin aplicación</td></tr>
+    </table>
+  </div>
+
+  <!-- Sección B -->
+  <div class="section-block">
+    <h3>Sección B — Mapa de Dolores <span class="points-badge">20 pts</span></h3>
+    <p>Identifica mínimo 9 dolores organizacionales (3 por categoría: cliente, proceso, gerencia). Cada dolor debe incluir: descripción, causa raíz, impacto y evidencia del dossier.</p>
+    <p><strong>Tiempo sugerido:</strong> 20 minutos</p>
+    <table>
+      <tr><th>Categoría</th><th>Ejemplos de dolores</th><th>Mínimo</th></tr>
+      <tr><td><strong>Cliente</strong></td><td>Frustración por producto no disponible, impossibility de apartar, experiencia impersonal</td><td>3</td></tr>
+      <tr><td><strong>Proceso</strong></td><td>Inventario desactualizado, devoluciones sin política, promociones sin medición</td><td>3</td></tr>
+      <tr><td><strong>Gerencia</strong></td><td>Decisiones por intuición, sin visibilidad de inventario, inversión a ciegas</td><td>3</td></tr>
+    </table>
+  </div>
+
+  <!-- Sección C -->
+  <div class="section-block">
+    <h3>Sección C — Journey Map <span class="points-badge">15 pts</span></h3>
+    <p>Mapea la experiencia de frustración de Laura Mosquera (o del cliente del dossier que prefieras). Debe incluir: 6 etapas, emociones, touchpoints, datos faltantes y punto de máxima frustración.</p>
+    <p><strong>Tiempo sugerido:</strong> 15 minutos</p>
+    <p>El journey debe empezar en el descubrimiento (Instagram) y terminar en la compra alternativa (Zara u otra). La conexión a Laura Mosquera debe ser explícita.</p>
+  </div>
+
+  <!-- Sección D -->
+  <div class="section-block">
+    <h3>Sección D — Oportunidad Priorizada <span class="points-badge">35 pts</span></h3>
+    <p>Selecciona UNA oportunidad de transformación para RetailNova. Justifica con 4 criterios: impacto en el cliente, impacto en el proceso, impacto en datos y esfuerzo de implementación. Descarta al menos 2 alternativas con razón. Incluye una recomendación viable.</p>
+    <p><strong>Tiempo sugerido:</strong> 25 minutos</p>
+    <p><strong>Restricciones del caso:</strong> presupuesto menor a $15M COP, tiempo menor a 60 días, sin equipo de TI interno.</p>
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p>No propongas "digitalizar todo" sin especificar qué. No propongas SAP, Salesforce o soluciones de nivel empresarial sin justificar por qué son viables para RetailNova.</p>
+    </div>
+  </div>
+
+  <!-- Sección E -->
+  <div class="section-block">
+    <h3>Sección E — Datos Faltantes <span class="points-badge">10 pts</span></h3>
+    <p>Enumera 5 datos que RetailNova NO tiene actualmente y que serían necesarios para tomar decisiones más informadas. Para cada dato, explica qué medirías y para qué serviría.</p>
+    <p><strong>Tiempo sugerido:</strong> 10 minutos</p>
+    <p>Los datos triviales (teléfono de la gerente, dirección de la tienda) no cuentan. Se esperan datos operacionales o de cliente que requieran medición.</p>
+  </div>
+
+  <!-- Recursos -->
+  <div class="card">
+    <h2>📚 Recursos de Preparación</h2>
+    <p>Usa estas plantillas y materiales para prepararte. Puedes llevarlas impresas o en formato digital al parcial.</p>
+
+    <div class="resources-grid">
+      <div class="resource-card">
+        <span class="ricon">🗺️</span>
+        <div>
+          <h4>Plantilla: Mapa de Dolores</h4>
+          <p>Estructura para documentar 9+ dolores por categoría. Versión editable.</p>
+          <a href="plantilla_mapa_dolores.md">Descargar MD</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <span class="ricon">🧭</span>
+        <div>
+          <h4>Plantilla: Journey Map</h4>
+          <p>Estructura de 8 etapas con escalas de emoción y touchpoints.</p>
+          <a href="plantilla_journey_map.md">Descargar MD</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <span class="ricon">📁</span>
+        <div>
+          <h4>Dossier RetailNova</h4>
+          <p>Caso completo con información de la empresa, testimonios y datos operativos.</p>
+          <a href="https://dfdomin.github.io/td-inteligencia-negocios/casos/retailnova/DOSSIER.md">Ver dossier</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <span class="ricon">📖</span>
+        <div>
+          <h4>Notas semanas 1–4</h4>
+          <p>Revisa los conceptos de madurez digital, dolores, journey map y tecnologías.</p>
+          <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana1/">Semana 1</a> ·
+          <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana4/">Semana 4</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reglas -->
+  <div class="card">
+    <h2>📋 Reglas del Parcial</h2>
+    <div class="resources-grid">
+      <div>
+        <h3 style="color: var(--green); font-size: .95rem; margin-bottom: .6rem;">✔️ Puedes usar</h3>
+        <ul class="checklist">
+          <li>Dossier de RetailNova (impreso o digital)</li>
+          <li>Tus notas de clase de semanas 1–4</li>
+          <li>Plantillas de mapa de dolores y journey map</li>
+          <li>Calculadora (sin internet)</li>
+          <li>Lápiz, lapicero, resaltador</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color: var(--red); font-size: .95rem; margin-bottom: .6rem;">✖️ NO puedes usar</h3>
+        <ul class="checklist">
+          <li>Internet (navegadores, WhatsApp Web)</li>
+          <li>Chat con compañeros</li>
+          <li>Inteligencia artificial generativa</li>
+          <li>Dossier con notas externas agregadas</li>
+          <li>Plantillas con respuestas completas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-box warn" style="margin-top: 1rem;">
+      <span class="icon">⚠️</span>
+      <p>El uso de internet o IA generativa se considera fraude y resulta en <strong>cero en el parcial</strong>, reportado al coordinador del módulo.</p>
+    </div>
+  </div>
+
+  <!-- Criterios de evaluación -->
+  <div class="card">
+    <h2>📊 Rúbrica Resumida</h2>
+    <p>Este es el criterio que se aplica para calificar cada sección. Se busca análisis, no descripción.</p>
+
+    <div class="criteria-card">
+      <h4>Sección A — Madurez Digital (20 pts)</h4>
+      <ul>
+        <li><strong>18-20:</strong> Modelo completo, 5+ dimensiones, justificación con evidencia del dossier, coherencia interna.</li>
+        <li><strong>14-17:</strong> Modelo correcto, 4 dimensiones, justificación parcial.</li>
+        <li><strong>8-13:</strong> Modelo sin citación, menos de 4 dimensiones, justificación débil.</li>
+        <li><strong>0-7:</strong> Sin modelo o modelo copiado sin aplicación.</li>
+      </ul>
+    </div>
+
+    <div class="criteria-card">
+      <h4>Sección B — Mapa de Dolores (20 pts)</h4>
+      <ul>
+        <li><strong>18-20:</strong> 9+ dolores, 3 categorías, causa raíz + impacto + evidencia del dossier.</li>
+        <li><strong>14-17:</strong> 6-8 dolores, estructura correcta, pocos faltantes.</li>
+        <li><strong>8-13:</strong> 3-5 dolores, falta causa raíz o impacto, sin evidencia del dossier.</li>
+        <li><strong>0-7:</strong> Menos de 3 dolores o sin relación al caso.</li>
+      </ul>
+    </div>
+
+    <div class="criteria-card">
+      <h4>Sección D — Oportunidad Priorizada (35 pts)</h4>
+      <ul>
+        <li><strong>31-35:</strong> Oportunidad clara, 4 criterios de justificación, descarta 2+ alternativas, recomendación viable, alineada a restricciones.</li>
+        <li><strong>21-30:</strong> Oportunidad clara, 3 criterios, descarta 1-2 alternativas, recomendación presente.</li>
+        <li><strong>10-20:</strong> Oportunidad sin justificación clara, sin descartar alternativas.</li>
+        <li><strong>0-9:</strong> No prioriza o prioriza fuera de las restricciones del caso.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Estructura del documento -->
+  <div class="card">
+    <h2>📝 Estructura de Entrega</h2>
+    <ul>
+      <li><strong>Formato:</strong> PDF o Word, máximo 8 páginas + anexos.</li>
+      <li><strong>Nombre del archivo:</strong> <code>Parcial1_Apellido_Nombre.pdf</code></li>
+      <li><strong>Extensión:</strong> 90 minutos. El docente avisará a los 85 minutos.</li>
+      <li><strong>Entrega:</strong> Subir a la plataforma institucional antes del vencimiento.</li>
+    </ul>
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p>Empieza por la sección que te parezca más familiar, pero controla el tiempo. Todas las secciones tienen valor. No dejes ninguna en blanco.</p>
+    </div>
+  </div>
+
+  <!-- Fuente del caso -->
+  <div class="card">
+    <h2>🏪 Sobre el Caso RetailNova</h2>
+    <p>RetailNova S.A.S. es una boutique de moda femenina con 3 sucursales en Bogotá. Fundada hace 8 años, tiene problemas de fragmentación de datos, decisiones por intuición y canales digitales sin integración. El caso incluye testimonios de la gerente y vendedores, datos operativos y fotografías.</p>
+    <p>El dossier completo está disponible en:</p>
+    <p><a href="https://dfdomin.github.io/td-inteligencia-negocios/casos/retailnova/DOSSIER.md" style="color: var(--accent); font-weight: 700;">casos/retailnova/DOSSIER.md</a></p>
+  </div>
+
+</main>
+
+<script>
+  // XP bar — semana 5 como preparación al parcial (40% de avance)
+  const STORAGE_KEY = 'td_s5_prep';
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const initial = saved ? parseInt(saved) : 0;
+  const target = 40;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const bar = document.querySelector('.xp-bar');
+    if (bar) {
+      setTimeout(() => {
+        bar.style.width = target + '%';
+        localStorage.setItem(STORAGE_KEY, target);
+      }, 600);
+    }
+  });
+</script>
+
+</body>
+</html>

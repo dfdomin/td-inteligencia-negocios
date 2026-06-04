@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas del Profesor — Semana 5: Parcial 1 RetailNova | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 1.8rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: .95rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.25rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; font-size: .93rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; font-size: .92rem; }
+
+    .partial-banner { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; border-radius: var(--radius); padding: 1.5rem 2rem; margin-bottom: 2rem; }
+    .partial-banner h2 { color: var(--gold); font-size: 1.3rem; margin-bottom: .8rem; }
+    .partial-banner table { margin: 0; font-size: .88rem; }
+    .partial-banner th { background: rgba(255,255,255,.2); color: #fff; }
+    .partial-banner td { color: #fff; border-color: rgba(255,255,255,.2); }
+    .partial-banner tr:nth-child(even) td { background: rgba(255,255,255,.08); }
+
+    table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.alert { background: #fce4ec; border-left: 4px solid var(--red); }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .9rem; }
+
+    .checkpoint { background: var(--card-bg); border: 2px solid var(--border); border-radius: 10px; padding: 1rem 1.3rem; margin-bottom: 1rem; }
+    .checkpoint h4 { font-size: .92rem; color: var(--primary); margin-bottom: .6rem; }
+    .checkpoint ul { font-size: .88rem; padding-left: 1.2rem; margin: 0; }
+    .checkpoint li { margin-bottom: .3rem; }
+    .checkpoint input[type="checkbox"] { margin-right: .5rem; }
+
+    .section-guide { background: var(--card-bg); border: 1px solid var(--border); border-left: 5px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.3rem 1.6rem; margin-bottom: 1.5rem; }
+    .section-guide h3 { font-size: 1rem; color: var(--primary); margin-bottom: .8rem; }
+    .section-guide p { font-size: .9rem; margin-bottom: .5rem; }
+
+    .rubric-simple { font-size: .85rem; }
+    .rubric-simple th { background: var(--accent); font-size: .82rem; }
+    .rubric-simple td:first-child { font-weight: 700; color: var(--primary); white-space: nowrap; }
+
+    .anecdota-box { background: #fff9c4; border: 1px solid var(--gold); border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; }
+    .anecdota-box h4 { font-size: .88rem; color: var(--primary); margin-bottom: .5rem; }
+    .anecdota-box textarea { width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: .6rem; font-family: inherit; font-size: .85rem; min-height: 80px; }
+
+    .timeline { list-style: none; padding: 0; margin: 1rem 0; }
+    .timeline li { display: flex; gap: 1rem; margin-bottom: .8rem; font-size: .9rem; }
+    .timeline li::before { content: attr(data-time); font-weight: 700; color: var(--accent); min-width: 70px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="badge-module">TD — Guía Docente</span>
+  <h1>Semana 5 — Parcial 1: RetailNova</h1>
+  <p>Notas del profesor · Parcial individual · 90 minutos · 100 puntos</p>
+</header>
+
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana5/">Ver página del estudiante</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana4/notas_profesor.html">← Semana 4</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana6/notas_profesor.html">Semana 6 →</a>
+</nav>
+
+<main>
+
+  <!-- Banner resumen -->
+  <div class="partial-banner">
+    <h2>📋 Datos Generales del Parcial</h2>
+    <table>
+      <tr><th>Atributo</th><th>Detalle</th></tr>
+      <tr><td>Caso</td><td>RetailNova S.A.S. — Diagnóstico de Madurez Digital</td></tr>
+      <tr><td>Duración</td><td>90 minutos</td></tr>
+      <tr><td>Ponderación</td><td>25% de la nota final del módulo</td></tr>
+      <tr><td>Modalidad</td><td>Individual, escrita, con dossier de apoyo</td></tr>
+      <tr><td>Recuperación</td><td>Semana 10 (solo por inasistencia o bajo rendimiento en parcial 2)</td></tr>
+      <tr><td>Archivos complementarios</td><td>casos/retailnova/DOSSIER.md, evaluaciones/Parcial1_RetailNova.md</td></tr>
+    </table>
+  </div>
+
+  <!-- Setup pre-parcial -->
+  <div class="card">
+    <h2>1. Setup — Antes de Empezar</h2>
+    <p>Ejecuta esta checklist 10 minutos antes de que empiece el parcial.</p>
+
+    <div class="checkpoint">
+      <h4>✅ Acciones del docente</h4>
+      <ul>
+        <li><input type="checkbox" /> Escribir en el tablero/proyectar: hora de inicio, hora de fin, secciones y tiempos sugeridos.</li>
+        <li><input type="checkbox" /> Distribuir el dossier en papel (o confirmar acceso digital si es el canal elegido).</li>
+        <li><input type="checkbox" /> Verificar que cada estudiante tenga: hojas de respuestas, calculadora (opcional), y sus notas de clase semanas 1-4.</li>
+        <li><input type="checkbox" /> Indicar claramente dónde se sienta cada equipo y que la entrega es individual.</li>
+        <li><input type="checkbox" /> Confirmar que no hay acceso a internet y que el dossier es el único material externo permitido.</li>
+        <li><input type="checkbox" /> Responder preguntas rápidas sobre el alcance del parcial (no revelar respuestas).</li>
+      </ul>
+    </div>
+
+    <div class="checkpoint">
+      <h4>🔍 Checkpoint de setup</h4>
+      <ul>
+        <li><input type="checkbox" /> Tablero/proyección con tiempos visible.</li>
+        <li><input type="checkbox" /> Dossiers distribuidos o accesibles.</li>
+        <li><input type="checkbox" /> Estudiantes en silencio y listos.</li>
+        <li><input type="checkbox" /> Celulares apartados o en modo avión.</li>
+        <li><input type="checkbox" /> Cronómetro configurado para minutos 5, 85 y 90.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Instrucciones iniciales -->
+  <div class="card">
+    <h2>2. Instrucciones Iniciales (5 minutos)</h2>
+    <div class="info-box tip">
+      <span class="icon">📢</span>
+      <p><strong>Lectura sugerida del docente:</strong></p>
+      <p style="margin-top:.4rem; font-style:italic;">"Este parcial evalúa su capacidad de aplicar un modelo de madurez digital a un caso real, identificar dolores organizacionales, mapear la experiencia de un cliente frustrado y priorizar una oportunidad de transformación con recursos limitados. Tienen 90 minutos. El documento máximo son 8 páginas más anexos. Pueden usar el dossier y sus notas. No pueden usar internet. Empiecen por la sección que les parezca más familiar, pero controlen el tiempo. Las secciones tienen tiempos sugeridos, pero no son estrictos."</p>
+    </div>
+
+    <div class="info-box alert" style="margin-top:1rem;">
+      <span class="icon">🚫</span>
+      <p><strong>NO decir durante las instrucciones:</strong></p>
+      <ul style="margin:.4rem 0 0; padding-left:1.2rem;">
+        <li>Qué oportunidad deben priorizar.</li>
+        <li>En qué nivel de madurez está RetailNova.</li>
+        <li>Cuántos dolores deben encontrar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Monitoreo -->
+  <div class="card">
+    <h2>3. Monitoreo Durante el Parcial</h2>
+    <p>Estrategia de monitoreo fase por fase:</p>
+
+    <table>
+      <tr><th>Fase</th><th>Minutos</th><th>Qué vigilar</th><th>Acción correctiva</th></tr>
+      <tr><td>Lectura inicial</td><td>0-20</td><td>¿Empezaron o están leyendo pasivamente?</td><td>Reforzar que deben escribir desde el minuto 1.</td></tr>
+      <tr><td>Secciones A y B</td><td>20-40</td><td>¿Están en la sección A o saltaron?</td><td>Si están bloqueados, sugerir que pasen a B y retornen.</td></tr>
+      <tr><td>Sección D</td><td>40-65</td><td>¿Llegaron a la sección que más puntos tiene (35 pts)?</td><td>Esta sección vale 35%; recordar tiempo.</td></tr>
+      <tr><td>Revisión final</td><td>65-80</td><td>¿Alguien terminó muy rápido?</td><td>Verificar que no dejó secciones en blanco.</td></tr>
+      <tr><td>Cierre</td><td>80-90</td><td>¿Faltan estudiantes por entregar?</td><td>A los 85 min: "Quedan 5 minutos."</td></tr>
+    </table>
+
+    <h3 style="margin-top:1.2rem;">Preguntas que SÍ pueden responder</h3>
+    <ul>
+      <li>"¿Puedo usar subrayador?" → <strong>Sí.</strong></li>
+      <li>"¿El documento lo entrego en formato libre?" → <strong>Sí, PDF o Word, máximo 8 páginas.</strong></li>
+      <li>"¿Puedo usar un modelo diferente al Gartner?" → <strong>Sí, cualquiera reconocido (MIT, McKinsey, etc.), citándolo.</strong></li>
+      <li>"¿Las notas de clase son mis propias notas?" → <strong>Sí, cualquier nota que hayan producido ustedes.</strong></li>
+    </ul>
+
+    <h3 style="margin-top:1rem;">Preguntas que NO pueden responder</h3>
+    <ul>
+      <li>¿Dónde está RetailNova en el modelo de madurez?</li>
+      <li>¿Cuál es la prioridad número uno?</li>
+      <li>¿Cuántos dolores debo incluir?</li>
+    </ul>
+  </div>
+
+  <!-- Guía por sección -->
+  <div class="card">
+    <h2>4. Guía de Calificación por Sección</h2>
+
+    <div class="section-guide">
+      <h3>Sección A — Madurez Digital (20 pts) · Tiempo: 20 min</h3>
+      <p><strong>Qué buscar:</strong> Modelo citado con niveles explicados. 5+ dimensiones evaluadas. Nivel justificado con evidencia del dossier. Coherencia interna.</p>
+      <p><strong>Señales de REGALO (respuesta débil):</strong></p>
+      <ul>
+        <li>Pone "RetailNova está en nivel 3" sin decir por qué.</li>
+        <li>Usa "Gartner" pero no dice qué niveles tiene ni cómo se determinan.</li>
+        <li>Copia textual del modelo sin aplicarlo al caso.</li>
+        <li>Nombra 5 dimensiones sin explicar cómo cada una se manifiesta en RetailNova.</li>
+      </ul>
+    </div>
+
+    <div class="section-guide">
+      <h3>Sección B — Mapa de Dolores (20 pts) · Tiempo: 20 min</h3>
+      <p><strong>Qué buscar:</strong> 9+ dolores, 3 categorías (cliente, proceso, gerencia). Cada uno con descripción + causa raíz + impacto + evidencia del dossier.</p>
+      <p><strong>Dolores esperados por categoría:</strong></p>
+      <p><em>Cliente:</em> Frustración por producto no disponible, imposibilidad de apartar, experiencia impersonal, inconsistencia WhatsApp/tienda física.</p>
+      <p><em>Proceso:</em> Inventario desactualizado (difiere 15-20% SKUs), devoluciones sin política, promociones sin medición, datos en celulares personales.</p>
+      <p><em>Gerencia:</em> Decisiones por intuición, sin visibilidad de inventario en tiempo real, inversión a ciegas, dependencia de Excel.</p>
+    </div>
+
+    <div class="section-guide">
+      <h3>Sección C — Journey Map (15 pts) · Tiempo: 15 min</h3>
+      <p><strong>Qué buscar:</strong> 6 etapas completas, emociones, touchpoints, datos faltantes, conexión a Laura Mosquera.</p>
+      <p><strong>Journey esperado:</strong> Descubrimiento (Instagram) → Viaje a tienda → Frustración en tienda (producto no disponible) → Intento de solución → Deserción → Compra alternativa (Zara).</p>
+    </div>
+
+    <div class="section-guide">
+      <h3>Sección D — Oportunidad Priorizada (35 pts) · Tiempo: 25 min</h3>
+      <p><strong>Qué buscar:</strong> UNA oportunidad seleccionada, 4 criterios de justificación, 2+ alternativas descartadas, recomendación viable, alineada a restricciones ($15M, 60 días, sin TI interno).</p>
+      <p><strong>Oportunidad esperada como viable:</strong> Sistema de inventario centralizado + consulta entre sucursales (AirTable, Google Sheets avanzado, o solución low-code). Costo estimado: $2-5M COP inicial.</p>
+      <p><strong>Alternativas que deben descartar:</strong> CRM completo (Salesforce/HubSpot), App de delivery propia, Sistema POS completo, Chatbot de IA para WhatsApp.</p>
+    </div>
+
+    <div class="section-guide">
+      <h3>Sección E — Datos Faltantes (10 pts) · Tiempo: 10 min</h3>
+      <p><strong>Qué buscar:</strong> 5+ datos no triviales, realistas, con explicación de para qué servirían.</p>
+      <p><strong>Datos triviales que NO cuentan:</strong> NIT de RetailNova, dirección de las tiendas, nombre de la gerente (ya están en el dossier).</p>
+      <p><strong>Datos esperados:</strong> Volumen de transacciones por sucursal, tasa de conversión de promociones Instagram, historial de devoluciones, ticket promedio por canal, % clientes recurrentes con datos, costo de adquisición por canal, margen por categoría, NPS/CSAT.</p>
+    </div>
+  </div>
+
+  <!-- Escenarios -->
+  <div class="card">
+    <h2>5. Escenarios de Problemas Frecuentes</h2>
+    <table>
+      <tr><th>Escenario</th><th>Solución</th></tr>
+      <tr><td>Estudiante pregunta si puede usar modelo diferente al Gartner</td><td>Sí, cualquier modelo reconocido (MIT, McKinsey, etc.), citándolo y justificándolo.</td></tr>
+      <tr><td>Estudiante dice: "El dossier no tiene suficiente información"</td><td>Está diseñado así. Se espera que indique qué datos necesita y qué inferencias hace. La sección E premia exactly esto.</td></tr>
+      <tr><td>Dos estudiantes entregan casi idéntico</td><td>Reportar al coordinador como posible fraude. Asignar cero a ambos hasta que el coordinador decida.</td></tr>
+      <tr><td>Estudiante no tiene dossier (se quedó en casa)</td><td>Prestar la copia del docente con marca de agua, noting que tuvo acceso limitado.</td></tr>
+      <tr><td>Estudiante pide usar internet "solo para consultar el modelo"</td><td>No. El parcial es sobre aplicación, no sobre consulta. Las notas de clase incluyen los modelos.</td></tr>
+      <tr><td>Problemas técnicos con la plataforma de entrega</td><td>Aceptar envío por correo electrónico con timestamp. Documentar el failure.</td></tr>
+    </table>
+  </div>
+
+  <!-- Evaluación diferenciada -->
+  <div class="card">
+    <h2>6. Evaluación Diferenciada — Adaptaciones</h2>
+    <table>
+      <tr><th>Necesidad</th><th>Adaptación</th></tr>
+      <tr><td>Dislexia o dificultad lectora</td><td>Permitir más tiempo (15 min extra), entregar en formato digital.</td></tr>
+      <tr><td>Discapacidad visual</td><td>Documento en formato digital con tipografía 18pt, o lector de pantalla.</td></tr>
+      <tr><td>Limitación física para escribir</td><td>Permitir laptop sin internet para tipear respuestas.</td></tr>
+      <tr><td>Trastorno de atención</td><td>Permitir pausas controladas (2 pausas de 5 minutos).</td></tr>
+      <tr><td>Llega hasta 15 min tarde</td><td>Admitirlo y restar tiempo del disponible.</td></tr>
+      <tr><td>Llega después de 15 min</td><td>No admitir (parcial ya está en curso, riesgo de filtraciones).</td></tr>
+    </table>
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Política general:</strong> No hay extensiones. El parcial es un momento único de evaluación timed. Excepciones (fuerza mayor, inasistencia justificada) requieren aprobación del coordinador.</p>
+    </div>
+  </div>
+
+  <!-- Post-parcial -->
+  <div class="card">
+    <h2>7. Post-Parcial: Procesamiento de Resultados</h2>
+
+    <h3>Inmediatamente después</h3>
+    <ol>
+      <li>Contar las hojas de respuestas y verificar que el número coincida con la lista de asistentes.</li>
+      <li>Escanear o fotografiar cada hoja (si es en papel) como respaldo.</li>
+      <li>Clasificar por equipo o zona del salón si hubo disposición especial.</li>
+      <li>Llenar la hoja de resumen (total registrados, asistentes, completas, incompletas, no entregas, sospechas de fraude).</li>
+    </ol>
+
+    <h3 style="margin-top:1rem;">Calificación en lote (sugerido)</h3>
+    <p>Para mantener consistencia: calificar todas las Secciones A primero (todos los estudiantes). Luego todas las Secciones B. Así sucesivamente. Esto evita el "efecto halo".</p>
+
+    <h3 style="margin-top:1rem;">Publicación de resultados</h3>
+    <ul>
+      <li><strong>Plazo:</strong> Máximo 8 días hábiles después del parcial.</li>
+      <li><strong>Formato:</strong> Nota numérica sobre 100, desglose por sección, observaciones generales.</li>
+      <li><strong>Rango para reclamar:</strong> 48 horas hábiles.</li>
+      <li><strong>NO publicar:</strong> Comparaciones entre estudiantes, notas promedio, rankings.</li>
+    </ul>
+  </div>
+
+  <!-- Anecdotario -->
+  <div class="anecdota-box">
+    <h4>📝 Anecdotario — Notas desde el Aula</h4>
+    <p style="font-size:.85rem; margin-bottom:.8rem;">Espacio para que el docente anote observaciones durante la aplicación del parcial y las use para mejorar el diseño del siguiente año.</p>
+    <p style="font-size:.85rem; margin-bottom:.4rem;"><strong>Observaciones pre-parcial:</strong></p>
+    <textarea placeholder="¿Cuántos estudiantes se inscribieron? ¿Hay estudiantes con adaptaciones aprobadas? ¿Se proporcionaron plantillas impresas?"></textarea>
+    <p style="font-size:.85rem; margin:.8rem 0 .4rem;"><strong>Observaciones post-parcial:</strong></p>
+    <textarea placeholder="¿Cuál sección fue la más difícil? ¿Cuál tuvo mejor desempeño promedio? ¿Cuántos estudiantes no entregaran o abandonaron? ¿Qué ajustar para la próxima vigencia?"></textarea>
+  </div>
+
+  <!-- Recordatorio final -->
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <div>
+      <p><strong>Recordatorio final — Este parcial busca evaluar si el estudiante:</strong></p>
+      <ul style="margin:.4rem 0 0; padding-left:1.2rem;">
+        <li><strong>RA1:</strong> Distingue las particularidades de la tecnología y el comportamiento del consumidor digital.</li>
+        <li><strong>RA2:</strong> Identifica información estratégica para la adopción de soluciones digitales.</li>
+        <li><strong>RA3:</strong> Propone estrategias de transformación digital basadas en tecnología.</li>
+      </ul>
+      <p style="margin-top:.6rem;"><strong>Lo que NO se busca:</strong> Respuestas memorizadas. Soluciones genéricas sin conexión al caso. Copias textuales del dossier.</p>
+      <p style="margin-top:.4rem;"><strong>Lo que SÍ se busca:</strong> Análisis crítico del caso RetailNova. Capacidad de priorizar con recursos limitados. Justificación estructurada de decisiones. Conexión entre los datos del dossier y las propuestas.</p>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

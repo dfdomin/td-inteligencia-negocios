@@ -2,7 +2,7 @@
 
 ## Indice general
 
-| Carpeta sugerida | Empresa | Uso | Semana | Producto principal |
+| Carpeta | Empresa | Uso | Semana | Producto principal |
 |---|---|---|---:|---|
 | `mercado360/` | Mercado360 | Formativo transversal | 1-13 | Portafolio progresivo de transformacion digital |
 | `retailnova/` | RetailNova S.A.S. | Parcial 1 | 5 | Diagnostico y oportunidad priorizada |
@@ -11,38 +11,63 @@
 
 ## Uso didactico
 
-`Mercado360` se usa para aprender y practicar. Los casos espejo se usan para verificar transferencia: el estudiante no solo repite el caso visto, sino que aplica el metodo a un contexto nuevo.
+`Mercado360` se usa para aprender y practicar durante todo el semestre. Los casos espejo se usan para evaluar transferencia: el estudiante no solo repite el caso visto, sino que aplica el metodo a un contexto nuevo con restricciones diferentes.
+
+## Dossiers creados
+
+Cada caso tiene un dossier completo con:
+
+- Carta de solicitud inicial (con contexto de negocio real).
+- Descripcion del negocio o institucion.
+- Proceso actual documentado.
+- Datos operativos reales (volumenes, metricas, costos).
+- Quejas y testimonios reales.
+- Restricciones de presupuesto, talento y tecnologia.
+- Marco normativo aplicable (colombiano).
+- Resultado esperado para el estudiante.
 
 ## Caso formativo: Mercado360
 
-Empresa comercial mediana con tienda fisica, ventas por WhatsApp e Instagram, datos dispersos, inventario desactualizado y decisiones comerciales poco medidas.
+Empresa comercial mediana con tienda fisica, ventas por WhatsApp e Instagram, procesos manuales, datos dispersos, inventario desactualizado y decisiones comerciales poco medidas.
+
+**Archivo:** `../Caso_Estudio_Mercado360.md` ( raiz del modulo).
 
 ## Caso espejo 1: RetailNova
 
-RetailNova es una cadena local de tiendas de ropa con ventas presenciales, catalogo en redes y pagos por transferencia. Tiene problemas de inventario, devoluciones, promociones sin medicion y baja trazabilidad del cliente.
+RetailNova es una cadena local de tiendas de ropa con tres sucursales en Barranquilla, ventas presenciales, catalogo en Instagram, pagos por transferencia. Tiene problemas de inventario no sincronizado entre sucursales, devoluciones sin politica clara, promociones sin medicion de conversion y datos de clientes en celulares personales.
 
-**Evaluacion:** parcial 1. El estudiante debe diagnosticar madurez digital, identificar dolores y priorizar una oportunidad.
+**Dossier:** `retailnova/DOSSIER.md`
+**Evaluacion:** Parcial 1 (semana 5).
+**Producto:** Diagnostico de madurez digital, mapa de dolores, journey map, oportunidad priorizada.
 
 ## Caso espejo 2: SaludConecta
 
-SaludConecta es una IPS pequena que agenda citas por telefono y WhatsApp. Presenta ausentismo, historias administrativas incompletas, reprocesos de autorizacion y poca visibilidad de tiempos de atencion.
+SaludConecta es una IPS pequena ubicada en Chia, Cundinamarca, con cobertura en Cundinamarca, Boyaca y Meta. Agenda citas por telefono y WhatsApp. Presenta ausentismo alto (35%), demoras criticas en autorizaciones previas (12 dias promedio vs. meta de 3), reprocesos de facturacion y poca visibilidad de tiempos de atencion.
 
-**Evaluacion:** parcial 2. El estudiante debe proponer una solucion digital viable, con proceso TO-BE, datos, KPIs y riesgos.
+**Dossier:** `saludconecta/DOSSIER.md`
+**Evaluacion:** Parcial 2 (semana 10).
+**Producto:** Proceso AS-IS/TO-BE, solucion digital, datos, KPIs, matriz de riesgos, prototipo conceptual.
+
+**Normativa relevante:** Ley 1581/2012 (datos de salud, datos sensibles), Decreto 4747/2007 (autorizaciones en salud), Supersalud.
 
 ## Caso espejo final: LogisCaribe
 
-LogisCaribe es un operador logistico regional que gestiona entregas, bodegaje y servicio al cliente con hojas de calculo, llamadas y correos. La gerencia quiere una hoja de ruta digital sin detener la operacion.
+LogisCaribe es un operador logistico regional con sede en Barranquilla, 12 vehiculos propios, servicios de distribucion, bodegaje y messenjeria. Gestiona entregas, rutas y servicio al cliente con hojas de calculo, llamadas y WhatsApp. Un cliente clave (Distribuidora del Caribe, 40% de ingresos) esta evaluando si renueva el contrato por falta de trazabilidad.
 
-**Evaluacion:** final. El estudiante debe presentar estrategia integral, roadmap 30-60-90, gestion del cambio, riesgos, KPIs y viabilidad.
+**Dossier:** `logiscaribe/DOSSIER.md`
+**Evaluacion:** Final (semana 14).
+**Producto:** Estrategia integral con diagnostico, roadmap 30-60-90, plan de gestion del cambio, matriz de riesgos, KPIs, caso de negocio, sustentacion.
 
-## Dossiers pendientes
+**Normativa relevante:** Decreto 1079/2015 (transporte), Ley 1581/2012 (proteccion de datos), regulacion Dian.
 
-Para seguir el patron de `ProcesamientoInformacion`, cada caso espejo deberia tener un dossier con:
+## Progresion evaluativa
 
-- correo o solicitud inicial de gerencia;
-- descripcion de proceso actual;
-- datos operativos simples;
-- quejas o testimonios de usuarios;
-- restricciones de presupuesto y talento;
-- requerimiento de resultado esperado.
+| Corte | Caso | Producto esperado |
+|---|---|---|
+| Parcial 1, semana 5 | RetailNova | Diagnostico de madurez, mapa de dolores, journey map, oportunidad priorizada. |
+| Parcial 2, semana 10 | SaludConecta | Proceso TO-BE, solucion digital, datos, KPIs, riesgos, prototipo conceptual. |
+| Final, semana 14 | LogisCaribe | Estrategia integral con roadmap, gestion del cambio, riesgos, KPIs, viabilidad. |
 
+## Regla didactica
+
+El estudiante debe demostrar transferencia: no basta con repetir lo que hizo con Mercado360. Debe adaptar el metodo al contexto, las restricciones y la normativa del caso espejo asignado.

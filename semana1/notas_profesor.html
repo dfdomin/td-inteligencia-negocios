@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas del Profesor — Semana 1 | TD</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1E2843; --accent: #2d3a5e; --gold: #FFDF2D;
+      --green: #1b5e20; --green-bg: #e8f5e9;
+      --orange: #e65100; --orange-bg: #fff3e0;
+      --purple: #4a148c; --purple-bg: #f3e5f5;
+      --red-bg: #fce4ec; --red: #880e4f;
+      --border: #DEDFE4; --muted: #546e7a;
+      --card-bg: #fff; --light: #FAFAFA;
+      --radius: 12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light); color: #212121; line-height: 1.75; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, #1E2843 0%, #2d3a5e 100%); color: #fff; padding: 2rem 2rem 1.8rem; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 35px; background: var(--light); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-prof { display: inline-block; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.4); border-radius: 20px; padding: .25rem .9rem; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .7rem; }
+    header h1 { font-size: 1.7rem; font-weight: 800; }
+    header p { opacity: .85; margin-top: .3rem; font-size: .95rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .5rem 1.5rem; display: flex; gap: .4rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .82rem; font-weight: 600; padding: .25rem .65rem; border-radius: 7px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.6rem 1.8rem; margin-bottom: 1.8rem; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+    .card h2 { font-size: 1.2rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .7rem; margin-bottom: 1.1rem; }
+    .card h3 { font-size: 1rem; color: var(--accent); margin: 1.1rem 0 .5rem; }
+    .card p  { margin-bottom: .75rem; }
+    .card ul, .card ol { padding-left: 1.3rem; margin-bottom: .75rem; }
+    .card li { margin-bottom: .45rem; }
+
+    .callout { border-radius: 10px; padding: .9rem 1.2rem; margin: .9rem 0; display: flex; gap: .7rem; align-items: flex-start; }
+    .callout.estrategia { background: var(--green-bg); border-left: 4px solid #2e7d32; }
+    .callout.alerta     { background: var(--orange-bg); border-left: 4px solid #ef6c00; }
+    .callout.teoria     { background: var(--purple-bg); border-left: 4px solid #7b1fa2; }
+    .callout.cite       { background: #e3f2fd; border-left: 4px solid #1565c0; }
+    .callout.hist       { background: var(--red-bg); border-left: 4px solid #c62828; }
+    .callout .ico       { font-size: 1.3rem; flex-shrink: 0; line-height: 1; }
+    .callout p          { margin: 0; font-size: .92rem; }
+
+    .time-block { border: 2px solid var(--border); border-radius: 10px; overflow: hidden; margin: 1rem 0; }
+    .time-header { background: var(--primary); color: #fff; padding: .6rem 1.2rem; font-weight: 700; font-size: .92rem; display: flex; justify-content: space-between; align-items: center; }
+    .time-header .mins { background: var(--gold); color: var(--primary); border-radius: 20px; padding: .1rem .6rem; font-size: .78rem; }
+    .time-body { padding: 1rem 1.4rem; }
+    .time-body ol, .time-body ul { padding-left: 1.3rem; }
+    .time-body li { margin-bottom: .45rem; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: .8rem 0; }
+    th { background: var(--primary); color: #fff; padding: .6rem .9rem; text-align: left; }
+    td { padding: .55rem .9rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light); }
+
+    .badge { display: inline-block; border-radius: 6px; padding: .12rem .5rem; font-size: .72rem; font-weight: 800; }
+    .b-bloom  { background: #fff9c4; color: #5d4037; border: 1px solid #FFDF2D; }
+    .b-vig    { background: #e8f5e9; color: #1b5e20; border: 1px solid #aed581; }
+    .b-evo    { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+    .b-hist   { background: #fce4ec; color: #880e4f; border: 1px solid #f48fb1; }
+
+    .regla-block { background: #fff3e0; border: 1px solid #ffe082; border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+    .regla-block strong { color: #e65100; }
+
+    footer { text-align: center; padding: 1.5rem; font-size: .8rem; color: var(--muted); border-top: 1px solid var(--border); }
+
+    @media (max-width: 640px) { header h1 { font-size: 1.3rem; } .card { padding: 1.1rem; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge-prof">🔒 USO EXCLUSIVO DOCENTE · TD · Semana 1</div>
+  <h1>📋 Notas del Profesor — Semana 1</h1>
+  <p>Diagnóstico de Transformación Digital · Prof. Diego Domínguez Tapia · IUB 2026</p>
+</header>
+
+<nav>
+  <a href="#enfoque">🎯 Enfoque</a>
+  <a href="#secuencia">⏱️ Secuencia</a>
+  <a href="#errores">⚠️ Errores típicos</a>
+  <a href="#materiales">📦 Materiales</a>
+  <a href="#respuestas">💬 Respuestas</a>
+  <a href="#evidencia">📋 Evidencia</a>
+  <a href="#seguimiento">🔜 Seguimiento</a>
+</nav>
+
+<main>
+
+<!-- ENFOQUE DE LA SESIÓN -->
+<section id="enfoque" class="card">
+  <h2>🎯 Enfoque de la Sesión</h2>
+
+  <div class="regla-block">
+    <strong>Regla central:</strong> La tecnología no es el punto de partida. Esta sesión debe cerrar con problemas concretos, no con herramientas favoritas.
+  </div>
+
+  <p>La tentación del estudiante es decir "lo que necesita Mercado360 es un CRM" o "un sistema de inventario". Eso es pensar en soluciones antes de entender el problema. El trabajo del docente es redirigir siempre hacia los dolores organizacionales.</p>
+
+  <div class="callout alerta">
+    <span class="ico">⚠️</span>
+    <p><strong>Advertencia:</strong> No dejar que la sesión se vaya a debate sobre "qué herramienta es mejor". Eso viene en la Semana 4.</p>
+  </div>
+
+  <h3>Puntos clave a enfatizar</h3>
+  <ul>
+    <li>Digitalización es <strong>NECESARIO</strong> pero no <strong>SUFICIENTE</strong>.</li>
+    <li>La pregunta no es "¿qué tecnología compramos?" sino "¿qué problema queremos resolver?"</li>
+    <li>El mapa de dolores es el punto de partida de cualquier transformación.</li>
+  </ul>
+</section>
+
+<!-- SECUENCIA DIDÁCTICA -->
+<section id="secuencia" class="card">
+  <h2>⏱️ Secuencia Sugerida (2 horas)</h2>
+
+  <div class="time-block">
+    <div class="time-header">
+      Bloque 1 — Concepto: Digitalización vs Transformación Digital <span class="mins">20 min</span>
+    </div>
+    <div class="time-body">
+      <ul>
+        <li><strong>Pregunta inicial para el grupo (5 min):</strong> "¿Cuántos de ustedes han escuchado que una empresa 'se digitalizó' pero al final solo买了一套 software nuevo sin cambiar nada?"</li>
+        <li><strong>Concepto de digitalización (5 min):</strong> Explicar con ejemplo: pasar inventario de cuaderno a Excel. Pregunta: "¿Eso transforma el negocio?"</li>
+        <li><strong>Concepto de transformación digital (5 min):</strong> Explicar con ejemplo: una empresa que pasa de vender en tienda física a entender a su cliente digitalmente. Mostrar la diferencia en una tabla simple.</li>
+        <li><strong>Modelo de madurez digital (5 min):</strong> Presentar Gartner (5 niveles) de forma simple. No requiere memorización, solo comprensión conceptual.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-header">
+      Bloque 2 — Caso Mercado360 <span class="mins">30 min</span>
+    </div>
+    <div class="time-body">
+      <ul>
+        <li><strong>Leer el caso (10 min):</strong> Distribuir o pedir que lean en sus dispositivos el caso Mercado360. No dar más contexto que el que está en el documento.</li>
+        <li><strong>Identificar dolores (15 min):</strong> En grupos de 3-4, identificar al menos 3 dolores por categoría. Usar la plantilla de mapa de dolores. Circular por los grupos, hacer preguntas: "¿Por qué ocurre esto?", "¿Desde cuándo?", "¿Quién se entera primero?"</li>
+        <li><strong>Socialización rápida (5 min):</strong> Cada grupo comparte sus 3 dolores más urgentes. El docente anota en tablero o papelógrafo.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-header">
+      Bloque 3 — Taller de Mapa de Dolores <span class="mins">40 min</span>
+    </div>
+    <div class="time-body">
+      <ul>
+        <li>Entregar plantilla de mapa de dolores (5 min).</li>
+        <li>Trabajo en equipos (20 min).</li>
+        <li>Cada equipo presenta 3 dolores en 3 minutos (15 min).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-header">
+      Bloque 4 — Cierre y Reflexión <span class="mins">20 min</span>
+    </div>
+    <div class="time-body">
+      <ul>
+        <li><strong>Pregunta de cierre (10 min):</strong> "Si usted fuera el consultor de Mercado360 y tuviera $5.000.000 COP para resolver UN problema, ¿cuál escolhería y por qué?"</li>
+        <li><strong>Introducción a la semana 2 (10 min):</strong> Presentación breve: Consumidor digital y propuesta de valor. La semana próxima empezamos a mapear la experiencia del cliente.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>Bloque</th><th>Duración</th><th>Acumulado</th></tr></thead>
+    <tbody>
+      <tr><td>Concepto</td><td>20 min</td><td>20 min</td></tr>
+      <tr><td>Caso</td><td>30 min</td><td>50 min</td></tr>
+      <tr><td>Taller</td><td>40 min</td><td>90 min</td></tr>
+      <tr><td>Cierre</td><td>20 min</td><td>110 min</td></tr>
+      <tr><td>Buffer</td><td>10 min</td><td>120 min</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ERRORES TÍPICOS -->
+<section id="errores" class="card">
+  <h2>⚠️ Errores Típicos de los Estudiantes</h2>
+
+  <div class="callout alerta">
+    <span class="ico">❌</span>
+    <p><strong>1. Confundir digitalización con transformación.</strong><br>
+    <em>Resolver:</em> Hacer que expliquen la diferencia con sus propias palabras antes de avanzar.</p>
+  </div>
+
+  <div class="callout alerta">
+    <span class="ico">❌</span>
+    <p><strong>2. Querer saltar a soluciones tecnológicas.</strong><br>
+    <em>Resolver:</em> Preguntar siempre "¿qué problema resuelve eso?" antes de validar cualquier propuesta.</p>
+  </div>
+
+  <div class="callout alerta">
+    <span class="ico">❌</span>
+    <p><strong>3. Identificar síntomas en lugar de causas raíz.</strong><br>
+    <em>Resolver:</em> Preguntar "¿por qué ocurre?" al menos tres veces ("técnica de los cinco porqués").</p>
+  </div>
+
+  <div class="callout alerta">
+    <span class="ico">❌</span>
+    <p><strong>4. Ver la transformación digital como proyecto de TI.</strong><br>
+    <em>Resolver:</em> Mostrar que los dolores de cultura y proceso son tan importantes como los de tecnología.</p>
+  </div>
+
+  <h3>Errores comunes a evitar en el taller</h3>
+  <ul>
+    <li>Que los grupos se salten el análisis de causa raíz y solo describan síntomas.</li>
+    <li>Que quiseren pasar directamente a soluciones ("necesitan un app").</li>
+    <li>Que los grupos confundan "dolor" con "necesidad de tecnología".</li>
+  </ul>
+</section>
+
+<!-- MATERIALES -->
+<section id="materiales" class="card">
+  <h2>📦 Materiales Necesarios</h2>
+
+  <table>
+    <thead><tr><th>Material</th><th>Cantidad</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td>Caso Mercado360 (impreso o digital)</td><td>1 por estudiante</td><td>Lectura + taller</td></tr>
+      <tr><td>Plantilla de mapa de dolores</td><td>1 por estudiante</td><td>Actividad práctica</td></tr>
+      <tr><td>Tablero o papelógrafo</td><td>1</td><td>Socialización</td></tr>
+      <tr><td>Marcadores</td><td>4</td><td>Tablero</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- RESPUESTAS ESPERADAS -->
+<section id="respuestas" class="card">
+  <h2>💬 Respuestas Esperadas de los Estudiantes</h2>
+
+  <p><strong>En la pregunta de cierre (¿qué problema resolver primero con $5.000.000?):</strong></p>
+
+  <h3>Respuestas fuertes (bien justificadas)</h3>
+  <ul>
+    <li>"Resolvemos el inventario para que no pierdan ventas por productos agotados." (dolor de proceso + dato).</li>
+    <li>"Ponemos un sistema simple para que los clientes puedan apartar por WhatsApp." (dolor de cliente).</li>
+  </ul>
+
+  <h3>Respuestas débiles (sin justificación)</h3>
+  <ul>
+    <li>"Le compramos un CRM." (sin saber qué problema resuelve específicamente).</li>
+    <li>"Digitalizamos todo." (sin priorización).</li>
+  </ul>
+
+  <div class="callout estrategia">
+    <span class="ico">✅</span>
+    <p><strong>Nota:</strong> No buscar la respuesta "correcta", sino que el estudiante justifique con datos del caso.</p>
+  </div>
+</section>
+
+<!-- EVIDENCIA -->
+<section id="evidencia" class="card">
+  <h2>📋 Notas sobre la Evidencia</h2>
+
+  <h3>Criterios de evaluación de la evidencia</h3>
+  <ol>
+    <li>Ubica a Mercado360 en nivel de madurez con justificación (no necesita ser Gartner perfecto, lo importante es que justifique con evidencia del caso).</li>
+    <li>Mapa de 9+ dolores (3 por categoría mínima).</li>
+    <li>3 problemas priorizados con justificación (urgencia + impacto).</li>
+    <li>Reflexión final sobre por dónde empezar.</li>
+  </ol>
+
+  <div class="callout estrategia">
+    <span class="ico">📊</span>
+    <p><strong>Calificación rápida:</strong> Si un estudiante entrega los 3 problemas priorizados con justificación clara, ya tiene al menos 60% de la calificación. El resto es calidad de justificación y mapa de dolores.</p>
+  </div>
+
+  <div class="callout alerta">
+    <span class="ico">⚠️</span>
+    <p><strong>Zona de riesgo:</strong> El error más común es identificar síntomas sin causas raíz. Revisar que cada dolor tenga causa e impacto, no solo descripción.</p>
+  </div>
+
+  <div class="callout teoria">
+    <span class="ico">📝</span>
+    <p><strong>Nota sobre la evidencia:</strong> La evidencia es individual, no grupal. El mapa de grupos es una guía; el documento individual es lo que se califica. La evidencia se sube a la plataforma antes de la próxima sesión.</p>
+  </div>
+</section>
+
+<!-- SEGUIMIENTO -->
+<section id="seguimiento" class="card">
+  <h2>🔜 Seguimiento para Semana 2</h2>
+
+  <p>La evidencia de la semana 1 se usa como insumo para la semana 2:</p>
+  <ul>
+    <li>Los 3 problemas priorizados se convierten en entrada para el journey map.</li>
+    <li>El nivel de madurez de Mercado360 se confirma en el parcial 1 con RetailNova.</li>
+  </ul>
+
+  <div class="regla-block">
+    <strong>Pregunta de apertura para semana 2:</strong><br>
+    "Si los problemas priorizados son de cliente, proceso y datos, ¿cómo es la experiencia del cliente de Mercado360 en cada touchpoint?"
+  </div>
+</section>
+
+<!-- ADAPTACIONES -->
+<section id="adaptaciones" class="card">
+  <h2>🔧 Notas de Adaptación para Aula Diferente a Presencial</h2>
+
+  <div class="callout cite">
+    <span class="ico">💻</span>
+    <p><strong>Si es sesión virtual (Zoom o similar):</strong><br>
+    Hacer breakout rooms de 4 personas para el taller de mapa de dolores.<br>
+    Usar Jam Board o herramienta similar para que cada grupo pinte su mapa.<br>
+    Compartir pantalla del docente para la presentación de concepto.</p>
+  </div>
+
+  <div class="callout cite">
+    <span class="ico">🔄</span>
+    <p><strong>Si es aula invertida (flipped classroom):</strong><br>
+    Pedir que lean el material conceptual antes de la sesión.<br>
+    La sesión se dedica solo al taller y socialización.<br>
+    La evidencia se entrega antes de la próxima clase.</p>
+  </div>
+
+  <div class="callout teoria">
+    <span class="ico">♿</span>
+    <p><strong>Si hay estudiantes con necesidades de accesibilidad:</strong><br>
+    Material en formato accesible (Word, no solo PDF escaneado).<br>
+    Tiempo adicional para la evidencia si el estudiante lo solicita.<br>
+    Opción de entregar en formato audio si hay dificultad con la escritura.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  TD · Notas del Profesor · Semana 1 · 🔒 Uso exclusivo docente ·
+  IUB 2026 · Prof. Diego Domínguez Tapia
+</footer>
+
+</body>
+</html>

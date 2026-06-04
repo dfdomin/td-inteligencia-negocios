@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 4 — Tecnologías Habilitadoras | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+    .xp-bar-wrap { margin: 1.2rem auto 0; max-width: 400px; background: rgba(255,255,255,.2); border-radius: 20px; height: 14px; overflow: hidden; }
+    .xp-bar { height: 100%; width: 0%; background: var(--gold); border-radius: 20px; transition: width 1.5s ease; }
+    .xp-label { font-size: .78rem; opacity: .8; margin-top: .4rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .bloom { display: inline-flex; align-items: center; gap: .4rem; background: #fff9c4; border: 1px solid #FFDF2D; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #5d4037; margin-bottom: 1rem; }
+
+    .memo { background: #fffde7; border-left: 5px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; font-style: italic; }
+    .memo strong { font-style: normal; display: block; margin-bottom: .4rem; color: var(--primary); }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .tech-card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 1.5rem; border-left: 6px solid var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .tech-card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: .6rem; border-left: none; padding-left: 0; }
+    .tech-card .tech-tag { display: inline-block; background: var(--accent); color: #fff; border-radius: 6px; padding: .15rem .6rem; font-size: .72rem; font-weight: 700; margin-bottom: .8rem; text-transform: uppercase; }
+    .tech-card .tech-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.5rem; }
+    .tech-card .tech-section h4 { font-size: .82rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .3rem; }
+    .tech-card .tech-section p { margin: 0; font-size: .88rem; }
+    .tech-card .example-box { background: #e8f5e9; border-radius: 8px; padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem; }
+    .tech-card .example-box strong { color: var(--green); display: block; margin-bottom: .2rem; }
+    .tech-card .risk-box { background: #fff8e1; border-radius: 8px; padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem; }
+    .tech-card .risk-box strong { color: #e65100; display: block; margin-bottom: .2rem; }
+    .tech-card .mercado360-box { background: #e3f2fd; border-radius: 8px; padding: .8rem 1rem; margin-top: .8rem; }
+    .tech-card .mercado360-box.aplica { background: #e8f5e9; border-left: 4px solid var(--green); }
+    .tech-card .mercado360-box.no-aplica { background: #fce4ec; border-left: 4px solid var(--red); }
+    .tech-card .mercado360-box strong { display: block; margin-bottom: .2rem; font-size: .88rem; }
+    .tech-card .mercado360-box p { font-size: .85rem; margin: 0; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-header.hti-a      { background: #e8f5e9; color: var(--green); }
+    .activity-header.hti-b      { background: #fff8e1; color: #e65100; }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body ol, .activity-body ul { padding-left: 1.4rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .dojo-panel { background: linear-gradient(135deg, #1E2843 0%, #2d3a5e 100%); color: #fff; border-radius: var(--radius); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .dojo-panel h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.05rem; }
+    .dojo-items { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .dojo-item { background: rgba(255,255,255,.12); border-radius: 8px; padding: .5rem 1rem; font-size: .85rem; display: flex; align-items: center; gap: .5rem; }
+    .pts { color: var(--gold); font-weight: 800; font-size: 1.1rem; }
+
+    .rubric-table { width: 100%; border-collapse: collapse; font-size: .83rem; margin: 1rem 0; }
+    .rubric-table th { background: var(--primary); color: #fff; padding: .6rem .9rem; text-align: left; }
+    .rubric-table td { padding: .55rem .9rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .rubric-table tr:nth-child(even) td { background: var(--light-bg); }
+    .rubric-table .peso { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+    .ficha-template { background: var(--light-bg); border: 2px dashed var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1rem 0; }
+    .ficha-template h4 { color: var(--primary); margin-bottom: 1rem; font-size: .95rem; }
+    .ficha-field { margin-bottom: 1rem; }
+    .ficha-field label { display: block; font-size: .78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .3rem; }
+    .ficha-field input, .ficha-field textarea { width: 100%; background: #fff; border: 1.5px solid var(--border); border-radius: 8px; padding: .6rem .8rem; font-size: .9rem; font-family: inherit; outline: none; }
+    .ficha-field input:focus, .ficha-field textarea:focus { border-color: var(--gold); }
+    .ficha-field textarea { min-height: 80px; resize: vertical; }
+    .ficha-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .bib { font-size: .88rem; line-height: 1.8; }
+    .bib li { margin-bottom: .6rem; padding-left: .5rem; }
+
+    .comparison-table { font-size: .82rem; }
+    .comparison-table th { font-size: .78rem; }
+    .comparison-table td { font-size: .82rem; }
+    .prioridad-badge { display: inline-block; border-radius: 6px; padding: .1rem .45rem; font-size: .72rem; font-weight: 800; }
+    .p1 { background: #e8f5e9; color: #1b5e20; }
+    .p2 { background: #fff8e1; color: #e65100; }
+    .p3 { background: #fff3e0; color: #bf360c; }
+    .p4 { background: #fce4ec; color: #880e4f; }
+
+    footer { text-align: center; padding: 2rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.4rem; }
+      .card { padding: 1.2rem; }
+      main { padding: 0 .8rem 3rem; }
+      .tech-card .tech-sections { grid-template-columns: 1fr; }
+      .ficha-row { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <style id="pt-css">
+  #pt-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: linear-gradient(135deg,#1E2843,#2d3a5e); color: #fff; border-radius: 16px; padding: 14px 18px; min-width: 240px; max-width: 280px; box-shadow: 0 8px 32px rgba(0,0,0,.35); font-family: 'Open Sans', Arial, sans-serif; font-size: .85rem; transition: transform .3s; }
+  #pt-widget.collapsed { transform: translateY(calc(100% - 42px)); }
+  #pt-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  #pt-header strong { font-size: .92rem; }
+  #pt-toggle { background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; line-height: 1; }
+  #pt-body { margin-top: 10px; }
+  #pt-xp-bar-wrap { background: rgba(255,255,255,.2); border-radius: 20px; height: 10px; overflow: hidden; }
+  #pt-xp-bar { height: 100%; background: linear-gradient(90deg,#FFDF2D,#fff176); border-radius: 20px; transition: width .8s ease; }
+  #pt-xp-label { display: flex; justify-content: space-between; font-size: .75rem; opacity: .8; margin-top: 4px; }
+  #pt-btns { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .pt-btn { flex: 1; padding: 5px 8px; border: none; border-radius: 8px; font-size: .75rem; font-weight: 700; cursor: pointer; transition: opacity .2s; }
+  .pt-btn:hover { opacity: .85; }
+  #pt-btn-save { background: #43a047; color: #fff; }
+  #pt-advanced { display: none; margin-top: 5px; }
+  #pt-msg { font-size: .72rem; margin-top: 6px; min-height: 16px; opacity: .85; text-align: center; }
+  </style>
+
+  <script>
+  const LS_KEY = "td_s4";
+  const XP_MAX = 50;
+  let state = { xp: 0, semana: 4 };
+
+  function loadState() {
+    try { const s = localStorage.getItem(LS_KEY); if (s) state = JSON.parse(s); } catch(e) {}
+  }
+  function saveState() { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e) {} }
+
+  function renderPT() {
+    document.getElementById('pt-xp-bar').style.width = Math.min(100, (state.xp / XP_MAX) * 100) + '%';
+    document.getElementById('pt-xp-count').textContent = state.xp + ' XP';
+    document.getElementById('pt-semana-label').textContent = 'Semana ' + state.semana;
+    document.getElementById('xpCount').textContent = state.xp;
+    document.getElementById('xpBar').style.width = Math.min(100, (state.xp / XP_MAX) * 100) + '%';
+    document.getElementById('pt-msg').textContent = '';
+  }
+
+  function ptToggle() {
+    const w = document.getElementById('pt-widget');
+    w.classList.toggle('collapsed');
+    document.getElementById('pt-toggle').textContent = w.classList.contains('collapsed') ? '▲' : '▼';
+  }
+
+  function ptSyncCloud() {
+    document.getElementById('pt-msg').textContent = '✓ Progreso guardado localmente';
+    saveState();
+    setTimeout(() => { document.getElementById('pt-msg').textContent = ''; }, 2500);
+  }
+
+  function ptExportCode() {
+    const code = btoa(JSON.stringify(state));
+    navigator.clipboard.writeText(code).then(() => {
+      document.getElementById('pt-msg').textContent = '📋 Código copiado al portapapeles';
+      setTimeout(() => { document.getElementById('pt-msg').textContent = ''; }, 2500);
+    });
+  }
+  function ptImportCode() {
+    const code = prompt('Pega el código de respaldo:');
+    if (!code) return;
+    try {
+      state = JSON.parse(atob(code));
+      saveState(); renderPT();
+      document.getElementById('pt-msg').textContent = '📥 Respaldo cargado';
+      setTimeout(() => { document.getElementById('pt-msg').textContent = ''; }, 2500);
+    } catch(e) {
+      document.getElementById('pt-msg').textContent = '❌ Código inválido';
+      setTimeout(() => { document.getElementById('pt-msg').textContent = ''; }, 2500);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => { loadState(); renderPT(); });
+  </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="badge-module">TD04 · Transformación Digital en la Empresa · Semana 4 de 13</div>
+  <h1>⚡ Tecnologías que Transforman</h1>
+  <p>Cloud · IA · IoT · Movilidad · Blockchain · Automatización · Analítica de Datos · Mercado360 S.A.S.</p>
+  <div class="xp-bar-wrap"><div class="xp-bar" id="xpBar"></div></div>
+  <p class="xp-label">XP de sesión: <span id="xpCount">0</span> / 50 pts</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#mision">🎯 Misión</a>
+  <a href="#teoria">📚 Teoría</a>
+  <a href="#fichas">🃏 Fichas</a>
+  <a href="#actividad">⚙️ Actividad</a>
+  <a href="#evidencia">📋 Evidencia</a>
+  <a href="#bib">📖 Fuentes</a>
+</nav>
+
+<main>
+
+<!-- PROGRESS TRACKER WIDGET -->
+<div id="pt-widget">
+  <div id="pt-header" onclick="ptToggle()">
+    <strong>📊 Mi Progreso TD04</strong>
+    <button id="pt-toggle">▲</button>
+  </div>
+  <div id="pt-body">
+    <div id="pt-xp-bar-wrap"><div id="pt-xp-bar" style="width:0%"></div></div>
+    <div id="pt-xp-label"><span id="pt-semana-label">Semana 4</span><span id="pt-xp-count">0 XP</span></div>
+    <div id="pt-btns">
+      <button class="pt-btn" id="pt-btn-save" onclick="ptSyncCloud()">☁️ Guardar</button>
+      <button class="pt-btn" onclick="(function(){var a=document.getElementById('pt-advanced');a.style.display=a.style.display==='block'?'none':'block'})()" style="width:32px;flex-shrink:0;padding:0;font-size:.8rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)">⚙️</button>
+    </div>
+    <div id="pt-advanced">
+      <button class="pt-btn" onclick="ptExportCode()" style="width:100%;margin-bottom:3px;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📋 Exportar respaldo</button>
+      <button class="pt-btn" onclick="ptImportCode()" style="width:100%;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📥 Cargar desde código</button>
+    </div>
+    <div id="pt-msg"></div>
+  </div>
+</div>
+
+<!-- ══ MISIÓN ══ -->
+<section id="mision" class="card">
+  <h2>📋 Memorando — Tu Misión esta Semana</h2>
+  <div class="memo">
+    <strong>Para: Consultores Junior de Transformación Digital — Equipo TD04<br>
+    De: Dirección Ejecutiva, Mercado360 S.A.S.<br>
+    Asunto: Evaluación de tecnologías habilitadoras para el plan de transformación</strong>
+
+    En las semanas anteriores ustedes diagnosticaron los dolores de Mercado360: datos dispersos,
+    procesos manuales, experiencia de cliente inconsistente. Hoy tienen las herramientas;
+    la pregunta es: <strong>¿cuál tecnología resuelve cuál problema?</strong><br><br>
+    La junta directiva quiere invertir inteligente, no por moda. Cada equipo presentará una
+    tecnología y recomendará cómo aplicarla (o no aplicarla) en Mercado360.
+    Al final, cada estudiante diseñará su propia ficha de tecnología para el caso.
+  </div>
+
+  <div class="bloom">🧠 Nivel Bloom: Recordar → Comprender → Aplicar → Analizar</div>
+
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <p><strong>Regla de oro de esta semana:</strong> Primero se diagnostica el dolor (semana 1), luego
+    se evalúa la tecnología adecuada. <em>La herramienta correcta depende del problema correcto.</em>
+    No al revés.</p>
+  </div>
+
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Advertencia común:</strong> Muchas empresas aplican "la tecnología del momento" sin saber
+    qué problema resuelven. Blockchain para una tienda de abarrotes. IA para un proceso que necesita
+    solo un Excel. El resultado: dinero gastado, problema sin resolver.</p>
+  </div>
+</section>
+
+<!-- ══ TEORÍA ══ -->
+<section id="teoria" class="card">
+  <h2>📚 Marco Teórico — Las 7 Tecnologías Habilitadoras</h2>
+
+  <h3>El panorama: ¿por qué no todas las tecnologías son para todas las empresas?</h3>
+  <p>
+    Gartner (2024) describe el ciclo de vida de las tecnologías emergentes en cuatro fases:
+    el <em>Peak of Inflated Expectations</em> (todos hablan de ello), el
+    <em>Trough of Disillusionment</em> (fracasos y críticas), la
+    <em>Slope of Enlightenment</em> (los que sobreviven encuentran valor real) y el
+    <em>Plateau of Productivity</em> (estabilización y uso generalizado).
+  </p>
+  <p>
+    <strong>En este curso usamos tecnologías en fase de Slope of Enlightenment o Plateau:</strong>
+    Cloud Computing, SaaS, IA aplicada y Automatización ya demuestran valor probado.
+    Blockchain e IoT aún están en validación para empresas pequeñas y medianas.
+  </p>
+
+  <h3>Tabla comparativa: 7 tecnologías vs. problemas de Mercado360</h3>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Tecnología</th>
+        <th>Problema que resuelve</th>
+        <th>Viabilidad para Mercado360</th>
+        <th>Prioridad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Cloud (SaaS)</strong></td>
+        <td>Almacenar datos y acceder desde cualquier lugar sin infraestructura propia.</td>
+        <td>Alta — Google Workspace, AirTable. Costo bajo.</td>
+        <td><span class="prioridad-badge p1">Prioridad 1</span></td>
+      </tr>
+      <tr>
+        <td><strong>Automatización (Chatbot)</strong></td>
+        <td>Respuesta rápida a consultas de clientes por WhatsApp sin intervención manual.</td>
+        <td>Alta — WhatsApp Business API. Costo bajo.</td>
+        <td><span class="prioridad-badge p1">Prioridad 1</span></td>
+      </tr>
+      <tr>
+        <td><strong>Datos y Analítica (BI)</strong></td>
+        <td>Saber qué se vende, cuándo, a quién y con qué margen.</td>
+        <td>Media-alta — Google Data Studio. Costo bajo.</td>
+        <td><span class="prioridad-badge p2">Prioridad 2</span></td>
+      </tr>
+      <tr>
+        <td><strong>IA (chatbot inteligente)</strong></td>
+        <td>Resolver consultas sin intervención humana, análisis de sentimiento.</td>
+        <td>Media — ChatGPT API, Botpress. Costo medio.</td>
+        <td><span class="prioridad-badge p2">Prioridad 2</span></td>
+      </tr>
+      <tr>
+        <td><strong>Movilidad</strong></td>
+        <td>Vendedor consulta inventario desde cualquier lugar.</td>
+        <td>Alta — Google Sheets en celular.</td>
+        <td><span class="prioridad-badge p1">Prioridad 1</span></td>
+      </tr>
+      <tr>
+        <td><strong>IoT</strong></td>
+        <td>Control de inventario en tiempo real con sensores.</td>
+        <td>Baja para etapa 1 — Costo alto.</td>
+        <td><span class="prioridad-badge p3">Prioridad 3</span></td>
+      </tr>
+      <tr>
+        <td><strong>Blockchain</strong></td>
+        <td>Trazabilidad de origen de productos, contratos inteligentes.</td>
+        <td>Baja — No es prioritario en etapa actual.</td>
+        <td><span class="prioridad-badge p4">Prioridad 4</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Analogía empresarial:</strong> Las tecnologías son como herramientas en un taller.
+    Un martillo no es mejor que un destornillador — cada uno sirve para algo diferente.
+    El error es usar el martillo cuando necesitas un destornillador, solo porque "todos los usan".</p>
+  </div>
+
+  <h3>1. Cloud Computing (IaaS, PaaS, SaaS)</h3>
+  <p>
+    <strong>¿Qué es?</strong> Entrega de recursos de cómputo (servidores, almacenamiento, bases de datos,
+    software) por internet, sin necesidad de infraestructura física propia. Se paga por uso, como un servicio de luz.
+  </p>
+  <p>
+    <strong>En lenguaje empresarial:</strong> "No comprar servidores, alquilarlos por mes."
+    La empresa evita la inversión inicial de capital y escala según necesidad.
+  </p>
+  <table>
+    <thead><tr><th>Modelo</th><th>Descripción</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>IaaS</strong></td><td>Alquilas servidores virtuales</td><td>AWS EC2, Google Compute Engine</td></tr>
+      <tr><td><strong>PaaS</strong></td><td>Alquilas plataforma para desarrollar apps</td><td>Heroku, Google App Engine</td></tr>
+      <tr><td><strong>SaaS</strong></td><td>Usas software por suscripción</td><td>Google Workspace, Salesforce, Odoo</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Costo típico para empresa pequeña:</strong> $50.000–$500.000 COP/mes según servicio.</p>
+  <p><strong>Riesgo:</strong> Dependencia del proveedor y costos variables si el uso aumenta.</p>
+  <div class="example-box"><strong>🇨🇴 Ejemplo colombiano:</strong> Los servidores de <em>Rappi</em> operan sobre AWS y Google Cloud, lo que les permite escalar de 10 a 10.000 pedidos diarios sin comprar servidores.</div>
+
+  <h3>2. Inteligencia Artificial y Machine Learning</h3>
+  <p>
+    <strong>¿Qué es?</strong> Capacidad de las máquinas para aprender de datos y tomar decisiones
+    que normalmente requieren inteligencia humana.
+  </p>
+  <p>
+    <strong>En lenguaje empresarial:</strong> "Que la máquina haga lo que antes hacía una persona,
+    pero más rápido y sin errores de fatiga."
+  </p>
+  <table>
+    <thead><tr><th>Tipo de IA</th><th>Qué hace</th><th>Ejemplo de uso</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Machine Learning</strong></td><td>Aprende de datos sin ser programada explícitamente</td><td>Predicción de demanda, segmentación de clientes</td></tr>
+      <tr><td><strong>NLP</strong></td><td>Entiende y genera lenguaje natural</td><td>Chatbots, análisis de sentimiento en reviews</td></tr>
+      <tr><td><strong>Visión por computadora</strong></td><td>Interpreta imágenes</td><td>Reconocimiento de productos, control de calidad</td></tr>
+      <tr><td><strong>IA generativa</strong></td><td>Genera contenido nuevo (texto, imagen, código)</td><td>ChatGPT, DALL-E, generación de descripciones</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Costo típico:</strong> $0 (herramientas gratuitas) a $5.000.000 COP/mes (modelos custom).</p>
+  <p><strong>Riesgo:</strong> Sesgos en datos generan decisiones injustas. Transparencia en decisiones. Regulación creciente (UE AI Act, proyectos de ley en Colombia).</p>
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Nota regulatoria Colombia:</strong> No existe ley específica de IA aún, pero aplica la Ley 1581/2012 de protección de datos personales sin importar la tecnología usada. El MinTIC está trabajando en el marco de IA responsable.</p>
+  </div>
+  <div class="example-box"><strong>🇨🇴 Ejemplo colombiano:</strong> <em>Addoc</em>, empresa colombiana de servicios de salud, implementó un chatbot con IA para automatizar la agenda de citas médicas, reduciendo tiempos de espera y liberando personal administrativo.</div>
+
+  <h3>3. Internet de las Cosas (IoT)</h3>
+  <p>
+    <strong>¿Qué es?</strong> Red de objetos físicos con sensores y software que se conectan entre sí
+    e internet para intercambiar datos automáticamente.
+  </p>
+  <p>
+    <strong>En lenguaje empresarial:</strong> "Que los objetos del negocio generen datos automáticamente
+    en lugar de que alguien los capture a mano."
+  </p>
+  <p><strong>Componentes:</strong> Sensores (recogen datos) → Conectividad (WiFi, celular, LoRa) → Plataforma (procesa y muestra) → Actuadores (ejecutan acciones).</p>
+  <p><strong>Costo típico:</strong> $50.000–$500.000 COP por dispositivo + plataforma. Solución básica: $1.000.000–$5.000.000 COP.</p>
+  <p><strong>Riesgo:</strong> Seguridad de dispositivos (pueden ser vulnerados), costo de mantenimiento, necesidad de conectividad constante.</p>
+  <div class="example-box"><strong>🇨🇴 Ejemplo colombiano:</strong> <em>Cencosud</em> (Jumbo, Metro) usa sensores IoT en cámaras de frío de sus centros de distribución para monitorear temperatura en tiempo real y evitar pérdidas de inventario refrigerado.</div>
+
+  <h3>4. Movilidad (Computación Móvil)</h3>
+  <p>
+    <strong>¿Qué es?</strong> Uso de dispositivos móviles (celulares, tablets) para acceder a información
+    y procesos de negocio desde cualquier lugar.
+  </p>
+  <p>
+    <strong>En lenguaje empresarial:</strong> "Acceder a los datos y procesos del negocio desde el bolsillo."
+  </p>
+  <p><strong>Costo típico:</strong> $0 (WhatsApp Business, Google Sheets) a $3.000.000 COP/mes (apps personalizadas).</p>
+  <p><strong>Riesgo:</strong> Seguridad de datos en dispositivos personales y dependencia de conexión a internet.</p>
+  <div class="example-box"><strong>🇨🇴 Ejemplo colombiano:</strong> <em>Estudio jurídico Brigard Urrutia</em> usa una aplicación de gestión de casos en tablets para que sus abogados accedan a expedientes desde cualquier juzgado, reduciendo tiempo de búsqueda de 45 a 5 minutos.</div>
+
+  <h3>5. Blockchain</h3>
+  <p>
+    <strong>¿Qué es?</strong> Registro distribuido y descentralizado donde cada transacción queda fija
+    y es verificable por todos los participantes sin necesidad de intermediarios.
+  </p>
+  <p>
+    <strong>En lenguaje empresarial:</strong> "Una base de datos donde nadie puede alterar lo que pasó."
+  </p>
+  <p><strong>Aplicaciones relevantes para empresas pequeñas:</strong> Trazabilidad de productos (de dónde viene, quién lo tocó), certificación de autenticidad, contratos inteligentes (cuando pasa X, se ejecuta Y automático).</p>
+  <p><strong>Costo típico:</strong> $2.000.000–$10.000.000 COP para implementación inicial.</p>
+  <p><strong>Riesgo:</strong> No es necesario para todo. Si una base de datos centralizada resuelve el problema, no hace falta blockchain. Escalabilidad limitada, consumo de energía, regulación indefinida en Colombia.</p>
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Para Mercado360 en esta etapa:</strong> Blockchain no es prioritario. Es más relevante para cadenas de suministro complejas o transacciones financieras de alto valor. Una tienda retail básica no necesita libro distribuidos para registrar ventas.</p>
+  </div>
+  <div class="example-box"><strong>🇨🇴 Ejemplo colombiano:</strong> <em>Bancolombia</em> exploró blockchain para la trazabilidad de garantías en operaciones de comercio internacional, reduciendo tiempos de verificación de 5 días a 2 horas.</div>
+
+  <h3>6. Automatización de Procesos (RPA)</h3>
+  <p>
+    <strong>¿Qué es?</strong> Uso de software para ejecutar tareas repetitivas que antes hacía una persona,
+    sin necesidad de intervención manual constante.
+  </p>
+  <p>
+    <strong>En lenguaje empresarial:</strong> "Que el software haga las tareas aburridas y repetitivas
+    para que las personas se enfoquen en lo que agrega valor."
+  </p>
+  <table>
+    <thead><tr><th>Tipo</th><th>Descripción</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>RPA</strong></td><td>Robots de software que imitan clics y escritura en sistemas existentes</td><td>Automatizar captura de datos de PDFs</td></tr>
+      <tr><td><strong>BPM</strong></td><td>Plataformas para diseñar, ejecutar y monitorear procesos automáticamente</td><td>Orquestar flujo de aprobación de facturas</td></tr>
+      <tr><td><strong>API Integrations</strong></td><td>Conexión entre sistemas para que los datos fluyan sin transcripción manual</td><td>WhatsApp conectado a inventario</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Costo típico:</strong> $0–$500.000 COP/mes (WhatsApp Business API, Make/Integromat, Zapier).</p>
+  <p><strong>Riesgo:</strong> Si el proceso está mal diseñado, el robot lo ejecuta rápido y mal. Primero mejorar el proceso, luego automatizarlo.</p>
+  <div class="example-box"><strong>🇨🇴 Ejemplo colombiano:</strong> <em>Grupo Nutresa</em> implementó RPA para automatizar el proceso de captura de pedidos de retailers grandes, reduciendo errores del 12% al 0.5% y liberando 8 horas-hombre diarias por equipo.</div>
+
+  <h3>7. Analítica de Datos / Business Intelligence</h3>
+  <p>
+    <strong>¿Qué es?</strong> Uso de grandes volúmenes de datos para extraer información que permita
+    tomar mejores decisiones de negocio.
+  </p>
+  <p>
+    <strong>En lenguaje empresarial:</strong> "No decidir por intuición, decidir por datos."
+    Los datos responden: ¿qué pasó? ¿por qué pasó? ¿qué pasará? ¿qué debo hacer?
+  </p>
+  <table>
+    <thead><tr><th>Tipo de analytics</th><th>Pregunta que responde</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Descriptivo</strong></td><td>¿Qué pasó?</td><td>Reporte de ventas del mes</td></tr>
+      <tr><td><strong>Diagnóstico</strong></td><td>¿Por qué pasó?</td><td>Análisis de por qué cayeron las ventas en Barranquilla</td></tr>
+      <tr><td><strong>Predictivo</strong></td><td>¿Qué pasará?</td><td>Modelo que predice demanda para diciembre</td></tr>
+      <tr><td><strong>Prescriptivo</strong></td><td>¿Qué debo hacer?</td><td>Recomendación de cuánto stock pedir por producto</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Costo típico:</strong> $0 (Google Data Studio, Power BI) a $2.000.000 COP/mes (herramientas empresariales).</p>
+  <p><strong>Riesgo:</strong> Datos de baja calidad generan decisiones malas. "Basura entra, basura sale."</p>
+  <div class="example-box"><strong>🇨🇴 Ejemplo colombiano:</strong> <em>Almacenes Éxito</em> usa análisis de datos para predecir qué productos estarán agotados en cada sucursal antes de que ocurra, optimizando el reabastecimiento y reduciendo rupturas de stock en un 23%.</div>
+</section>
+
+<!-- ══ FICHAS ══ -->
+<section id="fichas" class="card">
+  <h2>🃏 Fichas de Tecnología — Resumen rápido</h2>
+  <p>Cada ficha incluye: qué es, ejemplo colombiano, cómo se aplica en Mercado360 y su principal riesgo.</p>
+
+  <!-- Ficha 1: Cloud -->
+  <div class="tech-card">
+    <span class="tech-tag">Cloud Computing</span>
+    <h3>IaaS · PaaS · SaaS</h3>
+    <div class="tech-sections">
+      <div class="tech-section">
+        <h4>¿Qué es?</h4>
+        <p>Recursos de cómputo alquilados por internet: servidores, almacenamiento, software. Se paga por uso.</p>
+      </div>
+      <div class="tech-section">
+        <h4>¿Para qué sirve en TD?</h4>
+        <p>Eliminar inversión inicial en infraestructura. Escalar según demanda. Acceder a datos desde cualquier lugar.</p>
+      </div>
+    </div>
+    <div class="example-box"><strong>🇨🇴 Ejemplo:</strong> <em>Rappi</em> escala sobre AWS sin comprar servidores propios; paga por lo que usa.</div>
+    <div class="mercado360-box aplica">
+      <strong>✅ Aplicación en Mercado360:</strong>
+      <p>Migrar hojas de cálculo de inventario a <em>Google Sheets</em> (SaaS) para que todos los vendedores accedan desde el celular en tiempo real. Costo: $0 con cuenta Google gratuita. Tiempo: 1 semana.</p>
+    </div>
+    <div class="risk-box"><strong>⚠️ Riesgo:</strong> Dependencia del proveedor. Si Google sube precios o cae el servicio, la empresa queda sin datos. Mitigación: mantener respaldo local y evaluar contratos anuales.</div>
+  </div>
+
+  <!-- Ficha 2: IA -->
+  <div class="tech-card">
+    <span class="tech-tag">Inteligencia Artificial</span>
+    <h3>Machine Learning · NLP · IA Generativa</h3>
+    <div class="tech-sections">
+      <div class="tech-section">
+        <h4>¿Qué es?</h4>
+        <p>Máquinas que aprenden de datos para tomar decisiones o generar contenido que normalmente requieren inteligencia humana.</p>
+      </div>
+      <div class="tech-section">
+        <h4>¿Para qué sirve en TD?</h4>
+        <p>Automatizar decisiones basadas en patrones, personalizar experiencias, predecir demanda, generar contenido.</p>
+      </div>
+    </div>
+    <div class="example-box"><strong>🇨🇴 Ejemplo:</strong> <em>Addoc</em> implementó chatbot con IA para agenda de citas médicas, reduciendo tiempos de espera.</div>
+    <div class="mercado360-box aplica">
+      <strong>✅ Aplicación en Mercado360:</strong>
+      <p>Chatbot en WhatsApp para responder preguntas frecuentes ("¿ Tienen Aguila?" / "¿Cuál es el precio?"). Usa API de ChatGPT para entender intención del cliente. Costo: $0–$200.000 COP/mes. Tiempo: 2–3 semanas.</p>
+    </div>
+    <div class="risk-box"><strong>⚠️ Riesgo:</strong> Sesgos en respuestas (puede dar información incorrecta sobre productos). Regulación de IA en Colombia aún no definida. Mitigación: supervisar respuestas y tener opción de escalar a humano.</div>
+  </div>
+
+  <!-- Ficha 3: IoT -->
+  <div class="tech-card">
+    <span class="tech-tag">Internet de las Cosas</span>
+    <h3>Sensores · Conectividad · Actuadores</h3>
+    <div class="tech-sections">
+      <div class="tech-section">
+        <h4>¿Qué es?</h4>
+        <p>Objetos físicos conectados a internet que generan datos automáticamente mediante sensores.</p>
+      </div>
+      <div class="tech-section">
+        <h4>¿Para qué sirve en TD?</h4>
+        <p>Monitoreo en tiempo real de activos, inventario, ambiente. Eliminar captura manual de datos.</p>
+      </div>
+    </div>
+    <div class="example-box"><strong>🇨🇴 Ejemplo:</strong> <em>Cencosud</em> monitorea temperatura de cámaras de frío con sensores IoT en tiempo real.</div>
+    <div class="mercado360-box no-aplica">
+      <strong>⛔ No aplica en etapa 1 de Mercado360:</strong>
+      <p>El costo de equipar estanterías con sensores RFID o poids es alto ($1.000.000–$5.000.000 COP). El problema de inventario de Mercado360 se resuelve primero con cloud y automatización. IoT queda para etapa 2 o 3.</p>
+    </div>
+    <div class="risk-box"><strong>⚠️ Riesgo:</strong> Costo elevado por dispositivo, dependencia de conectividad, vulnerabilidad de seguridad. Mitigación: comenzar con soluciones de bajo costo (cámaras + analítica) en lugar de sensores por producto.</div>
+  </div>
+
+  <!-- Ficha 4: Movilidad -->
+  <div class="tech-card">
+    <span class="tech-tag">Movilidad</span>
+    <h3>Apps · Responsive · PWA</h3>
+    <div class="tech-sections">
+      <div class="tech-section">
+        <h4>¿Qué es?</h4>
+        <p>Acceso a información y procesos de negocio desde dispositivos móviles en cualquier ubicación.</p>
+      </div>
+      <div class="tech-section">
+        <h4>¿Para qué sirve en TD?</h4>
+        <p>Vendedores con datos en terreno, clientes con seguimiento de pedidos, gerentes con dashboards en tiempo real.</p>
+      </div>
+    </div>
+    <div class="example-box"><strong>🇨🇴 Ejemplo:</strong> <em>Brigard Urrutia</em> da a sus abogados acceso a expedientes en tablets desde cualquier juzgado.</div>
+    <div class="mercado360-box aplica">
+      <strong>✅ Aplicación en Mercado360:</strong>
+      <p>Vendedor en piso de venta consulta Google Sheets con inventario desde su celular. Cliente recibe seguimiento de pedido por WhatsApp. Gerente revisa ventas del día desde su casa. Costo: $0. Tiempo: 1 día.</p>
+    </div>
+    <div class="risk-box"><strong>⚠️ Riesgo:</strong> Datos de clientes en dispositivos personales (seguridad). Mitigación: políticas de uso, Google Workspace con controls de administrador para borrar datos remota.</div>
+  </div>
+
+  <!-- Ficha 5: Blockchain -->
+  <div class="tech-card">
+    <span class="tech-tag">Blockchain</span>
+    <h3>Registro distribuido · Contratos inteligentes</h3>
+    <div class="tech-sections">
+      <div class="tech-section">
+        <h4>¿Qué es?</h4>
+        <p>Base de datos descentralizada e inalterable donde cada transacción es verificable por todos los participantes.</p>
+      </div>
+      <div class="tech-section">
+        <h4>¿Para qué sirve en TD?</h4>
+        <p>Trazabilidad de cadena de suministro, certificación de autenticidad, contratos que se ejecutan solos.</p>
+      </div>
+    </div>
+    <div class="example-box"><strong>🇨🇴 Ejemplo:</strong> <em>Bancolombia</em> usa blockchain para verificación de garantías en comercio internacional.</div>
+    <div class="mercado360-box no-aplica">
+      <strong>⛔ No aplica en etapa 1 de Mercado360:</strong>
+      <p>Blockchain es relevante para cadenas de suministro complejas o transacciones financieras de alto valor. Una tienda retail con procesos simples no necesita libro distribuido. Una base de datos centralizada (Cloud) resuelve el problema a fracción del costo.</p>
+    </div>
+    <div class="risk-box"><strong>⚠️ Riesgo:</strong> Sobrecosto sin beneficio claro para el caso. Escalabilidad limitada. Regulación indefinida en Colombia. Mitigación: no implementar blockchain sin un problema específico que lo justifique.</div>
+  </div>
+
+  <!-- Ficha 6: Automatización -->
+  <div class="tech-card">
+    <span class="tech-tag">Automatización</span>
+    <h3>RPA · BPM · Integraciones API</h3>
+    <div class="tech-sections">
+      <div class="tech-section">
+        <h4>¿Qué es?</h4>
+        <p>Software que ejecuta tareas repetitivas automáticamente, imitando lo que hace una persona en un sistema.</p>
+      </div>
+      <div class="tech-section">
+        <h4>¿Para qué sirve en TD?</h4>
+        <p>Eliminar tareas manuales y repetitivas: captura de datos, envío de notificaciones, actualización de registros.</p>
+      </div>
+    </div>
+    <div class="example-box"><strong>🇨🇴 Ejemplo:</strong> <em>Grupo Nutresa</em> automatizó captura de pedidos de retailers, reduciendo errores del 12% al 0.5%.</div>
+    <div class="mercado360-box aplica">
+      <strong>✅ Aplicación en Mercado360:</strong>
+      <p>Bot en WhatsApp que responde "¿Tienes leche?" con consulta a inventario y responde automáticamente. Integración entre WhatsApp y Google Sheets para confirmar disponibilidad. Notificación automática cuando llega producto nuevo. Costo: $0–$300.000 COP/mes (Make/Zapier). Tiempo: 1–2 semanas.</p>
+    </div>
+    <div class="risk-box"><strong>⚠️ Riesgo:</strong> Si el proceso está mal diseñado, el robot lo ejecuta rápido y mal. Mitigación: primero optimizar el proceso (no automatizar caos) y luego automatizar.</div>
+  </div>
+
+  <!-- Ficha 7: Analítica -->
+  <div class="tech-card">
+    <span class="tech-tag">Analítica de Datos / BI</span>
+    <h3>Descriptivo · Diagnóstico · Predictivo · Prescriptivo</h3>
+    <div class="tech-sections">
+      <div class="tech-section">
+        <h4>¿Qué es?</h4>
+        <p>Proceso de transformar datos en información para la toma de decisiones: reportes, análisis, predicciones, recomendaciones.</p>
+      </div>
+      <div class="tech-section">
+        <h4>¿Para qué sirve en TD?</h4>
+        <p>Saber qué pasó, por qué pasó, qué pasará y qué hacer. Reemplazar intuición por evidencia.</p>
+      </div>
+    </div>
+    <div class="example-box"><strong>🇨🇴 Ejemplo:</strong> <em>Almacenes Éxito</em> predice agotados de stock con analytics, reduciendo rupturas en 23%.</div>
+    <div class="mercado360-box aplica">
+      <strong>✅ Aplicación en Mercado360:</strong>
+      <p>Dashboard en Google Data Studio conectado a Google Sheets: ventas por producto, por hora, por vendedor. Identificar qué productos se venden más los fines de semana. Predecir cuándo reponer inventario. Costo: $0. Tiempo: 3–5 días.</p>
+    </div>
+    <div class="risk-box"><strong>⚠️ Riesgo:</strong> Si los datos en Google Sheets están incompletos o mal ingresados, el dashboard muestra información falsa. "Basura entra, basura sale." Mitigación: disciplina de ingreso de datos y validación periódica.</div>
+  </div>
+</section>
+
+<!-- ══ ACTIVIDAD ══ -->
+<section id="actividad" class="card">
+  <h2>⚙️ Actividad Presencial</h2>
+
+  <div class="dojo-panel">
+    <h3>🏆 Puntos disponibles esta sesión</h3>
+    <div class="dojo-items">
+      <div class="dojo-item">📋 <span>Asistencia</span> <span class="pts">+10 XP</span></div>
+      <div class="dojo-item">🎤 <span>Exposición grupal</span> <span class="pts">+15 XP</span></div>
+      <div class="dojo-item">📝 <span>Actividad práctica</span> <span class="pts">+10 XP</span></div>
+      <div class="dojo-item">📋 <span>Entrega de evidencia</span> <span class="pts">+15 XP</span></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-header presencial">⏱️ Bloque 1 — Exposiciones grupales · <em style="font-weight:400;margin-left:.3rem">Bloom: Recordar → Analizar</em></div>
+    <div class="activity-body">
+      <p><strong>Formato:</strong> Equipos de 2–3 personas. Cada equipo presenta UNA tecnología en 8–10 minutos.</p>
+      <p><strong>Estructura obligatoria (5 partes):</strong></p>
+      <ol>
+        <li><strong>Concepto (2 min):</strong> ¿Qué es la tecnología y para qué sirve en una empresa?</li>
+        <li><strong>Caso real (2 min):</strong> Una empresa que usó esta tecnología (con fuente verificable).</li>
+        <li><strong>Aplicación a Mercado360 (3 min):</strong> ¿Cómo la aplicarían? ¿Qué problema resuelve? ¿Cuánto costaría?</li>
+        <li><strong>Riesgo o límite (2 min):</strong> ¿Cuál es el mayor riesgo? ¿Para quién no funciona?</li>
+        <li><strong>Recomendación (1 min):</strong> Una acción concreta para Mercado360.</li>
+      </ol>
+      <div class="info-box warn">
+        <span class="icon">⚠️</span>
+        <p><strong>Regla del docente:</strong> La exposición no debe ser "qué es cloud computing", sino "cloud computing para resolver ESTE problema de Mercado360". Si no hay recomendación al caso, la exposición está incompleta.</p>
+      </div>
+      <p><strong>Tecnologías asignadas por equipo (semana 3):</strong></p>
+      <ul>
+        <li>Equipo 1: Cloud Computing</li>
+        <li>Equipo 2: Inteligencia Artificial y Machine Learning</li>
+        <li>Equipo 3: Internet de las Cosas (IoT)</li>
+        <li>Equipo 4: Automatización y RPA</li>
+        <li>Equipo 5: Datos y Analítica (BI)</li>
+        <li>Equipo 6: Movilidad</li>
+        <li>Equipo 7: Blockchain</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-header hti-a">✏️ Bloque 2 — Ficha de Tecnología para Mercado360 · <em style="font-weight:400;margin-left:.3rem">Bloom: Aplicar → Evaluar</em></div>
+    <div class="activity-body">
+      <p><strong>Misión:</strong> Cada estudiante completa una ficha de tecnología para Mercado360.</p>
+      <ol>
+        <li>Elegir la tecnología que mejor resuelva uno de los dolores priorizados en semana 1.</li>
+        <li>Completar la ficha (plantilla abajo en sección #evidencia).</li>
+        <li><strong>Importante:</strong> No puede ser la misma tecnología que presentaron en la exposición grupal.</li>
+        <li>Los primeros 3 voluntarios presentan su ficha en 3 minutos al grupo.</li>
+      </ol>
+      <div class="info-box tip">
+        <span class="icon">💡</span>
+        <p><strong>Recordatorio de la semana 1:</strong> Los dolores de Mercado360 eran: datos dispersos (múltiples hojas de cálculo no conectadas), procesos manuales (inventario escrito a mano), experiencia de cliente inconsistente (sin omnicanal), falta de visibilidad en ventas en tiempo real. Cada tecnología resuelve algunos, no todos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-header hti-b">🎯 Preguntas orientadoras (para discusión)</div>
+    <div class="activity-body">
+      <ol>
+        <li>¿Por qué Cloud Computing es accesible para empresas pequeñas aunque no tengan equipo de TI?</li>
+        <li>¿Cuál es la diferencia entre automatizar un proceso y mejorar un proceso con datos?</li>
+        <li>¿Por qué no todas las empresas necesitan Blockchain?</li>
+        <li>¿Qué diferencia hay entre IA y automatización?</li>
+        <li>¿Cuál tecnología es más viable para Mercado360 en los próximos 6 meses y por qué?</li>
+        <li>¿Por qué la tecnología sin problema es un gasto, pero la tecnología con problema es una inversión?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EVIDENCIA ══ -->
+<section id="evidencia" class="card">
+  <h2>📋 Evidencia — Ficha de Tecnología para Mercado360</h2>
+
+  <p><strong>Entregable individual:</strong> Ficha de tecnología habilitadora para Mercado360.</p>
+  <p><strong>Extensión máxima:</strong> 3 páginas. Formato libre (puede ser a mano, en documento o en esta misma página).</p>
+
+  <h3>La ficha debe incluir:</h3>
+  <ol>
+    <li><strong>Tecnología seleccionada</strong> (una de las 7 estudiadas).</li>
+    <li><strong>Problema de Mercado360 que resuelve</strong> (vincular al dolor de semana 1 con cita).</li>
+    <li><strong>Descripción de la aplicación</strong> en Mercado360 (cómo funcionaría paso a paso).</li>
+    <li><strong>Beneficios esperados</strong> en tres dimensiones: cliente, proceso, datos.</li>
+    <li><strong>Costo estimado</strong> (rango: bajo / medio / alto) y <strong>tiempo de implementación</strong>.</li>
+    <li><strong>Riesgo principal</strong> de implementar esta tecnología.</li>
+    <li><strong>Métrica de éxito</strong> para saber si la implementación fue exitosa.</li>
+  </ol>
+
+  <div class="ficha-template">
+    <h4>📄 Plantilla de Ficha de Tecnología — Mercado360</h4>
+    <div class="ficha-field">
+      <label>Tecnología seleccionada</label>
+      <input type="text" placeholder="Ej: Automatización con WhatsApp Business API">
+    </div>
+    <div class="ficha-row">
+      <div class="ficha-field">
+        <label>Problema de Mercado360 que resuelve</label>
+        <input type="text" placeholder="Vincular al dolor de semana 1">
+      </div>
+      <div class="ficha-field">
+        <label>Costo estimado</label>
+        <input type="text" placeholder="Bajo / Medio / Alto + rango en COP">
+      </div>
+    </div>
+    <div class="ficha-field">
+      <label>Descripción de la aplicación (cómo funcionaría paso a paso)</label>
+      <textarea placeholder="Paso 1: ... Paso 2: ... Paso 3: ..."></textarea>
+    </div>
+    <div class="ficha-field">
+      <label>Beneficio en dimensión CLIENTE</label>
+      <input type="text" placeholder="¿Cómo mejora la experiencia del cliente?">
+    </div>
+    <div class="ficha-field">
+      <label>Beneficio en dimensión PROCESO</label>
+      <input type="text" placeholder="¿Cómo mejora la eficiencia operativa?">
+    </div>
+    <div class="ficha-field">
+      <label>Beneficio en dimensión DATOS</label>
+      <input type="text" placeholder="¿Cómo mejora la calidad o uso de datos?">
+    </div>
+    <div class="ficha-row">
+      <div class="ficha-field">
+        <label>Tiempo de implementación estimado</label>
+        <input type="text" placeholder="Ej: 2 semanas">
+      </div>
+      <div class="ficha-field">
+        <label>Métrica de éxito</label>
+        <input type="text" placeholder="¿Cómo medimos si funcionó?">
+      </div>
+    </div>
+    <div class="ficha-field">
+      <label>Riesgo principal</label>
+      <textarea placeholder="¿Cuál es el mayor riesgo? ¿Cómo se mitiga?"></textarea>
+    </div>
+  </div>
+
+  <h3>Rúbrica de evaluación</h3>
+  <table class="rubric-table">
+    <thead>
+      <tr>
+        <th>Criterio</th>
+        <th>Peso</th>
+        <th>Destacado</th>
+        <th>Satisfactorio</th>
+        <th>En desarrollo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tecnología vinculada a problema real</td>
+        <td class="peso">20%</td>
+        <td>Tecnología resuelve un dolor específico de Mercado360 (citado de semana 1).</td>
+        <td>Tecnología vinculada a un problema pero sin cita.</td>
+        <td>Tecnología sin conexión clara al problema.</td>
+      </tr>
+      <tr>
+        <td>Descripción de aplicación</td>
+        <td class="peso">20%</td>
+        <td>Aplicación clara y detallada, con pasos de implementación.</td>
+        <td>Aplicación descrita pero incompleta.</td>
+        <td>Aplicación vaga.</td>
+      </tr>
+      <tr>
+        <td>Beneficios (cliente, proceso, datos)</td>
+        <td class="peso">20%</td>
+        <td>Beneficios bien explicados en las 3 dimensiones, con métricas.</td>
+        <td>Beneficios en 2 dimensiones.</td>
+        <td>Beneficios en 1 dimensión.</td>
+      </tr>
+      <tr>
+        <td>Costo y tiempo estimado</td>
+        <td class="peso">15%</td>
+        <td>Costo estimado en rango (bajo/medio/alto) + tiempo realista.</td>
+        <td>Costo sin tiempo o viceversa.</td>
+        <td>Sin estimación.</td>
+      </tr>
+      <tr>
+        <td>Riesgo identificado</td>
+        <td class="peso">15%</td>
+        <td>Riesgo específico de la tecnología, con estrategia de mitigación.</td>
+        <td>Riesgo mencionado sin mitigación.</td>
+        <td>"Ningún riesgo."</td>
+      </tr>
+      <tr>
+        <td>Métrica de éxito</td>
+        <td class="peso">10%</td>
+        <td>Métrica clara y medible.</td>
+        <td>Métrica con definición incompleta.</td>
+        <td>Métrica vaga.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Tip para la ficha:</strong> Esta ficha es un ensayo para la sección de oportunidad priorizada del parcial 1 (semana 5). En el parcial aplicarás el mismo concepto a RetailNova, un caso diferente. La pregunta clave: <em>"¿Cómo se selecciona la tecnología correcta para un problema específico?"</em></p>
+  </div>
+</section>
+
+<!-- ══ BIBLIOGRAFÍA ══ -->
+<section id="bib" class="card">
+  <h2>📖 Fuentes y Lecturas Recomendadas</h2>
+
+  <h3>Fuentes académicas y profesionales</h3>
+  <ol class="bib">
+    <li>Davenport, T.H. & Harris, J.G. (2017). <em>Competing on Analytics: The New Science of Winning.</em> Harvard Business Review Press.</li>
+    <li>Gartner (2024). <em>Hype Cycle for Emerging Technologies.</em> Gartner Research.</li>
+    <li>Iansiti, M. & Lakhani, K.R. (2017). "The truth about blockchain." <em>Harvard Business Review.</em></li>
+    <li>Marston, S. et al. (2011). "Cloud computing — The business perspective." <em>Decision Support Systems</em>, 51(1), 176–189.</li>
+    <li>MIT Sloan Management Review. Artículos sobre estado actual de IA, IoT, blockchain en empresas.</li>
+    <li>O'Reilly Media. <em>Cloud Computing Basics</em> (recursos gratuitos en línea).</li>
+    <li>Porter, M.E. & Heppelmann, J.E. (2014). "How smart, connected products are transforming competition." <em>Harvard Business Review</em>.</li>
+    <li>Russell, S. & Norvig, P. (2020). <em>Artificial Intelligence: A Modern Approach.</em> Pearson. [4ta edición].</li>
+    <li>van der Aalst, W. et al. (2018). "Robotic Process Intelligence." <em>BPM Conference</em>.</li>
+    <li>Zanella, A. et al. (2014). "Internet of Things for smart cities." <em>IEEE IoT Journal</em>, 1(1), 22–32.</li>
+  </ol>
+
+  <h3>Normatividad Colombia</h3>
+  <ol class="bib">
+    <li>MinTIC Colombia. Marco de confianza digital y IA responsable. Disponible en: <a href="https://www.mintic.gov.co" target="_blank" rel="noopener">mintic.gov.co</a></li>
+    <li>Ley 1581 de 2012 — Protección de datos personales (Ley de Habeas Data).</li>
+  </ol>
+
+  <h3>Para las exposiciones (fuentes verificables)</h3>
+  <ul>
+    <li><strong>Harvard Business Review</strong> — casos de transformación digital.</li>
+    <li><strong>MIT Sloan Management Review</strong> — artículos sobre tecnologías.</li>
+    <li><strong>Gartner</strong> — research notes (resúmenes gratuitos disponibles).</li>
+    <li><strong>McKinsey</strong> — artículos sobre digital y tecnología.</li>
+    <li><strong>TechCrunch, Wired</strong> — casos de empresas de tecnología.</li>
+    <li><strong>MinTIC Colombia</strong> — estadísticas de digitalización en Colombia.</li>
+  </ul>
+
+  <div class="info-box cite">
+    <span class="icon">🏛️</span>
+    <p><strong>Regla de fuentes:</strong> Si un equipo no tiene fuente verificable para el caso real, el caso no es válido. En el parcial, el docente puede preguntar de dónde salió el dato.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  TD04 · Transformación Digital en la Empresa · Semana 4 de 13 · Mercado360 S.A.S.<br>
+  Instituto de Universidad Barranquilla · 2026
+</footer>
+
+</body>
+</html>

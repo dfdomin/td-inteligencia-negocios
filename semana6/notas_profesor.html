@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas del Profesor — Semana 6: Innovación y Design Thinking | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 1.8rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: .95rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.25rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; font-size: .93rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; font-size: .92rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.alert { background: #fce4ec; border-left: 4px solid var(--red); }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .9rem; }
+
+    .session-timeline { list-style: none; padding: 0; margin: 1rem 0; }
+    .session-timeline li { display: flex; gap: 1rem; margin-bottom: .8rem; font-size: .9rem; border-bottom: 1px solid var(--border); padding-bottom: .8rem; }
+    .session-timeline li:last-child { border-bottom: none; }
+    .session-timeline .time { font-weight: 700; color: var(--accent); min-width: 70px; flex-shrink: 0; background: var(--light-bg); border-radius: 6px; padding: .2rem .5rem; text-align: center; font-size: .82rem; }
+    .session-timeline .desc { flex: 1; }
+    .session-timeline .desc strong { display: block; color: var(--primary); margin-bottom: .2rem; }
+
+    .anti-pattern { background: var(--card-bg); border: 1px solid var(--border); border-left: 4px solid var(--red); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.3rem; margin-bottom: 1rem; }
+    .anti-pattern h4 { font-size: .92rem; color: var(--red); margin-bottom: .4rem; }
+    .anti-pattern p { font-size: .88rem; margin: 0; }
+    .anti-pattern .resolve { color: var(--green); font-size: .85rem; margin-top: .4rem; }
+    .anti-pattern .resolve strong { display: block; margin-bottom: .2rem; }
+
+    .phase-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-bottom: 1rem; }
+    .phase-block h4 { font-size: .92rem; color: var(--primary); margin-bottom: .5rem; }
+    .phase-block p { font-size: .88rem; margin: 0; }
+
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: .6rem; font-size: .9rem; }
+    .checklist li::before { content: '☐'; font-size: 1.1rem; flex-shrink: 0; color: var(--accent); }
+
+    .verificacion-box { background: #e8f5e9; border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; }
+    .verificacion-box h4 { font-size: .9rem; color: var(--green); margin-bottom: .6rem; }
+    .verificacion-box table { margin: 0; font-size: .88rem; }
+    .verificacion-box td:first-child { font-weight: 700; color: var(--primary); }
+
+    .materials-table { font-size: .88rem; }
+    .materials-table th { background: var(--accent); }
+
+    .qna-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.3rem; margin-bottom: .8rem; }
+    .qna-block .question { font-weight: 700; font-size: .92rem; color: var(--primary); margin-bottom: .4rem; }
+    .qna-block .answer { font-size: .88rem; color: var(--accent); padding-left: 1rem; border-left: 3px solid var(--gold); }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="badge-module">TD — Guía Docente</span>
+  <h1>Semana 6 — Innovación y Design Thinking</h1>
+  <p>Notas del profesor · Taller práctico · 120 minutos</p>
+</header>
+
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana6/">Ver página del estudiante</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana5/notas_profesor.html">← Semana 5</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana7/notas_profesor.html">Semana 7 →</a>
+</nav>
+
+<main>
+
+  <!-- Enfoque -->
+  <div class="card">
+    <h2>1. Enfoque de la Sesión</h2>
+
+    <div class="info-box alert">
+      <span class="icon">⚠️</span>
+      <p><strong>Regla central:</strong> La sesión debe producir una <strong>decisión de priorización</strong>, no una lista de ideas. Si los estudiantes terminan la clase con 30 oportunidades sin filtrar, la sesión falló.</p>
+    </div>
+
+    <p>Esta semana cierra el ciclo de diagnóstico que empezó en la semana 1. Los estudiantes tienen dolores, han mapeado procesos, conocen tecnologías. Ahora el trabajo es transformar esa información en una <strong>solución candidata con criterio de selección</strong>.</p>
+
+    <div class="info-box warn">
+      <span class="icon">🚫</span>
+      <p><strong>Advertencia crítica:</strong> No dejar que los estudiantes propongan soluciones antes de revisar los dolores. La tentación es decir "Mercado360 necesita una app". Eso no es innovación — es copy-paste de lo que otro hizo. La innovación empieza en el dolor, no en la tecnología.</p>
+    </div>
+  </div>
+
+  <!-- Secuencia didactica -->
+  <div class="card">
+    <h2>2. Secuencia Didáctica Detallada</h2>
+
+    <ol class="session-timeline">
+      <li>
+        <span class="time">0-15 min</span>
+        <div class="desc">
+          <strong>Bloque 1 — Repaso rápido y contexto</strong>
+          <p>Pregunta de apertura: "¿Cuál fue el dolor más urgente de Mercado360 que encontramos?" → Anotar en tablero. Presentar objetivo de la sesión.</p>
+        </div>
+      </li>
+      <li>
+        <span class="time">15-35 min</span>
+        <div class="desc">
+          <strong>Bloque 2 — Conceptos clave en acción</strong>
+          <p>Design Thinking como proceso de filtro (8 min) → Matriz impacto/esfuerzo (7 min) → MVP como filosofía (5 min).</p>
+        </div>
+      </li>
+      <li>
+        <span class="time">35-80 min</span>
+        <div class="desc">
+          <strong>Bloque 3 — Taller de ideación y priorización (45 min)</strong>
+          <p>Equipos de 3-4 personas. Post-its. Matriz. Justificación obligatoria. Circular por grupos corrigiendo errores.</p>
+        </div>
+      </li>
+      <li>
+        <span class="time">80-95 min</span>
+        <div class="desc">
+          <strong>Bloque 4 — Socialización y decisión (15 min)</strong>
+          <p>Cada equipo presenta 2 minutos: dolor, solución candidate, justificación, MVP propuesto. El docente resume patrones.</p>
+        </div>
+      </li>
+      <li>
+        <span class="time">95-105 min</span>
+        <div class="desc">
+          <strong>Bloque 5 — Cierre y preparación para evidencia</strong>
+          <p>Regla final: no se construye nada hasta que la solución candidate tenga datos que la respalden.</p>
+        </div>
+      </li>
+      <li>
+        <span class="time">105-120 min</span>
+        <div class="desc">
+          <strong>Buffer</strong>
+          <p>15 minutos de buffer para preguntas, ajustes y evidencia.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- Reglas del docente -->
+  <div class="card">
+    <h2>3. Reglas del Docente</h2>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div>
+        <h3 style="color: var(--green); font-size: .95rem; margin-bottom: .6rem;">✔️ Qué hacer</h3>
+        <ul class="checklist">
+          <li>Mantener presión sobre la justificación.</li>
+          <li>Hacer preguntas que conecten solución con dolor.</li>
+          <li>Celebrar cuando un equipo descarta con criterio.</li>
+          <li>Recordar que el objetivo es la solución verificable.</li>
+          <li>Preguntar: "¿Cómo se testa con 20 clientes en 2 semanas sin código?"</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color: var(--red); font-size: .95rem; margin-bottom: .6rem;">✖️ Qué NO hacer</h3>
+        <ul class="checklist">
+          <li>No dejar que propongan soluciones sin revisar los dolores.</li>
+          <li>No permitir que la sesión sea debate sobre tecnología.</li>
+          <li>No aceitar la matriz con oportunidades sin origen en los dolores.</li>
+          <li>No dar la respuesta correcta.</li>
+          <li>No dejar que un equipo presente más de una solución candidata.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anti-patrones -->
+  <div class="card">
+    <h2>4. Anti-Patrones (Errores Típicos de los Estudiantes)</h2>
+
+    <div class="anti-pattern">
+      <h4>1. Idea sin dolor</h4>
+      <p>El estudiante propone "una app de pedidos" sin vincularla a un dolor específico.</p>
+      <p class="resolve"><strong>Resolver:</strong> "¿A qué dolor responde esa solución? ¿Cómo lo sabes?"</p>
+    </div>
+
+    <div class="anti-pattern">
+      <h4>2. Todo es alto impacto</h4>
+      <p>El estudiante califica todas las oportunidades como nivel 3 de impacto.</p>
+      <p class="resolve"><strong>Resolver:</strong> "¿Cuál es la diferencia entre la oportunidad 1 y la oportunidad 5? Si todas son nivel 3, entonces ninguna es especial."</p>
+    </div>
+
+    <div class="anti-pattern">
+      <h4>3. Esfuerzo subestimado</h4>
+      <p>El estudiante pone todo en bajo esfuerzo porque "eso es fácil".</p>
+      <p class="resolve"><strong>Resolver:</strong> "¿Cuánto tiempo tomaría hacerlo bien? ¿Necesitas a alguien más? ¿Cuánto cuesta?"</p>
+    </div>
+
+    <div class="anti-pattern">
+      <h4>4. Solución predefinida</h4>
+      <p>El estudiante llega con la idea de "lo que Mercado360 necesita es un CRM" sin haber hecho el proceso.</p>
+      <p class="resolve"><strong>Resolver:</strong> "¿Cómo llegaste a esa conclusión? ¿Qué datos del caso la respaldan?"</p>
+    </div>
+
+    <div class="anti-pattern">
+      <h4>5. No testear</h4>
+      <p>El estudiante describe la solución completa sin proponer cómo validarla.</p>
+      <p class="resolve"><strong>Resolver:</strong> "¿Qué mínimo necesitas para saber si funciona? ¿Puedes hacerlo esta semana?"</p>
+    </div>
+  </div>
+
+  <!-- Preguntas de profundización -->
+  <div class="card">
+    <h2>5. Preguntas de Profundización</h2>
+
+    <div class="qna-block">
+      <div class="question">"¿Por qué el primer paso de Design Thinking es empatizar y no idear?"</div>
+      <div class="answer">Porque si no entiendes el problema real, construyes la solución equivocada. Empatizar evita desperdiciar recursos en soluciones a problemas imaginados.</div>
+    </div>
+
+    <div class="qna-block">
+      <div class="question">"¿Cuál es la diferencia entre un dolor organizacional y una oportunidad de innovación?"</div>
+      <div class="answer">Un dolor es un problema que ya existe. Una oportunidad es la solución potencial a ese dolor. La oportunidad se convierte en innovación real solo si se valida con el usuario.</div>
+    </div>
+
+    <div class="qna-block">
+      <div class="question">"¿Por qué una oportunidad de alto impacto y alto esfuerzo no siempre es la mejor primera decisión?"</div>
+      <div class="answer">Porque el esfuerzo alto consume recursos que podrían destinarse a verificar quick wins primero. Además, una solución de alto esfuerzo sin validar tiene riesgo mayor si falla.</div>
+    </div>
+
+    <div class="qna-block">
+      <div class="question">"¿Qué significa score mayor a 1 en la matriz impacto/esfuerzo?"</div>
+      <div class="answer">Que el impacto esperado es mayor que el esfuerzo requerido. Es una oportunidad que vale la pena explorar. Pero el score no reemplaza el juicio contextual.</div>
+    </div>
+
+    <div class="qna-block">
+      <div class="question">"¿Cómo se aplica la lógica de Jobs-to-be-Done en Mercado360?"</div>
+      <div class="answer">Entender qué trabajo está "contratando" el cliente cuando compra frutas y verduras. ¿Es solo "comprar producto"? ¿O es "tener comida fresca para la familia sin perder tiempo"? Si es lo segundo, la solución puede ser más amplia que el catálogo de productos.</div>
+    </div>
+  </div>
+
+  <!-- Verificación rápida -->
+  <div class="verificacion-box">
+    <h4>6. Verificación Rápida de Compresión (3 preguntas al final)</h4>
+    <table>
+      <tr><th>Pregunta</th><th>Respuesta esperada</th></tr>
+      <tr><td>"¿Cuál es el cuadrante donde Mercado360 debería empezar?"</td><td>Quick wins (alta impacto, bajo esfuerzo).</td></tr>
+      <tr><td>"¿Qué es un MVP y para qué sirve?"</td><td>La versión más pequeña de un producto que permite aprender si la solución funciona antes de invertir en desarrollo completo.</td></tr>
+      <tr><td>"¿Por qué la matriz impacto/esfuerzo no les da la respuesta definitiva?"</td><td>Porque la posición depende de estimación subjetiva que debe validarse con datos reales.</td></tr>
+    </table>
+    <p style="margin-top:.6rem; font-size:.85rem; font-style:italic;">Si los estudiantes responden correctamente estas tres preguntas, la sesión cumplió su objetivo mínimo.</p>
+  </div>
+
+  <!-- Materiales -->
+  <div class="card">
+    <h2>7. Materiales Necesarios</h2>
+    <table class="materials-table">
+      <tr><th>Material</th><th>Cantidad</th><th>Uso</th></tr>
+      <tr><td>Plantilla de matriz impacto/esfuerzo</td><td>1 por equipo</td><td>Actividad práctica</td></tr>
+      <tr><td>Post-its de 3 colores</td><td>3 bloques por equipo</td><td>Ideación sin filtro</td></tr>
+      <tr><td>Marcadores</td><td>4 por equipo</td><td>Tablero o papelógrafo</td></tr>
+      <tr><td>Tablero o papelógrafo</td><td>1</td><td>Socialización de equipos</td></tr>
+      <tr><td>Caso Mercado360 con dolores priorizados</td><td>1 por estudiante</td><td>Referencia</td></tr>
+    </table>
+  </div>
+
+  <!-- Respuestas esperadas -->
+  <div class="card">
+    <h2>8. Respuestas Esperadas de los Estudiantes</h2>
+
+    <h3>En la presentación de solución candidata</h3>
+    <div class="phase-block">
+      <h4>Respuestas fuertes:</h4>
+      <p>"Nosotros priorizamos la consulta de inventario por WhatsApp porque es alto impacto (el cliente deja de ir a otro lugar cuando sabe que hay producto) y bajo esfuerzo (se puede hacer con WhatsApp Business y un humano respondiendo en horario de oficina)."</p>
+      <p style="margin-top:.4rem;">"Nuestro MVP sería: conseguir un número de WhatsApp Business, responder manualmente durante una semana, contar cuántas consultas resultan en compra."</p>
+    </div>
+    <div class="phase-block">
+      <h4>Respuestas débiles:</h4>
+      <p>"Nosotros pensamos que Mercado360 necesita una app porque todas las empresas tienen apps."</p>
+      <p>"Todas nuestras oportunidades son alto impacto y alto esfuerzo porque somos ambiciosos."</p>
+    </div>
+
+    <h3 style="margin-top:1.2rem;">En la justificación del cuadrante</h3>
+    <div class="phase-block">
+      <h4>Respuestas fuertes:</h4>
+      <p>"El dashboard de gerencia es alto impacto porque mejora las decisiones, pero es alto esfuerzo porque requiere integrar datos de ventas, inventario y proveedores. Lo dejamos para el siguiente trimestre."</p>
+      <p style="margin-top:.4rem;">"El sistema de apartados es alto impacto y esfuerzo medio porque requiere un proceso de pago y separación física. Lo priorizamos después del WhatsApp de inventario."</p>
+    </div>
+    <div class="phase-block">
+      <h4>Respuestas débiles:</h4>
+      <p>"Lo pusimos ahí porque se veía bien."</p>
+      <p>"Es alto esfuerzo porque es complicado."</p>
+    </div>
+  </div>
+
+  <!-- Seguimiento semana 7 -->
+  <div class="card">
+    <h2>9. Seguimiento para Semana 7</h2>
+    <p>La evidencia de la semana 6 se convierte en insumo para la semana 7 (Datos y métricas):</p>
+    <ul>
+      <li>El MVP que el estudiante propuso necesita métricas para saber si funciona o no.</li>
+      <li>La semana 7 definirá: ¿Cómo se mide el éxito del quick win? ¿Qué datos se necesitan? ¿Con qué frecuencia se revisan?</li>
+    </ul>
+
+    <div class="info-box brain">
+      <span class="icon">❓</span>
+      <p><strong>Pregunta de apertura para semana 7:</strong> "Si la solución candidate es un WhatsApp que consulta inventario, ¿cómo sabríamos en 2 semanas si está funcionando o no? ¿Qué métricas deberíamos trackear?"</p>
+    </div>
+  </div>
+
+  <!-- Adaptaciones -->
+  <div class="card">
+    <h2>10. Adaptaciones según Formato de Clase</h2>
+    <table>
+      <tr><th>Formato</th><th>Ajuste</th></tr>
+      <tr><td><strong>Presencial estándar</strong></td><td>Seguir la secuencia tal como está. Usar papelógrafo para socialización.</td></tr>
+      <tr><td><strong>Virtual (Zoom)</strong></td><td>Breakout rooms de 4 personas. Jamboard o Miro para la matriz. Reducir socialización a 10 min, pedir video de 1 min.</td></tr>
+      <tr><td><strong>Aula invertida</strong></td><td>Pedir que lean Design Thinking y Lean Startup antes de la sesión. La sesión se dedica al taller y presentación.</td></tr>
+      <tr><td><strong>Accesibilidad</strong></td><td>Material en Word, no solo PDF. Tiempo adicional si el estudiante lo solicita. Opción de presentar en formato oral.</td></tr>
+    </table>
+  </div>
+
+  <!-- Nota final -->
+  <div class="info-box warn">
+    <span class="icon">🎯</span>
+    <p><strong>Nota final para el docente:</strong> Esta sesión tiene un riesgo pedagógico importante: que los estudiantes terminen con muchas ideas y ninguna decisión. El rol del docente es ser el filtro que obliga a elegir. La sesión es exitosa cuando cada equipo sale con <strong>una decisión</strong> y <strong>una forma de probar esa decisión</strong> con recursos mínimos.</p>
+  </div>
+
+</main>
+
+</body>
+</html>

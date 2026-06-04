@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 1 — Diagnóstico de Transformación Digital | TD</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+    .xp-bar-wrap { margin: 1.2rem auto 0; max-width: 400px; background: rgba(255,255,255,.2); border-radius: 20px; height: 14px; overflow: hidden; }
+    .xp-bar { height: 100%; width: 0%; background: var(--gold); border-radius: 20px; transition: width 1.5s ease; }
+    .xp-label { font-size: .78rem; opacity: .8; margin-top: .4rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .bloom { display: inline-flex; align-items: center; gap: .4rem; background: #fff9c4; border: 1px solid #FFDF2D; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #5d4037; margin-bottom: 1rem; }
+
+    .memo { background: #fffde7; border-left: 5px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; font-style: italic; }
+    .memo strong { font-style: normal; display: block; margin-bottom: .4rem; color: var(--primary); }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box.hist  { background: #fce4ec; border-left: 4px solid #e91e63; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .relevance-badge { display: inline-block; border-radius: 6px; padding: .15rem .55rem; font-size: .75rem; font-weight: 800; margin-left: .4rem; }
+    .vig  { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+    .evo  { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+    .hist-badge { background: #fce4ec; color: #880e4f; border: 1px solid #f48fb1; }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-header.hti-a      { background: #e8f5e9; color: var(--green); }
+    .activity-header.hti-b      { background: #fff8e1; color: #e65100; }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body ol, .activity-body ul { padding-left: 1.4rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .dojo-panel { background: linear-gradient(135deg, #1E2843 0%, #2d3a5e 100%); color: #fff; border-radius: var(--radius); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .dojo-panel h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.05rem; }
+    .dojo-items { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .dojo-item { background: rgba(255,255,255,.12); border-radius: 8px; padding: .5rem 1rem; font-size: .85rem; display: flex; align-items: center; gap: .5rem; }
+    .pts { color: var(--gold); font-weight: 800; font-size: 1.1rem; }
+
+    .bib { font-size: .88rem; line-height: 1.8; }
+    .bib li { margin-bottom: .6rem; padding-left: .5rem; }
+
+    .rubric-table th { font-size: .82rem; }
+    .rubric-table td { font-size: .85rem; }
+
+    .key-questions { background: #fffde7; border-left: 4px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.4rem; margin: 1rem 0; }
+    .key-questions ol { padding-left: 1.4rem; margin: 0; }
+    .key-questions li { margin-bottom: .4rem; font-size: .92rem; }
+
+    .case-badge { display: inline-flex; align-items: center; gap: .4rem; background: linear-gradient(135deg, #1E2843, #2d3a5e); color: #fff; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; margin-bottom: 1rem; }
+
+    footer { text-align: center; padding: 2rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.4rem; }
+      .card { padding: 1.2rem; }
+      main { padding: 0 .8rem 3rem; }
+    }
+  </style>
+
+  <style id="pt-css">
+  #pt-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: linear-gradient(135deg,#1E2843,#2d3a5e); color: #fff; border-radius: 16px; padding: 14px 18px; min-width: 240px; max-width: 280px; box-shadow: 0 8px 32px rgba(0,0,0,.35); font-family: 'Open Sans', Arial, sans-serif; font-size: .85rem; transition: transform .3s; }
+  #pt-widget.collapsed { transform: translateY(calc(100% - 42px)); }
+  #pt-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  #pt-header strong { font-size: .92rem; }
+  #pt-toggle { background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; line-height: 1; }
+  #pt-body { margin-top: 10px; }
+  #pt-xp-bar-wrap { background: rgba(255,255,255,.2); border-radius: 20px; height: 10px; overflow: hidden; }
+  #pt-xp-bar { height: 100%; background: linear-gradient(90deg,#FFDF2D,#fff176); border-radius: 20px; transition: width .8s ease; }
+  #pt-xp-label { display: flex; justify-content: space-between; font-size: .75rem; opacity: .8; margin-top: 4px; }
+  #pt-btns { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .pt-btn { flex: 1; padding: 5px 8px; border: none; border-radius: 8px; font-size: .75rem; font-weight: 700; cursor: pointer; transition: opacity .2s; }
+  .pt-btn:hover { opacity: .85; }
+  #pt-btn-save { background: #43a047; color: #fff; }
+  #pt-advanced { display: none; margin-top: 5px; }
+  #pt-msg { font-size: .72rem; margin-top: 6px; min-height: 16px; opacity: .85; text-align: center; }
+  </style>
+
+  <style id="modal-css">
+  #pt-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 10000; display: flex; align-items: center; justify-content: center; animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+  #pt-modal-box { background: linear-gradient(160deg,#1E2843,#1E2843 70%,#2d3a5e); color: #fff; border-radius: 20px; padding: 2rem 2rem 1.5rem; width: min(94vw,420px); box-shadow: 0 20px 60px rgba(0,0,0,.5); animation: slideUp .35s cubic-bezier(.2,.8,.3,1); }
+  @keyframes slideUp { from { transform: translateY(30px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+  #pt-modal-box h2 { font-size: 1.25rem; font-weight: 900; margin-bottom: .3rem; }
+  #pt-modal-box .sub { opacity: .75; font-size: .85rem; margin-bottom: 1.3rem; }
+  #pt-modal-box .field { margin-bottom: .9rem; }
+  #pt-modal-box label { display: block; font-size: .78rem; font-weight: 700; opacity: .85; margin-bottom: .3rem; text-transform: uppercase; letter-spacing: .05em; }
+  #pt-modal-box input { width: 100%; background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.35); border-radius: 10px; padding: .6rem .9rem; color: #fff; font-size: .95rem; outline: none; }
+  #pt-modal-box input::placeholder { color: rgba(255,255,255,.45); }
+  #pt-modal-box input:focus { border-color: rgba(249,168,37,.9); }
+  #pt-modal-btn { width: 100%; padding: .7rem; border: none; border-radius: 12px; background: linear-gradient(135deg,#FFDF2D,#FFDF2D); color: #1E2843; font-weight: 900; font-size: 1rem; cursor: pointer; margin-top: .4rem; transition: opacity .15s; }
+  #pt-modal-btn:hover { opacity: .9; }
+  #pt-modal-btn-search { padding: .65rem 1.2rem; border: none; border-radius: 10px; background: rgba(255,255,255,.18); color: #fff; font-weight: 700; font-size: .92rem; cursor: pointer; transition: background .15s; flex-shrink: 0; }
+  #pt-modal-btn-search:hover { background: rgba(255,255,255,.28); }
+  #pt-modal-error, #pt-modal-error2, #pt-modal-error3 { color: #ff8a80; font-size: .8rem; margin-top: .5rem; min-height: 1em; }
+  #pt-modal-xp { text-align: center; font-size: .78rem; opacity: .7; margin-top: .7rem; }
+  .pt-found-card { background: rgba(255,255,255,.1); border: 1.5px solid rgba(249,168,37,.6); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: .9rem; }
+  .pt-found-card .pt-fc-name { font-size: 1rem; font-weight: 800; margin-bottom: .25rem; }
+  .pt-found-card .pt-fc-meta { font-size: .8rem; opacity: .8; line-height: 1.6; }
+  .pt-step { transition: opacity .2s; }
+  .pt-link-btn { background: none; border: none; color: rgba(255,255,255,.6); font-size: .8rem; cursor: pointer; text-decoration: underline; padding: .3rem 0 0; display: block; text-align: center; width: 100%; }
+  .pt-link-btn:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="badge-module">TD · Transformación Digital en la Empresa · Semana 1 de 13</div>
+  <h1>🔍 Diagnóstico de Transformación Digital</h1>
+  <p>Digitalización vs. Transformación · Mapa de Madurez · Dolores Organizacionales · Mercado360</p>
+  <div class="xp-bar-wrap"><div class="xp-bar" id="xpBar"></div></div>
+  <p class="xp-label">XP de sesión: <span id="xpCount">0</span> / 50 pts</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#mision">🎯 Misión</a>
+  <a href="#teoria">📚 Teoría</a>
+  <a href="#mercado360">🏪 Mercado360</a>
+  <a href="#actividad">⚙️ Actividad</a>
+  <a href="#evidencia">📋 Evidencia</a>
+  <a href="#bib">📖 Fuentes</a>
+</nav>
+
+<main>
+
+<!-- PT WIDGET -->
+<div id="pt-widget">
+  <div id="pt-header" onclick="ptToggle()">
+    <strong>📊 Mi Progreso TD</strong>
+    <button id="pt-toggle">▲</button>
+  </div>
+  <div id="pt-body">
+    <div id="pt-xp-bar-wrap"><div id="pt-xp-bar" style="width:0%"></div></div>
+    <div id="pt-xp-label"><span id="pt-semana-label">Semana 1</span><span id="pt-xp-count">0 XP</span></div>
+    <div id="pt-btns">
+      <button class="pt-btn" id="pt-btn-save" onclick="ptSyncCloud()" style="flex:1">☁️ Guardar</button>
+      <button class="pt-btn" onclick="(function(){var a=document.getElementById('pt-advanced');a.style.display=a.style.display==='block'?'none':'block'})()" style="width:32px;flex-shrink:0;padding:0;font-size:.8rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)">⚙️</button>
+    </div>
+    <div id="pt-advanced">
+      <button class="pt-btn" onclick="ptExportCode()" style="width:100%;margin-bottom:3px;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📋 Exportar respaldo</button>
+      <button class="pt-btn" onclick="ptImportCode()" style="width:100%;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📥 Cargar desde código</button>
+    </div>
+    <div id="pt-msg"></div>
+  </div>
+</div>
+
+<!-- ══ MISIÓN / MEMORANDO ══ -->
+<section id="mision" class="card">
+  <h2>📋 El Memorando — Tu Misión esta Semana</h2>
+
+  <div class="memo">
+    <strong>Para: Consultores Junior — Equipo TD<br>
+    De: Dirección Académica, TD — Transformación Digital en la Empresa<br>
+    Asunto: Diagnóstico inicial del caso formativo Mercado360</strong>
+
+    Mercado360 es un marketplace de frutas y verduras con operación en Corferias (Bogotá).
+    La empresa lleva años operando con herramientas manuales: registro en cuaderno, pedidos por
+    WhatsApp e Instagram, inventario en la memoria del vendedor. Las promociones se lanzan sin
+    medición y las decisiones se toman con intuición, no con datos.<br><br>
+    Como consultor junior, tu primer trabajo es <strong>diagnosticar</strong>: distinguir
+    entre lo que es simplemente digitalizar procesos (convertir el cuaderno a Excel) y lo que
+    realmente significa transformar digitalmente un negocio. Esto te permitirá identificar
+    los puntos de partida correctos y no invertir en tecnología que no resuelve los dolores reales.
+  </div>
+
+  <div class="bloom">🧠 Nivel Bloom: Recordar → Comprender</div>
+
+  <div class="key-questions">
+    <strong style="display:block;margin-bottom:.5rem;color:var(--primary)">Preguntas clave de la semana:</strong>
+    <ol>
+      <li>¿Qué significa "transformar" vs. "digitalizar"? ¿Son lo mismo?</li>
+      <li>¿Cuál es la diferencia entre adoptar tecnología y transformar un negocio?</li>
+      <li>¿Qué dolores tiene Mercado360 que justifiquen una transformación?</li>
+      <li>¿Dónde se ubicaría Mercado360 en un mapa de madurez digital y por qué?</li>
+    </ol>
+  </div>
+
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <p><strong>Conexión con el programa IUB:</strong> El caso Mercado360 te acompañará durante
+    todo el módulo TD. Cada semana profundizarás en una dimensión distinta: el consumidor digital
+    (Semana 2), los procesos (Semana 3), las tecnologías habilitadoras (Semana 4), hasta llegar
+    al Parcial 1 donde aplicarás el mismo método al caso espejo <strong>RetailNova</strong>
+    (tiendas de ropa, Barranquilla).</p>
+  </div>
+</section>
+
+<!-- ══ TEORÍA ══ -->
+<section id="teoria" class="card">
+  <h2>📚 Marco Teórico</h2>
+
+  <h3>1.1 Digitalización <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    <strong>Digitalización</strong> es el proceso de convertir información analógica (papel,
+    procesos manuales) a formato digital. Es un paso necesario pero no suficiente para la
+    transformación. En lenguaje empresarial: adoptar herramientas digitales para hacer lo
+    mismo de forma más eficiente.
+  </p>
+  <p>
+    <strong>Ejemplo:</strong> Pasar el registro de inventario de un cuaderno a una hoja de
+    cálculo Excel. El proceso sigue siendo el mismo; solo cambia el medio.
+  </p>
+
+  <div class="info-box cite">
+    <span class="icon">🏛️</span>
+    <p><strong>Vial (2019):</strong> <em>"Understanding digital transformation: A review and a
+    research agenda."</em> <em>Journal of Strategic Information Systems</em>, 28(2), 118–144.
+    Routledge.</p>
+  </div>
+
+  <h3>1.2 Transformación Digital <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    La <strong>transformación digital</strong> es un cambio profundo en la forma en que una
+    empresa opera, crea valor y se relaciona con sus usuarios, habilitado por tecnologías
+    digitales. En lenguaje empresarial: <em>no es "comprar tecnología"</em>. Es cambiar el
+    modelo de negocio, los procesos y la cultura para aprovechar las posibilidades que la
+    tecnología habilita.
+  </p>
+
+  <table>
+    <thead><tr><th>Aspecto</th><th>Digitalización</th><th>Transformación digital</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Foco</strong></td><td>Procesos</td><td>Modelo de negocio</td></tr>
+      <tr><td><strong>Impulso</strong></td><td>Eficiencia</td><td>Valor para el cliente</td></tr>
+      <tr><td><strong>Alcance</strong></td><td>Puntual</td><td>Integral</td></tr>
+      <tr><td><strong>Resultado</strong></td><td>Menos errores</td><td>Nuevas fuentes de ingresos</td></tr>
+      <tr><td><strong>Ejemplo</strong></td><td>Facturar electrónicamente</td><td>Vender por canal digital con datos del cliente</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Analogía empresarial:</strong> Digitalizar es como cambiar un mapa de papel por
+    Google Maps: la目的地 sigue siendo la misma, pero el medio es más eficiente.
+    Transformar digitalmente es como descubrir que gracias al mapa digital puedes abrir
+    un servicio de entrega a domicilio que antes era imposible planificar.</p>
+  </div>
+
+  <div class="info-box cite">
+    <span class="icon">🏛️</span>
+    <p><strong>Rogers (2016):</strong> <em>"The Digital Transformation Question."</em>
+    Columbia Business School. Disponible en:
+    <a href="https://davidrogers.org/2016/09/the-digital-transformation-question/" target="_blank" rel="noopener">davidrogers.org</a></p>
+  </div>
+
+  <h3>1.3 Modelo de Madurez Digital <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    Un modelo de madurez digital permite evaluar en qué nivel se encuentra una empresa en su
+    proceso de transformación. Hay varios reconocidos en la industria:
+  </p>
+
+  <h3>Gartner Digital Maturity Model — 5 niveles</h3>
+  <table>
+    <thead><tr><th>Nivel</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Digital Novato</strong></td><td>Sin sistemas digitales. Procesos 100% manuales.</td></tr>
+      <tr><td><strong>2. Explorador</strong></td><td>Digitalización puntual, sin estrategia articulada.</td></tr>
+      <tr><td><strong>3. Practicante</strong></td><td>Tecnologías aisladas, datos no integrados entre áreas.</td></tr>
+      <tr><td><strong>4. Transformador</strong></td><td>Estrategia digital articulada, datos compartidos organizacionalmente.</td></tr>
+      <tr><td><strong>5. Disruptor</strong></td><td>Modelo de negocio habilitado por lo digital. Genera nuevos mercados.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <p><strong>Modelos complementarios:</strong></p>
+    <ul style="margin:.5rem 0 0;padding-left:1.4rem">
+      <li><strong>MIT Digital Economy:</strong> Evalúa 6 dimensiones — Ofertas, Procesos, Decisiones, Clientes, Competidores, Reguladores.</li>
+      <li><strong>McKinsey Digital Quotient:</strong> Evalúa 4 áreas — Estrategia, Cultura, Capacidades, Habilitación.</li>
+    </ul>
+  </div>
+
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Nota para el estudiante:</strong> Para este módulo usaremos un modelo híbrido
+    simple que combina elementos de Gartner y MIT, adaptado a empresas pequeñas y medianas
+    colombianas. En las semanas siguientes aplicarás este modelo al caso Mercado360 y a los
+    casos espejo (RetailNova, SaludConecta, LogisCaribe).</p>
+  </div>
+
+  <h3>1.4 Dolores Organizacionales <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    Un <strong>dolor organizacional</strong> es un problema recurrente que genera ineficiencia,
+    insatisfacción o pérdida de valor. En transformación digital, <strong>NO se empieza por
+    la tecnología</strong>: se empieza por los dolores. La tecnología es el medio, no el fin.
+  </p>
+
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <p><strong>Analogía Lean Startup (Ries, 2011):</strong> Antes de construir la solución,
+    necesitas validar que el problema exista y importa. Un dolor mal identificado lleva a
+    invertir en tecnología que nadie usa. Por eso el mapa de dolores es la primera herramienta
+    del consultor de transformación digital.</p>
+  </div>
+
+  <h3>Categorías de dolores</h3>
+  <table>
+    <thead><tr><th>Categoría</th><th>Descripción</th><th>Señal de alerta</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Dolor del cliente</strong></td><td>Frustraciones, esperas, falta de información.</td><td>Quejas recurrentes, clientes que no vuelven.</td></tr>
+      <tr><td><strong>Dolor del proceso</strong></td><td>Tareas manuales repetitivas, errores humanos, reprocesos.</td><td>El mismo error ocurre varias veces.</td></tr>
+      <tr><td><strong>Dolor de datos</strong></td><td>Decisiones basadas en intuición, no en información.</td><td>"No sé cuánto vendo por semana."</td></tr>
+      <tr><td><strong>Dolor de tecnología</strong></td><td>Sistemas obsoletos, datos dispersos, falta de integración.</td><td>Duplicar datos en Excel y en papel.</td></tr>
+      <tr><td><strong>Dolor de cultura</strong></td><td>Resistencia al cambio, miedo a lo nuevo.</td><td>"Eso siempre se ha hecho así."</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══ MERCADO360 ══ -->
+<section id="mercado360" class="card">
+  <h2>🏪 Caso Formativo: Mercado360</h2>
+
+  <div class="case-badge">🏪 Mercado360 — Marketplace de frutas y verduras · Corferias, Bogotá</div>
+
+  <p>
+    <strong>¿Qué es?</strong> Mercado360 es una empresa comercial mediana con operación física
+    en Corferias (Bogotá), enfocada en la venta de frutas y verduras al detal y semi-mayor.
+    La empresa tiene una propuesta de valor basada en frescura, variedad y atención personalizada.
+  </p>
+
+  <h3>Modelo de negocio actual (AS-IS)</h3>
+  <ul>
+    <li>Venta física en tienda de Corferias.</li>
+    <li>Pedidos por WhatsApp e Instagram (sin sistema centralizado).</li>
+    <li>Inventario en cuaderno y en la memoria del vendedor.</li>
+    <li>Promociones sin medición: "se hacen cuando se puede".</li>
+    <li>Datos de clientes en los celulares personales de los vendedores.</li>
+    <li>Decisiones de compra basadas en intuición del dueño.</li>
+  </ul>
+
+  <h3>Dolores identificados en Mercado360</h3>
+  <table>
+    <thead><tr><th>Categoría</th><th>Dolor</th><th>Causa raíz</th><th>Impacto</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Cliente</strong></td>
+        <td>El comprador no puede apartar productos ni consultar existencias reales en tiempo real.</td>
+        <td>No hay sistema de inventario digital.</td>
+        <td>Pierde ventas y clientes que van a la competencia.</td>
+      </tr>
+      <tr>
+        <td><strong>Proceso</strong></td>
+        <td>Pedidos por WhatsApp se pierden o confunden entre el vendedor y el administrador.</td>
+        <td>Registro manual, sin trazabilidad.</td>
+        <td>Errores de cumplimiento, clientes insatisfechos.</td>
+      </tr>
+      <tr>
+        <td><strong>Datos</strong></td>
+        <td>La gerencia decide con reportes tardíos o sin datos confiables.</td>
+        <td>Sin sistema de información integrado.</td>
+        <td>Oportunidades de negocio perdidas.</td>
+      </tr>
+      <tr>
+        <td><strong>Tecnología</strong></td>
+        <td>Datos de clientes en celulares personales — riesgo de pérdida total.</td>
+        <td>Sin CRM, sin política de datos.</td>
+        <td>Pérdida de historial comercial y relaciones con clientes.</td>
+      </tr>
+      <tr>
+        <td><strong>Cultura</strong></td>
+        <td>Promociones sin medir impacto: inversión sin ROI conocido.</td>
+        <td>Sin métricas, sin cultura de datos.</td>
+        <td>Recursos mal asignados, campañas ineficaces.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Tu tarea esta semana:</strong> Con base en los dolores identificados, tu trabajo
+    como consultor es ubicar a Mercado360 en un nivel de madurez digital, identificar los
+    dolores más urgentes y priorizar los 3 problemas que resolverías primero si fueras el
+    consultor contratado.</p>
+  </div>
+
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <p><strong>Conexión con casos espejo del módulo:</strong></p>
+    <ul style="margin:.5rem 0 0;padding-left:1.4rem">
+      <li><strong>Parcial 1 → RetailNova:</strong> Tiendas de ropa en Barranquilla. Aplicarás el mismo método de diagnóstico.</li>
+      <li><strong>Parcial 2 → SaludConecta:</strong> IPS de salud en Bogotá. Análisis de dolores en sector salud.</li>
+      <li><strong>Final → LogisCaribe:</strong> Operador logístico en Cartagena. Transformación digital de operaciones logísticas.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ ACTIVIDAD ══ -->
+<section id="actividad" class="card">
+  <h2>⚙️ Actividad Presencial — Taller Mapa de Dolores</h2>
+
+  <div class="dojo-panel">
+    <h3>🏆 Puntos disponibles esta sesión</h3>
+    <div class="dojo-items">
+      <div class="dojo-item">📋 <span>Asistencia</span> <span class="pts">+10 XP</span></div>
+      <div class="dojo-item">🎯 <span>Misión Mapa de Dolores</span> <span class="pts">+30 XP</span></div>
+      <div class="dojo-item">💬 <span>Participación grupal</span> <span class="pts">+10 XP</span></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-header presencial">⏱️ Taller: Mapa de Dolores de Mercado360 · <em style="font-weight:400;margin-left:.3rem">Dur: 40 min · Bloom: Comprender → Aplicar</em></div>
+    <div class="activity-body">
+      <p><strong>Instrucciones:</strong></p>
+      <ol>
+        <li>Formen equipos de 3–4 personas.</li>
+        <li>Revisen el caso Mercado360 descrito en la sección anterior (o en el documento en <code>casos/mercado360/</code>).</li>
+        <li>Identifiquen <strong>AL MENOS 3 dolores por cada categoría</strong> (cliente, proceso, datos, tecnología, cultura).</li>
+        <li>Para cada dolor escriban:
+          <ul>
+            <li>Descripción breve del dolor.</li>
+            <li>Causa raíz (¿por qué ocurre?).</li>
+            <li>Impacto estimado: ¿afecta al cliente, al proceso o al negocio?</li>
+          </ul>
+        </li>
+        <li>Presenten sus hallazgos en 5 minutos al grupo.</li>
+      </ol>
+
+      <div class="info-box warn">
+        <span class="icon">⚠️</span>
+        <p><strong>Formato de entrega:</strong> Mapa de dolores en formato libre — puede ser
+        una tabla, un mapa mental, o bullet points organizados. Lo importante es la calidad
+        del análisis, no la herramienta gráfica.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Preguntas orientadoras para el taller</h3>
+  <div class="key-questions">
+    <ol>
+      <li>¿Cuál es la diferencia entre digitalizar un proceso y transformar un modelo de negocio?</li>
+      <li>¿Por qué la transformación digital no empieza por la tecnología sino por los dolores?</li>
+      <li>¿Cómo se evalúa la madurez digital de una empresa?</li>
+      <li>¿Qué dolores identifica en Mercado360 que sean más urgentes y por qué?</li>
+      <li>¿Qué pasaría si Mercado360 siguiera operando como hasta ahora en 2 años?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ EVIDENCIA ══ -->
+<section id="evidencia" class="card">
+  <h2>📋 Evidencia Entregable — Diagnóstico Inicial de Mercado360</h2>
+
+  <div class="info-box tip">
+    <span class="icon">📝</span>
+    <p><strong>Formato:</strong> Documento individual en Word o PDF, subido a la plataforma
+    del curso. <strong>Extensión máxima: 3 páginas.</strong></p>
+  </div>
+
+  <h3>El documento debe incluir:</h3>
+  <ol>
+    <li>
+      <strong>Ubicación de Mercado360 en un nivel de madurez digital</strong> (justificado
+      con evidencia del caso y modelo citado: Gartner, MIT o híbrido).
+    </li>
+    <li>
+      <strong>Mapa de AL MENOS 9 dolores organizacionales</strong> (al menos 3 por categoría:
+      cliente, proceso, datos, tecnología, cultura), cada uno con descripción, causa raíz e impacto.
+    </li>
+    <li>
+      <strong>Los TRES problemas priorizados por urgencia e impacto</strong>, con justificación
+      clara (¿por qué именно estos tres y no otros?).
+    </li>
+    <li>
+      <strong>Reflexión final:</strong> ¿Por dónde empezaría usted si fuera el consultor
+      contratado por Mercado360? La reflexión debe conectar con los dolores identificados.
+    </li>
+  </ol>
+
+  <h3>Rúbrica de evaluación</h3>
+  <table class="rubric-table">
+    <thead>
+      <tr>
+        <th>Criterio</th>
+        <th style="width:12%">Peso</th>
+        <th>Destacado (90–100)</th>
+        <th>Satisfactorio (70–89)</th>
+        <th>En desarrollo (40–69)</th>
+        <th>Insuficiente (0–39)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ubicación en madurez digital</strong></td>
+        <td>20%</td>
+        <td>Ubica a Mercado360 en un nivel con modelo citado y evidencia del caso.</td>
+        <td>Ubica con modelo citado pero justificación parcial.</td>
+        <td>Sin modelo o sin evidencia.</td>
+        <td>No entrega.</td>
+      </tr>
+      <tr>
+        <td><strong>Mapa de dolores (9+)</strong></td>
+        <td>30%</td>
+        <td>9+ dolores bien estructurados, organizados por categoría, con causa e impacto.</td>
+        <td>7–8 dolores bien estructurados.</td>
+        <td>5–6 dolores incompletos.</td>
+        <td>Menos de 5.</td>
+      </tr>
+      <tr>
+        <td><strong>Priorización de 3 problemas</strong></td>
+        <td>30%</td>
+        <td>3 problemas priorizados con justificación clara (urgencia + impacto).</td>
+        <td>3 problemas priorizados pero justificación incompleta.</td>
+        <td>1–2 problemas sin justificación.</td>
+        <td>No prioriza.</td>
+      </tr>
+      <tr>
+        <td><strong>Reflexión final</strong></td>
+        <td>20%</td>
+        <td>Reflexión personal bien argumentada sobre por dónde empezar, conecta con dolores.</td>
+        <td>Reflexión presente pero sin conexión clara.</td>
+        <td>Reflexión superficial.</td>
+        <td>No entrega reflexión.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══ CONEXIÓN SEMANAS SIGUIENTES ══ -->
+<section class="card">
+  <h2>🔗 Conexión con las Semanas Siguientes</h2>
+  <table>
+    <thead><tr><th>Semana</th><th>Tema</th><th>Conexión con Semana 1</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Semana 2</strong></td>
+        <td>Consumidor digital</td>
+        <td>Los dolores del cliente de Mercado360 se convierten en journey map.</td>
+      </tr>
+      <tr>
+        <td><strong>Semana 3</strong></td>
+        <td>Procesos y automatización</td>
+        <td>Los dolores de proceso se convierten en AS-IS / TO-BE.</td>
+      </tr>
+      <tr>
+        <td><strong>Semana 4</strong></td>
+        <td>Tecnologías habilitadoras</td>
+        <td>¿Qué tecnología resuelve los dolores priorizados?</td>
+      </tr>
+      <tr>
+        <td><strong>Semana 5</strong></td>
+        <td>Parcial 1</td>
+        <td>Se aplica el método al caso espejo: <strong>RetailNova</strong> (tiendas de ropa, Barranquilla).</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══ BIBLIOGRAFÍA ══ -->
+<section id="bib" class="card">
+  <h2>📖 Fuentes y Referencias</h2>
+  <ul class="bib">
+    <li>
+      <strong>Rogers, D.L.</strong> (2016). <em>"The Digital Transformation Question."</em>
+      Columbia Business School. Disponible en:
+      <a href="https://davidrogers.org/2016/09/the-digital-transformation-question/" target="_blank" rel="noopener">davidrogers.org</a>
+    </li>
+    <li>
+      <strong>Vial, G.</strong> (2019). "Understanding digital transformation: A review and a
+      research agenda." <em>Journal of Strategic Information Systems</em>, 28(2), 118–144.
+      Routledge.
+    </li>
+    <li>
+      <strong>Kane, G.C., Palmer, D., Phillips, A.N., Kiron, D. & Buckley, N.</strong> (2015).
+      "Digital questions and the future of your business." <em>MIT Sloan Management Review</em>, 57(1).
+    </li>
+    <li>
+      <strong>MIT Digital Economy.</strong> (2017). <em>Digital Transformation Index Report.</em> MIT.
+    </li>
+    <li>
+      <strong>World Economic Forum.</strong> (2018). <em>The Future of Jobs and Skills in the Fourth Industrial Revolution.</em> WEF.
+    </li>
+    <li>
+      <strong>Ries, E.</strong> (2011). <em>The Lean Startup.</em> Crown Business.
+    </li>
+    <li>
+      <strong>Gartner.</strong> (2021). <em>Magic Quadrant for Global ITSM.</em> Gartner Research.
+    </li>
+    <li>
+      <strong>MinTIC Colombia.</strong> (2020). <em>Agenda de Transformación Digital.</em> Ministerio de Tecnologías de la Información y las Comunicaciones.
+    </li>
+    <li>
+      <strong>Ley 1581 de 2012</strong> — Protección de datos personales (Ley de Habeas Data). Colombia.
+    </li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  TD · Transformación Digital en la Empresa · IUB 2026 ·<br>
+  Semana 1: Diagnóstico de Transformación Digital ·<br>
+  Caso de estudio: Mercado360 · Prof. Diego Domínguez Tapia
+</footer>
+
+<!-- ══ PROGRESS TRACKER SCRIPT ══ -->
+<script id="pt-js">
+function esc(s) { return String(s ?? "").replace(/[&<>"']/g, m => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[m])); }
+const PT = (function() {
+  const SEMANA    = 1;
+  const XP_MAX    = 50;
+  const LS_KEY    = "td_s1";
+  const LS_GLOBAL = "td_global";
+
+  let state = {
+    nombre: "", cc: "", id_estudiante: "", grupo: "", horario: "",
+    semana: SEMANA, xp: 0,
+    mapa_entregado: false, participacion: false,
+    dispositivo: navigator.userAgent.substring(0, 80)
+  };
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      if (raw) Object.assign(state, JSON.parse(raw));
+      const g = JSON.parse(localStorage.getItem(LS_GLOBAL) || "{}");
+      if (!state.nombre        && g.nombre)   state.nombre        = g.nombre;
+      if (!state.cc            && g.cc)        state.cc            = g.cc;
+      if (!state.id_estudiante && g.cc)        state.id_estudiante = g.cc;
+      if (!state.grupo         && g.grupo)     state.grupo         = g.grupo;
+      if (!state.horario       && g.horario)   state.horario       = g.horario;
+    } catch(e) {}
+  }
+
+  function save() {
+    localStorage.setItem(LS_KEY, JSON.stringify(state));
+    render();
+  }
+
+  function render() {
+    const bar   = document.getElementById("pt-xp-bar");
+    const cnt   = document.getElementById("pt-xp-count");
+    const lbl   = document.getElementById("pt-semana-label");
+    const hBar  = document.getElementById("xpBar");
+    const hCnt  = document.getElementById("xpCount");
+    const pct   = Math.min((state.xp / XP_MAX) * 100, 100);
+    if (bar)  bar.style.width  = pct + "%";
+    if (cnt)  cnt.textContent  = state.xp + " XP";
+    if (lbl)  lbl.textContent  = "Semana " + SEMANA;
+    if (hBar) hBar.style.width = pct + "%";
+    if (hCnt) hCnt.textContent = state.xp;
+  }
+
+  function addXP(pts, motivo) {
+    state.xp = Math.min(state.xp + pts, XP_MAX);
+    msg("✨ +" + pts + " XP — " + motivo, "lime");
+    save();
+  }
+
+  async function syncCloud() {
+    save();
+    const sbUrl = localStorage.getItem("td_supabase_url") || "";
+    const sbKey = localStorage.getItem("td_supabase_key") || "";
+    if (!sbUrl || !sbKey) { msg("⚠️ Supabase no configurado", "orange"); return; }
+    msg("⏳ Sincronizando…", "#fff9c4");
+    try {
+      const res = await fetch(sbUrl + "/rest/v1/student_progress_td", {
+        method: "POST",
+        headers: { "apikey": sbKey, "Authorization": "Bearer " + sbKey, "Content-Type": "application/json", "Prefer": "resolution=merge-duplicates" },
+        body: JSON.stringify({
+          student_name: state.nombre || "Anónimo",
+          student_id: state.id_estudiante || state.cc || "desconocido",
+          semana: state.semana, xp: state.xp || 0,
+          mapa_deliverable: !!state.mapa_entregado,
+          participacion: !!state.participacion,
+          grupo: state.grupo || "", horario: state.horario || "",
+          updated_at: new Date().toISOString()
+        })
+      });
+      if (res.ok || res.status === 201) msg("✅ Guardado en Supabase ☁️", "lightgreen");
+      else msg("❌ Error " + res.status, "salmon");
+    } catch(e) { msg("❌ Sin conexión. Guardado local.", "salmon"); }
+  }
+
+  function exportCode() {
+    save();
+    const code = btoa(encodeURIComponent(JSON.stringify(state)));
+    const a = document.createElement("a");
+    a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(code);
+    a.download = "progreso_td_s1_" + (state.id_estudiante || "est") + ".txt";
+    a.click();
+    msg("📋 ¡Código copiado!", "#fff9c4");
+  }
+
+  function importCode() {
+    const code = prompt("Pega tu código de progreso:");
+    if (!code) return;
+    try {
+      Object.assign(state, JSON.parse(decodeURIComponent(atob(code.trim()))));
+      save(); msg("✅ Progreso restaurado.", "lightgreen");
+    } catch(e) { msg("❌ Código inválido.", "salmon"); }
+  }
+
+  function toggle() {
+    const w = document.getElementById("pt-widget");
+    const t = document.getElementById("pt-toggle");
+    if (w) w.classList.toggle("collapsed");
+    if (t) t.textContent = w && w.classList.contains("collapsed") ? "▼" : "▲";
+  }
+
+  function msg(text, color) {
+    const el = document.getElementById("pt-msg");
+    if (!el) return;
+    el.textContent = text; el.style.color = color || "#fff";
+    setTimeout(() => { if (el.textContent === text) el.textContent = ""; }, 4000);
+  }
+
+  function init() {
+    load(); render();
+    if (!localStorage.getItem("td_visited_s1")) {
+      localStorage.setItem("td_visited_s1", "1");
+      addXP(10, "Asistencia Semana 1 ✅");
+    }
+  }
+
+  return { init, addXP, save, sync: syncCloud, export: exportCode, import: importCode, toggle, state: () => state };
+})();
+
+function ptSyncCloud()  { PT.sync(); }
+function ptExportCode() { PT.export(); }
+function ptImportCode() { PT.import(); }
+function ptToggle()     { PT.toggle(); }
+
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", PT.init);
+else PT.init();
+</script>
+
+<!-- ══ WELCOME MODAL (CC lookup) ══ -->
+<div id="pt-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="pt-modal-title">
+  <div id="pt-modal-box">
+    <h2 id="pt-modal-title">👋 ¡Bienvenido a TD!</h2>
+    <p class="sub">Transformación Digital en la Empresa · Mercado360 · IUB 2026</p>
+
+    <!-- PASO 1: Cédula -->
+    <div id="pt-step1" class="pt-step">
+      <div class="field">
+        <label for="pt-modal-cc">Número de cédula / documento *</label>
+        <div style="display:flex;gap:.5rem">
+          <input id="pt-modal-cc" type="tel" inputmode="numeric" pattern="[0-9]*"
+            placeholder="Ej: 1043158867" autocomplete="off"
+            onkeydown="if(event.key==='Enter')ptSearchCC()" />
+          <button id="pt-modal-btn-search" onclick="ptSearchCC()">Buscar →</button>
+        </div>
+      </div>
+      <div id="pt-modal-error"></div>
+      <p id="pt-modal-xp">🔒 Tu cédula identifica tu progreso de forma segura — no se comparte.</p>
+    </div>
+
+    <!-- PASO 2A: Encontrado -->
+    <div id="pt-step2a" class="pt-step" style="display:none">
+      <div class="pt-found-card">
+        <div class="pt-fc-name" id="pt-fc-name">—</div>
+        <div class="pt-fc-meta" id="pt-fc-meta">—</div>
+      </div>
+      <button id="pt-modal-btn" onclick="ptConfirmFound()">¡Empezar! 🚀</button>
+      <button class="pt-link-btn" onclick="ptBackToCC()">← No soy yo — volver a buscar</button>
+      <div id="pt-modal-error2"></div>
+    </div>
+
+    <!-- PASO 2B: No encontrado -->
+    <div id="pt-step2b" class="pt-step" style="display:none">
+      <p style="font-size:.82rem;opacity:.75;margin-bottom:1rem;background:rgba(255,255,255,.08);border-radius:8px;padding:.6rem .8rem">
+        ⚠️ No encontramos tu cédula en la lista del grupo.<br>
+        Completa tus datos manualmente. El docente podrá importarte en la próxima clase.
+      </p>
+      <div class="field">
+        <label for="pt-modal-nombre">Tu nombre completo *</label>
+        <input id="pt-modal-nombre" type="text" placeholder="Ej: María García López"
+          autocomplete="name" onkeydown="if(event.key==='Enter')ptModalSetupManual()" />
+      </div>
+      <div class="field">
+        <label for="pt-modal-grupo">Grupo / Paralelo</label>
+        <input id="pt-modal-grupo" type="text" placeholder="Ej: GA_G1" />
+      </div>
+      <button id="pt-modal-btn" onclick="ptModalSetupManual()">Continuar →</button>
+      <button class="pt-link-btn" onclick="ptBackToCC()">← Volver a ingresar cédula</button>
+      <div id="pt-modal-error3"></div>
+    </div>
+  </div>
+</div>
+
+<script id="modal-js">
+(function() {
+  function shouldShowModal() {
+    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); return !g.cc || String(g.cc).trim().length < 3; }
+    catch(e) { return true; }
+  }
+  function showStep(name) {
+    ["pt-step1","pt-step2a","pt-step2b"].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.style.display = (id === name) ? "block" : "none";
+    });
+  }
+  function showModal() {
+    var overlay = document.getElementById("pt-overlay");
+    if (overlay) overlay.style.display = "flex";
+    showStep("pt-step1");
+    try {
+      var g = JSON.parse(localStorage.getItem("td_global") || "{}");
+      if (g.cc) { var i = document.getElementById("pt-modal-cc"); if (i) i.value = g.cc; }
+    } catch(e) {}
+    var inp = document.getElementById("pt-modal-cc");
+    if (inp) setTimeout(function(){ inp.focus(); }, 100);
+  }
+  function closeModal() {
+    var overlay = document.getElementById("pt-overlay");
+    if (overlay) {
+      overlay.style.opacity = "0"; overlay.style.transition = "opacity .2s";
+      setTimeout(function(){ overlay.style.display = "none"; overlay.style.opacity = ""; }, 200);
+    }
+  }
+  function getStudents() {
+    try { return JSON.parse(localStorage.getItem("td_students_v1") || "[]"); }
+    catch(e) { return []; }
+  }
+  function saveProfile(cc, nombre, grupo, horario) {
+    var profile = {};
+    try { profile = JSON.parse(localStorage.getItem("td_global") || "{}"); } catch(e) {}
+    profile.cc = cc; profile.nombre = nombre;
+    profile.grupo   = grupo   || profile.grupo   || "";
+    profile.horario = horario || profile.horario || "";
+    profile.id_estudiante = cc;
+    localStorage.setItem("td_global", JSON.stringify(profile));
+    if (typeof PT !== "undefined" && typeof PT.addXP === "function") {
+      setTimeout(function(){ PT.sync && PT.sync(); }, 800);
+    }
+    closeModal();
+  }
+
+  window.ptSearchCC = function() {
+    var ccInp = document.getElementById("pt-modal-cc");
+    var errEl = document.getElementById("pt-modal-error");
+    var cc    = ccInp ? ccInp.value.trim().replace(/\D/g,"") : "";
+    if (!cc || cc.length < 5) {
+      if (errEl) errEl.textContent = "Ingresa tu número de cédula (mínimo 5 dígitos).";
+      if (ccInp) ccInp.focus(); return;
+    }
+    if (errEl) errEl.textContent = "";
+
+    var students = getStudents();
+    var found = students.find(function(s){ return String(s.cc) === cc; });
+    if (found) {
+      var nameEl = document.getElementById("pt-fc-name");
+      var metaEl = document.getElementById("pt-fc-meta");
+      if (nameEl) nameEl.textContent = "✅ " + found.name;
+      if (metaEl) metaEl.innerHTML =
+        (found.grupo   ? "📚 Grupo: <strong>" + esc(found.grupo) + "</strong>" : "") +
+        (found.horario ? " &nbsp;·&nbsp; ⏰ " + esc(found.horario) : "");
+      nameEl.dataset.cc = cc; nameEl.dataset.nombre = found.name;
+      nameEl.dataset.grupo = found.grupo || ""; nameEl.dataset.horario = found.horario || "";
+      showStep("pt-step2a");
+      var btn = document.getElementById("pt-modal-btn");
+      if (btn) setTimeout(function(){ btn.focus(); }, 100);
+      return;
+    }
+
+    var sUrl = localStorage.getItem("td_supabase_url");
+    var sKey = localStorage.getItem("td_supabase_key");
+    if (sUrl && sKey) {
+      if (errEl) errEl.textContent = "⏳ Buscando…";
+      fetch(sUrl + "/rest/v1/students_td?cc=eq." + encodeURIComponent(cc) + "&limit=1", {
+        headers: { "apikey": sKey, "Authorization": "Bearer " + sKey }
+      }).then(function(r){ return r.json(); })
+        .then(function(rows){
+          if (errEl) errEl.textContent = "";
+          if (rows && rows.length) {
+            var r = rows[0];
+            var nameEl = document.getElementById("pt-fc-name");
+            var metaEl = document.getElementById("pt-fc-meta");
+            if (nameEl) nameEl.textContent = "✅ " + r.name;
+            if (metaEl) metaEl.innerHTML =
+              (r.grupo   ? "📚 Grupo: <strong>" + esc(r.grupo) + "</strong>" : "") +
+              (r.horario ? " &nbsp;·&nbsp; ⏰ " + esc(r.horario) : "");
+            nameEl.dataset.cc = cc; nameEl.dataset.nombre = r.name;
+            nameEl.dataset.grupo = r.grupo || ""; nameEl.dataset.horario = r.horario || "";
+            showStep("pt-step2a");
+          } else {
+            var ni = document.getElementById("pt-modal-nombre");
+            if (ni) ni.dataset.cc = cc;
+            showStep("pt-step2b");
+            if (ni) setTimeout(function(){ ni.focus(); }, 100);
+          }
+        }).catch(function(){
+          var ni = document.getElementById("pt-modal-nombre");
+          if (ni) ni.dataset.cc = cc;
+          showStep("pt-step2b");
+          if (ni) setTimeout(function(){ ni.focus(); }, 100);
+        });
+      return;
+    }
+
+    var ni = document.getElementById("pt-modal-nombre");
+    if (ni) ni.dataset.cc = cc;
+    showStep("pt-step2b");
+    if (ni) setTimeout(function(){ ni.focus(); }, 100);
+  };
+
+  window.ptConfirmFound = function() {
+    var nameEl  = document.getElementById("pt-fc-name");
+    var cc      = nameEl ? nameEl.dataset.cc      : "";
+    var nombre  = nameEl ? nameEl.dataset.nombre  : "";
+    var grupo   = nameEl ? nameEl.dataset.grupo   : "";
+    var horario = nameEl ? nameEl.dataset.horario : "";
+    if (!cc || !nombre) { var e2 = document.getElementById("pt-modal-error2"); if (e2) e2.textContent = "Error al leer datos. Intenta de nuevo."; return; }
+    saveProfile(cc, nombre, grupo, horario);
+  };
+
+  window.ptModalSetupManual = function() {
+    var ni    = document.getElementById("pt-modal-nombre");
+    var gi    = document.getElementById("pt-modal-grupo");
+    var ccInp = document.getElementById("pt-modal-cc");
+    var errEl = document.getElementById("pt-modal-error3");
+    var nombre = ni ? ni.value.trim() : "";
+    var grupo  = gi ? gi.value.trim() : "";
+    var cc     = ccInp ? ccInp.value.trim().replace(/\D/g,"") : "";
+    if (!nombre || nombre.length < 3) {
+      if (errEl) errEl.textContent = "Por favor escribe tu nombre completo (mínimo 3 caracteres).";
+      if (ni) ni.focus(); return;
+    }
+    if (!cc) cc = "MANUAL_" + Date.now();
+    saveProfile(cc, nombre, grupo, "");
+  };
+
+  window.ptBackToCC = function() {
+    showStep("pt-step1");
+    var inp = document.getElementById("pt-modal-cc");
+    if (inp) setTimeout(function(){ inp.focus(); }, 100);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function(){ if (shouldShowModal()) showModal(); });
+  } else {
+    if (shouldShowModal()) showModal();
+  }
+})();
+</script>
+
+</body>
+</html>

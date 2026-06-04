@@ -1,4 +1,338 @@
-# Notas profesor - Semana 6
+# Notas del Profesor — Semana 6
+## Innovacion y Design Thinking
 
-Mantener la sesion practica: muchas ideas, poca teoria. La matriz debe ayudar a descartar, no solo a listar.
+---
 
+## 1. Enfoque de la sesion
+
+**Regla central:** La sesion debe producir una decision de priorizacion, no una lista de ideas. Si los estudiantes terminan la clase con 30 oportunidades sin filtrar, la sesion fallo.
+
+Esta semana cierra el ciclo de diagnostico que empezo en la semana 1. Los estudiantes tienen dolores, han mappeado procesos, conocen tecnologias. Ahora el trabajo es transformar esa informacion en una solucion candidate con criterio de seleccion.
+
+**Advertencia critica:** No dejar que los estudiantes propongan soluciones antes de revisar los dolores. La tentacion es сказать " Mercado360 necesita una app". Eso no es innovacion, es copy-paste de lo que otro hizo. La inovacion empieza en el dolor, no en la tecnologia.
+
+---
+
+## 2. Secuencia didactica detallada (minuto a minuto)
+
+### Bloque 1 — Repaso rapido y contexto (15 minutos)
+
+**Objetivo:** Conectar lo que se hizo en semanas anteriores con lo que se hace hoy.
+
+1. Pregunta de apertura (5 min):
+   "En la semana 1 identificamos dolores de Mercado360. En la semana 2 mapeamos la experiencia del cliente. En la semana 3 evaluamos procesos. ?Alguno de ustedes puede decirme cual fue el dolor mas urgente que encontramos?"
+
+   Dejar que 2-3 estudiantes respondan. Anotar en tablero.
+
+2. Introduccion rapida de la semana (5 min):
+   "Hoy vamos a convertir esos dolores en oportunidades concretas. Vamos a usar herramientas que empresas reales usan para no desperdiciar dinero en cosas que nadie quiere."
+
+3. Presentacion del objetivo (5 min):
+   "Al terminar la sesion, cada equipo tendre una solucion candidate para Mercado360, justificada con una matriz impacto/esfuerzo, y una propuesta de como testearla con 20 clientes reales sin escribir una sola linea de codigo."
+
+---
+
+### Bloque 2 — Conceptos clave en accion (20 minutos)
+
+**Objetivo:** Dar a los estudiantes las herramientas justas para hacer el taller, no una clase teorica completa.
+
+**Paso 1 — Design Thinking como proceso de filtro (8 min):**
+
+Explicar con un ejemplo concreto:
+
+"Imaginemos que el dolor de Mercado360 es: el cliente no sabe si un producto esta disponible antes de ir a la tienda."
+
+- Empatizar: ?Que hace el cliente cuando no encuentra? Va a otro lugar, llama por telefono, pregunta en Instagram.
+- Definir: El problema no es "no hay inventario digital". El problema es "el cliente pierde tiempo cuando el producto no esta".
+- Idear: Posibles soluciones: WhatsApp con consulta de inventario, sistema de apartados, notificacion cuando llega producto, catalogo actualizado, etc.
+- Prototipar: ?Cual seria el experimento mas rapido? Tal vez un WhatsApp Business donde alguien responde manualmente durante una semana.
+- Testear: ?Cuantos clientes harian queries en una semana? ?El ratio de consultas a compras mejora?
+
+"Verdad que no necesitamos una app para aprender eso? Eso es Design Thinking: verificar antes de construir."
+
+**Paso 2 — La matriz impacto/esfuerzo como herramienta de decision (7 min):**
+
+Dibujar la matriz en el tablero:
+
+```
+         BAJO ESFUERZO          ALTO ESFUERZO
+ALTO     |  QUICK WINS          |  BIG BETS      |
+IMPACTO  |  Hacer primero       |  Planificar    |
+         |                     |                |
+BAJO     |  FILL-INS           |  EVITAR        |
+IMPACTO  |  Si sobra tiempo    |  No hacer      |
+         |                     |                |
+```
+
+"Lo que queremos encontrar son los QUICK WINS. Alta impacto, bajo esfuerzo. Eso es lo primero que Mercado360 deberia construir."
+
+"Pero cuidado: la justificacion importa. Si ustedes dicen que algo es alto impacto, tienen que poder decirme por que. Si dicen que es alto esfuerzo, tienen que poder decirme que recursos necesita."
+
+**Paso 3 — MVP como filosofia (5 min):**
+
+"No vamos a construir la solucion completa. Vamos a construir la version mas pequena que nos permita aprender algo real."
+
+"Para Mercado360, eso podria ser: conseguir un numero de WhatsApp Business, que alguien responda consultas de inventario durante una semana, y contar quantas consultas se convirtieron en ventas."
+
+"Si funciona con 20 clientes, escala. Si no funciona, aprendemos algo y pivoteamos."
+
+---
+
+### Bloque 3 — Taller de ideacion y priorizacion (45 minutos)
+
+**Objetivo:** Producir la evidencia de la semana en tiempo de clase.
+
+**Instrucciones para los equipos (5 min):**
+
+1. Cada equipo recibe la plantilla de matriz impacto/esfuerzo.
+2. Revisen los 3 dolores priorizados que tienen del trabajo de semanas anteriores.
+3. Por cada dolor, generen al menos 3 soluciones potenciales. Escriban cada una en un post-it.
+4. Posicionen cada solucion en la matriz impacto/esfuerzo.
+5. Identifiquen su quick win.
+6. Describan la solucion candidate y como la testearian.
+
+"Importante: cada posicion en la matriz debe tener justificacion. Si dicen que algo es alto impacto, why? Si dicen que es alto esfuerzo, por que? No acepto positioning sin explicacion."
+
+**Trabajo en equipos (25 min):**
+
+Circular por los grupos. Preguntas recomendadas:
+
+- "?Por que ese impacto es 3 y no 2?"
+- "?Que pasaria si el esfuerzo es mas alto de lo esperado?"
+- "?Como harian el testeo sin desarrollar tecnologia?"
+- "?Cuantos clientes necesitar para validar la hipotesis?"
+
+**Errores a corregir en tiempo real:**
+
+- Si un equipo tiene mas de 10 oportunidades sin filtrar: "Necesitan tomar una decision. ?Cual es el dolor que mas les interesa resolver?"
+- Si un equipo propone una app sin haber hecho el test manual: "Primero hagamos el experimento basico. Si funciona, despues automatizamos."
+- Si un equipo pone todo en "alto impacto y alto esfuerzo": "Eso es territorio de big bets. ?Cual seria su quick win entonces?"
+- Si un equipo pone todo en "bajo impacto y bajo esfuerzo": "?Realmente esas oportunidades resuelven los dolores priorizados?"
+
+---
+
+### Bloque 4 — Socializacion y decision (15 minutos)
+
+**Objetivo:** Que cada equipo presente su priorizacion y el grupo aprenda de las diferencias.
+
+1. Cada equipo presenta en 2 minutos:
+   - Dolor priorizado.
+   - Solucion candidate.
+   - Posicion en la matriz y justificacion.
+   - Como testearian el MVP.
+
+2. El docente resume los patrones:
+   - "?Cuantos equipos eligieron el mismo quick win?"
+   - "?Por que unas soluciones quedaron en diferente posicion entre equipos?"
+   - "?Que nos dice eso sobre la subjetividad de la matriz?"
+
+3. Cerrar con la reflexion central:
+   "La matriz no les dice la respuesta correcta. Les dice donde vale la pena invertir tiempo para verificar. El experimento es el que valida."
+
+---
+
+## 3. Reglas del docente
+
+### Que hacer:
+
+- Mantener la presion sobre la justificacion. Cada decision debe poder sustentarse.
+- Hacer preguntas que obliguen a conectar la solucion con el dolor especifico.
+- Celebrar cuando un equipo descart una oportunidad con criterio. Eso es mas valioso que agregar ideas.
+- Recordar que el objetivo no es la solucion perfecta, sino la solucion verificable.
+- Preguntar siempre: "?Como se testeа esto con 20 clientes en 2 semanas sin codigo?"
+
+### Que NO hacer:
+
+- No dejar que los estudiantes propongan soluciones antes de revisar los dolores.
+- No permitir que la sesion se convierta en debate sobre que tecnologia es mejor (eso es semana 4).
+- No aceitar la matriz con oportunidades que no vienen de los dolores del caso.
+- No dar la respuesta correcta. El objetivo es que los estudiantes aprendan a decidir con criterio, no a replicar una respuesta.
+- No dejar que un equipo presente mas de una solucion candidate. El MVP es suficiente para aprender.
+
+---
+
+## 4. Anti-patrones (errores tipicos de los estudiantes)
+
+**1. Idea sin dolor.**
+El estudiante propone "una app de pedidos" sin vincularla a un dolor especifico.
+Resolver: "?A que dolor responde esa solucion? ?Como lo sabes?"
+
+**2. Todo es alto impacto.**
+El estudiante califica todas las oportunidades como nivel 3 de impacto.
+Resolver: "?Cual es la diferencia entre la oportunidad 1 y la oportunidad 5? Si todas son nivel 3, entonces ninguna es especial."
+
+**3. Esfuerzo subestimado.**
+El estudiante pone todo en bajo esfuerzo porque "eso es facil".
+Resolver: "?Cuanto tiempo tomaria hacerlo bien? ?Necesitas a alguien mas? ?Cuanto cuesta?"
+
+**4. Solucion predefinida.**
+El estudiante llega con la idea de "lo que Mercado360 necesita es un CRM" sin haber hecho el proceso.
+Resolver: "?Como llegaste a esa conclusion? ?Qué datos del caso la respaldan?"
+
+**5. No testear.**
+El estudiante describe la solucion completa sin proponer como validarla.
+Resolver: "?Que minimo necesitas para saver si funciona? ?Puedes hacerlo esta semana?"
+
+---
+
+## 5. Preguntas de profundizacion
+
+Para usar en la socializacion o como actividad de cierre:
+
+1. "?Por que el primer paso de Design Thinking es empatizar y no idear?"
+   Respuesta esperada: Porque si no entiendes el problema real, construyes la solucion equivocada. Empatizar evita desperdiciar recursos en soluciones a problemas imaginados.
+
+2. "?Cual es la diferencia entre un dolor organizacional y una oportunidad de innovacion?"
+   Respuesta esperada: Un dolor es un problema que ya existe. Una oportunidad es la solucion potencial a ese dolor. La oportunidad se convierte en innovacion real solo si se valida con el usuario.
+
+3. "?Por que una oportunidad de alto impacto y alto esfuerzo no siempre es la mejor primera decision?"
+   Respuesta esperada: Porque el esfuerzo alto consume recursos que podrian destinarse a verificar quick wins primero. Ademas, una solucion de alto esfuerzo sin validar tiene riesgo mayor si falla.
+
+4. "?Que significa score mayor a 1 en la matriz impacto/esfuerzo?"
+   Respuesta esperada: Que el impacto esperado es mayor que el esfuerzo requerido. Es una oportunidad que vale la pena explorar. Pero el score no reemplaza el juicio contextual.
+
+5. "?Como se aplica la logica de Jobs-to-be-Done en Mercado360?"
+   Respuesta esperada: Entender que trabajo esta "contratando" el cliente cuando compra frutas y verduras. ?Es solo "comprar producto"? ?O es "tener comida fresca para la familia sin perder tiempo"? Si es lo segundo, la solucion puede ser mas amplia que el catalogo de productos.
+
+---
+
+## 6. Verificacion rapida de compresion
+
+Al final de la sesion, hacer estas tres preguntas rapidas (respuesta en una oracion):
+
+**Pregunta 1:** "?Cual es el cuadrante donde Mercado360 deberia empezar?"
+Respuesta esperada: Quick wins (alta impacto, bajo esfuerzo).
+
+**Pregunta 2:** "?Que es un MVP y para que sirve?"
+Respuesta esperada: La version mas pequena de un producto que permite aprender si la solucion funciona antes de invertir en desarrollo completo.
+
+**Pregunta 3:** "?Por que la matriz impacto/esfuerzo no les da la respuesta definitiva?"
+Respuesta esperada: Porque la posicion depende de estimacion subjetiva que debe validarse con datos reales.
+
+Si los estudiantes responden correctamente estas tres preguntas, la sesion cumplio su objetivo minimo.
+
+---
+
+## 7. Materiales necesarios
+
+| Material | Cantidad | Uso |
+|---|---|---|
+| Plantilla de matriz impacto/esfuerzo | 1 por equipo | Actividad practica |
+| Post-its de 3 colores | 3 bloques por equipo | Ideacion sin filtro |
+| Marcadores | 4 por equipo | Tablero o papelografo |
+| Tablero o papelografo | 1 | Socializacion de equipos |
+| Caso Mercado360 con dolores priorizados | 1 por estudiante | Referencia |
+
+---
+
+## 8. Tiempo total de la sesion
+
+| Bloque | Duracion | Acumulado |
+|---|---|---|
+| Repaso y contexto | 15 min | 15 min |
+| Conceptos clave en accion | 20 min | 35 min |
+| Taller de ideacion y priorizacion | 45 min | 80 min |
+| Socializacion y decision | 15 min | 95 min |
+| Cierre y preparacion para evidencia | 10 min | 105 min |
+| Buffer | 15 min | 120 min |
+
+**Total:** 2 horas (compatible con la realidad operativa).
+
+---
+
+## 9. Respuestas esperadas de los estudiantes
+
+**En la presentacion de solucion candidate:**
+
+Respuestas fuertes:
+- "Nosotros priorizamos la consulta de inventario por WhatsApp porque es alto impacto (el cliente deja de ir a otro lugar cuando sabe que hay producto) y bajo esfuerzo (se puede hacer con WhatsApp Business y un humano respondiendo en horario de oficina)."
+- "Nuestro MVP seria: conseguir un numero de WhatsApp Business, responder manualmente durante una semana, contar quantas consultas resultan en compra."
+
+Respuestas debiles:
+- "Nosotros pensamos que Mercado360 necesita una app porque todas las empresas tienen apps."
+- "Todas nuestras oportunidades son alto impacto y alto esfuerzo porque somos ambiciosos."
+
+**En la justificacion del cuadrante:**
+
+Respuestas fuertes:
+- "El dashboard de gerencia es alto impacto porque mejora las decisiones, pero es alto esfuerzo porque requiere integrar datos de ventas, inventario y proveedores. Lo dejamos para el siguiente trimestre."
+- "El sistema de apartados es alto impacto y esfuerzo medio porque requiere un proceso de pago y separacion fisica. Lo priorizamos despues del WhatsApp de inventario."
+
+Respuestas debiles:
+- "Lo pusimos ahi porque se veia bien."
+- "Es alto esfuerzo porque es complicado."
+
+---
+
+## 10. Notas sobre la evidencia
+
+**Criterios de evaluacion de la evidencia:**
+
+La evidencia de esta semana tiene una diferencia importante respecto a las semanas anteriores: hay una decision involucrada. El estudiante no solo describe, sino que decide y justifica.
+
+1. **Matriz con 5+ oportunidades:** Cada oportunidad debe tener impacto y esfuerzo justificados con referencia al caso. No es aceptable poner "impacto 3" sin explicar por que.
+
+2. **Posicionamiento coherente:** La justificacion debe corresponderse con la posicion en la matriz. Si alguien dice que es alto impacto pero la posiciona en el cuadrante de bajo impacto, hay inconsistencia.
+
+3. **Quick win identificado:** Debe ser la oportunidad con mejor ratio impacto/esfuerzo. La justificacion debe conectar dolor, solucion e impacto esperado.
+
+4. **Descripcion de solucion candidate:** Debe responder: que resuelve, para quien (cliente especifico), como funciona (sin detalles tecnicos todavia).
+
+5. **Propuesta de MVP:** debe ser creible para testear en 2 semanas sin desarrollo. Esto demuestra que el estudiante entiende que primero se verifica y despues se construye.
+
+**Zona de riesgo:** El error mas comun es poner oportunidades que no tienen origen en los dolores identificados en la semana 1. Si la oportunidad no resuelve un dolor conocido, no pertenece a la matriz.
+
+**Calificacion rapida:** Si la matriz tiene 5+ oportunidades con justificacion coherente, y hay un quick win identificado con descripcion de MVP, el estudiante tiene al menos 70% de la calificacion. El resto es calidad de la justificacion y claridad de la propuesta.
+
+---
+
+## 11. Seguimiento para semana 7
+
+La evidencia de la semana 6 se convierte en insumo para la semana 7 (Datos y metricas):
+
+- El MVP que el estudiante propuso necesita metricas para saber si funciona o no.
+- La semana 7 definira: ?Como se mide el exito del quick win? ?Que datos se necesitan? ?Con que frecuencia se revisan?
+
+**Pregunta de apertura para semana 7:**
+"Si la solucion candidate es un WhatsApp que consulta inventario, ?como sabriamos en 2 semanas si esta funcionando o no? ?Que metricas deberiamos追踪?"
+
+---
+
+## 12. Adaptaciones segun formato de clase
+
+**Si es sesion presencial estandar:**
+- Seguir la secuencia propuesta tal como esta.
+- Usar papelografo para la socializacion de equipos.
+
+**Si es sesion virtual (Zoom o similar):**
+- Hacer breakout rooms de 4 personas para el taller.
+- Usar jamboard, Miro o herramienta similar para la matriz.
+- Reducir el tiempo de socializacion a 10 minutos y pedir que suban un video de 1 minuto con su propuesta.
+
+**Si es aula invertida (flipped classroom):**
+- Pedir que lean los conceptos de Design Thinking y Lean Startup antes de la sesion.
+- La sesion se dedica al taller y a la presentacion de solucion candidate.
+- La evidencia se sube antes de la proxima clase.
+
+**Si hay estudiantes con necesidades de accesibilidad:**
+- Material en formato accesible (Word, no solo PDF).
+- Tiempo adicional para la evidencia si el estudiante lo solicita.
+- Opcion de presentar la matriz en formato oral si hay dificultad con la escritura.
+
+---
+
+## 13. Notas finales para el docente
+
+Esta sesion tiene un riesgo pedagogico importante: que los estudiantes terminen con muchas ideas y ninguna decision. El rol del docente es ser el filtro que obliga a elegir.
+
+Estrategias para manejar la abundancia de ideas:
+
+1. **Limitar el numero de oportunidades por dolor:** "Solo 2 soluciones por dolor, maximo 6 en total."
+
+2. **Obligar a descartar:** "De sus 6 oportunidades, cual es la que menos les conviene hacer ahora y por que?"
+
+3. **Premiar el descarte bien justificado:** "Muy bien, ustedes eliminaron el programa de fidelizacion porque el esfuerzo es alto y el impacto no es directo. Eso es pensamiento critico."
+
+4. **Recordar la regla central:** "No vamos a construir nada hoy. Vamos a decidir que verificamos primero. La verificacion es el experimento, no el desarrollo."
+
+La sesion es exitosa cuando cada equipo sale con una decision y una forma de probar esa decision con recursos minimos. Si salen con 30 ideas sin filtrar, la sesion no cumplio su objetivo.

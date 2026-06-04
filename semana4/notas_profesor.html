@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas del Profesor — Semana 4 | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .prof-badge { display: inline-flex; align-items: center; gap: .4rem; background: #f3e5f5; border: 1px solid #8e24aa; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #6a1b9a; margin-bottom: 1rem; }
+
+    .timing-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0; }
+    .timing-table th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    .timing-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); }
+    .timing-table tr:nth-child(even) td { background: var(--light-bg); }
+    .timing-table .dur { font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .timing-table .acum { color: var(--muted); font-size: .82rem; }
+
+    .block { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 1.5rem; }
+    .block h3 { color: var(--primary); font-size: 1rem; margin-bottom: 1rem; border-bottom: 2px solid var(--gold); padding-bottom: .4rem; }
+    .block ul { padding-left: 1.3rem; }
+    .block li { margin-bottom: .5rem; font-size: .93rem; }
+
+    .error-card { background: #fff3e0; border-left: 5px solid #e65100; border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.4rem; margin-bottom: 1rem; }
+    .error-card strong { color: #bf360c; display: block; margin-bottom: .3rem; }
+    .error-card p { margin: 0; font-size: .9rem; }
+
+    .question-card { background: #e8f5e9; border-left: 5px solid var(--green); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.4rem; margin-bottom: 1rem; }
+    .question-card strong { color: var(--green); display: block; margin-bottom: .3rem; font-size: .9rem; }
+    .question-card p { margin: 0; font-size: .88rem; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box.prof  { background: #fce4ec; border-left: 4px solid #e91e63; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .materials-table { font-size: .85rem; }
+    .materials-table th { font-size: .78rem; }
+
+    .tech-question { background: #f5f5f5; border-radius: 8px; padding: .9rem 1.2rem; margin-bottom: .9rem; border-left: 4px solid var(--accent); }
+    .tech-question strong { color: var(--accent); display: block; margin-bottom: .3rem; font-size: .9rem; }
+    .tech-question p { margin: 0; font-size: .87rem; }
+
+    .connection-box { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; border-radius: var(--radius); padding: 1.4rem 1.8rem; margin: 1.5rem 0; }
+    .connection-box h4 { color: var(--gold); margin-bottom: .8rem; font-size: .95rem; }
+    .connection-box p { font-size: .9rem; margin-bottom: .5rem; opacity: .9; }
+    .connection-box .next-week { background: rgba(255,255,255,.15); border-radius: 8px; padding: 1rem; margin-top: .8rem; }
+    .connection-box .next-week strong { color: var(--gold); display: block; margin-bottom: .4rem; }
+
+    footer { text-align: center; padding: 2rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.4rem; }
+      .card { padding: 1.2rem; }
+      main { padding: 0 .8rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="badge-module">TD04 — Guía Docente · Transformación Digital · Semana 4 de 13</div>
+  <h1>📚 Notas del Profesor — Tecnologías Habilitadoras</h1>
+  <p>Mercado360 S.A.S. · Caso formativo · Preparación: Semana 3 · Sesión: 120 minutos</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#enfoque">🎯 Enfoque</a>
+  <a href="#secuencia">⏱️ Secuencia</a>
+  <a href="#errores">⚠️ Errores típicos</a>
+  <a href="#preguntas">❓ Preguntas</a>
+  <a href="#materiales">🗂️ Materiales</a>
+  <a href="#seguimiento">🔗 Seguimiento</a>
+</nav>
+
+<main>
+
+<!-- ══ ENFOQUE ══ -->
+<section id="enfoque" class="card">
+  <h2>🎯 Enfoque de la Sesión</h2>
+
+  <div class="prof-badge">⚠️ REGLA CENTRAL DEL DOCENTE</div>
+
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>La tecnología no es el punto de partida.</strong> Cada equipo debe terminar la exposición con una recomendación para Mercado360. Si no hay aplicación al caso, la exposición está incompleta. El estudiante que solo explica qué es Cloud Computing sin decir cómo aplica a Mercado360 no está aprendiendo transformación digital — está aprendiendo tecnología pura.</p>
+  </div>
+
+  <div class="info-box prof">
+    <span class="icon">🔴</span>
+    <p><strong>Sesión doble:</strong> Exposiciones de estudiantes (70–80 min) + Actividad práctica individual (30 min). No son dos sesiones separadas: la exposición alimenta la actividad práctica. Cada estudiante ve las 7 tecnologías presentadas y luego elige una para su ficha individual.</p>
+  </div>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Sobre el conocimiento del docente:</strong> No necesita ser experto en cada tecnología. El objetivo es que el estudiante haga la presentación y el docente facilite la discusión con preguntas. Si un equipo presenta y el docente no sabe de IoT, puede decir: "Interesante. ¿Y eso cómo se financiaría en Mercado360?" — no necesita tener la respuesta.</p>
+  </div>
+
+  <h3>Preparación previa del docente</h3>
+  <ul>
+    <li>Revisar la matriz de tecnologías vs. problemas de Mercado360 (README.md semana 4).</li>
+    <li>Asignar las 7 tecnologías a los equipos en la semana 3 para que preparen.</li>
+    <li>Tener claros los 3–4 dolores principales de Mercado360 (semana 1) para comparar.</li>
+    <li>Familiarizarse con los costos aproximados de cada tecnología para hacer preguntas de viabilidad.</li>
+  </ul>
+
+  <div class="info-box cite">
+    <span class="icon">🏛️</span>
+    <p><strong>Filosofía del módulo:</strong> En semana 1 el estudiante diagnosticó los dolores. En semana 2 y 3 mapeó procesos. En semana 4 tiene las herramientas tecnológicas. La conexión siempre debe volver al problema de Mercado360: "Primero el dolor, luego la herramienta."</p>
+  </div>
+</section>
+
+<!-- ══ SECUENCIA ══ -->
+<section id="secuencia" class="card">
+  <h2>⏱️ Secuencia Sugerida — 120 minutos</h2>
+
+  <table class="timing-table">
+    <thead>
+      <tr>
+        <th>Bloque</th>
+        <th>Duración</th>
+        <th>Acumulado</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Bloque 1: Exposiciones grupales</strong></td>
+        <td class="dur">70–80 min</td>
+        <td class="acum">~80 min</td>
+        <td>7 equipos presentan sus tecnologías (8–10 min c/u). Si hay más equipos, repetir tecnología con enfoque diferente. Si hay menos, algunos equipos presentan 2.</td>
+      </tr>
+      <tr>
+        <td><strong>Bloque 2: Actividad práctica</strong></td>
+        <td class="dur">30 min</td>
+        <td class="acum">~110 min</td>
+        <td>Cada estudiante completa su ficha de tecnología para Mercado360 (individual, no en grupo).</td>
+      </tr>
+      <tr>
+        <td><strong>Bloque 3: Cierre y preparación parcial</strong></td>
+        <td class="dur">10 min</td>
+        <td class="acum">120 min</td>
+        <td>Resumen, conexión con parcial 1, pregunta de apertura para semana 5.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Bloque 1 — Exposiciones (70–80 min)</h3>
+
+  <div class="block">
+    <h3>Estructura obligatoria por equipo</h3>
+    <ol>
+      <li><strong>Concepto (2 min):</strong> ¿Qué es la tecnología y para qué sirve en una empresa?</li>
+      <li><strong>Caso real (2 min):</strong> Una empresa que usó esta tecnología (con fuente verificable).</li>
+      <li><strong>Aplicación a Mercado360 (3 min):</strong> ¿Cómo la aplicarían? ¿Qué problema resuelve? ¿Qué se necesitaría? ¿Cuánto costaría?</li>
+      <li><strong>Riesgo o límite (2 min):</strong> ¿Cuál es el mayor riesgo? ¿Para quién no funciona?</li>
+      <li><strong>Cierre (1 min):</strong> Una recomendación accionable para Mercado360.</li>
+    </ol>
+  </div>
+
+  <div class="block">
+    <h3>Tecnologías asignadas por equipo</h3>
+    <ul>
+      <li><strong>Equipo 1:</strong> Cloud Computing (IaaS, PaaS, SaaS)</li>
+      <li><strong>Equipo 2:</strong> Inteligencia Artificial y Machine Learning</li>
+      <li><strong>Equipo 3:</strong> Internet de las Cosas (IoT)</li>
+      <li><strong>Equipo 4:</strong> Automatización y RPA</li>
+      <li><strong>Equipo 5:</strong> Datos y Analítica (BI)</li>
+      <li><strong>Equipo 6:</strong> Movilidad</li>
+      <li><strong>Equipo 7:</strong> Blockchain</li>
+    </ul>
+    <p style="font-size:.85rem;color:var(--muted);margin-top:.8rem">Si hay más de 7 equipos: asignar tecnología repetida con enfoque diferente (ej: Equipo 8 presenta IA generativa específicamente para chatbots en retail). Si hay menos de 7: algunos equipos presentan 2 tecnologías.</p>
+  </div>
+
+  <h3>Bloque 2 — Actividad práctica (30 min)</h3>
+  <div class="block">
+    <p>Cada estudiante completa <strong>individualmente</strong> su ficha de tecnología para Mercado360.</p>
+    <ul>
+      <li>Elegir la tecnología que mejor resuelva uno de los dolores priorizados en semana 1.</li>
+      <li>No puede ser la misma tecnología que presentó en la exposición grupal.</li>
+      <li>Los primeros 3 voluntarios presentan su ficha en 3 minutos al grupo.</li>
+    </ul>
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Regla de individualidad:</strong> La ficha es individual. Si un equipo presentó Cloud Computing, el estudiante de ese equipo no puede elegir Cloud para su ficha. Esto fuerza que vea las otras 6 tecnologías y desarrolle criterio propio.</p>
+    </div>
+  </div>
+
+  <h3>Bloque 3 — Cierre y preparación parcial (10 min)</h3>
+  <div class="block">
+    <ol>
+      <li><strong>Resumen rápido (5 min):</strong> Las tecnologías no son todas para todas las empresas. La clave: ¿qué problema resuelve? ¿con qué costo? ¿con qué riesgo? La tecnología sin problema es un gasto; la tecnología con problema es una inversión.</li>
+      <li><strong>Introducción al parcial 1 (5 min):</strong> La próxima semana: Parcial 1, caso RetailNova. El estudiante debe aplicar todo lo aprendido: diagnóstico de madurez, mapa de dolores, journey map, oportunidad priorizada. Pregunta clave: <em>"¿Qué le falta a Mercado360 para estar donde está RetailNova?"</em></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ ERRORES TÍPICOS ══ -->
+<section id="errores" class="card">
+  <h2>⚠️ Errores Típicos de los Estudiantes en las Exposiciones</h2>
+
+  <div class="error-card">
+    <strong>1. Dar una clase de concepto sin aplicación.</strong>
+    <p>"Cloud Computing es cuando alquilas servidores por internet..." — sin nunca mencionar a Mercado360 o cualquier empresa real.</p>
+    <p style="margin-top:.3rem;font-weight:700;color:#bf360c">Resolver: Preguntar "¿Y para Mercado360 eso cómo se aplica? ¿Qué problema resuelve específicamente?"</p>
+  </div>
+
+  <div class="error-card">
+    <strong>2. Proponer tecnología sin considerar el costo.</strong>
+    <p>"Implementaríamos IA con deep learning para predecir todas las variables del negocio." — sin mencionar que el presupuesto de Mercado360 es limitado.</p>
+    <p style="margin-top:.3rem;font-weight:700;color:#bf360c">Resolver: Preguntar "¿Cuánto cuesta eso al mes? ¿Tiene Mercado360 ese presupuesto?"</p>
+  </div>
+
+  <div class="error-card">
+    <strong>3. No mencionar riesgos.</strong>
+    <p>Presentan la tecnología como solución perfecta sin limitaciones.</p>
+    <p style="margin-top:.3rem;font-weight:700;color:#bf360c">Resolver: Preguntar "¿Cuál es el riesgo de esta tecnología? ¿Para quién no funciona?"</p>
+  </div>
+
+  <div class="error-card">
+    <strong>4. Usar fuentes no confiables.</strong>
+    <p>"Según un artículo que leí..." sin poder citar autor, publicación o fecha.</p>
+    <p style="margin-top:.3rem;font-weight:700;color:#bf360c">Resolver: Preguntar "¿De dónde sale ese dato? ¿Cómo verifico esa información?"</p>
+  </div>
+
+  <div class="error-card">
+    <strong>5. Repetir lo mismo que otro equipo.</strong>
+    <p>Dos equipos presentan blockchain con el mismo ejemplo de Bancolombia.</p>
+    <p style="margin-top:.3rem;font-weight:700;color:#bf360c">Resolver: Asignar tecnologías distintas la semana anterior y pedir enfoque diferente. Exigir fuentes distintas.</p>
+  </div>
+
+  <div class="error-card">
+    <strong>6. Confundir tecnología con herramienta.</strong>
+    <p>"Vamos a usar Excel" como si fuera una tecnología habilitadora diferente. Excel es una herramienta, no una tecnología habilitadora del negocio.</p>
+    <p style="margin-top:.3rem;font-weight:700;color:#bf360c">Resolver: Aclarar en la pregunta: "¿Cómo se diferencia eso de lo que ya hace Mercado360 hoy?"</p>
+  </div>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Pregunta de cierre infalible para cualquier equipo:</strong> "Si Mercado360 tiene $500.000 COP/mes de presupuesto para transformación digital, ¿en qué tecnología invertiría primero y por qué?" — Esto obliga a priorizar y argumentar con costos, riesgo y beneficio.</p>
+  </div>
+</section>
+
+<!-- ══ PREGUNTAS ══ -->
+<section id="preguntas" class="card">
+  <h2>❓ Preguntas de Profundización por Tecnología</h2>
+  <p>Usar después de cada exposición para facilitar la discusión. No son para "atrapar" al estudiante — son para deepen el análisis.</p>
+
+  <h3>Cloud Computing</h3>
+  <div class="tech-question">
+    <strong>Pregunta 1:</strong>
+    <p>¿Cuál es la diferencia entre guardar archivos en Google Drive y tener un sistema en la nube?</p>
+  </div>
+  <div class="tech-question">
+    <strong>Pregunta 2:</strong>
+    <p>¿Cuál es el riesgo de depender de un solo proveedor de cloud? ¿Qué pasa si Google sube precios un 30%?</p>
+  </div>
+
+  <h3>Inteligencia Artificial</h3>
+  <div class="tech-question">
+    <strong>Pregunta 1:</strong>
+    <p>¿Cuál es la diferencia entre un chatbot basado en reglas (si/no) y uno con IA que entiende contexto?</p>
+  </div>
+  <div class="tech-question">
+    <strong>Pregunta 2:</strong>
+    <p>¿Cuál es el riesgo de que la IA le diga a un cliente de Mercado360 que un producto está disponible cuando no es así?</p>
+  </div>
+
+  <h3>IoT</h3>
+  <div class="tech-question">
+    <strong>Pregunta 1:</strong>
+    <p>¿Cuál es el costo aproximado de equipar una tienda pequeña con sensores IoT para inventario?</p>
+  </div>
+  <div class="tech-question">
+    <strong>Pregunta 2:</strong>
+    <p>¿Qué pasa si se corta la conectividad a internet en la tienda? ¿El sensor sigue funcionando?</p>
+  </div>
+
+  <h3>Automatización (RPA)</h3>
+  <div class="tech-question">
+    <strong>Pregunta 1:</strong>
+    <p>¿Cuál es la diferencia entre automatizar un proceso y programar una solución?</p>
+  </div>
+  <div class="tech-question">
+    <strong>Pregunta 2:</strong>
+    <p>¿Por qué no se debe automatizar un proceso que no ha sido mejorado primero?</p>
+  </div>
+
+  <h3>Datos y Analítica (BI)</h3>
+  <div class="tech-question">
+    <strong>Pregunta 1:</strong>
+    <p>¿Cuál es la diferencia entre datos e información? ¿Mercado360 tiene datos o tiene información?</p>
+  </div>
+  <div class="tech-question">
+    <strong>Pregunta 2:</strong>
+    <p>¿Por qué los datos de baja calidad generan malas decisiones aunque el analytics sea sofisticado?</p>
+  </div>
+
+  <h3>Movilidad</h3>
+  <div class="tech-question">
+    <strong>Pregunta 1:</strong>
+    <p>¿Cuál es el riesgo de manejar datos de clientes en celulares personales de los vendedores?</p>
+  </div>
+  <div class="tech-question">
+    <strong>Pregunta 2:</strong>
+    <p>¿Qué pasa si el vendedor cambia de celular y no ha hecho respaldo? ¿Se pierde la información?</p>
+  </div>
+
+  <h3>Blockchain</h3>
+  <div class="tech-question">
+    <strong>Pregunta 1:</strong>
+    <p>¿Por qué blockchain no es la solución para todo? ¿Cuándo sí es útil?</p>
+  </div>
+  <div class="tech-question">
+    <strong>Pregunta 2:</strong>
+    <p>¿Puede Mercado360 lograr trazabilidad de productos sin blockchain? ¿Con qué herramienta más simple?</p>
+  </div>
+</section>
+
+<!-- ══ MATERIALES ══ -->
+<section id="materiales" class="card">
+  <h2>🗂️ Materiales Necesarios</h2>
+
+  <table class="timing-table materials-table">
+    <thead>
+      <tr>
+        <th>Material</th>
+        <th>Cantidad</th>
+        <th>Uso</th>
+        <th>Notas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Presentaciones de equipos</td>
+        <td>Varias (1 por equipo)</td>
+        <td>Exposiciones Bloque 1</td>
+        <td>Cada equipo trae su presentación en USB o link. Verificar que funcione con projector antes de empezar.</td>
+      </tr>
+      <tr>
+        <td>Plantilla de ficha de tecnología</td>
+        <td>1 por estudiante</td>
+        <td>Actividad práctica Bloque 2</td>
+        <td>Disponible en index.html sección #evidencia. Puede imprimirse o completarse digitalmente.</td>
+      </tr>
+      <tr>
+        <td>Tablero / pizarra</td>
+        <td>1</td>
+        <td>Resumen Bloque 3</td>
+        <td>Para hacer la matriz 7 tecnologías vs. 4 dolores de Mercado360 visualmente.</td>
+      </tr>
+      <tr>
+        <td>Timer visible</td>
+        <td>1</td>
+        <td>Control de tiempo de exposiciones</td>
+        <td>8–10 min por equipo. Avisar a los 8 min. Cortar a los 10 min para no afectar al siguiente.</td>
+      </tr>
+      <tr>
+        <td>Conexión a internet</td>
+        <td>Verificada</td>
+        <td>Para demos y verificación de fuentes</td>
+        <td>Confirmar que funcione ANTES de la clase. Si no hay internet, tener respaldo local.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Para la semana siguiente (Parcial 1)</h3>
+  <ul>
+    <li>Preparar el caso RetailNova (documento del caso con datos de la empresa).</li>
+    <li>Tener listo el mapa de dolores de Mercado360 (semana 1) para comparar con RetailNova.</li>
+    <li>Imprimir o tener digital la rúbrica del parcial 1.</li>
+    <li>Preparar la pregunta de apertura para semana 5: <em>"Si Mercado360 y RetailNova tienen problemas similares, ¿por qué la prioridad de uno no es la misma que la del otro?"</em></li>
+  </ul>
+</section>
+
+<!-- ══ SEGUIMIENTO ══ -->
+<section id="seguimiento" class="card">
+  <h2>🔗 Seguimiento — Conexión con Semanas Siguientes</h2>
+
+  <div class="connection-box">
+    <h4>Conexión directa: Semana 4 → Semana 5 (Parcial 1)</h4>
+    <p>La ficha de tecnología de la semana 4 es un ensayo para la sección de <strong>oportunidad priorizada</strong> del parcial 1.</p>
+    <p>La diferencia: En el parcial, el estudiante aplica a <strong>RetailNova</strong>, no a Mercado360.</p>
+    <p>Pregunta clave: <em>"¿Cómo se selecciona la tecnología correcta para un problema específico?"</em></p>
+    <div class="next-week">
+      <strong>📋 Semana 5 — Parcial 1: RetailNova</strong>
+      El estudiante recibe un caso nuevo (RetailNova) y debe:<br>
+      1. Diagnosticar madurez digital (como en semana 1).<br>
+      2. Mapear dolores (como en semana 1).<br>
+      3. Proponer la tecnología correcta para el problema priorizado (como en semana 4).<br>
+      La tecnología sin diagnóstico previo = gasto. La tecnología con diagnóstico = inversión.
+    </div>
+  </div>
+
+  <table class="timing-table">
+    <thead>
+      <tr>
+        <th>Semana</th>
+        <th>Tema</th>
+        <th>Conexión con Semana 4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Semana 3</td>
+        <td>Procesos y Automatización</td>
+        <td>El TO-BE define <strong>QUÉ</strong> se automatiza; semana 4 define <strong>CON QUÉ</strong> tecnología.</td>
+      </tr>
+      <tr>
+        <td>Semana 5</td>
+        <td>Parcial 1 (RetailNova)</td>
+        <td>Se evalúa si el estudiante sabe <strong>relacionar tecnología con problema</strong> en contexto nuevo.</td>
+      </tr>
+      <tr>
+        <td>Semana 7</td>
+        <td>Datos y Analítica</td>
+        <td>La tecnología de datos habilita los <strong>KPIs</strong> definidos en semana 1.</td>
+      </tr>
+      <tr>
+        <td>Semana 9</td>
+        <td>Ciberseguridad y Riesgos</td>
+        <td>Toda tecnología tiene <strong>riesgos</strong> que gestionar (continuación de semana 4).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Nota sobre fuentes para las exposiciones</h3>
+  <div class="info-box cite">
+    <span class="icon">🏛️</span>
+    <p>Los equipos deben citar fuentes para los casos reales. Fuentes recomendadas: Harvard Business Review, MIT Sloan Management Review, Gartner (resúmenes gratuitos), McKinsey, TechCrunch, Wired, MinTIC Colombia.<br><br>
+    <strong>Regla:</strong> Si el equipo no tiene fuente, el caso real no es verificable. En el parcial, el docente puede preguntar de dónde sacaron el caso. Un caso sin fuente = exposición incompleta.</p>
+  </div>
+
+  <h3>Distribución de XP de la sesión</h3>
+  <table class="timing-table">
+    <thead>
+      <tr>
+        <th>Componente</th>
+        <th>XP</th>
+        <th>Notas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Asistencia</td>
+        <td>10 XP</td>
+        <td>Presencial, registro normal.</td>
+      </tr>
+      <tr>
+        <td>Exposición grupal (equipo)</td>
+        <td>15 XP (divididos entre miembros)</td>
+        <td>Se evalúa si hay recomendación para Mercado360, fuente verificable, mención de riesgos.</td>
+      </tr>
+      <tr>
+        <td>Actividad práctica (ficha individual)</td>
+        <td>10 XP</td>
+        <td>Se evalúa según rúbrica en el archivo del estudiante.</td>
+      </tr>
+      <tr>
+        <td>Entrega de evidencia</td>
+        <td>15 XP</td>
+        <td>La ficha de tecnología (individual) entregada antes del viernes siguiente.</td>
+      </tr>
+      <tr>
+        <td><strong>Total</strong></td>
+        <td>50 XP</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+</main>
+
+<footer>
+  TD04 · Guía Docente · Transformación Digital en la Empresa · Semana 4 de 13<br>
+  Instituto de Universidad Barranquilla · 2026
+</footer>
+
+</body>
+</html>

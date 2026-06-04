@@ -1,34 +1,205 @@
-# Estrategia de exposiciones aplicadas
+# Estrategia de Exposiciones Aplicadas — TD
 
-Las exposiciones se usaran para avanzar contenido amplio sin sacrificar el enfoque practico. Cada equipo debe convertir el tema asignado en una recomendacion aplicable a Mercado360.
+---
 
-## Formato obligatorio
+## 1. Filosofia de las exposiciones en este modulo
 
-- Duracion: 8 a 10 minutos.
-- Una diapositiva de concepto.
-- Una diapositiva de caso real o ejemplo.
-- Una diapositiva de aplicacion a Mercado360.
-- Una diapositiva de riesgos, limites o errores comunes.
-- Cierre con una recomendacion accionable.
+Las exposiciones no son "clases de los compañeros" para llenar tiempo. Son un mecanismo de avance de contenido: permiten cubrir temas amplios (tecnologias, metodos, herramientas) que no caben en la sesion presencial de 2 horas, sin sacrificar el enfoque practico.
 
-## Temas sugeridos
+**Regla de oro:** Cada exposicion DEBE terminar con una recomendacion accionable para Mercado360. Si no hay aplicacion al caso, la exposicion esta incompleta.
 
-| Semana | Tema |
+**La exposicion es un puente:** Lleva al estudiante de la teoria a la aplicacion, de la tecnologia al problema, del concepto a la decision.
+
+---
+
+## 2. Temas de exposicion por semana
+
+### Semana 4 — Tecnologias habilitadoras (6-7 equipos)
+
+| Equipo | Tecnologia | Pregunta guia | Fuente minima |
+|---|---|---|---|
+| 1 | Cloud Computing | ?Como puede Mercado360 usar la nube para no depender de un computador especifico? | Marston et al. (2011), Gartner |
+| 2 | Inteligencia Artificial y Machine Learning | ?Como puede Mercado360 usar IA para atender mejor a sus clientes? | Russell (2020), McKinsey (2023) |
+| 3 | Internet de las Cosas (IoT) | ?Es viable instalar sensores en la tienda de Mercado360? ?Para que? | Zanella et al. (2014) |
+| 4 | Automatizacion y RPA | ?Como puede Mercado360 automatizar la respuesta por WhatsApp? | Dumas (2018), van der Aalst (2018) |
+| 5 | Datos y Analitica (BI) | ?Como puede Mercado360 medir sus ventas sin ser un experto en datos? | Davenport (2017), MIT |
+| 6 | Movilidad | ?Como puede Mercado360 dar acceso a su informacion desde cualquier lugar? | MinTIC (2023) |
+| 7 | Blockchain | ?Tiene Mercado360 un problema que blockchain pueda resolver? | Iansiti & Lakhani (2017) |
+
+### Semana 6 — Innovacion y metodos de identificacion de oportunidades
+
+| Equipo | Tema | Pregunta guia | Fuente minima |
+|---|---|---|---|
+| 1 | Design Thinking | ?Como aplicar Design Thinking en el problema de inventario de Mercado360? | Ries (2011), Cagan (2018) |
+| 2 | Lean Startup | ?Como validar una idea de transformacion digital en Mercado360 antes de invertir? | Ries (2011) |
+| 3 | Vigilancia tecnologica | ?Como puede Mercado360 monitorear las tendencias de su sector? | Organismos de inteligencia competitiva |
+
+### Semana 7 — Datos y analitica en la empresa
+
+| Equipo | Tema | Pregunta guia | Fuente minima |
+|---|---|---|---|
+| 1 | Big Data | ?Cual es la diferencia entre muchos datos y datos utiles para Mercado360? | Davenport (2017), Provost (2013) |
+| 2 | Dashboards y metricas | ?Como construir un dashboard que la gerente de Mercado360 use todos los dias? | Davenport (2019) |
+| 3 | CRM y gestion de clientes | ?Que datos necesita Mercado360 de sus clientes y como los obtiene? | Osterwalder (2015), MinTIC |
+
+### Semana 8 — Cultura digital y gestion del cambio
+
+| Equipo | Tema | Pregunta guia | Fuente minima |
+|---|---|---|---|
+| 1 | Cultura digital | ?Por que la tecnologia sin cultura es insuficiente para transformar? | Kotter (2012), Hammer & Champy (1993) |
+| 2 | Talento y formacion | ?Como preparar a los vendedores de Mercado360 para usar nuevas herramientas? | Hiatt (2006), Kotter |
+| 3 | Gestion del cambio | ?Cual es el mayor riesgo de resistencia al cambio en Mercado360 y como manejarlo? | Kotter (2012), Hiatt (2006) |
+
+### Semana 9 — Ciberseguridad, privacidad y continuidad
+
+| Equipo | Tema | Pregunta guia | Fuente minima |
+|---|---|---|---|
+| 1 | Ciberseguridad basica | ?Cuales son los riesgos de seguridad mas criticos para Mercado360? | OWASP, ISACA |
+| 2 | Proteccion de datos (Ley 1581) | ?Que significa la Ley 1581 para Mercado360 y como cumplirla? | Ley 1581 de 2012 |
+| 3 | Continuidad operativa | ?Que pasa si Mercado360 pierde sus datos? ?Como se protege? | ISACA, NIST |
+
+### Semana 11 — Modelos de negocio digitales
+
+| Equipo | Tema | Pregunta guia | Fuente minima |
+|---|---|---|---|
+| 1 | Modelo canvas digital | ?Como seria el Business Model Canvas de Mercado360 si fuera 100% digital? | Osterwalder (2015) |
+| 2 | Monetizacion digital | ?Como puede Mercado360 generar ingresos adicionales por canales digitales? | Porter & Heppelmann (2014) |
+| 3 | Escalabilidad | ?Cual es el limite de crecimiento de Mercado360 sin tecnologia y con ella? | Rogers (2016), Kane (2015) |
+
+---
+
+## 3. Formato obligatorio de cada exposicion
+
+**Duracion:** 8-10 minutos.
+
+**Estructura obligatoria:**
+
+```
+1. Concepto (2 min)
+   - Que es la tecnologia/metodo.
+   - Para que sirve en una empresa.
+   - Fuente cited.
+
+2. Caso real (2 min)
+   - Empresa que uso esto.
+   - Resultado concreto (con datos).
+   - Fuente verificable.
+
+3. Aplicacion a Mercado360 (3 min)
+   - Problema especifico que resuelve.
+   - Como se implementaria.
+   - Costo aproximado y viabilidad.
+
+4. Riesgo o limite (2 min)
+   - Cuando NO aplica esta tecnologia.
+   - Mayor riesgo de implementation.
+   - Para quien no funciona.
+
+5. Cierre con recomendacion (1 min)
+   - Una frase: "Mercado360 deberia considerar [tecnologia] para resolver [problema] porque [razon]."
+```
+
+---
+
+## 4. Rúbrica de evaluacion de exposiciones
+
+| Criterio | Peso | Destacado (90-100) | Satisfactorio (70-89) | En desarrollo (40-69) | Insuficiente (0-39) |
+|---|---|---|---|---|---|
+| **Claridad conceptual** | 20% | Explica el concepto con precision, usa terminos correctos, fuente citada. | Explica el concepto con algunas imprecisiones. | Explica vagamente sin terminos tecnicos. | No explica el concepto. |
+| **Caso real comprensible** | 20% | Caso real con datos verificables, empresa identificable, resultado concreto. | Caso real pero sin datos o sin fuente clara. | Caso inventado o sin verificabilidad. | No entrega caso o caso irrelevante. |
+| **Aplicacion a Mercado360** | 35% | Aplica la tecnologia a un problema especifico de Mercado360 con viabilidad, costo estimado, razon de eleccion. | Aplica pero sin consideracion de costo o viabilidad. | Aplica vagamente sin conexion a problema real. | No hay aplicacion o es generica. |
+| **Riesgos y limites** | 15% | Identifica riesgo especifico de la tecnologia, explica cuando NO aplica, menciona alternativas. | Menciona un riesgo sin profundidad. | "No hay riesgos" o no los menciona. | No menciona riesgos. |
+| **Manejo del tiempo** | 10% | Termina en 8-10 minutos con todos los puntos. | Termina en 8-10 min con algunos puntos faltantes. | Pasa de 10 minutos o le faltan 2+ secciones. | No termina o presenta sin estructura. |
+
+---
+
+## 5. Reglas de la exposicion
+
+1. **Source obligatoria:** Cada equipo debe cite al menos una fuente academically reconocida o de organismo internacional. Blogs sin autor no cuentan. Videos de YouTube no cuentan. AI (ChatGPT) no cuenta como fuente.
+
+2. **Sin autoplagio:** El equipo no puede presentar el mismo contenido que otro equipo que haya expuesto antes, aunque sea otra tecnologia. Si hay duplicacion, el docente pregunta sobre la diferencia.
+
+3. **Pregunta del docente:** Al final de cada exposicion, el docente hace 1-2 preguntas. Si el equipo no puede responder, se descuenta hasta 10% de la calificacion.
+
+4. **Formato de diapositivas:** Minimo 5 diapositivas, maximo 10. No se permite sola la diapositiva de titulo. Cada diapositiva debe tener contenido (no solo imagen).
+
+5. **Tiempo:** Se corta a los 10 minutos, aunque no haya terminado. La recomendacion de cierre debe estar en el minuto 9.
+
+---
+
+## 6. Roles dentro del equipo
+
+Para evitar que un solo estudiante cargue con todo, se reparten roles:
+
+| Rol | Responsabilidad |
 |---|---|
-| 4 | Cloud, IA, IoT, movilidad, blockchain, automatizacion |
-| 6 | Design Thinking, Lean Startup, vigilancia tecnologica |
-| 7 | Big data, analitica, dashboards, CRM |
-| 8 | Cultura digital, talento, gestion del cambio |
-| 9 | Ciberseguridad, privacidad, continuidad |
-| 11 | Modelos de negocio digitales |
+| Presentador principal | Expone concepto y caso. |
+| Presentador de aplicacion | Expone la aplicacion a Mercado360 y el riesgo. |
+| Analista de datos | Investiga el caso real y los datos. |
+| Gestor de tiempo | Asegura que se cumplan los tiempos. |
 
-## Rubrica breve
+**Nota:** El docente no verifica roles formalmente, pero si nota que solo una persona presenta, puede cuestionar la distribucion.
 
-| Criterio | Peso |
-|---|---:|
-| Claridad conceptual | 20% |
-| Ejemplo real comprensible | 20% |
-| Aplicacion a Mercado360 | 35% |
-| Riesgos y limites | 15% |
-| Manejo del tiempo | 10% |
+---
 
+## 7. Calificacion de la exposicion
+
+La exposicion se califica como actividad de semana correspondiente, no como parcial. Ponderacion en la nota final del modulo: 10% (incluido en la evaluacion continua).
+
+**Componentes de la nota:**
+- Contenido (rubrica): 70%.
+- Manejo de preguntas: 15%.
+- Tiempo y estructura: 15%.
+
+**Recuperacion:** Si un equipo no expone, debe entregar un video de 8 minutos con la exposicion completa antes de la proxima sesion, con justification de ausencia al docente.
+
+---
+
+## 8. Base de datos de casos reales
+
+Para facilitar la investigacion, aqui hay una lista inicial de casos reales verificables por sector:
+
+### Retail / Comercio
+
+- **Alibaba:** Uso de datos para personalizar experiencia del cliente. Fuente: HBR.
+- **Zara:** Uso de tecnologia para reducir el time-to-market. Fuente: MIT Sloan.
+- **Amazon Go:** Tienda sin cajeros. Fuente: MIT Technology Review.
+- **Mercado Libre:** Modelo de datos en comercio electronico latinoamericano. Fuente: Informes anuales Mercado Libre.
+
+### Salud
+
+- **Mayo Clinic:** IA para diagnostico. Fuente: Nature Medicine.
+- **Kaiser Permanente:** Registros medicos electronicos. Fuente: HBR.
+
+### Logistica
+
+- **DHL:** Uso de IoT para rastreo de envio00f1s. Fuente: DHL Trend Research.
+- **Uber Freight:** Plataforma digital de carga. Fuente: TechCrunch.
+
+### Manufactura / Industrial
+
+- **Siemens:** Digital twin para fabricacion. Fuente: Siemens press.
+- **General Electric:** Prediccion de fallas en motores con IoT. Fuente: GE Annual Report.
+
+### Servicios financieros
+
+- **Nubank:** Banco digital, modelo de datos para credit scoring. Fuente: TechCrunch.
+- **Transferwise (Wise):** Modelo de blockchain para remesas. Fuente: Company blog.
+
+---
+
+## 9. Checklist antes de la exposicion
+
+- [ ] Concepto de tecnologia explicado con precision.
+- [ ] Al menos una fuente citada.
+- [ ] Caso real con datos verificables y fuente.
+- [ ] Aplicacion a Mercado360 con problema, tecnologia, costo y viabilidad.
+- [ ] Al menos un riesgo o limite identificado.
+- [ ] Cierre con recomendacion accionable.
+- [ ] Diapositivas con contenido (minimo 5, maximo 10).
+- [ ] Tiempo: 8-10 minutos.
+- [ ] Todos los miembros del equipo participan.
+
+---
+
+*Ultima actualizacion: 2026-01*

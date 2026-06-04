@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 2 — Cliente Digital y Propuesta de Valor | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+    .xp-bar-wrap { margin: 1.2rem auto 0; max-width: 400px; background: rgba(255,255,255,.2); border-radius: 20px; height: 14px; overflow: hidden; }
+    .xp-bar { height: 100%; width: 0%; background: var(--gold); border-radius: 20px; transition: width 1.5s ease; }
+    .xp-label { font-size: .78rem; opacity: .8; margin-top: .4rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .bloom { display: inline-flex; align-items: center; gap: .4rem; background: #fff9c4; border: 1px solid #FFDF2D; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #5d4037; margin-bottom: 1rem; }
+
+    .memo { background: #fffde7; border-left: 5px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; font-style: italic; }
+    .memo strong { font-style: normal; display: block; margin-bottom: .4rem; color: var(--primary); }
+
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 1rem; margin: 1rem 0; }
+    .kpi-card { background: var(--light-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
+    .kpi-card .kpi-icon { font-size: 1.8rem; }
+    .kpi-card .kpi-name { font-size: .78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; margin: .4rem 0; }
+    .kpi-card .kpi-val  { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box.hist  { background: #fce4ec; border-left: 4px solid #e91e63; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .relevance-badge { display: inline-block; border-radius: 6px; padding: .15rem .55rem; font-size: .75rem; font-weight: 800; margin-left: .4rem; }
+    .vig  { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+    .evo  { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-header.hti-a      { background: #e8f5e9; color: var(--green); }
+    .activity-header.hti-b      { background: #fff8e1; color: #e65100; }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body ol, .activity-body ul { padding-left: 1.4rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .dojo-panel { background: linear-gradient(135deg, #1E2843 0%, #2d3a5e 100%); color: #fff; border-radius: var(--radius); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .dojo-panel h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.05rem; }
+    .dojo-items { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .dojo-item { background: rgba(255,255,255,.12); border-radius: 8px; padding: .5rem 1rem; font-size: .85rem; display: flex; align-items: center; gap: .5rem; }
+    .pts { color: var(--gold); font-weight: 800; font-size: 1.1rem; }
+
+    .journey-stage { border: 2px solid var(--border); border-radius: 10px; margin-bottom: 1.2rem; overflow: hidden; }
+    .journey-header { background: var(--primary); color: #fff; padding: .7rem 1.2rem; display: flex; align-items: center; gap: .8rem; font-weight: 700; }
+    .journey-header .stage-num { background: var(--gold); color: var(--primary); border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: .85rem; flex-shrink: 0; }
+    .journey-body { padding: 1rem 1.3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .8rem; }
+    .journey-item { background: var(--light-bg); border-radius: 8px; padding: .7rem 1rem; }
+    .journey-item .jlabel { font-size: .72rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+    .journey-item .jval   { font-size: .9rem; font-weight: 600; }
+    .journey-item.friction .jval { color: var(--red); }
+
+    .rubric-table { font-size: .88rem; }
+    .rubric-table th { background: var(--primary); color: #fff; padding: .6rem 1rem; }
+    .rubric-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .rubric-table tr:nth-child(even) td { background: var(--light-bg); }
+
+    .bib { font-size: .88rem; line-height: 1.8; }
+    .bib li { margin-bottom: .6rem; padding-left: .5rem; }
+
+    footer { text-align: center; padding: 2rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.4rem; }
+      .card { padding: 1.2rem; }
+      main { padding: 0 .8rem 3rem; }
+    }
+  </style>
+
+  <style id="pt-css">
+  #pt-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: linear-gradient(135deg,#1E2843,#2d3a5e); color: #fff; border-radius: 16px; padding: 14px 18px; min-width: 240px; max-width: 280px; box-shadow: 0 8px 32px rgba(0,0,0,.35); font-family: 'Open Sans', Arial, sans-serif; font-size: .85rem; transition: transform .3s; }
+  #pt-widget.collapsed { transform: translateY(calc(100% - 42px)); }
+  #pt-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  #pt-header strong { font-size: .92rem; }
+  #pt-toggle { background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; line-height: 1; }
+  #pt-body { margin-top: 10px; }
+  #pt-xp-bar-wrap { background: rgba(255,255,255,.2); border-radius: 20px; height: 10px; overflow: hidden; }
+  #pt-xp-bar { height: 100%; background: linear-gradient(90deg,#FFDF2D,#fff176); border-radius: 20px; transition: width .8s ease; }
+  #pt-xp-label { display: flex; justify-content: space-between; font-size: .75rem; opacity: .8; margin-top: 4px; }
+  #pt-btns { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .pt-btn { flex: 1; padding: 5px 8px; border: none; border-radius: 8px; font-size: .75rem; font-weight: 700; cursor: pointer; transition: opacity .2s; }
+  .pt-btn:hover { opacity: .85; }
+  #pt-btn-save { background: #43a047; color: #fff; }
+  #pt-advanced { display: none; margin-top: 5px; }
+  #pt-msg { font-size: .72rem; margin-top: 6px; min-height: 16px; opacity: .85; text-align: center; }
+  </style>
+
+  <style id="modal-css">
+  #pt-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 10000; display: flex; align-items: center; justify-content: center; animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+  #pt-modal-box { background: linear-gradient(160deg,#1E2843,#1E2843 70%,#2d3a5e); color: #fff; border-radius: 20px; padding: 2rem 2rem 1.5rem; width: min(94vw,420px); box-shadow: 0 20px 60px rgba(0,0,0,.5); animation: slideUp .35s cubic-bezier(.2,.8,.3,1); }
+  @keyframes slideUp { from { transform: translateY(30px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+  #pt-modal-box h2 { font-size: 1.25rem; font-weight: 900; margin-bottom: .3rem; }
+  #pt-modal-box .sub { opacity: .75; font-size: .85rem; margin-bottom: 1.3rem; }
+  #pt-modal-box .field { margin-bottom: .9rem; }
+  #pt-modal-box label { display: block; font-size: .78rem; font-weight: 700; opacity: .85; margin-bottom: .3rem; text-transform: uppercase; letter-spacing: .05em; }
+  #pt-modal-box input { width: 100%; background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.35); border-radius: 10px; padding: .6rem .9rem; color: #fff; font-size: .95rem; outline: none; }
+  #pt-modal-box input::placeholder { color: rgba(255,255,255,.45); }
+  #pt-modal-box input:focus { border-color: rgba(249,168,37,.9); }
+  #pt-modal-btn { width: 100%; padding: .7rem; border: none; border-radius: 12px; background: linear-gradient(135deg,#FFDF2D,#FFDF2D); color: #1E2843; font-weight: 900; font-size: 1rem; cursor: pointer; margin-top: .4rem; transition: opacity .15s; }
+  #pt-modal-btn:hover { opacity: .9; }
+  #pt-modal-btn-search { padding: .65rem 1.2rem; border: none; border-radius: 10px; background: rgba(255,255,255,.18); color: #fff; font-weight: 700; font-size: .92rem; cursor: pointer; transition: background .15s; flex-shrink: 0; }
+  #pt-modal-btn-search:hover { background: rgba(255,255,255,.28); }
+  #pt-modal-error, #pt-modal-error2, #pt-modal-error3 { color: #ff8a80; font-size: .8rem; margin-top: .5rem; min-height: 1em; }
+  #pt-modal-xp { text-align: center; font-size: .78rem; opacity: .7; margin-top: .7rem; }
+  .pt-found-card { background: rgba(255,255,255,.1); border: 1.5px solid rgba(249,168,37,.6); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: .9rem; }
+  .pt-found-card .pt-fc-name { font-size: 1rem; font-weight: 800; margin-bottom: .25rem; }
+  .pt-found-card .pt-fc-meta { font-size: .8rem; opacity: .8; line-height: 1.6; }
+  .pt-step { transition: opacity .2s; }
+  .pt-link-btn { background: none; border: none; color: rgba(255,255,255,.6); font-size: .8rem; cursor: pointer; text-decoration: underline; padding: .3rem 0 0; display: block; text-align: center; width: 100%; }
+  .pt-link-btn:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="badge-module">TD · Semana 2 de 13</div>
+  <h1>Cliente Digital y Propuesta de Valor</h1>
+  <p>Consumidor Digital · Propuesta de Valor · Journey Map · Mercado360</p>
+  <div class="xp-bar-wrap"><div class="xp-bar" id="xpBar"></div></div>
+  <p class="xp-label">XP de sesión: <span id="xpCount">0</span> / 50 pts</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#mision">🎯 Misión</a>
+  <a href="#teoria">📚 Teoría</a>
+  <a href="#actividad">⚙️ Actividad</a>
+  <a href="#evidencia">📋 Evidencia</a>
+  <a href="#bib">📖 Fuentes</a>
+</nav>
+
+<main>
+
+<!-- PROGRESS TRACKER WIDGET -->
+<div id="pt-widget">
+  <div id="pt-header" onclick="ptToggle()">
+    <strong>📊 Mi Progreso TD04</strong>
+    <button id="pt-toggle">▲</button>
+  </div>
+  <div id="pt-body">
+    <div id="pt-xp-bar-wrap"><div id="pt-xp-bar" style="width:0%"></div></div>
+    <div id="pt-xp-label"><span id="pt-semana-label">Semana 2</span><span id="pt-xp-count">0 XP</span></div>
+    <div id="pt-btns">
+      <button class="pt-btn" id="pt-btn-save" onclick="ptSyncCloud()" style="flex:1">☁️ Guardar</button>
+      <button class="pt-btn" onclick="(function(){var a=document.getElementById('pt-advanced');a.style.display=a.style.display==='block'?'none':'block'})()" style="width:32px;flex-shrink:0;padding:0;font-size:.8rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)">⚙️</button>
+    </div>
+    <div id="pt-advanced">
+      <button class="pt-btn" onclick="ptExportCode()" style="width:100%;margin-bottom:3px;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📋 Exportar respaldo</button>
+      <button class="pt-btn" onclick="ptImportCode()" style="width:100%;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📥 Cargar desde código</button>
+    </div>
+    <div id="pt-msg"></div>
+  </div>
+</div>
+
+<!-- ══ MISIÓN / MEMORANDO ══ -->
+<section id="mision" class="card">
+  <h2>📋 El Memorando — Tu Misión esta Semana</h2>
+  <div class="memo">
+    <strong>Para: Consultores Junior de Transformación Digital — Equipo TD04<br>
+    De: Dirección de Mercado360<br>
+    Asunto: El cliente se nos está yendo — necesitamos un mapa</strong>
+
+    En la semana 1 identificamos los dolores de Mercado360 desde la perspectiva de la empresa:
+    inventario desactualizado, respuesta lenta por WhatsApp, falta de trazabilidad. Pero ahora
+    viene la pregunta más importante: <strong>¿cómo vive el cliente todo eso?</strong><br><br>
+    Un cliente que ve algo en Instagram, pregunta por WhatsApp, va a la tienda y el producto
+    no está... no vuelve. Y no es porque la competencia tenga mejores frutas. Es porque
+    la experiencia fue frustrante. <strong>Tu trabajo esta semana:</strong> construir el mapa
+    de experiencia del cliente (journey map) y proponer UNA mejora digital de alto impacto.
+  </div>
+
+  <div class="bloom">🧠 Nivel Bloom: Comprender → Aplicar → Analizar</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-icon">📱</div>
+      <div class="kpi-name">Tiempo respuesta esperado</div>
+      <div class="kpi-val">&lt;30 min</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">📊</div>
+      <div class="kpi-name">Canales simultáneos usados</div>
+      <div class="kpi-val">3-5</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">🔍</div>
+      <div class="kpi-name">Comparaciones previas compra</div>
+      <div class="kpi-val">4-7</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">⭐</div>
+      <div class="kpi-name">Reseñas consultadas promedio</div>
+      <div class="kpi-val">8-12</div>
+    </div>
+  </div>
+  <p style="font-size:.85rem;color:var(--muted)">
+    <em>Estas son las expectativas del consumidor digital colombiano hoy. Si Mercado360 no las
+    cumple, el cliente se va a otro lugar que sí pueda.</em>
+  </p>
+</section>
+
+<!-- ══ TEORÍA ══ -->
+<section id="teoria" class="card">
+  <h2>📚 Marco Teórico</h2>
+
+  <h3>1. El Consumidor Digital en Colombia <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    El consumidor digital colombiano cambió radicalmente su comportamiento en la última década.
+    Más del <strong>70% de los colombianos</strong> usa WhatsApp para comunicarse con empresas
+    (MinTIC, 2023). El comercio electrónico creció un <strong>54%</strong> entre 2020 y 2023.
+    Y el tiempo promedio en pantalla supera las <strong>8 horas diarias</strong>.
+  </p>
+  <p><strong>Características del consumidor digital hoy:</strong></p>
+  <ul>
+    <li><strong>Impaciencia:</strong> Espera respuestas en minutos, no en días.</li>
+    <li><strong>Comparación instantánea:</strong> Puede buscar y comparar precios en segundos desde su celular.</li>
+    <li><strong>Omnicanalidad:</strong> Usa varios canales para la misma compra (ve en Instagram → pregunta por WhatsApp → compra en tienda).</li>
+    <li><strong>Transparencia:</strong> Compara reseñas, testimonios y precios antes de decidir.</li>
+    <li><strong>Personalización:</strong> Espera que la empresa sepa quién es, qué le ha comprado, qué le puede interesar.</li>
+  </ul>
+
+  <div class="info-box cite">
+    <span class="icon">🏛️</span>
+    <p><strong>MinTIC Colombia (2023):</strong> <em>"El consumidor digital colombiano ya no
+    compara solo precios; compara experiencias completas. La empresa que no ofrezca una
+    experiencia fluida en al menos 3 canales pierde ante quella que sí lo hace."</em></p>
+  </div>
+
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <p><strong>Relevancia empresarial (WEF, 2025):</strong> El Foro Económico Mundial identifica
+    la <em>experiencia del cliente</em> como la competencia clave para empresas que compiten
+    en mercados digitales. No basta con tener buen producto; hay que tener buena experiencia.</p>
+  </div>
+
+  <h3>2. Propuesta de Valor Digital <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    La <strong>propuesta de valor</strong> es la promesa que una empresa hace a su cliente:
+    lo que le ofrece a cambio de su dinero, su tiempo, su confianza. En transformación digital,
+    debe responder a las expectativas del consumidor digital, no solo a las capacidades
+    actuales de la empresa.
+  </p>
+  <p><strong>Pregunta fundamental:</strong> <em>"¿Por qué un cliente debería elegir Mercado360
+  en lugar de la tienda de la esquina, el marketplace de Instagram o el local de al lado?"</em></p>
+
+  <p><strong>Componentes de una propuesta de valor (Osterwalder, 2015):</strong></p>
+  <table>
+    <thead><tr><th>Componente</th><th>Pregunta que responde</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Qué ofrecemos</strong></td><td>¿Qué producto o servicio?</td></tr>
+      <tr><td><strong>Para quién</strong></td><td>¿Qué segmento de cliente?</td></tr>
+      <tr><td><strong>Qué problema resolvemos</strong></td><td>¿Cuál es el dolor del cliente?</td></tr>
+      <tr><td><strong>Cómo lo resolvemos</strong></td><td>¿Cuál es el diferenciador?</td></tr>
+      <tr><td><strong>Por qué es mejor</strong></td><td>¿Cuál es la ventaja competitiva?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Analogía:</strong> La propuesta de valor no es un slogan. "Calidad y frescura"
+    es un slogan. "Tienes hambre a las 7pm, quieres comida fresca que llegue a tu casa
+    en 30 minutos, sin que tengas que salir de tu casa" — eso es una propuesta de valor.</p>
+  </div>
+
+  <h3>3. Journey Map — Mapa de Experiencia del Cliente <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    El <strong>journey map</strong> es una representación visual de la experiencia de un cliente
+    con la empresa, paso a paso, incluyendo emociones, touchpoints, canales y oportunidades
+    de mejora. A diferencia del mapa de procesos (que describe desde la perspectiva de la empresa),
+    el journey map es siempre desde la perspectiva del <strong>cliente</strong>.
+  </p>
+
+  <p><strong>Las 6 etapas del journey de compra:</strong></p>
+
+  <div class="journey-stage">
+    <div class="journey-header">
+      <span class="stage-num">1</span>
+      <span>Descubrimiento — El cliente se entera de Mercado360</span>
+    </div>
+    <div class="journey-body">
+      <div class="journey-item">
+        <div class="jlabel">🧠 Emoción</div>
+        <div class="jval">Curiosidad / Interés</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">🎯 Acción</div>
+        <div class="jval">Ve publicación en Instagram o recibe recomendación de un amigo</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📲 Touchpoint</div>
+        <div class="jval">Instagram, WhatsApp, boca a boca</div>
+      </div>
+      <div class="journey-item friction">
+        <div class="jlabel">⚠️ Dolor</div>
+        <div class="jval">No sabe qué productos nuevos hay esta semana</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📊 Dato faltante</div>
+        <div class="jval">Catálogo actualizado con fotos semanales</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="journey-stage">
+    <div class="journey-header">
+      <span class="stage-num">2</span>
+      <span>Consideración — El cliente evalúa opciones</span>
+    </div>
+    <div class="journey-body">
+      <div class="journey-item">
+        <div class="jlabel">🧠 Emoción</div>
+        <div class="jval">Incertidumbre / Duda</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">🎯 Acción</div>
+        <div class="jval">Abre Instagram de Mercado360, ve fotos, compara con otras opciones</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📲 Touchpoint</div>
+        <div class="jval">Instagram, Google, tienda de la competencia</div>
+      </div>
+      <div class="journey-item friction">
+        <div class="jlabel">⚠️ Dolor</div>
+        <div class="jval">No sabe si el producto que vio estará disponible mañana</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📊 Dato faltante</div>
+        <div class="jval">Inventario actualizado en tiempo real</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="journey-stage">
+    <div class="journey-header">
+      <span class="stage-num">3</span>
+      <span>Contacto — El cliente pregunta por WhatsApp</span>
+    </div>
+    <div class="journey-body">
+      <div class="journey-item">
+        <div class="jlabel">🧠 Emoción</div>
+        <div class="jval">Esperanza de respuesta rápida</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">🎯 Acción</div>
+        <div class="jval">Escribe por WhatsApp preguntando disponibilidad</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📲 Touchpoint</div>
+        <div class="jval">WhatsApp</div>
+      </div>
+      <div class="journey-item friction">
+        <div class="jlabel">⚠️ Dolor</div>
+        <div class="jval">El vendedor puede no responder rápido o no tener la info actualizada</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📊 Dato faltante</div>
+        <div class="jval">Respuesta automática con estado del inventario</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="journey-stage">
+    <div class="journey-header">
+      <span class="stage-num">4</span>
+      <span>Decisión — El cliente decide si va a la tienda</span>
+    </div>
+    <div class="journey-body">
+      <div class="journey-item">
+        <div class="jlabel">🧠 Emoción</div>
+        <div class="jval">Frustración si no le confirman / Confianza si le confirman</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">🎯 Acción</div>
+        <div class="jval">Decide ir a la tienda o se va a otro lugar</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📲 Touchpoint</div>
+        <div class="jval">WhatsApp, llamada telefónica</div>
+      </div>
+      <div class="journey-item friction">
+        <div class="jlabel">⚠️ Dolor</div>
+        <div class="jval">Si no hay respuesta clara, el cliente se va a la competencia</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📊 Dato faltante</div>
+        <div class="jval">Confirmación automática con apartar/guardar producto</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="journey-stage">
+    <div class="journey-header">
+      <span class="stage-num">5</span>
+      <span>Compra — El cliente llega a la tienda</span>
+    </div>
+    <div class="journey-body">
+      <div class="journey-item">
+        <div class="jlabel">🧠 Emoción</div>
+        <div class="jval">Frustración y desconfianza si el producto no está / Satisfacción si está</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">🎯 Acción</div>
+        <div class="jval">Llega a Corferias, busca el producto</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📲 Touchpoint</div>
+        <div class="jval">Tienda física</div>
+      </div>
+      <div class="journey-item friction">
+        <div class="jlabel">⚠️ Dolor</div>
+        <div class="jval">El producto no está disponible — pierde el viaje y la confianza</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📊 Dato faltante</div>
+        <div class="jval">Inventario actualizado en tiempo real conectado con tienda</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="journey-stage">
+    <div class="journey-header">
+      <span class="stage-num">6</span>
+      <span>Posventa — El cliente necesita seguimiento</span>
+    </div>
+    <div class="journey-body">
+      <div class="journey-item">
+        <div class="jlabel">🧠 Emoción</div>
+        <div class="jval">Olvido / Indiferencia</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">🎯 Acción</div>
+        <div class="jval">No vuelve porque nadie le avisa cuando llegan productos nuevos</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📲 Touchpoint</div>
+        <div class="jval">Ninguno — no hay seguimiento</div>
+      </div>
+      <div class="journey-item friction">
+        <div class="jlabel">⚠️ Dolor</div>
+        <div class="jval">El cliente se convierte en visitante ocasional, no recurrente</div>
+      </div>
+      <div class="journey-item">
+        <div class="jlabel">📊 Dato faltante</div>
+        <div class="jval">Notificación de nuevos productos y seguimiento post-venta</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Regla del journey map:</strong> Si no hay fricción, no hay oportunidad de mejora.
+    Si en todas las etapas el cliente está feliz, el journey map no sirve. El objetivo es
+    encontrar dónde pierde el cliente y por qué.</p>
+  </div>
+
+  <h3>4. Touchpoints, Canales y Datos</h3>
+  <p>En cada etapa del journey, el cliente interactúa con la empresa por medio de
+  <strong>touchpoints</strong> (puntos de contacto). Cada touchpoint usa un <strong>canal</strong>
+  (Instagram, WhatsApp, tienda física, llamada). Y en cada touchpoint se necesita un
+  <strong>dato</strong> para que el cliente pueda tomar una decisión.</p>
+
+  <table>
+    <thead><tr><th>Etapa</th><th>Touchpoint principal</th><th>Canal</th><th>Dato necesario</th></tr></thead>
+    <tbody>
+      <tr><td>Descubrimiento</td><td>Ver publicación</td><td>Instagram</td><td>Qué productos nuevos hay</td></tr>
+      <tr><td>Consideración</td><td>Comparar opciones</td><td>Instagram / Google</td><td>Disponibilidad y precio</td></tr>
+      <tr><td>Contacto</td><td>Escribir WhatsApp</td><td>WhatsApp</td><td>Confirmación inmediata</td></tr>
+      <tr><td>Decisión</td><td>Recibir respuesta</td><td>WhatsApp</td><td>Apartar o guardar producto</td></tr>
+      <tr><td>Compra</td><td>Llegar a tienda</td><td>Tienda física</td><td>Producto disponible</td></tr>
+      <tr><td>Posventa</td><td>Ninguno</td><td>Ninguno</td><td>Notificación nuevos productos</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══ ACTIVIDAD ══ -->
+<section id="actividad" class="card">
+  <h2>⚙️ Actividad Presencial — Taller Journey Map</h2>
+
+  <div class="dojo-panel">
+    <h3>🏆 Puntos disponibles esta sesión</h3>
+    <div class="dojo-items">
+      <div class="dojo-item">📋 <span>Asistencia</span> <span class="pts">+10 XP</span></div>
+      <div class="dojo-item">🗺️ <span>Taller Journey Map</span> <span class="pts">+40 XP</span></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-header presencial">⏱️ Taller — 60 minutos · <em style="font-weight:400;margin-left:.3rem">Bloom: Aplicar → Analizar</em></div>
+    <div class="activity-body">
+      <p><strong>🎯 Misión: Construye el Journey Map del Cliente de Mercado360</strong></p>
+      <p><strong>Escenario:</strong> "Cliente que ve algo en Instagram, pregunta por WhatsApp,
+      va a la tienda y el producto no está disponible."</p>
+
+      <p style="margin-top:1rem"><strong>Instrucciones:</strong></p>
+      <ol>
+        <li>Formen equipos de <strong>3-4 personas</strong>.</li>
+        <li>Construyan un journey map con las <strong>6 etapas</strong> (Descubrimiento, Consideración, Contacto, Decisión, Compra, Posventa).</li>
+        <li>Para cada etapa identifiquen: <strong>emoción, acción, touchpoint, dolor, dato faltante</strong>.</li>
+        <li><strong>Identifiquen la etapa con mayor fricción</strong> y justifiquen por qué.</li>
+        <li><strong>Propongan UNA mejora digital</strong> de alto impacto y bajo costo para esa etapa.</li>
+      </ol>
+
+      <p style="margin-top:1rem"><strong>La propuesta de mejora debe incluir:</strong></p>
+      <ul>
+        <li>Descripción clara de la mejora.</li>
+        <li>Tecnología necesaria (nombre general, no de proveedor específico).</li>
+        <li>Impacto estimado en el cliente (conversión, retención, engagement).</li>
+        <li>Costo estimado en rango (alto / medio / bajo).</li>
+      </ul>
+
+      <div class="info-box tip">
+        <span class="icon">💡</span>
+        <p><strong>Consejo:</strong> La mejora debe resolver el dolor específico que identificaron.
+        No propongan "hacer una app" sin saber qué problema resuelve exactamente y para quién.</p>
+      </div>
+
+      <p><strong>Entregable:</strong> Journey map visual (dibujo en papel, tabla estructurada,
+      o herramienta digital) + presentación de 5 minutos por grupo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EVIDENCIA ══ -->
+<section id="evidencia" class="card">
+  <h2>📋 Evidencia — Mapa de Experiencia del Cliente</h2>
+
+  <p><strong>Entregable individual:</strong> Documento con el journey map completo del cliente de Mercado360.</p>
+
+  <p style="margin-top:.8rem"><strong>Debe incluir:</strong></p>
+  <ol>
+    <li>Journey map completo con las <strong>6 etapas</strong> (Descubrimiento a Posventa).</li>
+    <li>Para cada etapa: <strong>emoción, acción, touchpoint, dolor, dato faltante</strong>.</li>
+    <li>Identificación de la etapa con <strong>mayor fricción</strong> (con justificación).</li>
+    <li>Propuesta de <strong>UNA mejora digital</strong> con:
+      <ul>
+        <li>Descripción de la mejora.</li>
+        <li>Tecnología necesaria (nombre general).</li>
+        <li>Impacto estimado.</li>
+        <li>Costo estimado en rango (alto/medio/bajo).</li>
+      </ul>
+    </li>
+  </ol>
+
+  <p><strong>Extensión máxima:</strong> 4 páginas.</p>
+
+  <h3 style="margin-top:1.5rem">📊 Rúbrica de evaluación</h3>
+  <table class="rubric-table">
+    <thead>
+      <tr>
+        <th>Criterio</th>
+        <th>Peso</th>
+        <th>Destacado</th>
+        <th>Satisfactorio</th>
+        <th>En desarrollo</th>
+        <th>Insuficiente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Journey map completo</strong></td>
+        <td>30%</td>
+        <td>6 etapas con los 5 elementos cada una (emoción, acción, touchpoint, dolor, dato).</td>
+        <td>5 etapas completas.</td>
+        <td>3-4 etapas completas.</td>
+        <td>Menos de 3 etapas.</td>
+      </tr>
+      <tr>
+        <td><strong>Etapa de mayor fricción</strong></td>
+        <td>20%</td>
+        <td>Identifica etapa con justificación basada en evidencia del caso.</td>
+        <td>Identifica etapa sin justificación clara.</td>
+        <td>No identifica o justificación insuficiente.</td>
+        <td>No entrega.</td>
+      </tr>
+      <tr>
+        <td><strong>Propuesta de mejora digital</strong></td>
+        <td>30%</td>
+        <td>Mejora bien descrita, tecnología identificada, impacto justificado, costo estimado.</td>
+        <td>Mejora descrita con algunos elementos faltantes.</td>
+        <td>Mejora vaga sin especificación.</td>
+        <td>No entrega.</td>
+      </tr>
+      <tr>
+        <td><strong>Estructura y claridad</strong></td>
+        <td>20%</td>
+        <td>Documento claro, bien estructurado, máximo 4 páginas.</td>
+        <td>Documento claro con máximo 4 páginas.</td>
+        <td>Documento desorganizado o más de 4 páginas.</td>
+        <td>No entrega.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Zona de riesgo:</strong> Los estudiantes suelen proponer mejoras genéricas como
+    "hacer una app" o "mejorar el WhatsApp". El docente cuestiona: <em>"¿Qué resuelve
+    específicamente? ¿Para quién? ¿Cuánto cuesta? ¿En cuánto tiempo se implementa?"</em></p>
+  </div>
+</section>
+
+<!-- ══ BIBLIOGRAFÍA ══ -->
+<section id="bib" class="card">
+  <h2>📖 Fuentes Recomendadas</h2>
+
+  <p><strong>Obligatorias:</strong></p>
+  <ul class="bib">
+    <li>Richardson, A. (2010). "Using customer journey maps to improve customer experience." <em>Harvard Business Review.</em></li>
+    <li>Osterwalder, A. et al. (2015). <em>Value Proposition Design</em>. Wiley.</li>
+  </ul>
+
+  <p style="margin-top:1rem"><strong>Complementarias:</strong></p>
+  <ul class="bib">
+    <li>Cagan, M. (2018). <em>Inspired: How to Create Tech Products Customers Love</em>. Wiley.</li>
+    <li>Johnson, M.D. et al. (2020). "Customer experience and satisfaction in the digital era." <em>Journal of Operations Management.</em></li>
+  </ul>
+
+  <p style="margin-top:1rem"><strong>Datos de mercado:</strong></p>
+  <ul class="bib">
+    <li>MinTIC (2023). <em>Estudio de Comercio Electrónico y Consumidores Digitales en Colombia.</em></li>
+    <li>ANDI (2023). <em>Informe de Digitalización Empresarial en Colombia.</em></li>
+    <li>Ecommerce Foundation (2023). <em>Colombia B2C E-Commerce Report.</em></li>
+  </ul>
+
+  <p style="margin-top:1rem"><strong>Conexión con las semanas siguientes:</strong></p>
+  <table>
+    <thead><tr><th>Semana</th><th>Tema</th><th>Conexión con Semana 2</th></tr></thead>
+    <tbody>
+      <tr><td>Semana 1</td><td>Diagnóstico de madurez digital</td><td>Los dolores del cliente se convierten en entrada para el journey.</td></tr>
+      <tr><td>Semana 3</td><td>Procesos y automatización</td><td>Los touchpoints con fricción se convierten en oportunidades de automatización.</td></tr>
+      <tr><td>Semana 7</td><td>Datos y analítica</td><td>Los datos faltantes del journey se convierten en KPIs.</td></tr>
+      <tr><td>Semana 5</td><td>Parcial 1</td><td>Se aplica el método del journey a RetailNova.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>TD04 — Transformación Digital en la Empresa · IUB Inteligencia de Negocios 2026</p>
+  <p>Prof. Diego Domínguez Tapia · Semana 2 de 13</p>
+</footer>
+
+<!-- PT WIDGET SCRIPT -->
+<script>
+const PT_LS_KEY = "td_s2";
+const PT_XP_MAX = 50;
+let ptCloud = {};
+let ptSavedXP = parseInt(localStorage.getItem(PT_LS_KEY + "_xp") || "0");
+let ptTotalXP = ptSavedXP;
+
+function ptToggle() {
+  const w = document.getElementById("pt-widget");
+  w.classList.toggle("collapsed");
+  w.querySelector("#pt-toggle").textContent = w.classList.contains("collapsed") ? "▼" : "▲";
+}
+
+function ptRefreshUI() {
+  const pct = Math.min(100, (ptTotalXP / PT_XP_MAX) * 100);
+  document.getElementById("pt-xp-bar").style.width = pct + "%";
+  document.getElementById("pt-xp-count").textContent = ptTotalXP + " XP";
+  document.getElementById("xpCount").textContent = ptTotalXP;
+  document.getElementById("xpBar").style.width = Math.min(100, (ptTotalXP / PT_XP_MAX) * 100) + "%";
+}
+
+function ptSyncCloud() {
+  const msg = document.getElementById("pt-msg");
+  try {
+    const code = btoa(JSON.stringify({ xp: ptTotalXP, ts: Date.now() }));
+    localStorage.setItem(PT_LS_KEY + "_backup", code);
+    msg.textContent = "✅ Guardado local correctamente";
+    setTimeout(() => { msg.textContent = ""; }, 2500);
+  } catch(e) {
+    msg.textContent = "⚠️ No se pudo guardar";
+  }
+}
+
+function ptExportCode() {
+  const data = { xp: ptTotalXP, key: PT_LS_KEY, export: true };
+  const code = btoa(JSON.stringify(data));
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(code).then(() => alert("Código copiado: " + code));
+  } else {
+    prompt("Copia este código:", code);
+  }
+}
+
+function ptImportCode() {
+  const code = prompt("Pega tu código de respaldo:");
+  if (!code) return;
+  try {
+    const d = JSON.parse(atob(code));
+    if (d.key === PT_LS_KEY || d.export) {
+      ptTotalXP = d.xp || 0;
+      ptRefreshUI();
+      ptSyncCloud();
+      alert("Importación exitosa: " + ptTotalXP + " XP");
+    } else {
+      alert("Código no corresponde a este módulo.");
+    }
+  } catch(e) {
+    alert("Código inválido.");
+  }
+}
+
+window.onload = function() {
+  ptTotalXP = ptSavedXP;
+  ptRefreshUI();
+};
+</script>
+
+</body>
+</html>

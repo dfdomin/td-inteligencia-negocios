@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas del Profesor — Semana 3 | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2rem 2rem 1.8rem; }
+    .badge-prof { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 1.9rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.teacher { background: #fff3e0; border-left: 4px solid #e65100; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    .timing { display: inline-block; background: var(--primary); color: var(--gold); border-radius: 20px; padding: .2rem .7rem; font-size: .8rem; font-weight: 700; margin-left: .5rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .block { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .block-header { padding: .8rem 1.3rem; background: var(--accent); color: #fff; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .block-body { padding: 1.2rem 1.5rem; }
+    .block-body ol, .block-body ul { padding-left: 1.4rem; }
+    .block-body li { margin-bottom: .5rem; }
+
+    .error-box { background: #ffebee; border: 1px solid #ef9a9a; border-left: 4px solid var(--red); border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; }
+    .error-box strong { color: var(--red); display: block; margin-bottom: .4rem; }
+
+    .material-list { background: var(--light-bg); border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; }
+    .material-list li { margin-bottom: .5rem; display: flex; align-items: center; gap: .6rem; }
+    .material-list li::before { content: '📦'; }
+
+    footer { text-align: center; padding: 2rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.4rem; }
+      .card { padding: 1.2rem; }
+      main { padding: 0 .8rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="badge-prof">📚 Guía Docente — TD04 · Semana 3 de 13</div>
+  <h1>⚙️ Procesos, Automatización y Valor</h1>
+  <p>Profesor · Mercado360 · 110 minutos + buffer de 10 min</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#enfoque">🎯 Enfoque</a>
+  <a href="#secuencia">📋 Secuencia</a>
+  <a href="#errores">⚠️ Errores comunes</a>
+  <a href="#materiales">📦 Materiales</a>
+  <a href="#automatizacion">🤖 Tipos de Automatización</a>
+  <a href="#seguimiento">🔮 Seguimiento</a>
+</nav>
+
+<main>
+
+<!-- ══ ENFOQUE ══ -->
+<section id="enfoque" class="card">
+  <h2>🎯 Enfoque de la Sesión</h2>
+
+  <div class="info-box teacher">
+    <span class="icon">👨‍🏫</span>
+    <p><strong>Regla central de esta semana:</strong> Primero se mejora el proceso, luego se automatiza.
+    Si el estudiante propone automatizar sin haber mejorado primero, pregúntele:
+    "<em>¿Por qué automatizar un proceso que tiene errores de diseño?</em>"</p>
+  </div>
+
+  <p>
+    Esta sesión es el <strong>puente entre el mapa de experiencia</strong> (Semana 2) y las
+    <strong>tecnologías habilitadoras</strong> (Semana 4). El estudiante pasa de "¿qué le duele
+    al cliente?" a "¿cómo se resuelve ese dolor a nivel de proceso?".
+  </p>
+
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Advertencia clave:</strong> No dejar que el estudiante proponga "una app" o "un sistema"
+    antes de haber mapeado el proceso. La tecnología es resultado del análisis, no el punto de partida.
+    Si начинают con "yo implementaría un chatbot", redirigir: "¿Primero cuéntame: cuántos pasos tiene
+    el proceso actual? ¿Todos son necesarios?"</p>
+  </div>
+
+  <h3>Objetivos de aprendizaje</h3>
+  <ol>
+    <li>Comprender qué es un proceso empresarial y sus características.</li>
+    <li>Diferenciar entre mapear (AS-IS), mejorar y automatizar un proceso.</li>
+    <li>Identificar puntos de fricción en un proceso y su causa raíz.</li>
+    <li>Diseñar un proceso TO-BE con cambios justificados y tecnología habilitadora.</li>
+  </ol>
+
+  <h3>Nivel Bloom esperado</h3>
+  <p>Recordar → Comprender → Aplicar (en la actividad en equipo)</p>
+</section>
+
+<!-- ══ SECUENCIA ══ -->
+<section id="secuencia" class="card">
+  <h2>📋 Secuencia Sugerida</h2>
+
+  <div class="block">
+    <div class="block-header">
+      <span>⏱️ Bloque 1 — Concepto</span>
+      <span class="timing">20 min</span>
+    </div>
+    <div class="block-body">
+      <p><strong>Objetivo:</strong> Comprender la diferencia entre mapear procesos, mejorarlos y automatizarlos.</p>
+      <ol>
+        <li><strong>Pregunta inicial (5 min):</strong>
+          <em>"¿Cuántos pasos tiene un pedido de Mercado360 hoy desde que el cliente escribe hasta que recibe el producto?"</em>
+          <br>Deja que el grupo estime. No des la respuesta aún.</li>
+        <li><strong>Concepto de proceso AS-IS (10 min):</strong>
+          <ul>
+            <li>Explicar que AS-IS es la foto del proceso hoy, sin juicios.</li>
+            <li>Ejemplo en tablero: proceso de pedir pizza por teléfono vs. por app.</li>
+            <li>El proceso de teléfono: esperar, dar la dirección de nuevo, esperar, confirmar, esperar.</li>
+            <li>La app: elegir, pagar, tracked. Menos pasos, menos espera, menos errores.</li>
+          </ul>
+        </li>
+        <li><strong>Concepto de TO-BE y automatización (5 min):</strong>
+          <ul>
+            <li>TO-BE es cómo debe quedar el proceso.</li>
+            <li>Automatizar es usar tecnología para ejecutar pasos.</li>
+            <li>Primero se mejora, luego se automatiza.</li>
+          </ul>
+        </li>
+      </ol>
+      <div class="info-box tip" style="margin-top:1rem;">
+        <span class="icon">💡</span>
+        <p><strong>Punto clave para transmitir:</strong> Si el proceso actual tiene 8 pasos y 3 de ellos
+        son esperar, el TO-BE no es "los mismos 8 pasos pero en una app". Es "cómo quitamos los pasos
+        de espera". Primero mejorar, luego automatizar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-header">
+      <span>⏱️ Bloque 2 — Caso Mercado360</span>
+      <span class="timing">30 min</span>
+    </div>
+    <div class="block-body">
+      <p><strong>Objetivo:</strong> Mapear el proceso actual de pedido e identificar puntos de fricción.</p>
+      <ol>
+        <li><strong>Role-play del proceso (10 min):</strong>
+          <ul>
+            <li>Un estudiante es el cliente, otro es el vendedor.</li>
+            <li>El grupo va diciendo los pasos mientras se escriben en el tablero.</li>
+            <li>Anotar los problemas en cada paso.</li>
+          </ul>
+        </li>
+        <li><strong>Identificar puntos de fricción (15 min):</strong>
+          <ul>
+            <li>En el tablero, marcar con (*) los pasos donde hay espera, reproceso o error.</li>
+            <li>Calcular aproximadamente cuánto tiempo se pierde en cada paso.</li>
+            <li>Preguntar: "¿Cuánto cuesta cada venta perdida?" → $137K × 40% de consultas.</li>
+          </ul>
+        </li>
+        <li><strong>Discusión (5 min):</strong> "¿Se puede eliminar alguno de estos pasos?
+          ¿Se puede hacer en paralelo? ¿Se puede automatizar?"</li>
+      </ol>
+      <div class="info-box tip" style="margin-top:1rem;">
+        <span class="icon">🎭</span>
+        <p><strong>Tip para el role-play:</strong> Que el "vendedor" no sepa la respuesta correcta
+        de antemano. Que improvise como lo haría en la vida real. Así se ven naturalmente los problemas:
+        "creo que hay", "no estoy seguro", "espere que reviso".</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-header">
+      <span>⏱️ Bloque 3 — Taller AS-IS / TO-BE</span>
+      <span class="timing">45 min</span>
+    </div>
+    <div class="block-body">
+      <p><strong>Objetivo:</strong> Producir la evidencia de la semana.</p>
+      <ol>
+        <li><strong>Trabajo en equipos de 3-4 personas (35 min):</strong>
+          <ul>
+            <li>Mapear proceso AS-IS con 5+ pasos.</li>
+            <li>Identificar 3+ puntos de fricción con causa raíz.</li>
+            <li>Diseñar proceso TO-BE con cambios justificados.</li>
+            <li>Identificar la automatización de mayor impacto.</li>
+          </ul>
+        </li>
+        <li><strong>Presentación rápida (10 min):</strong>
+          <ul>
+            <li>Cada equipo presenta: 1 punto de fricción + 1 cambio en el TO-BE.</li>
+            <li>No necesitan presentar todo — con una mejora bien justificada es suficiente.</li>
+          </ul>
+        </li>
+      </ol>
+      <div class="info-box warn" style="margin-top:1rem;">
+        <span class="icon">📝</span>
+        <p><strong>Nota sobre la evidencia:</strong> La evidencia es <strong>individual</strong>,
+        no grupal. El mapa de flujograma puede ser simple (tabla con flechas o bullets numerados).
+        Lo importante es que cada cambio en el TO-BE tenga justificación: ¿por qué resuelve un
+        problema del AS-IS?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-header">
+      <span>⏱️ Bloque 4 — Cierre</span>
+      <span class="timing">15 min</span>
+    </div>
+    <div class="block-body">
+      <ol>
+        <li><strong>Pregunta de cierre (5 min):</strong>
+          <em>"¿Cuál de las mejoras propuestas en el TO-BE requiere tecnología y cuál no?"</em>
+          <br>Esto consolida que la tecnología es habilitadora, no el punto de partida.</li>
+        <li><strong>Introducción a Semana 4 (10 min):</strong>
+          <ul>
+            <li>La semana que viene: Tecnologías Habilitadoras.</li>
+            <li>Vamos a ver qué tecnologías pueden habilitar las mejoras propuestas en el TO-BE de Mercado360.</li>
+            <li>Pregunta de apertura: "¿Qué tecnología permite que el WhatsApp responda automáticamente con disponibilidad de inventario?"</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>Bloque</th><th>Duración</th><th>Acumulado</th></tr></thead>
+    <tbody>
+      <tr><td>Concepto</td><td>20 min</td><td>20 min</td></tr>
+      <tr><td>Caso Mercado360</td><td>30 min</td><td>50 min</td></tr>
+      <tr><td>Taller AS-IS/TO-BE</td><td>45 min</td><td>95 min</td></tr>
+      <tr><td>Cierre</td><td>15 min</td><td>110 min</td></tr>
+      <tr><td><strong>Buffer</strong></td><td>10 min</td><td>120 min</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══ ERRORES COMUNES ══ -->
+<section id="errores" class="card">
+  <h2>⚠️ Errores Típicos de los Estudiantes</h2>
+
+  <div class="error-box">
+    <strong>1. Proponer automatización sin haber mejorado el proceso.</strong>
+    <p>Resolver: "¿Cuántos pasos tiene el proceso actual? ¿Todos son necesarios? ¿Se puede eliminar alguno antes de automatizar?"</p>
+  </div>
+
+  <div class="error-box">
+    <strong>2. Saltar a la solución tecnológica antes del análisis del proceso.</strong>
+    <p>Resolver: "¿Cuál es el paso con mayor problema? ¿Se puede resolver sin tecnología primero?"</p>
+  </div>
+
+  <div class="error-box">
+    <strong>3. No justificar los cambios del TO-BE.</strong>
+    <p>Resolver: "¿Por qué ese cambio? ¿Qué problema del AS-IS resuelve? ¿Cuánto cuesta implementarlo?"</p>
+  </div>
+
+  <div class="error-box">
+    <strong>4. Mapear el proceso desde la perspectiva de la empresa, no del cliente.</strong>
+    <p>Resolver: "¿El cliente siente este paso? ¿El cliente paga por este paso? Si no, ¿por qué existe?"</p>
+  </div>
+
+  <div class="error-box">
+    <strong>5. Subestimar el costo de la automatización.</strong>
+    <p>Resolver: "¿Tiene Mercado360 presupuesto para eso? ¿Tiene talento para mantenerlo? ¿Cuánto cuesta realmente?"</p>
+  </div>
+
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <p><strong>Regla de intervención del profesor:</strong> Si un equipo propone "un chatbot" sin haber
+    hecho el mapa AS-IS, detenerlos. Preguntar: "Primero: ¿cuántos pasos tiene el proceso hoy?
+    ¿Cuál es el paso que más les duele? ¿Cuánto tiempo se pierde ahí?" La tecnología viene después
+    del análisis, nunca antes.</p>
+  </div>
+</section>
+
+<!-- ══ MATERIALES ══ -->
+<section id="materiales" class="card">
+  <h2>📦 Materiales Necesarios</h2>
+
+  <div class="material-list">
+    <ol>
+      <li>Caso Mercado360 — 1 por estudiante (referencia durante toda la sesión).</li>
+      <li>Plantilla de mapa AS-IS / TO-BE — 1 por estudiante (puede ser en blanco o con estructura previa).</li>
+      <li>Tablero o papelógrafo — 1 para construcción grupal del proceso.</li>
+      <li>Marcadores de colores — 4 colores minimum (para marcar puntos de fricción, causas raíz, soluciones).</li>
+      <li>Timer visible — para gestionar los tiempos de cada bloque.</li>
+    </ol>
+  </div>
+
+  <h3>Preparación previa recomendada</h3>
+  <ul>
+    <li>Verificar que el caso Mercado360 esté disponible para cada estudiante.</li>
+    <li>Preparar el tablero con el título "Proceso de pedido por WhatsApp — Mercado360" antes de la clase.</li>
+    <li>Tener listos los marcadores y la plantilla impresa.</li>
+  </ul>
+</section>
+
+<!-- ══ TIPOS DE AUTOMATIZACIÓN ══ -->
+<section id="automatizacion" class="card">
+  <h2>🤖 Nota sobre Tipos de Automatización</h2>
+
+  <p>Si el estudiante pregunta qué tipo de automatización usar en Mercado360, estas son las opciones más viables:</p>
+
+  <table>
+    <thead><tr><th>Tipo</th><th>Descripción</th><th>Costo estimado</th><th>Viabilidad</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Chatbot de WhatsApp</strong><br>(automatización de comunicación)</td>
+        <td>Confirma disponibilidad y aparta productos por WhatsApp.</td>
+        <td>$300K-$1.5M COP/mes<br>(Botmaker, Landbot, Twilio)</td>
+        <td>Alta — no requiere integración compleja con inventario si se hace con consulta manual al inicio.</td>
+      </tr>
+      <tr>
+        <td><strong>Automatización de inventario</strong><br>(AirTable / Google Sheets)</td>
+        <td>Base de datos actualizada con cada entrada de producto.</td>
+        <td>$0-$200K COP/mes<br>(AirTable gratis hasta 1.000 registros)</td>
+        <td>Media-alta — requiere que alguien actualice la base cuando llega producto.</td>
+      </tr>
+      <tr>
+        <td><strong>RPA con Make (Integromat)</strong></td>
+        <td>Tareas como pasar datos de WhatsApp a hoja de cálculo automáticamente.</td>
+        <td>Desde $9/mes</td>
+        <td>Media — requiere configuración inicial, no resuelve datos no actualizados.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Recomendación para la clase:</strong> Empezar con el chatbot de WhatsApp simple
+    (que solo responde con texto predefinido) y la hoja de cálculo de inventario. Ambos son de
+    bajo costo y alto impacto. La integración avanzada viene en semanas futuras.</p>
+  </div>
+</section>
+
+<!-- ══ SEGUIMIENTO ══ -->
+<section id="seguimiento" class="card">
+  <h2>🔮 Seguimiento para Semana 4</h2>
+
+  <h3>Conexión directa</h3>
+  <ul>
+    <li>Los cambios propuestos en el TO-BE de la semana 3 son los que se van a evaluar tecnológicamente en la semana 4.</li>
+    <li>Por ejemplo: Si el equipo propuso "bot que consulta inventario y responde por WhatsApp", la semana 4 se evaluará: "¿Qué tecnología habilita eso? ¿Cuál es la diferencia entre un chatbot, una integración con API, y un sistema de inventario?"</li>
+  </ul>
+
+  <h3>Pregunta de apertura para semana 4</h3>
+  <div class="info-box brain">
+    <span class="icon">❓</span>
+    <p><em>"¿Cuál de las tecnologías habilitadoras (Cloud, IA, IoT, datos, automatización) es la más relevante para resolver el dolor de inventario desactualizado en Mercado360? ¿Por qué?"</em></p>
+  </div>
+
+  <h3>Tabla de conexión del módulo</h3>
+  <table>
+    <thead><tr><th>Semana</th><th>Tema</th><th>Conexión con Semana 3</th></tr></thead>
+    <tbody>
+      <tr><td>Semana 2</td><td>Journey Map</td><td>La etapa de mayor fricción del journey se convierte en el proceso a redisear.</td></tr>
+      <tr><td><strong>Semana 3</strong></td><td><strong>Procesos y Automatización</strong></td><td><strong>Estás aquí.</strong></td></tr>
+      <tr><td>Semana 4</td><td>Tecnologías Habilitadoras</td><td>Las tecnologías propuestas en el TO-BE se evaluarán en detalle.</td></tr>
+      <tr><td>Semana 5</td><td>Parcial 1</td><td>Se aplica el método AS-IS/TO-BE a RetailNova (caso parcial).</td></tr>
+      <tr><td>Semana 7</td><td>Datos y Analítica</td><td>Los datos que genera el proceso automatizado se convierten en KPIs.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+</main>
+
+<footer>
+  Guía Docente · TD04 · Transformación Digital en la Empresa · Semana 3 de 13<br>
+  <em>Primero mejora, luego automatiza.</em>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas del Profesor — Semana 2 | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.danger { background: #ffebee; border-left: 4px solid #e53935; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .block { border-radius: 10px; padding: 1.2rem 1.5rem; margin: 1.2rem 0; }
+    .block.concept { background: #e8f5e9; border-left: 5px solid var(--green); }
+    .block.activity { background: #fff8e1; border-left: 5px solid #e6c800; }
+    .block.time { background: #e3f2fd; border-left: 5px solid #1976d2; }
+    .block h4 { font-size: 1rem; font-weight: 700; margin-bottom: .8rem; color: var(--primary); }
+    .block h4 .icon { margin-right: .4rem; }
+
+    .time-table { margin: .8rem 0; }
+    .time-table td:first-child { font-weight: 700; color: var(--primary); white-space: nowrap; width: 100px; }
+
+    .error-box { background: #ffebee; border: 1px solid #ef9a9a; border-radius: 8px; padding: .8rem 1.2rem; margin: .6rem 0; }
+    .error-box strong { color: var(--red); font-size: .88rem; }
+    .error-box p { margin: .3rem 0 0; font-size: .88rem; }
+
+    footer { text-align: center; padding: 2rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.4rem; }
+      .card { padding: 1.2rem; }
+      main { padding: 0 .8rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="badge-module">📚 Guía Docente — TD04</div>
+  <h1>Notas del Profesor — Semana 2</h1>
+  <p>Cliente Digital y Propuesta de Valor · Transformación Digital en la Empresa</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#enfoque">🎯 Enfoque</a>
+  <a href="#secuencia">📋 Secuencia</a>
+  <a href="#materiales">📦 Materiales</a>
+  <a href="#errores">⚠️ Errores típicos</a>
+  <a href="#evidencia">📋 Evidencia</a>
+  <a href="#seguimiento">🔗 Seguimiento</a>
+</nav>
+
+<main>
+
+<!-- ══ ENFOQUE ══ -->
+<section id="enfoque" class="card">
+  <h2>🎯 Enfoque de la Sesión</h2>
+
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Regla central:</strong> El journey map no es decorativo. Cada punto del mapa
+    debe responder a la pregunta: <em>"¿Qué decisión permite tomar esto?"</em></p>
+  </div>
+
+  <p><strong>Objetivo de la sesión:</strong> Que el estudiante pase de "identificar dolores"
+  (semana 1) a "mapear la experiencia del cliente" (semana 2) y pueda proponer una mejora
+  digital viable.</p>
+
+  <div class="info-box danger">
+    <span class="icon">🚨</span>
+    <p><strong>Advertencia:</strong> No dejar que el journey map se vuelva una lista de
+    etapas sin fricciones. Si no hay fricción, no hay oportunidad de mejora.</p>
+  </div>
+
+  <h3>Conexión con semana 1</h3>
+  <p>En la semana 1 identificamos los dolores de Mercado360 desde la perspectiva de la empresa:
+  inventario desactualizado, respuesta lenta por WhatsApp, falta de trazabilidad. Esta semana
+  invertimos la perspectiva: el cliente vive esos mismos problemas desde su lado, y ahí es donde
+  se pierde.</p>
+
+  <h3>Pregunta disparadora (apertura)</h3>
+  <div class="block concept">
+    <h4>💬 Para abrir la sesión</h4>
+    <p><em>"¿Cuántos han comprado algo por WhatsApp en los últimos 30 días? ¿Cuánto tiempo
+    tardaron en recibir respuesta? ¿Compraron o se fueron?"</em></p>
+    <p style="margin-top:.5rem;font-size:.88rem;color:var(--muted)">Esto conecta directamente con la realidad de los estudiantes y pone el tema en contexto.</p>
+  </div>
+</section>
+
+<!-- ══ SECUENCIA ══ -->
+<section id="secuencia" class="card">
+  <h2>📋 Secuencia Sugerida de la Sesión</h2>
+
+  <div class="block time">
+    <h4>⏱️ Tiempo total: 120 minutos (2 horas académicas)</h4>
+    <table class="time-table">
+      <thead><tr><th>Bloque</th><th>Duración</th><th>Acumulado</th></tr></thead>
+      <tbody>
+        <tr><td>Concepto</td><td>20 min</td><td>20 min</td></tr>
+        <tr><td>Caso Mercado360</td><td>30 min</td><td>50 min</td></tr>
+        <tr><td>Taller</td><td>40 min</td><td>90 min</td></tr>
+        <tr><td>Cierre</td><td>20 min</td><td>110 min</td></tr>
+        <tr><td>Buffer</td><td>10 min</td><td>120 min</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bloque 1 — Concepto (20 minutos)</h3>
+  <p><strong>Objetivo:</strong> Comprender el comportamiento del consumidor digital colombiano y la propuesta de valor.</p>
+  <ol>
+    <li><strong>Pregunta inicial (5 min):</strong> ¿Cuántos han comprado por WhatsApp recientemente? ¿Tardaron? ¿Compraron o se fueron?</li>
+    <li><strong>Consumidor digital colombiano (10 min):</strong>
+      <ul>
+        <li>Datos clave: 70%+ usa WhatsApp para comunicarse con empresas, tiempo promedio de respuesta esperado &lt; 30 minutos.</li>
+        <li>Comportamientos clave: omnicanalidad, impaciencia, comparación instantánea.</li>
+        <li>No necesita memorizar datos, pero sí debe entender que las expectativas cambiaron.</li>
+      </ul>
+    </li>
+    <li><strong>Concepto de journey map (5 min):</strong>
+      <ul>
+        <li>Mostrar ejemplo visual (puede ser caso de estudio de otra empresa).</li>
+        <li>Explicar que es una herramienta para encontrar fricciones, no solo para describir.</li>
+      </ul>
+    </li>
+  </ol>
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Nota:</strong> Si tiene acceso a proyector, puede mostrar un ejemplo de journey
+    map de una empresa conocida (Ej: Amazon, Rappi, Falabella). Si no, usar un ejemplo en
+    tablero desenhado a mano.</p>
+  </div>
+
+  <h3>Bloque 2 — Caso Mercado360 (30 minutos)</h3>
+  <p><strong>Objetivo:</strong> Que el estudiante aplique el concepto al caso.</p>
+  <ol>
+    <li><strong>Presentar el escenario (5 min):</strong>
+      <p><em>"Cliente que ve algo en Instagram, pregunta por WhatsApp, va a la tienda y el
+      producto no está disponible."</em></p>
+      <p>Es el escenario más común en Mercado360 según el caso. Es el que más fricción tiene
+      según los dolores de la semana 1.</p>
+    </li>
+    <li><strong>Construir journey en grupo (20 min):</strong>
+      <ul>
+        <li>En tablero o papelógrafo, escribir las 6 etapas.</li>
+        <li>Pedir a los estudiantes que digan qué hace el cliente en cada etapa, qué siente,
+        por dónde interactúa.</li>
+        <li>Anotar las fricciones y datos faltantes en cada etapa.</li>
+      </ul>
+    </li>
+    <li><strong>Identificar la etapa de mayor fricción (5 min):</strong>
+      <ul>
+        <li>Hacer que el grupo vote cuál es la etapa con mayor dolor.</li>
+        <li>Generalmente será la etapa 5 (Compra en tienda: producto no disponible).</li>
+        <li>Justificar por qué: es donde el cliente siente la mayor frustración y donde
+        Mercado360 pierde la venta.</li>
+      </ul>
+    </li>
+  </ol>
+  <div class="info-box warn">
+    <span class="icon">🎯</span>
+    <p><strong>Punto clave:</strong> La etapa de mayor fricción es la que tiene el mayor
+    impacto en la decisión del cliente (comprar o no comprar, volver o no volver).</p>
+  </div>
+
+  <h3>Bloque 3 — Taller (40 minutos)</h3>
+  <p><strong>Objetivo:</strong> Producir la evidencia de la semana.</p>
+  <ol>
+    <li><strong>Trabajo en equipos (35 min):</strong>
+      <ul>
+        <li>Equipos de 3-4 personas.</li>
+        <li>Construir journey map del escenario propuesto.</li>
+        <li>Identificar etapa de mayor fricción.</li>
+        <li>Proponer UNA mejora digital viable.</li>
+      </ul>
+    </li>
+    <li><strong>Presentación rápida (5 min):</strong> Cada equipo comparte su etapa de mayor
+    fricción y su propuesta.</li>
+  </ol>
+
+  <h3>Bloque 4 — Cierre (20 minutos)</h3>
+  <p><strong>Objetivo:</strong> Consolidar aprendizaje y conectar con semana 3.</p>
+  <ol>
+    <li><strong>Pregunta de cierre (10 min):</strong>
+      <p><em>"Si Mercado360 implementara solo UNA mejora digital este año, ¿cuál debería ser?
+      ¿Por qué?"</em></p>
+    </li>
+    <li><strong>Introducción a semana 3 (10 min):</strong>
+      <ul>
+        <li>La semana que viene: Procesos y automatización.</li>
+        <li>Vamos a tomar la etapa de mayor fricción del journey y redisenar el proceso
+        de pedido por WhatsApp.</li>
+        <li>Pregunta de apertura: "¿Cuál es el proceso actual de un pedido en Mercado360
+        desde que el cliente escribe hasta que recibe el producto?"</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<!-- ══ MATERIALES ══ -->
+<section id="materiales" class="card">
+  <h2>📦 Materiales Necesarios</h2>
+
+  <table>
+    <thead><tr><th>Material</th><th>Cantidad</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td>Caso Mercado360</td><td>1 por estudiante</td><td>Referencia para el taller</td></tr>
+      <tr><td>Plantilla de journey map</td><td>1 por estudiante</td><td>Actividad — puede ser tabla en blanco o formato libre</td></tr>
+      <tr><td>Tablero o papelógrafo</td><td>1</td><td>Construcción grupal del journey en tiempo real</td></tr>
+      <tr><td>Marcadores</td><td>4 colores</td><td>Tablero — distinguir etapas, fricciones, datos</td></tr>
+      <tr><td>Proyector (opcional)</td><td>—</td><td>Mostrar ejemplo visual de journey map</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Sugerencia de dinámica:</strong> Usar el tablero para construir el journey
+    en tiempo real con participación de los estudiantes. Cada etapa se escribe con un color
+    diferente: emociones (azul), acciones (verde), touchpoints (naranja), fricciones (rojo),
+    datos faltantes (morado).</p>
+  </div>
+</section>
+
+<!-- ══ ERRORES TÍPICOS ══ -->
+<section id="errores" class="card">
+  <h2>⚠️ Errores Típicos de los Estudiantes</h2>
+
+  <div class="error-box">
+    <strong>1. Hacer un journey sin fricciones.</strong>
+    <p><strong>Resolver:</strong> Preguntar "¿Y si no hay respuesta de WhatsApp en 30 minutos?
+    ¿Y si el producto no está?" — forzar al estudiante a pensar en el peor escenario del cliente.</p>
+  </div>
+
+  <div class="error-box">
+    <strong>2. Proponer una mejora que no resuelve la fricción identificada.</strong>
+    <p><strong>Resolver:</strong> Preguntar "¿Esa mejora le devuelve la confianza al cliente
+    que se fue sin comprar?" — la mejora debe atacar el dolor específico, no un problema genérico.</p>
+  </div>
+
+  <div class="error-box">
+    <strong>3. Proponer una mejora de costo alto sin justificación.</strong>
+    <p><strong>Resolver:</strong> Preguntar "¿Tiene Mercado360 presupuesto para eso?
+    ¿Cuánto tiempo tomaría implementarla? ¿Cuál es el rango de costo?" — debe ser viable y realista.</p>
+  </div>
+
+  <div class="error-box">
+    <strong>4. Confundir journey map con mapa de procesos.</strong>
+    <p><strong>Resolver:</strong> Journey map es desde la perspectiva del CLIENTE, no de la empresa.
+    Si el estudiante dice "el vendedor hace..." — eso es proceso. Si dice "el cliente siente..."
+    — eso es journey.</p>
+  </div>
+
+  <div class="error-box">
+    <strong>5. Proponer mejoras genéricas ("hacer una app", "mejorar WhatsApp").</strong>
+    <p><strong>Resolver:</strong> Preguntar "¿Qué resuelve específicamente? ¿Para quién? ¿Cuánto
+    cuesta? ¿En cuánto tiempo se implementa?" — la mejora debe ser concreta y justificada.</p>
+  </div>
+
+  <h3>Zona de riesgo en la evidencia</h3>
+  <div class="info-box danger">
+    <span class="icon">🚨</span>
+    <p><strong>Los estudiantes suelen proponer:</strong> "hacer una app", "mejorar el WhatsApp",
+    "digitalizar el inventario". Estas propuestas son vagas y no resuelven fricciones específicas.
+    <strong>Calificación rápida:</strong> Si el journey tiene las 6 etapas con datos faltantes
+    en cada una, y la propuesta de mejora tiene tecnología + impacto + costo estimado,
+    el estudiante tiene al menos 70%.</p>
+  </div>
+</section>
+
+<!-- ══ EVIDENCIA ══ -->
+<section id="evidencia" class="card">
+  <h2>📋 Notas sobre la Evidencia — Semana 2</h2>
+
+  <h3>Criterios clave de evaluación</h3>
+  <ul>
+    <li>Journey map con <strong>6 etapas completas</strong> (emoción, acción, touchpoint, dolor, dato).</li>
+    <li>Identificación clara de la etapa de <strong>mayor fricción</strong> con justificación.</li>
+    <li>Propuesta de mejora digital: <strong>descripción, tecnología, impacto, costo</strong>.</li>
+  </ul>
+
+  <h3>Rúbrica rápida</h3>
+  <table>
+    <thead><tr><th>Criterio</th><th>Peso</th><th>70%+ si...</th></tr></thead>
+    <tbody>
+      <tr><td>Journey map completo</td><td>30%</td><td>6 etapas con los 5 elementos cada una</td></tr>
+      <tr><td>Etapa de mayor fricción</td><td>20%</td><td>Identifica etapa con justificación</td></tr>
+      <tr><td>Propuesta de mejora</td><td>30%</td><td>Tecnología + impacto + costo estimado</td></tr>
+      <tr><td>Estructura y claridad</td><td>20%</td><td>Documento claro, máximo 4 páginas</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box warn">
+    <span class="icon">📌</span>
+    <p><strong>Nota sobre la evidencia:</strong> La evidencia es individual. Lo que presentan
+    en grupo es una guía. La propuesta de mejora debe ser realista: ¿tiene Mercado360
+    capacidad de implementarla? ¿Es de bajo costo?</p>
+  </div>
+</section>
+
+<!-- ══ SEGUIMIENTO ══ -->
+<section id="seguimiento" class="card">
+  <h2>🔗 Seguimiento para Semana 3</h2>
+
+  <p>La evidencia de semana 2 se conecta con semana 3:</p>
+  <ul>
+    <li>La etapa de mayor fricción del journey map (generalmente: producto no disponible al
+    ir a la tienda) se convierte en el <strong>problema central</strong> para el proceso
+    AS-IS / TO-BE de la semana 3.</li>
+    <li>Los datos faltantes del journey se convierten en los <strong>datos que necesita
+    Mercado360</strong> para tomar decisiones.</li>
+  </ul>
+
+  <div class="block activity">
+    <h4>📝 Pregunta de apertura para semana 3</h4>
+    <p><em>"¿Cuál es el proceso actual de un pedido por WhatsApp en Mercado360 desde que el
+    cliente escribe hasta que recibe el producto? ¿Cuántas personas involucra? ¿Cuántos pasos
+    tiene? ¿Dónde se pierde información?"</em></p>
+  </div>
+
+  <h3>Conexión con las semanas siguientes</h3>
+  <table>
+    <thead><tr><th>Semana</th><th>Tema</th><th>Conexión con Semana 2</th></tr></thead>
+    <tbody>
+      <tr><td>Semana 1</td><td>Diagnóstico de madurez digital</td><td>Los dolores del cliente del mapa se convierten en entrada para el journey.</td></tr>
+      <tr><td>Semana 3</td><td>Procesos y automatización</td><td>Los touchpoints con fricción se convierten en oportunidades de automatización.</td></tr>
+      <tr><td>Semana 7</td><td>Datos y analítica</td><td>Los datos faltantes del journey se convierten en KPIs.</td></tr>
+      <tr><td>Semana 5</td><td>Parcial 1</td><td>Se aplica el método del journey a RetailNova.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Nota sobre datos de mercado</h3>
+  <p>Si el estudiante pregunta "¿de dónde salen los datos de comercio electrónico en Colombia?",
+  puede citar:</p>
+  <ul>
+    <li>MinTIC (2023). <em>Estudio de Comercio Electrónico y Consumidores Digitales en Colombia.</em>
+    Disponible en: mintic.gov.co</li>
+    <li>Ecommerce Foundation (2023). <em>Colombia B2C E-Commerce Report.</em>
+    Disponible en: ecommercefoundation.org</li>
+  </ul>
+  <p>No necesita memorizar números exactos, pero sí debe entender que hay estudios que muestran
+  el cambio de comportamiento.</p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>TD04 — Guía Docente · Transformación Digital en la Empresa · IUB Inteligencia de Negocios 2026</p>
+  <p>Prof. Diego Domínguez Tapia · Semana 2 de 13</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 3 — Procesos, Automatización y Valor | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+    .xp-bar-wrap { margin: 1.2rem auto 0; max-width: 400px; background: rgba(255,255,255,.2); border-radius: 20px; height: 14px; overflow: hidden; }
+    .xp-bar { height: 100%; width: 0%; background: var(--gold); border-radius: 20px; transition: width 1.5s ease; }
+    .xp-label { font-size: .78rem; opacity: .8; margin-top: .4rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .bloom { display: inline-flex; align-items: center; gap: .4rem; background: #fff9c4; border: 1px solid #FFDF2D; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #5d4037; margin-bottom: 1rem; }
+
+    .memo { background: #fffde7; border-left: 5px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; font-style: italic; }
+    .memo strong { font-style: normal; display: block; margin-bottom: .4rem; color: var(--primary); }
+
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 1rem; margin: 1rem 0; }
+    .kpi-card { background: var(--light-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
+    .kpi-card .kpi-icon { font-size: 1.8rem; }
+    .kpi-card .kpi-name { font-size: .78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; margin: .4rem 0; }
+    .kpi-card .kpi-val  { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box.hist  { background: #fce4ec; border-left: 4px solid #e91e63; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .relevance-badge { display: inline-block; border-radius: 6px; padding: .15rem .55rem; font-size: .75rem; font-weight: 800; margin-left: .4rem; }
+    .vig  { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+    .evo  { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+    .hist-badge { background: #fce4ec; color: #880e4f; border: 1px solid #f48fb1; }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-header.hti-a      { background: #e8f5e9; color: var(--green); }
+    .activity-header.hti-b      { background: #fff8e1; color: #e65100; }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body ol, .activity-body ul { padding-left: 1.4rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .dojo-panel { background: linear-gradient(135deg, #1E2843 0%, #2d3a5e 100%); color: #fff; border-radius: var(--radius); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .dojo-panel h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.05rem; }
+    .dojo-items { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .dojo-item { background: rgba(255,255,255,.12); border-radius: 8px; padding: .5rem 1rem; font-size: .85rem; display: flex; align-items: center; gap: .5rem; }
+    .pts { color: var(--gold); font-weight: 800; font-size: 1.1rem; }
+
+    .rubric-table { font-size: .85rem; }
+    .rubric-table th { background: var(--accent); font-size: .82rem; }
+    .rubric-table td { vertical-align: middle; }
+    .rubric-table .weight { font-weight: 700; background: var(--gold); color: var(--primary); text-align: center; border-radius: 6px; padding: .2rem .5rem; display: inline-block; }
+
+    .flow-box { background: var(--light-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin: 1rem 0; }
+    .flow-step { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: .8rem; }
+    .flow-num { background: var(--primary); color: #fff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .85rem; flex-shrink: 0; }
+    .flow-content { flex: 1; }
+    .flow-content strong { display: block; color: var(--primary); margin-bottom: .15rem; }
+    .flow-problem { color: var(--red); font-size: .85rem; font-weight: 600; }
+    .flow-arrow { text-align: center; color: var(--muted); font-size: 1.2rem; margin: .2rem 0 .2rem 40px; }
+
+    .bib { font-size: .88rem; line-height: 1.8; }
+    .bib li { margin-bottom: .6rem; padding-left: .5rem; }
+
+    footer { text-align: center; padding: 2rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.4rem; }
+      .card { padding: 1.2rem; }
+      main { padding: 0 .8rem 3rem; }
+    }
+  </style>
+
+  <style id="pt-css">
+  #pt-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: linear-gradient(135deg,#1E2843,#2d3a5e); color: #fff; border-radius: 16px; padding: 14px 18px; min-width: 240px; max-width: 280px; box-shadow: 0 8px 32px rgba(0,0,0,.35); font-family: 'Open Sans', Arial, sans-serif; font-size: .85rem; transition: transform .3s; }
+  #pt-widget.collapsed { transform: translateY(calc(100% - 42px)); }
+  #pt-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  #pt-header strong { font-size: .92rem; }
+  #pt-toggle { background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; line-height: 1; }
+  #pt-body { margin-top: 10px; }
+  #pt-xp-bar-wrap { background: rgba(255,255,255,.2); border-radius: 20px; height: 10px; overflow: hidden; }
+  #pt-xp-bar { height: 100%; background: linear-gradient(90deg,#FFDF2D,#fff176); border-radius: 20px; transition: width .8s ease; }
+  #pt-xp-label { display: flex; justify-content: space-between; font-size: .75rem; opacity: .8; margin-top: 4px; }
+  #pt-btns { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .pt-btn { flex: 1; padding: 5px 8px; border: none; border-radius: 8px; font-size: .75rem; font-weight: 700; cursor: pointer; transition: opacity .2s; }
+  .pt-btn:hover { opacity: .85; }
+  #pt-btn-save { background: #43a047; color: #fff; }
+  #pt-advanced { display: none; margin-top: 5px; }
+  #pt-msg { font-size: .72rem; margin-top: 6px; min-height: 16px; opacity: .85; text-align: center; }
+  </style>
+
+  <style id="modal-css">
+  #pt-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 10000; display: flex; align-items: center; justify-content: center; animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+  #pt-modal-box { background: linear-gradient(160deg,#1E2843,#1E2843 70%,#2d3a5e); color: #fff; border-radius: 20px; padding: 2rem 2rem 1.5rem; width: min(94vw,420px); box-shadow: 0 20px 60px rgba(0,0,0,.5); animation: slideUp .35s cubic-bezier(.2,.8,.3,1); }
+  @keyframes slideUp { from { transform: translateY(30px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+  #pt-modal-box h2 { font-size: 1.25rem; font-weight: 900; margin-bottom: .3rem; }
+  #pt-modal-box .sub { opacity: .75; font-size: .85rem; margin-bottom: 1.3rem; }
+  #pt-modal-box .field { margin-bottom: .9rem; }
+  #pt-modal-box label { display: block; font-size: .78rem; font-weight: 700; opacity: .85; margin-bottom: .3rem; text-transform: uppercase; letter-spacing: .05em; }
+  #pt-modal-box input { width: 100%; background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.35); border-radius: 10px; padding: .6rem .9rem; color: #fff; font-size: .95rem; outline: none; }
+  #pt-modal-box input::placeholder { color: rgba(255,255,255,.45); }
+  #pt-modal-box input:focus { border-color: rgba(249,168,37,.9); }
+  #pt-modal-btn { width: 100%; padding: .7rem; border: none; border-radius: 12px; background: linear-gradient(135deg,#FFDF2D,#FFDF2D); color: #1E2843; font-weight: 900; font-size: 1rem; cursor: pointer; margin-top: .4rem; transition: opacity .15s; }
+  #pt-modal-btn:hover { opacity: .9; }
+  #pt-modal-btn-search { padding: .65rem 1.2rem; border: none; border-radius: 10px; background: rgba(255,255,255,.18); color: #fff; font-weight: 700; font-size: .92rem; cursor: pointer; transition: background .15s; flex-shrink: 0; }
+  #pt-modal-btn-search:hover { background: rgba(255,255,255,.28); }
+  #pt-modal-error, #pt-modal-error2, #pt-modal-error3 { color: #ff8a80; font-size: .8rem; margin-top: .5rem; min-height: 1em; }
+  #pt-modal-xp { text-align: center; font-size: .78rem; opacity: .7; margin-top: .7rem; }
+  .pt-found-card { background: rgba(255,255,255,.1); border: 1.5px solid rgba(249,168,37,.6); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: .9rem; }
+  .pt-found-card .pt-fc-name { font-size: 1rem; font-weight: 800; margin-bottom: .25rem; }
+  .pt-found-card .pt-fc-meta { font-size: .8rem; opacity: .8; line-height: 1.6; }
+  .pt-step { transition: opacity .2s; }
+  .pt-link-btn { background: none; border: none; color: rgba(255,255,255,.6); font-size: .8rem; cursor: pointer; text-decoration: underline; padding: .3rem 0 0; display: block; text-align: center; width: 100%; }
+  .pt-link-btn:hover { color: #fff; }
+  </style>
+
+  <script src="../js/supabase-config.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="badge-module">TD04 · Transformación Digital en la Empresa · Semana 3 de 13</div>
+  <h1>⚙️ Procesos, Automatización y Valor</h1>
+  <p>Mercado360 · AS-IS / TO-BE · Regla de Oro: primero mejorar, luego automatizar</p>
+  <div class="xp-bar-wrap"><div class="xp-bar" id="xpBar"></div></div>
+  <p class="xp-label">XP de sesión: <span id="xpCount">0</span> / 65 pts</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#mision">🎯 Misión</a>
+  <a href="#teoria">📚 Teoría</a>
+  <a href="#actividad">⚙️ Actividad</a>
+  <a href="#evidencia">📋 Evidencia</a>
+  <a href="#bib">📖 Fuentes</a>
+</nav>
+
+<main>
+
+<!-- PROGRESS TRACKER WIDGET -->
+<div id="pt-widget">
+  <div id="pt-header" onclick="ptToggle()">
+    <strong>📊 Mi Progreso TD04</strong>
+    <button id="pt-toggle">▲</button>
+  </div>
+  <div id="pt-body">
+    <div id="pt-xp-bar-wrap"><div id="pt-xp-bar" style="width:0%"></div></div>
+    <div id="pt-xp-label"><span id="pt-semana-label">Semana 3</span><span id="pt-xp-count">0 XP</span></div>
+    <div id="pt-btns">
+      <button class="pt-btn" id="pt-btn-save" onclick="ptSyncCloud()" style="flex:1">☁️ Guardar</button>
+      <button class="pt-btn" onclick="(function(){var a=document.getElementById('pt-advanced');a.style.display=a.style.display==='block'?'none':'block'})()" style="width:32px;flex-shrink:0;padding:0;font-size:.8rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)">⚙️</button>
+    </div>
+    <div id="pt-advanced">
+      <button class="pt-btn" onclick="ptExportCode()" style="width:100%;margin-bottom:3px;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📋 Exportar respaldo</button>
+      <button class="pt-btn" onclick="ptImportCode()" style="width:100%;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📥 Cargar desde código</button>
+    </div>
+    <div id="pt-msg"></div>
+  </div>
+</div>
+
+<!-- ══ MISIÓN / MEMORANDO ══ -->
+<section id="mision" class="card">
+  <h2>📋 El Memorando — Tu Misión esta Semana</h2>
+  <div class="memo">
+    <strong>Para: Consultores Junior de Transformación — Equipo TD04<br>
+    De: Gerencia General, Mercado360<br>
+    Asunto: El problema del pedido por WhatsApp que nos está costando ventas</strong>
+
+    Mercado360 recibe aproximadamente <strong>120 consultas semanales</strong> por WhatsApp sobre
+    disponibilidad de productos. El proceso actual funciona así: el cliente escribe, el vendedor
+    responde "creo que hay", el cliente va a la tienda, y a veces no hay producto. La tasa de
+    conversión está en el <strong>60%</strong> y el gerente estima que perdemos el <strong>40%</strong>
+    de esas consultas por información inexacta o respuesta lenta.<br><br>
+    Tu trabajo como Consultor Junior es mapear el proceso actual (AS-IS), identificar los puntos
+    de fricción, y diseñar el proceso mejorado (TO-BE). La regla de oro: <strong>primero mejora,
+    luego automatiza</strong>. No vamos a automatizar un proceso que tiene errores de diseño.
+  </div>
+
+  <div class="bloom">🧠 Nivel Bloom: Recordar → Aplicar</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-icon">💬</div>
+      <div class="kpi-name">Consultas Semanales</div>
+      <div class="kpi-val">120</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">📉</div>
+      <div class="kpi-name">Tasa Conversión Actual</div>
+      <div class="kpi-val">60%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">❌</div>
+      <div class="kpi-name">Ventas Perdidas Est.</div>
+      <div class="kpi-val">48</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">💰</div>
+      <div class="kpi-name">Costo Venta Perdida</div>
+      <div class="kpi-val">$137K</div>
+    </div>
+  </div>
+  <p style="font-size:.85rem;color:var(--muted)">
+    <em>El ticket promedio de Mercado360 es $137.000 COP. Cada consulta que no se convierte
+    en venta tiene un costo real para el negocio.</em>
+  </p>
+</section>
+
+<!-- ══ TEORÍA ══ -->
+<section id="teoria" class="card">
+  <h2>📚 Marco Teórico</h2>
+
+  <h3>1. ¿Qué es un Proceso Empresarial? <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    Un <strong>proceso empresarial</strong> es una secuencia de actividades que transforma
+    insumos (inputs) en resultados (outputs), generando valor para el cliente interno o externo.
+    Es lo que pasa "cuando alguien pide algo" en la empresa. Si ese flujo tiene pasos claros,
+    se puede medir y mejorar. Si no lo tiene, es caos.
+  </p>
+  <div class="info-box tip">
+    <span class="icon">💡</span>
+    <p><strong>Analogía del restaurante:</strong> Pedir comida es un proceso. Input: tu hambre y preferencias. Output: la comida en tu mesa. Entre medio hay pasos (menú, orden, cocina, entrega). Si el mesero anota mal la orden → reproceso. Si la cocina está lenta → espera. Cada paso tiene un costo.</p>
+  </div>
+
+  <p><strong>Características de un buen proceso:</strong></p>
+  <ul>
+    <li>Tiene un <strong>inicio</strong> y un <strong>fin</strong> claros.</li>
+    <li>Genera un <strong>resultado medible</strong>.</li>
+    <li>Tiene un <strong>dueño</strong> (responsable del proceso).</li>
+    <li>Es <strong>repetible</strong> (no es único).</li>
+    <li>Se puede <strong>documentar, medir y mejorar</strong>.</li>
+  </ul>
+  <p style="font-size:.85rem;color:var(--muted)"><em>Fuente: Hammer & Champy (1993), Reengineering the Corporation.</em></p>
+
+  <h3>2. Mapeo AS-IS vs. TO-BE <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>
+    Antes de proponer soluciones, hay que entender cómo funciona el proceso <em>hoy</em>.
+    Estas dos perspectivas lo permiten:
+  </p>
+  <table>
+    <thead><tr><th>Perspectiva</th><th>Descripción</th><th>Pregunta clave</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>AS-IS</strong><br><em>(como es hoy)</em></td>
+        <td>Descripción del proceso actual, paso a paso, sin juicios. Es la "fotografía" de la realidad.</td>
+        <td>¿Qué pasos existen hoy? ¿Dónde se pierde información, dónde hay esperas y errores?</td>
+      </tr>
+      <tr>
+        <td><strong>TO-BE</strong><br><em>(como debería ser)</em></td>
+        <td>Descripción del proceso mejorado. Muestra cómo se resuelven los problemas identificados.</td>
+        <td>¿Qué cambios eliminan los dolores? ¿Qué tecnología los habilita?</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Regla de oro de esta semana:</strong> <em>Primero mejora el proceso, luego automatízalo.</em> Si automatizas un proceso con errores de diseño, obtienes un proceso malo automatizado. Mejoras antes de automatizar.</p>
+  </div>
+
+  <h3>3. Tipos de Dolor en un Proceso</h3>
+  <p>Cada paso del proceso puede tener uno o más tipos de fricción:</p>
+  <table>
+    <thead><tr><th>Tipo de dolor</th><th>Descripción</th><th>Pregunta para identificarlo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>🔄 Pasos manuales</strong></td><td>Alguien transcribe información de un medio a otro manualmente.</td><td>¿Este paso lo hace una persona o una máquina?</td></tr>
+      <tr><td><strong>⏳ Esperas</strong></td><td>El proceso se detiene esperando que alguien haga algo.</td><td>¿Dónde se acumula el tiempo sin generar valor?</td></tr>
+      <tr><td><strong>🔁 Reprocesos</strong></td><td>Hay que hacer algo de nuevo porque se perdió o cometió un error.</td><td>¿Qué paso requiere rehacerse?</td></tr>
+      <tr><td><strong>🧠 Decisiones manuales en alto volumen</strong></td><td>Alguien decide en un paso que podría ser automático.</td><td>¿Este juicio puede codificarse?</td></tr>
+      <tr><td><strong>📉 Falta de información</strong></td><td>Quien hace el siguiente paso no tiene los datos que necesita.</td><td>¿Qué información le falta a quien continúa el proceso?</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4. Tipos de Automatización <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
+  <p>No toda automatización es igual. El tipo correcto depende del dolor que se quiere resolver:</p>
+  <table>
+    <thead><tr><th>Tipo</th><th>Descripción</th><th>Ejemplo en Mercado360</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>RPA — Robotic Process Automation</strong></td>
+        <td>Robot que ejecuta tareas repetitivas que antes hacía una persona.</td>
+        <td>Bot que consulta inventario cuando el cliente pregunta por WhatsApp.</td>
+      </tr>
+      <tr>
+        <td><strong>Automatización de flujo</strong></td>
+        <td>Conectar sistemas para que la información fluya sin intervención manual.</td>
+        <td>Inventario que se actualiza solo cuando llega producto al almacén.</td>
+      </tr>
+      <tr>
+        <td><strong>Automatización de decisión</strong></td>
+        <td>El sistema toma decisiones simples sin intervención humana.</td>
+        <td>Descuentos automáticos por lealtad del cliente.</td>
+      </tr>
+      <tr>
+        <td><strong>Automatización de comunicación</strong></td>
+        <td>Notificaciones automáticas por canal (WhatsApp, email, SMS).</td>
+        <td>Recordatorio de carrito abandonado por WhatsApp.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.85rem;color:var(--muted)"><em>Fuente: Dumas et al. (2018), Fundamentals of Business Process Management. Springer.</em></p>
+
+  <h3>5. Caso Mercado360 — Proceso AS-IS (Pedido por WhatsApp)</h3>
+  <p>Este es el proceso actual de un cliente que ve un producto en Instagram y consulta por WhatsApp:</p>
+
+  <div class="flow-box">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-content">
+        <strong>Cliente escribe por WhatsApp</strong>
+        <span style="color:var(--muted);font-size:.85rem">Pregunta por producto, talla y cantidad</span>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-content">
+        <strong>Vendedor recibe el mensaje</strong>
+        <span style="color:var(--muted);font-size:.85rem">Puede estar atendiendo en tienda o no estar disponible</span>
+        <div class="flow-problem">⏳ Espera — respuesta tardía</div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-content">
+        <strong>Vendedor busca disponibilidad</strong>
+        <span style="color:var(--muted);font-size:.85rem">En su memoria o en un cuaderno</span>
+        <div class="flow-problem">📉 Dato — información incompleta o imprecisa</div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-content">
+        <strong>Vendedor responde "sí hay" o "no hay"</strong>
+        <span style="color:var(--muted);font-size:.85rem">Si lo recuerda correctamente</span>
+        <div class="flow-problem">📉 Dato — sin confirmación de inventario real</div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-content">
+        <strong>Cliente decide ir a la tienda</strong>
+        <span style="color:var(--muted);font-size:.85rem">Confirma intención de compra</span>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num">6</div>
+      <div class="flow-content">
+        <strong>Cliente llega a la tienda y pregunta por el producto</strong>
+        <span style="color:var(--muted);font-size:.85rem">Vendedor busca en inventario</span>
+        <div class="flow-problem">🔁 Reproceso — a veces no está porque el cuaderno no está actualizado</div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num">7</div>
+      <div class="flow-content">
+        <strong>Cliente se va sin comprar</strong>
+        <span style="color:var(--muted);font-size:.85rem">O llama a otro vendedor. O compra en la competencia.</span>
+        <div class="flow-problem">💸 Costo: ~$137K por venta perdida × 40% de las consultas</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box warn">
+    <span class="icon">📊</span>
+    <p><strong>Impacto estimado:</strong><br>
+    • Tiempo del vendedor: <strong>15-20 min por consulta</strong> (entre esperar, buscar, responder).<br>
+    • Tasa de conversión actual: <strong>60%</strong> (48 de 120 consultas no convierten).<br>
+    • Costo por venta perdida: <strong>$137.000 COP</strong> × 48 = <strong>$6.576.000 COP/semana</strong> en potencial perdido.</p>
+  </div>
+
+  <h3>6. Caso Mercado360 — Proceso TO-BE (Mejorado)</h3>
+  <p>Ahora, el mismo proceso después de mejorar y luego automatizar:</p>
+
+  <div class="flow-box" style="background:#e8f5e9;">
+    <div class="flow-step">
+      <div class="flow-num" style="background:#43a047;">1</div>
+      <div class="flow-content">
+        <strong>Cliente escribe por WhatsApp preguntando por producto</strong>
+        <span style="color:var(--muted);font-size:.85rem">Mismo inicio, mismo canal</span>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:#43a047;">2</div>
+      <div class="flow-content">
+        <strong>Bot automático recibe el mensaje, consulta inventario en tiempo real</strong>
+        <span style="color:var(--muted);font-size:.85rem">Sin intervención del vendedor</span>
+        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Automatización de comunicación + consulta de datos</div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:#43a047;">3</div>
+      <div class="flow-content">
+        <strong>Bot responde con disponibilidad real (SKU, talla, cantidad)</strong>
+        <span style="color:var(--muted);font-size:.85rem">Información precisa, instantánea</span>
+        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Elimina espera y dato incompleto</div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:#43a047;">4</div>
+      <div class="flow-content">
+        <strong>Si hay disponibilidad, bot ofrece apartar por 2 horas (reserva automática)</strong>
+        <span style="color:var(--muted);font-size:.85rem">Reduce incertidumbre del cliente</span>
+        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Automatización de decisión: apartar = decisión simple</div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:#43a047;">5</div>
+      <div class="flow-content">
+        <strong>Cliente confirma apartar</strong>
+        <span style="color:var(--muted);font-size:.85rem">Un click en WhatsApp</span>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:#43a047;">6</div>
+      <div class="flow-content">
+        <strong>Sistema reserva el producto, notifica al vendedor</strong>
+        <span style="color:var(--muted);font-size:.85rem">Inventario actualizado en tiempo real</span>
+        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Automatización de flujo: inventario ↔ reserva</div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:#43a047;">7</div>
+      <div class="flow-content">
+        <strong>Cliente llega a la tienda, pide el producto, confirma que se lo tienen</strong>
+        <span style="color:var(--muted);font-size:.85rem">Proceso de entrega sin fricción</span>
+        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ conversion esperada: 60% → 80%</div>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>Métrica</th><th>AS-IS</th><th>TO-BE</th><th>Mejora</th></tr></thead>
+    <tbody>
+      <tr><td>Tiempo de respuesta</td><td>15-20 min</td><td>2 min</td><td>↓ 85%</td></tr>
+      <tr><td>Tasa de conversión</td><td>60%</td><td>80%</td><td>↑ 33%</td></tr>
+      <tr><td>Reserva cumplida</td><td>N/A</td><td>90%</td><td>Nuevo</td></tr>
+      <tr><td>Ventas perdidas/semana</td><td>48</td><td>~24</td><td>↓ 50%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box brain">
+    <span class="icon">🧠</span>
+    <p><strong>Reflexión clave:</strong> El paso 2 del TO-BE (bot consulta inventario) solo funciona
+    si el inventario está actualizado. Por eso primero se mejora el proceso de actualización de
+    inventario (que alguien lo haga cada vez que llega producto) y luego se automatiza la consulta.
+    Si automatizas sin ese paso previo, el bot responderá rápido pero con datos incorrectos.</p>
+  </div>
+
+  <h3>7. Mejorar vs. Automatizar — No es lo mismo</h3>
+  <table>
+    <thead><tr><th></th><th>Mejorar un proceso</th><th>Automatizar un proceso</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Qué hace</strong></td>
+        <td>Cambia el flujo para eliminar pasos innecesarios, reducir esperas, eliminar errores.</td>
+        <td>Usa tecnología para ejecutar pasos que antes hacían personas.</td>
+      </tr>
+      <tr>
+        <td><strong>Cuándo</strong></td>
+        <td>Siempre primero. Antes de automatizar.</td>
+        <td>Después de mejorar. Cuando el proceso esté depurado.</td>
+      </tr>
+      <tr>
+        <td><strong>Ejemplo en Mercado360</strong></td>
+        <td>Eliminar el paso de "buscar en la memoria del vendedor" → el bot consulta el sistema.</td>
+        <td>El bot de WhatsApp responde automáticamente con disponibilidad real.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══ ACTIVIDAD PRESENCIAL ══ -->
+<section id="actividad" class="card">
+  <h2>⚙️ Actividad Presencial — Taller AS-IS / TO-BE</h2>
+
+  <div class="dojo-panel">
+    <h3>🏆 Puntos disponibles esta sesión</h3>
+    <div class="dojo-items">
+      <div class="dojo-item">📋 <span>Asistencia</span> <span class="pts">+10 XP</span></div>
+      <div class="dojo-item">🎯 <span>Participación en role-play</span> <span class="pts">+10 XP</span></div>
+      <div class="dojo-item">📝 <span>Mapa AS-IS/TO-BE en equipo</span> <span class="pts">+25 XP</span></div>
+      <div class="dojo-item">🎤 <span>Presentación rápida</span> <span class="pts">+10 XP</span></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-header presencial">⏱️ Bloque 1 — Concepto · <em style="font-weight:400;margin-left:.3rem">Bloom: Recordar → Comprender · 20 min</em></div>
+    <div class="activity-body">
+      <p><strong>Pregunta de apertura:</strong> "¿Cuántos pasos tiene un pedido de Mercado360 hoy desde que el cliente escribe hasta que recibe el producto?"</p>
+      <p style="margin-top:.8rem">El docente带你 paso a paso por el proceso AS-IS del pedido por WhatsApp. Se actuará el proceso en vivo: un estudiante será el cliente, otro el vendedor. El grupo identificará los pasos y los problemas en cada uno.</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-header presencial">⏱️ Bloque 2 — Taller AS-IS / TO-BE · <em style="font-weight:400;margin-left:.3rem">Bloom: Aplicar · 45 min</em></div>
+    <div class="activity-body">
+      <p><strong>🎯 Tu misión en equipo:</strong></p>
+      <ol>
+        <li><strong>Elige un proceso</strong> de Mercado360 para mapear (recomendado: pedido por WhatsApp).</li>
+        <li><strong>Mapea el proceso AS-IS</strong> con:
+          <ul>
+            <li>Pasos del proceso (inicio a fin).</li>
+            <li>Responsable de cada paso.</li>
+            <li>Tiempo estimado por paso.</li>
+            <li>Problemas identificados (tipo de dolor) en cada paso.</li>
+          </ul>
+        </li>
+        <li><strong>Diseño el proceso TO-BE</strong> con:
+          <ul>
+            <li>Cambios propuestos por paso (¿qué se elimina, qué se mejora?).</li>
+            <li>Tecnología habilitadora (nombre general: chatbot, base de datos, etc.).</li>
+            <li>Métricas esperadas (ej: tiempo de respuesta, tasa de conversión).</li>
+          </ul>
+        </li>
+        <li><strong>Identifica el paso con mayor oportunidad de automatización</strong> y justifica por qué.</li>
+      </ol>
+      <p style="margin-top:.8rem"><strong>Formato del entregable:</strong> Tabla AS-IS → TO-BE con 5+ pasos. Puede ser en tabular, bullet numerado con flechas, o flujograma simple. Lo importante es la justificación de cada cambio.</p>
+
+      <div class="info-box tip">
+        <span class="icon">💡</span>
+        <p><strong>Tip:</strong> No proposes tecnología antes de haber identificado los puntos de fricción.
+        Pregúntate primero: "¿Se puede resolver este dolor sin tecnología?" Si la respuesta es sí,
+        mejora primero. Si no, entonces sí: ¿qué tecnología lo resuelve?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-header presencial">⏱️ Bloque 3 — Cierre · <em style="font-weight:400;margin-left:.3rem">5 min</em></div>
+    <div class="activity-body">
+      <p>Pregunta de cierre: "¿Cuál de las mejoras propuestas en el TO-BE requiere tecnología y cuál no?"</p>
+      <p style="margin-top:.5rem;font-size:.9rem;color:var(--muted)"><em>Esto prepara el terreno para la Semana 4: Tecnologias Habilitadoras.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EVIDENCIA ══ -->
+<section id="evidencia" class="card">
+  <h2>📋 Evidencia de la Semana</h2>
+
+  <div class="info-box warn">
+    <span class="icon">📌</span>
+    <p><strong>Esta evidencia es individual.</strong> El mapa AS-IS / TO-BE se construye en equipo,
+    pero la entrega es personal. Tu documento debe reflejar tu análisis propio.</p>
+  </div>
+
+  <h3>Descripción de la evidencia</h3>
+  <p><strong>Mapa AS-IS / TO-BE del proceso de pedido de Mercado360</strong> — documento individual.</p>
+
+  <h3>Debe incluir:</h3>
+  <ol>
+    <li>Descripción del proceso <strong>AS-IS</strong> con al menos <strong>5 pasos</strong> (responsable, tiempo estimado, problemas identificados).</li>
+    <li>Identificación de al menos <strong>3 puntos de fricción</strong> con causa raíz y costo estimado por paso.</li>
+    <li>Descripción del proceso <strong>TO-BE</strong> con cambios propuestos (¿qué se elimina, qué se mejora?).</li>
+    <li>Para cada cambio: <strong>qué problema resuelve</strong> y <strong>qué tecnología lo habilita</strong>.</li>
+    <li>Identificación de la <strong>automatización de mayor impacto</strong> con justificación.</li>
+  </ol>
+
+  <p><strong>Extensión máxima:</strong> 5 páginas.</p>
+
+  <h3>Rubrica de evaluacion</h3>
+  <table class="rubric-table">
+    <thead>
+      <tr>
+        <th>Criterio</th>
+        <th>Peso</th>
+        <th>Destacado</th>
+        <th>Satisfactorio</th>
+        <th>En desarrollo</th>
+        <th>Insuficiente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Proceso AS-IS completo</strong></td>
+        <td><span class="weight">25%</span></td>
+        <td>5+ pasos con responsable, tiempo y problemas identificados. Cada problema tiene causa raíz.</td>
+        <td>5+ pasos pero algunos sin problemas identificados.</td>
+        <td>Menos de 5 pasos o sin estructura clara.</td>
+        <td>No entrega AS-IS.</td>
+      </tr>
+      <tr>
+        <td><strong>Puntos de fricción</strong></td>
+        <td><span class="weight">20%</span></td>
+        <td>3+ dores con causa raíz y costo estimado por paso.</td>
+        <td>3 dores pero sin costo estimado.</td>
+        <td>1-2 dores sin causa raíz.</td>
+        <td>No identifica dores.</td>
+      </tr>
+      <tr>
+        <td><strong>Proceso TO-BE con cambios</strong></td>
+        <td><span class="weight">25%</span></td>
+        <td>TO-BE completo con 3+ cambios. Cada cambio tiene justificación (problema que resuelve) y tecnología habilitadora.</td>
+        <td>TO-BE con cambios pero faltan justificaciones o tecnología.</td>
+        <td>TO-BE incompleto o sin justificación.</td>
+        <td>No entrega TO-BE o es copia del AS-IS.</td>
+      </tr>
+      <tr>
+        <td><strong>Automatización de mayor impacto</strong></td>
+        <td><span class="weight">20%</span></td>
+        <td>Identifica automatización con justificación clara (impacto, viabilidad, costo estimado).</td>
+        <td>Identifica automatización pero sin justificación completa.</td>
+        <td>Identifica automatización sin justificación.</td>
+        <td>No entrega.</td>
+      </tr>
+      <tr>
+        <td><strong>Estructura y calidad</strong></td>
+        <td><span class="weight">10%</span></td>
+        <td>Documento claro, máximo 5 páginas, sin errores.</td>
+        <td>Documento claro con máximo 5 páginas.</td>
+        <td>Documento desorganizado o más de 5 páginas.</td>
+        <td>No entrega.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══ FUENTES ══ -->
+<section id="bib" class="card">
+  <h2>📖 Fuentes de la Semana</h2>
+  <ol class="bib">
+    <li>Hammer, M. & Champy, J. (1993). <em>Reengineering the Corporation: A Manifesto for Business Revolution</em>. Harper Business. <span style="color:var(--green);font-weight:700;">Obligatoria</span></li>
+    <li>Dumas, M., La Rosa, M., Mendling, J., & Reijers, H. A. (2018). <em>Fundamentals of Business Process Management</em>. Springer. <span style="color:var(--green);font-weight:700;">Obligatoria</span></li>
+    <li>van der Aalst, W. (2013). <em>Process Mining: Data Science in Action</em>. Springer. <span style="color:#e65100;font-weight:700;">Complementaria</span></li>
+    <li>Silver, B. (2018). <em>BPMS for Dummies</em>, Oracle Special Edition. <span style="color:#e65100;font-weight:700;">Complementaria</span></li>
+  </ol>
+
+  <h3>Conexion con el módulo</h3>
+  <table>
+    <thead><tr><th>Semana</th><th>Tema</th><th>Conexión con Semana 3</th></tr></thead>
+    <tbody>
+      <tr><td>Semana 2</td><td>Journey Map</td><td>La etapa de mayor fricción del journey se convierte en el proceso a redisenar.</td></tr>
+      <tr><td>Semana 4</td><td>Tecnologías Habilitadoras</td><td>Las tecnologías propuestas en el TO-BE se evaluarán en detalle (cloud, IA, IoT, datos, automatización).</td></tr>
+      <tr><td>Semana 7</td><td>Datos y Analítica</td><td>Los datos que genera el proceso automatizado se convierten en KPIs.</td></tr>
+      <tr><td>Semana 5</td><td>Parcial 1</td><td>Se aplica el método AS-IS / TO-BE a un caso de retail.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+</main>
+
+<footer>
+  TD04 · Transformación Digital en la Empresa · Semana 3 de 13<br>
+  Mercado360 — Caso Formativo · <em>Primero mejora, luego automatiza</em>
+</footer>
+
+<script>
+var LS_KEY = 'td_s3';
+
+function ptToggle(){
+  var w=document.getElementById('pt-widget');
+  var t=document.getElementById('pt-toggle');
+  w.classList.toggle('collapsed');
+  t.textContent=w.classList.contains('collapsed')?'▲':'▼';
+}
+
+function ptGetXP(){return parseInt(localStorage.getItem(LS_KEY+'_xp')||'0');}
+function ptSetXP(v){localStorage.setItem(LS_KEY+'_xp',v);updateXP();}
+function updateXP(){
+  var xp=ptGetXP();
+  document.getElementById('xpCount').textContent=xp;
+  document.getElementById('pt-xp-count').textContent=xp+' XP';
+  var pct=Math.min(100,xp/65*100);
+  document.getElementById('xpBar').style.width=pct+'%';
+  document.getElementById('pt-xp-bar').style.width=pct+'%';
+}
+function ptSyncCloud(){
+  document.getElementById('pt-msg').textContent='Sincronizando...';
+  setTimeout(function(){
+    document.getElementById('pt-msg').textContent='✔ Guardado local';
+  },800);
+}
+function ptExportCode(){
+  var d={};
+  d.xp=ptGetXP();
+  var b=document.getElementById('pt-advanced');
+  if(b.style.display==='block')prompt('Copia este código:',b.style.display);
+}
+function ptImportCode(){}
+
+window.addEventListener('load',updateXP);
+</script>
+
+</body>
+</html>

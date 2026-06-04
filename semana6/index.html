@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 6 — Innovación y Design Thinking | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .bloom { display: inline-flex; align-items: center; gap: .4rem; background: #fff9c4; border: 1px solid #FFDF2D; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #5d4037; margin-bottom: 1rem; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .method-card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 1.5rem; border-left: 6px solid var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .method-card h3 { color: var(--primary); font-size: 1.05rem; margin-bottom: .8rem; }
+    .method-card .method-tag { display: inline-block; background: var(--accent); color: #fff; border-radius: 6px; padding: .15rem .6rem; font-size: .72rem; font-weight: 700; margin-bottom: .8rem; text-transform: uppercase; }
+    .method-card .author { font-size: .82rem; color: var(--muted); margin-bottom: .6rem; }
+    .method-card p { font-size: .9rem; margin-bottom: .6rem; }
+
+    .dt-stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: .8rem; margin: 1rem 0; }
+    .dt-stage { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem .8rem; text-align: center; }
+    .dt-stage .stage-num { display: inline-block; background: var(--primary); color: var(--gold); width: 28px; height: 28px; border-radius: 50%; font-size: .8rem; font-weight: 700; line-height: 28px; margin-bottom: .5rem; }
+    .dt-stage h4 { font-size: .88rem; color: var(--primary); margin-bottom: .3rem; }
+    .dt-stage p { font-size: .78rem; color: var(--muted); margin: 0; line-height: 1.4; }
+
+    .dd-phases { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; margin: 1rem 0; }
+    .dd-phase { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; }
+    .dd-phase h4 { font-size: .9rem; color: var(--primary); margin-bottom: .4rem; }
+    .dd-phase p { font-size: .82rem; color: var(--muted); margin: 0; }
+    .dd-phase .phase-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+
+    .matrix-container { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1rem 0; }
+    .matrix-header { display: grid; grid-template-columns: 1fr 1fr; background: var(--primary); color: #fff; font-size: .8rem; font-weight: 700; text-align: center; }
+    .matrix-header span { padding: .6rem; }
+    .matrix-body { display: grid; grid-template-columns: 80px 1fr 1fr; }
+    .matrix-y-label { background: var(--accent); color: #fff; font-size: .78rem; font-weight: 700; writing-mode: vertical-rl; text-orientation: mixed; display: flex; align-items: center; justify-content: center; padding: .8rem .4rem; }
+    .matrix-quads { display: grid; grid-template-columns: 1fr 1fr; }
+    .quad { padding: 1.2rem; min-height: 120px; position: relative; }
+    .quad h4 { font-size: .8rem; font-weight: 700; margin-bottom: .4rem; }
+    .quad p { font-size: .75rem; margin: 0; line-height: 1.4; }
+    .quad.q1 { background: #e8f5e9; } .quad.q1 h4 { color: var(--green); }
+    .quad.q2 { background: #f3e5f5; } .quad.q2 h4 { color: #7b1fa2; }
+    .quad.q3 { background: #e3f2fd; } .quad.q3 h4 { color: #1565c0; }
+    .quad.q4 { background: #fff8e1; } .quad.q4 h4 { color: #e65100; }
+    .quad .quad-label { position: absolute; top: .6rem; right: .8rem; font-size: .65rem; font-weight: 700; text-transform: uppercase; opacity: .5; }
+
+    .jtd-example { background: #e8f5e9; border-radius: 10px; padding: 1rem 1.3rem; margin: .8rem 0; }
+    .jtd-example strong { color: var(--green); display: block; margin-bottom: .3rem; font-size: .9rem; }
+    .jtd-example p { font-size: .88rem; margin: 0; font-style: italic; }
+
+    .mvp-box { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; border-radius: var(--radius); padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .mvp-box h3 { color: var(--gold); margin-bottom: .8rem; font-size: 1.1rem; }
+    .mvp-box p { font-size: .9rem; opacity: .9; margin-bottom: .6rem; }
+    .mvp-box .mvp-cycle { display: flex; gap: .8rem; margin-top: 1rem; justify-content: center; }
+    .mvp-box .cycle-step { background: rgba(255,255,255,.15); border-radius: 8px; padding: .6rem 1rem; text-align: center; font-size: .82rem; }
+    .mvp-box .cycle-step span { display: block; font-size: 1.2rem; margin-bottom: .2rem; }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-header.hti-a      { background: #e8f5e9; color: var(--green); }
+    .activity-header.hti-b      { background: #fff8e1; color: #e65100; }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body ol, .activity-body ul { padding-left: 1.4rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .rubric-row { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 0; font-size: .85rem; margin-bottom: .5rem; }
+    .rubric-row > div { padding: .6rem .8rem; }
+    .rubric-row > div:first-child { font-weight: 700; color: var(--primary); background: var(--light-bg); border: 1px solid var(--border); border-radius: 6px 0 0 6px; }
+    .rubric-row > div:nth-child(2) { background: #f5f5f5; border: 1px solid var(--border); border-left: none; border-right: none; }
+    .rubric-row > div:last-child { background: var(--light-bg); border: 1px solid var(--border); border-radius: 0 6px 6px 0; text-align: center; }
+
+    .next-week { background: #e3f2fd; border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-top: 1.5rem; border-left: 4px solid #1976d2; }
+    .next-week h4 { font-size: .92rem; color: var(--primary); margin-bottom: .5rem; }
+    .next-week p { font-size: .88rem; margin: 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="badge-module">TD — Transformación Digital</span>
+  <h1>Semana 6 — Innovación y Design Thinking</h1>
+  <p>De los dolores a la solución candidate · IUB — Inteligencia de Negocios</p>
+</header>
+
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/">← Volver al módulo</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana5/">Semana 5</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana7/">Semana 7 →</a>
+</nav>
+
+<main>
+
+  <!-- Propósito -->
+  <div class="card">
+    <h2>🎯 Propósito de la semana</h2>
+    <p>Aplicar herramientas de innovación centrado en el ser humano para identificar, idear y priorizar soluciones a los dolores organizados en las semanas anteriores. <strong>El objetivo no es generar muchas ideas — es aprender a filtrar con criterio.</strong></p>
+
+    <div class="info-box brain">
+      <span class="icon">🧠</span>
+      <p><strong>Regla central:</strong> La tecnología NO es el punto de partida. El dolor organizacional es el punto de partida. Y la solución se valida con datos, no con intuición.</p>
+    </div>
+
+    <table>
+      <tr><th>Pregunta clave</th><th>Respuesta al terminar la semana</th></tr>
+      <tr><td>¿Cómo se transforma un dolor en oportunidad?</td><td>Entendiendo el trabajo real del cliente (JTBD), no solo el síntoma.</td></tr>
+      <tr><td>¿Por qué la mayoría de ideas no merecen ejecutarse?</td><td>Porque el esfuerzo supera al impacto o porque no resuelven el dolor real.</td></tr>
+      <tr><td>¿Cómo decide Mercado360 qué construir primero?</td><td>Con la matriz impacto/esfuerzo: alta impacto, bajo esfuerzo = quick win.</td></tr>
+    </table>
+  </div>
+
+  <!-- Design Thinking -->
+  <div class="method-card">
+    <span class="method-tag">Metodología</span>
+    <h3>Design Thinking — IDEO / Tim Brown (2009)</h3>
+    <p class="author">"Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation"</p>
+    <p><strong>En lenguaje empresarial:</strong> Antes de construir la solución correcta, hay que entender al cliente real, no al cliente imaginado. Design Thinking es el proceso para <em>no construir cosas que nadie quiere</em>.</p>
+
+    <div class="dt-stages">
+      <div class="dt-stage">
+        <span class="stage-num">1</span>
+        <h4>Empatizar</h4>
+        <p>Entender al cliente en su contexto real. No en la reunión, sino en el punto de servicio.</p>
+      </div>
+      <div class="dt-stage">
+        <span class="stage-num">2</span>
+        <h4>Definir</h4>
+        <p>Formular el problema correcto. Enfocar la innovación en el punto exacto.</p>
+      </div>
+      <div class="dt-stage">
+        <span class="stage-num">3</span>
+        <h4>Idear</h4>
+        <p>Generar muchas soluciones posibles. Sin filtrar todavía.</p>
+      </div>
+      <div class="dt-stage">
+        <span class="stage-num">4</span>
+        <h4>Prototipar</h4>
+        <p>Construir una versión rápida y barata. Aprender haciendo.</p>
+      </div>
+      <div class="dt-stage">
+        <span class="stage-num">5</span>
+        <h4>Testear</h4>
+        <p>Validar con usuarios reales. Descartar lo que no funciona.</p>
+      </div>
+    </div>
+
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p><strong>Aplicación en Mercado360:</strong> Antes de construir cualquier herramienta digital, el equipo debe ir al punto de venta y observar: ¿Cómo pide el cliente? ¿Qué hace cuando no encuentra el producto? Esa observación directa es el insumo para idear. No se confía en encuestas ni en reuniones de mente.</p>
+    </div>
+  </div>
+
+  <!-- Doble Diamante -->
+  <div class="method-card">
+    <span class="method-tag">Proceso</span>
+    <h3>Doble Diamante — Design Council UK (2005)</h3>
+    <p class="author">www.designcouncil.org.uk/framework/the-double-diamond</p>
+    <p>El proceso de innovación como dos diamantes consecutivos: explorar el problema ampliamente, luego enfocarse; y explorar las soluciones ampliamente, luego enfocarse.</p>
+
+    <div class="dd-phases">
+      <div class="dd-phase">
+        <div class="phase-icon">🔍</div>
+        <h4>Fase 1 — Descubrir el problema</h4>
+        <p>Explorar sin asumir. Investigar, observar, entrevistar. El objetivo es entender, no resolver.</p>
+      </div>
+      <div class="dd-phase">
+        <div class="phase-icon">🎯</div>
+        <h4>Fase 2 — Definir el problema</h4>
+        <p>Sintetizar lo descubierto. Formular un problema claro y enfocable. Aquí se descarta la mayoría de oportunidades.</p>
+      </div>
+      <div class="dd-phase">
+        <div class="phase-icon">💡</div>
+        <h4>Fase 3 — Desarrollar soluciones</h4>
+        <p>Generar muchas posibles soluciones. Sin filtrar todavía. Las ideas locas son bienvenidas.</p>
+      </div>
+      <div class="dd-phase">
+        <div class="phase-icon">🚀</div>
+        <h4>Fase 4 — Entregar la solución</h4>
+        <p>Seleccionar, prototipar y testear. Refinar hasta tener algo que funcione.</p>
+      </div>
+    </div>
+
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Por qué importa en transformación digital:</strong> El doble diamante evita que la organización pase de un dolor directamente a la solución más obvia. El primer diamante protege contra resolver el problema equivocado.</p>
+    </div>
+  </div>
+
+  <!-- Lean Startup -->
+  <div class="method-card">
+    <span class="method-tag">Ciclo</span>
+    <h3>Lean Startup — Eric Ries (2011)</h3>
+    <p class="author">"The Lean Startup: How Constant Innovation Creates Radically Successful Businesses"</p>
+
+    <div class="mvp-box">
+      <h3>El ciclo Build-Measure-Learn</h3>
+      <p>Construir un producto mínimo viable → Medir cómo responde el usuario → Aprender para decidir si se pivota o se continúa.</p>
+      <div class="mvp-cycle">
+        <div class="cycle-step"><span>🔨</span>Construir</div>
+        <div class="cycle-step"><span>📊</span>Medir</div>
+        <div class="cycle-step"><span>🎓</span>Aprender</div>
+      </div>
+    </div>
+
+    <p><strong>MVP (Minimum Viable Product):</strong> La versión más pequeña de un producto que permite aprender. No es un producto incompleto — es un producto con la suficiente funcionalidad para ser probado por un usuario real y generar información útil.</p>
+    <p><strong>Pivote:</strong> El cambio de dirección basado en lo aprendido. Pivote no es fracaso: es adaptación. Insistir en una estrategia que ya demostró no funcionar sí es fracaso.</p>
+
+    <div class="info-box tip">
+      <span class="icon">🏪</span>
+      <p><strong>Para Mercado360:</strong> Construir un WhatsApp bot simple y probarlo con 20 clientes es mejor que desarrollar una app completa sin validar. Si funciona con 20, escala. Si no funciona, aprendemos algo y pivoteamos.</p>
+    </div>
+  </div>
+
+  <!-- Matriz Impacto/Esfuerzo -->
+  <div class="method-card">
+    <span class="method-tag">Herramienta de priorización</span>
+    <h3>Matriz Impacto/Esfuerzo — Cagan (2018)</h3>
+    <p class="author">"INSPIRED: How to Create Tech Products Customers Love", Marty Cagan</p>
+
+    <div class="matrix-container">
+      <div class="matrix-header">
+        <span>BAJO ESFUERZO</span>
+        <span>ALTO ESFUERZO</span>
+      </div>
+      <div class="matrix-body">
+        <div class="matrix-y-label">ALTO<br>IMPACTO</div>
+        <div class="matrix-quads">
+          <div class="quad q1">
+            <span class="quad-label">QUICK WIN</span>
+            <h4>✅ Hacer primero</h4>
+            <p>Alta impacto, bajo esfuerzo. La mejor inversión.</p>
+          </div>
+          <div class="quad q2">
+            <span class="quad-label">BIG BET</span>
+            <h4>🎯 Planificar bien</h4>
+            <p>Alta impacto, alto esfuerzo. Reward grande, riesgo alto.</p>
+          </div>
+        </div>
+      </div>
+      <div class="matrix-body" style="border-top: 2px solid var(--border);">
+        <div class="matrix-y-label">BAJO<br>IMPACTO</div>
+        <div class="matrix-quads">
+          <div class="quad q3">
+            <span class="quad-label">FILL-IN</span>
+            <h4>⏳ Hacer si sobra</h4>
+            <p>Bajo impacto, bajo esfuerzo. Tareas cosméticas.</p>
+          </div>
+          <div class="quad q4">
+            <span class="quad-label">EVITAR</span>
+            <h4>🚫 No hacer</h4>
+            <p>Bajo impacto, alto esfuerzo. El peor lugar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table>
+      <tr><th>Escala</th><th>Definición</th></tr>
+      <tr><td><strong>Impacto 3</strong></td><td>Alto: reduce costos, aumenta ingresos, mejora experiencia del cliente.</td></tr>
+      <tr><td><strong>Impacto 2</strong></td><td>Moderado: mejora un proceso pero no transforma el modelo.</td></tr>
+      <tr><td><strong>Impacto 1</strong></td><td>Bajo: nadie nota si se hace o no.</td></tr>
+      <tr><td><strong>Esfuerzo 1</strong></td><td>Bajo: se hace en menos de 1 semana, con recursos internos.</td></tr>
+      <tr><td><strong>Esfuerzo 2</strong></td><td>Medio: requiere 2-4 semanas, puede necesitar recursos externos.</td></tr>
+      <tr><td><strong>Esfuerzo 3</strong></td><td>Alto: más de 1 mes, requiere inversión significativa.</td></tr>
+    </table>
+  </div>
+
+  <!-- JTBD -->
+  <div class="method-card">
+    <span class="method-tag">Marco conceptual</span>
+    <h3>Jobs-to-be-Done — Christensen (2007)</h3>
+    <p class="author">Christensen, C. et al. (2017). "Know Your Customers' Jobs to Be Done." Harvard Business Review, 93(5).</p>
+    <p><strong>La idea central:</strong> Los clientes no compran productos — contratan productos para hacer un <em>trabajo</em> (job). Un cliente no compra un taladro; contrata un taladro para hacer un hoyo en la pared. Si existe una solución más simple para ese trabajo, el cliente podría no comprar el taladro.</p>
+
+    <p><strong>La fórmula JTBD:</strong></p>
+    <div class="jtd-example">
+      <strong>Plantilla:</strong>
+      <p>"Cuando [situación], quiero [motivación], para que [resultado esperado]."</p>
+    </div>
+
+    <p><strong>Ejemplo para Mercado360:</strong></p>
+    <div class="jtd-example">
+      <strong>Trabajo identificado:</strong>
+      <p>"Cuando el cliente no encuentra el producto que busca, quiere saber si hay alternativa disponible en otra sucursal, para no perder tiempo viajando a la tienda y regresando sin comprar."</p>
+    </div>
+
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p>Si solo se enfoca la solución en lo que el cliente dice que quiere (productos), se pierde el trabajo real que necesita hacer. Entender el trabajo permite diseñar soluciones más inteligentes.</p>
+    </div>
+  </div>
+
+  <!-- Aplicación a Mercado360 -->
+  <div class="card">
+    <h2>🏪 Aplicación a Mercado360</h2>
+
+    <h3>Dolores priorizados</h3>
+    <table>
+      <tr><th>Dolor</th><th>Causa raíz</th><th>Impacto</th></tr>
+      <tr><td>El cliente no sabe si un producto está disponible antes de ir a la tienda.</td><td>No hay sistema de inventario en tiempo real.</td><td>Pierde ventas: cliente va a otro lugar.</td></tr>
+      <tr><td>Los pedidos por WhatsApp se confusiónan o se pierden.</td><td>Registro manual, cambio de WhatsApp según disponibilidad.</td><td>Errores de cumplimiento, clientes insatisfechos.</td></tr>
+      <tr><td>La gerencia toma decisiones con datos tardíos (reportes semanales).</td><td>Sin sistema de información centralizado.</td><td>Oportunidades perdidas por falta de velocidad.</td></tr>
+    </table>
+
+    <h3>Oportunidades evaluadas con matriz impacto/esfuerzo</h3>
+    <table>
+      <tr><th>Oportunidad</th><th>Impacto</th><th>Esfuerzo</th><th>Score</th><th>Cuadrante</th></tr>
+      <tr><td>Consulta de inventario por WhatsApp</td><td>3</td><td>1</td><td>3.0</td><td style="background:#e8f5e9; font-weight:700;">Quick win</td></tr>
+      <tr><td>Notificación productos frescos</td><td>2</td><td>1</td><td>2.0</td><td style="background:#e8f5e9; font-weight:700;">Quick win</td></tr>
+      <tr><td>Sistema de apartados</td><td>3</td><td>2</td><td>1.5</td><td style="background:#e8f5e9; font-weight:700;">Quick win</td></tr>
+      <tr><td>Pedido recurrente</td><td>3</td><td>2</td><td>1.5</td><td style="background:#e8f5e9; font-weight:700;">Quick win</td></tr>
+      <tr><td>Dashboard para gerencia</td><td>2</td><td>2</td><td>1.0</td><td style="background:#f3e5f5;">Planificable</td></tr>
+      <tr><td>App de catálogo digital</td><td>3</td><td>3</td><td>1.0</td><td style="background:#f3e5f5;">Big bet</td></tr>
+      <tr><td>Programa de fidelización</td><td>2</td><td>3</td><td>0.7</td><td style="background:#fff8e1; font-weight:700;">Evitar</td></tr>
+    </table>
+
+    <div class="info-box tip">
+      <span class="icon">🏆</span>
+      <p><strong>Conclusión para Mercado360:</strong> La consulta de inventario por WhatsApp es el quick win con el score más alto (3.0). Se puede validar con un número de WhatsApp Business y un humano respondiendo, antes de automatizar. Si funciona con 20 clientes, escala.</p>
+    </div>
+  </div>
+
+  <!-- Actividad práctica -->
+  <div class="activity">
+    <div class="activity-header presencial">
+      🔴 Actividad práctica — Taller de ideación y priorización (60 min)
+    </div>
+    <div class="activity-body">
+      <h3>Bloque 1 — Ideación (30 minutos)</h3>
+      <ol>
+        <li>En equipos de 3-4 personas.</li>
+        <li>Revisen los 3 dolores priorizados de Mercado360 del trabajo de semanas anteriores.</li>
+        <li>Por cada dolor, generen <strong>al menos 3 soluciones potenciales</strong> (no se filtran todavía).</li>
+        <li>Usar la lógica JTBD: ¿Qué trabajo quiere hacer el cliente?</li>
+        <li>No limitar la imaginación: cualquier idea es válida en esta fase.</li>
+        <li>Escriban cada oportunidad en una tarjeta o post-it.</li>
+      </ol>
+
+      <h3>Bloque 2 — Priorización (30 minutos)</h3>
+      <ol>
+        <li>Cada equipo coloca sus oportunidades en la matriz impacto/esfuerzo.</li>
+        <li>Posicionar cada oportunidad según la estimación de impacto y esfuerzo.</li>
+        <li>Identificar el <strong>quick win</strong> del equipo (alta impacto, bajo esfuerzo).</li>
+        <li>Preparar 3 minutos de presentación:</li>
+        <ul>
+          <li>¿Cuál fue el dolor que abordaron?</li>
+          <li>¿Cuál fue la solución priorizada?</li>
+          <li>¿Por qué está en el cuadrante que está?</li>
+          <li>¿Qué evidencia tienen para sostener el posicionamiento?</li>
+        </ul>
+      </ol>
+
+      <div class="info-box warn">
+        <span class="icon">⚠️</span>
+        <p>El posicionamiento no es subjetivo. Deben poder justificar por qué una solución es alta impacto vs. baja impacto, y por qué es alto esfuerzo vs. bajo esfuerzo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evidencia -->
+  <div class="card">
+    <h2>📋 Evidencia entregable</h2>
+    <p><strong>Matriz de priorización con solución candidata para Mercado360.</strong></p>
+
+    <p><strong>Debe incluir:</strong></p>
+    <ol>
+      <li>Tabla de matriz impacto/esfuerzo con <strong>al menos 5 oportunidades</strong>.</li>
+      <li>Para cada oportunidad: descripción de la solución, justificación de impacto (por qué nivel 1, 2 o 3), justificación de esfuerzo (por qué nivel 1, 2 o 3).</li>
+      <li>Identificación del <strong>quick win ganador</strong> con explicación detallada.</li>
+      <li>Una descripción de la solución candidata seleccionada (qué resuelve, para quién, cómo funciona).</li>
+      <li>Propuesta de <strong>MVP</strong>: cómo se testearía esta solución con 20 clientes reales en 2 semanas sin desarrollar tecnología.</li>
+    </ol>
+
+    <table>
+      <tr><th>Criterio</th><th>Peso</th></tr>
+      <tr><td>Matriz completada con 5+ oportunidades con justificación</td><td>25%</td></tr>
+      <tr><td>Posicionamiento coherente con la justificación</td><td>25%</td></tr>
+      <tr><td>Quick win identificado y justificado</td><td>20%</td></tr>
+      <tr><td>Descripción de solución candidata (lógica JTBD)</td><td>20%</td></tr>
+      <tr><td>Propuesta de MVP realista para 2 semanas sin código</td><td>10%</td></tr>
+    </table>
+
+    <p><strong>Extensión máxima:</strong> 4 páginas. <strong>Formato:</strong> Word o PDF.</p>
+  </div>
+
+  <!-- Preguntas orientadoras -->
+  <div class="card">
+    <h2>❓ Preguntas orientadoras</h2>
+    <ol>
+      <li>¿Por qué el primer paso de Design Thinking es empatizar y no idear?</li>
+      <li>¿Qué diferencia hay entre un dolor organizacional y una oportunidad de innovación?</li>
+      <li>¿Por qué una oportunidad de alto impacto y alto esfuerzo no siempre es la mejor primera decisión?</li>
+      <li>¿Qué significa que una solución tenga score mayor a 1 en la matriz impacto/esfuerzo?</li>
+      <li>¿Cómo se aplica la lógica de Jobs-to-be-Done en Mercado360?</li>
+      <li>¿Qué ventajas tiene construir un MVP antes de desarrollar una solución completa?</li>
+      <li>¿En qué se diferencia el enfoque de Lean Startup del enfoque tradicional de proyectos?</li>
+    </ol>
+  </div>
+
+  <!-- Fuentes -->
+  <div class="card">
+    <h2>📚 Fuentes recomendadas</h2>
+
+    <h3>Obligatorias</h3>
+    <ul>
+      <li>Brown, T. (2009). <em>Change by Design</em>. Harper Business. Caps 1-3.</li>
+      <li>Ries, E. (2011). <em>The Lean Startup</em>. Crown Business. Caps 1-4.</li>
+      <li>Cagan, M. (2018). <em>INSPIRED</em>. Wiley. Caps 3-5.</li>
+    </ul>
+
+    <h3>Complementarias</h3>
+    <ul>
+      <li>Design Council (2005). "The Double Diamond." designcouncil.org.uk</li>
+      <li>Christensen, C. et al. (2017). "Know Your Customers' Jobs to Be Done." <em>Harvard Business Review</em>, 93(5).</li>
+      <li>Osterwalder, A. et al. (2015). <em>Business Model Generation</em>. Wiley.</li>
+    </ul>
+
+    <h3>Videos recomendados</h3>
+    <ul>
+      <li>"IDEO Shopping Cart Project" (YouTube) — Design Thinking en acción.</li>
+      <li>"How Airbnb checks product-market fit" — caso de Lean Startup en empresa real.</li>
+    </ul>
+  </div>
+
+  <!-- Conexión semanas -->
+  <div class="next-week">
+    <h4>🔜 Conexión con la semana siguiente</h4>
+    <p>La evidencia de la semana 6 se convierte en insumo para la semana 7 (Datos y métricas): el MVP que propusiste necesita métricas para saber si funciona o no. La pregunta de apertura de la semana 7 será: <strong>"Si la solución candidate es un WhatsApp que consulta inventario, ¿cómo sabríamos en 2 semanas si está funcionando o no? ¿Qué métricas deberíamos trackear?"</strong></p>
+  </div>
+
+</main>
+
+</body>
+</html>
