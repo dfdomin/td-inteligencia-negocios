@@ -1,8 +1,12 @@
 # Semana 14 - Evaluacion final
 
+## Caso espejo
+
+LogisCaribe Operador Logistico.
+
 ## Producto
 
-Estrategia integral de transformacion digital para Mercado360.
+Estrategia integral de transformacion digital.
 
 ## Entrega
 

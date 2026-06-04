@@ -1,8 +1,14 @@
 # Evaluaciones - TD
 
+## Logica tomada de ProcesamientoInformacion
+
+El curso usara un caso formativo y casos espejo. `Mercado360` sera el caso de practica durante el semestre; `RetailNova`, `SaludConecta` y `LogisCaribe` serviran para evaluar transferencia en semanas 5, 10 y 14.
+
 ## Semana 5 - Parcial 1
 
-**Producto:** Diagnostico de transformacion digital de Mercado360.
+**Caso espejo:** RetailNova.
+
+**Producto:** Diagnostico de transformacion digital.
 
 Debe incluir:
 
@@ -14,6 +20,8 @@ Debe incluir:
 - justificacion con impacto en cliente, proceso o datos.
 
 ## Semana 10 - Parcial 2
+
+**Caso espejo:** SaludConecta.
 
 **Producto:** Propuesta de solucion digital.
 
@@ -28,6 +36,8 @@ Debe incluir:
 - pitch de 5 minutos.
 
 ## Semana 14 - Final
+
+**Caso espejo:** LogisCaribe.
 
 **Producto:** Estrategia integral de transformacion digital.
 
@@ -47,7 +57,7 @@ Debe incluir:
 | Criterio | Peso |
 |---|---:|
 | Conexion problema-proceso-tecnologia | 25% |
-| Aplicacion al caso Mercado360 | 25% |
+| Aplicacion al caso asignado | 25% |
 | Viabilidad con recursos limitados | 20% |
 | Uso de datos, metricas y riesgos | 20% |
 | Claridad de comunicacion | 10% |

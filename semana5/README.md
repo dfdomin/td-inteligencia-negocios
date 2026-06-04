@@ -1,8 +1,12 @@
 # Semana 5 - Parcial 1
 
+## Caso espejo
+
+RetailNova S.A.S.
+
 ## Producto
 
-Diagnostico de transformacion digital de Mercado360.
+Diagnostico de transformacion digital.
 
 ## Entrega
 
@@ -14,5 +18,5 @@ Diagnostico de transformacion digital de Mercado360.
 
 ## Sustentacion
 
-5 minutos por equipo, centrados en la pregunta: que problema digital debe resolver Mercado360 primero?
+5 minutos por equipo, centrados en la pregunta: que problema digital debe resolver RetailNova primero?
 

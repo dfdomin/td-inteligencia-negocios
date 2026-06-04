@@ -1,12 +1,16 @@
 # Semana 10 - Parcial 2
 
+## Caso espejo
+
+SaludConecta IPS.
+
 ## Producto
 
-Propuesta de solucion digital para Mercado360.
+Propuesta de solucion digital.
 
 ## Entrega
 
-- Proceso TO-BE.
+- Proceso AS-IS y TO-BE.
 - Tecnologia habilitadora.
 - Datos necesarios.
 - KPIs.

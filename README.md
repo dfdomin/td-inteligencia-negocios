@@ -4,8 +4,10 @@ Repositorio academico para desarrollar el material de estudio del modulo **Trans
 
 ## Entradas principales
 
+- `MODULE_CONTEXT.md`: identidad compacta del modulo para futuras sesiones con IA.
 - `PLAN_CONTENIDO_TD.md`: ruta pedagogica de 14 semanas.
-- `Caso_Estudio_Mercado360.md`: caso transversal del modulo.
+- `Caso_Estudio_Mercado360.md`: caso formativo transversal del modulo.
+- `casos/`: caso formativo y casos espejo para parciales.
 - `evaluaciones/`: actividades de parcial y entrega final.
 - `exposiciones/`: estrategia, roles y rubrica para exposiciones aplicadas.
 - `semanaN/README.md`: material base del estudiante por semana.
@@ -19,7 +21,7 @@ El modulo declara 4 horas semanales, pero esta version se disena para una realid
 
 - un concepto central;
 - una demostracion o taller corto;
-- una aplicacion al caso Mercado360;
+- una aplicacion al caso formativo;
 - una evidencia concreta;
 - una exposicion breve cuando ayude a avanzar contenido.
 
@@ -31,17 +33,17 @@ El modulo declara 4 horas semanales, pero esta version se disena para una realid
 
 **RA del modulo priorizado:** Proponer estrategias para la transformacion digital de una organizacion determinada, basado en tecnologias que transforman y mejoran el entorno organizacional.
 
-## Caso transversal
+## Casos de estudio
 
-El caso recomendado es **Mercado360**, una empresa comercial mediana que vende por tienda fisica, WhatsApp e Instagram, pero tiene procesos manuales, datos dispersos y baja trazabilidad del cliente. El caso permite aterrizar:
+El caso formativo recomendado es **Mercado360**, una empresa comercial mediana que vende por tienda fisica, WhatsApp e Instagram, pero tiene procesos manuales, datos dispersos y baja trazabilidad del cliente.
 
-- diagnostico de madurez digital;
-- mapa de procesos y dolores;
-- experiencia de cliente;
-- tecnologias habilitadoras;
-- datos, analitica y automatizacion;
-- seguridad y riesgos;
-- hoja de ruta de transformacion digital.
+Siguiendo el patron de `ProcesamientoInformacion`, las evaluaciones usan casos espejo:
+
+- Semana 5: **RetailNova**, diagnostico y oportunidad digital.
+- Semana 10: **SaludConecta**, propuesta de solucion digital.
+- Semana 14: **LogisCaribe**, estrategia integral de transformacion digital.
+
+Esto permite practicar con Mercado360 y evaluar transferencia en contextos nuevos.
 
 ## Publicacion futura
 

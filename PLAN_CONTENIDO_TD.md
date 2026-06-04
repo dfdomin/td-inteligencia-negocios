@@ -16,9 +16,17 @@ El curso se redisenara desde una restriccion real: aunque el microcurriculo decl
 | RA2 del modulo | Identificar informacion estrategica para adoptar soluciones digitales y desarrollar capacidad tecnologica organizacional. |
 | RA3 del modulo priorizado | Proponer estrategias para la transformacion digital de una organizacion determinada basado en tecnologias que transforman y mejoran el entorno organizacional. |
 
-## 3. Caso transversal
+## 3. Caso formativo y casos espejo
 
-**Mercado360** sera el caso de estudio. Es una empresa comercial mediana con ventas fisicas y digitales, procesos manuales, datos desordenados, servicio al cliente por WhatsApp, inventario no sincronizado y poca medicion. El estudiante actuara como consultor junior de transformacion digital.
+**Mercado360** sera el caso formativo. Es una empresa comercial mediana con ventas fisicas y digitales, procesos manuales, datos desordenados, servicio al cliente por WhatsApp, inventario no sincronizado y poca medicion. El estudiante actuara como consultor junior de transformacion digital.
+
+Para evaluar transferencia, se adoptan casos espejo inspirados en el patron de `ProcesamientoInformacion`:
+
+| Evaluacion | Semana | Caso espejo | Proposito |
+|---|---:|---|---|
+| Parcial 1 | 5 | RetailNova | Diagnosticar madurez y priorizar oportunidad. |
+| Parcial 2 | 10 | SaludConecta | Proponer solucion digital con datos, KPIs y riesgos. |
+| Final | 14 | LogisCaribe | Formular estrategia integral, roadmap y viabilidad. |
 
 ## 4. Distribucion semanal
 
@@ -28,16 +36,16 @@ El curso se redisenara desde una restriccion real: aunque el microcurriculo decl
 | 2 | Cliente | Consumidor digital y propuesta de valor | Journey map del cliente | Mapa de experiencia |
 | 3 | Procesos | Procesos, automatizacion y valor | Redisenar proceso de pedido por WhatsApp | AS-IS / TO-BE |
 | 4 | Tecnologias habilitadoras | Cloud, datos, IA, IoT, movilidad, blockchain | Exposiciones aplicadas por tecnologia | Ficha de tecnologia |
-| 5 | Parcial 1 | Diagnostico y oportunidad digital | Sustentacion corta del diagnostico | Informe parcial 1 |
+| 5 | Parcial 1 | Diagnostico y oportunidad digital | Aplicacion a RetailNova | Informe parcial 1 |
 | 6 | Innovacion | Design Thinking e identificacion de oportunidades | Ideacion y priorizacion de soluciones | Matriz impacto/esfuerzo |
 | 7 | Datos | Big data, analitica y toma de decisiones | Definir KPIs y fuentes de datos | Tablero conceptual |
 | 8 | Cultura | Cultura digital, talento y gestion del cambio | Plan de adopcion por roles | Mapa de adopcion |
 | 9 | Riesgos | Ciberseguridad, privacidad y continuidad | Matriz de riesgos digitales | Registro de riesgos |
-| 10 | Parcial 2 | Propuesta de solucion digital | Pitch de solucion y prototipo conceptual | Informe parcial 2 |
+| 10 | Parcial 2 | Propuesta de solucion digital | Aplicacion a SaludConecta | Informe parcial 2 |
 | 11 | Modelo de negocio | Modelos de negocio digitales | Business Model Canvas digital | Canvas ajustado |
 | 12 | Hoja de ruta | Priorizacion, POC y gestion de proyectos | Roadmap 30-60-90 dias | Hoja de ruta |
 | 13 | Viabilidad | Costos, beneficios, ROI y metricas | Caso de negocio ligero | Ficha de viabilidad |
-| 14 | Final | Estrategia integral de transformacion digital | Sustentacion final | Portafolio final |
+| 14 | Final | Estrategia integral de transformacion digital | Aplicacion a LogisCaribe | Portafolio final |
 
 ## 5. Uso de exposiciones
 
@@ -45,11 +53,11 @@ Las exposiciones se concentraran en temas amplios que no caben completos en clas
 
 ## 6. Evaluaciones
 
-| Semana | Evaluacion | Producto |
-|---|---|---|
-| 5 | Parcial 1 | Diagnostico de madurez digital y oportunidad priorizada para Mercado360. |
-| 10 | Parcial 2 | Propuesta de solucion digital con proceso TO-BE, tecnologia seleccionada, datos requeridos y riesgos. |
-| 14 | Final | Estrategia integral con roadmap, KPIs, gestion del cambio, viabilidad y sustentacion. |
+| Semana | Evaluacion | Caso | Producto |
+|---|---|---|---|
+| 5 | Parcial 1 | RetailNova | Diagnostico de madurez digital y oportunidad priorizada. |
+| 10 | Parcial 2 | SaludConecta | Propuesta de solucion digital con proceso TO-BE, tecnologia seleccionada, datos requeridos y riesgos. |
+| 14 | Final | LogisCaribe | Estrategia integral con roadmap, KPIs, gestion del cambio, viabilidad y sustentacion. |
 
 ## 7. Criterio de diseno didactico
 
@@ -57,5 +65,5 @@ Cada bloque conceptual debe responder tres preguntas:
 
 1. Que significa en lenguaje empresarial.
 2. Como se ve en una empresa real.
-3. Que decision permite tomar en Mercado360.
+3. Que decision permite tomar en Mercado360 o en el caso espejo asignado.
 
