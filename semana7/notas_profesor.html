@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 7 — Datos, Analítica y KPIs | TD04 | Notas del Profesor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .prof-note { background: #fff3e0; border: 1px solid #ff9800; border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; }
+    .prof-note h4 { color: #e65100; font-size: .9rem; margin-bottom: .5rem; }
+    .prof-note p { font-size: .88rem; margin: .3rem 0; }
+
+    .timing { background: #e3f2fd; border-radius: 8px; padding: .8rem 1.2rem; margin: .5rem 0; font-size: .88rem; display: flex; gap: 1rem; align-items: center; }
+    .timing .clock { font-size: 1.2rem; }
+    .timing strong { color: var(--primary); }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .mistake { background: #fce4ec; border-left: 4px solid var(--red); border-radius: 6px; padding: .8rem 1.2rem; margin: .6rem 0; }
+    .mistake strong { color: var(--red); font-size: .85rem; }
+    .mistake p { font-size: .85rem; margin: .3rem 0 0; }
+
+    .checkpoint { background: #e8f5e9; border-radius: 8px; padding: .8rem 1.2rem; margin: .6rem 0; font-size: .88rem; }
+    .checkpoint strong { color: var(--green); }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="badge-module">TD — Notas del Profesor</span>
+  <h1>Semana 7 — Datos, Analítica y KPIs</h1>
+  <p>Guía docente · IUB — Inteligencia de Negocios</p>
+</header>
+
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana7/index.html">Ver material estudiante →</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana6/notas_profesor.html">← Semana 6</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana8/notas_profesor.html">Semana 8 →</a>
+</nav>
+
+<main>
+
+  <!-- Mensaje central -->
+  <div class="prof-note">
+    <h4>🎯 Mensaje central de la semana</h4>
+    <p><strong>Un KPI sin decisión no es un KPI.</strong> El estudiante debe entender que medir por medir no genera valor. Cada KPI debe responder a la pregunta: "¿qué haríamos si este número cambia?" Si no hay acción asociada, el indicador es un número muerto.</p>
+  </div>
+
+  <!-- Preparación previa -->
+  <div class="card">
+    <h2>📋 Preparación previa del docente</h2>
+    <ul>
+      <li>Revisar el caso Mercado360 para contextualizar los ejemplos con datos reales del caso.</li>
+      <li>Tener preparado un ejemplo de KPI mal formulado (sin decisión) y uno bien formulado para contrastar en clase.</li>
+      <li>Si es posible, llevar un ejemplo real de dashboard (puede ser de una empresa local conocida) y mostrar qué decisiones se toman a partir de los datos.</li>
+    </ul>
+  </div>
+
+  <!-- Estructura de clase -->
+  <div class="card">
+    <h2>⏱️ Estructura sugerida — 2 horas</h2>
+
+    <h3>Bienvenida y apertura (5 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>5 min</strong> — Pregunta de apertura: "¿Quién tiene aquí un número que mira cada semana para tomar decisiones?" Recoger 3-4 respuestas y llevar al punto: medir sin decidir es ruido.</div>
+    </div>
+
+    <h3>Bloque 1 — La pirámide DIKW y tipos de analítica (20 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>20 min</strong> — Explicar la pirámide con el ejemplo de Mercado360. Cada nivel debe tener un ejemplo concreto. No pasar al tipo de analítica hasta que los estudiantes puedan distinguir dato de información.</div>
+    </div>
+
+    <div class="prof-note">
+      <h4>Punto de atención</h4>
+      <p>La mayoría de estudiantes confunden "dato" con "información". Usar el ejemplo del POS: el registro de cada venta es un dato; saber que las ventas de fertilizante suben en marzo es información. Insistir en esta diferencia.</p>
+    </div>
+
+    <h3>Bloque 2 — Fuentes de datos (15 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>15 min</strong> — Hacer que los estudiantes clasifiquen las fuentes en pares: interno/externo y operacional/estratégico. En empresas como Mercado360, lo normal es tener más fuentes operacionales que estratégicas — esto es normal, pero hay que saberlo.</div>
+    </div>
+
+    <h3>Bloque 3 — KPI: estructura y categorías (25 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>25 min</strong> — La estructura del KPI es lo más importante de la semana. Usar el ejemplo del KPI de tasa de resolución. Escribirlo completo en la pizarra: nombre, fórmula, fuente, frecuencia, meta, decisión. Los 6 componentes. No avanzar hasta que los estudiantes puedan formular al menos un KPI correcto con sus propias palabras.</div>
+    </div>
+
+    <div class="prof-note">
+      <h4>Punto de atención</h4>
+      <p>El error más común es que los estudiantes formulen KPIs sin decisión. Cuando revisen los KPIs en la actividad, exigir que cada KPI tenga la respuesta: "¿qué haces si baja del 70%?" Si no pueden responder, el KPI está incompleto.</p>
+    </div>
+
+    <h3>Bloque 4 — Dashboard conceptual (10 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>10 min</strong> — Mostrar el mockup del dashboard. Explicar que no se necesita una herramienta cara: una hoja de cálculo con colores condicionales funciona. Enfatizar la regla de máximo 7 indicadores y la idea de un dashboard por audiencia.</div>
+    </div>
+
+    <h3>Actividad práctica — Taller de KPIs (60 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>60 min total</strong> — Ver sección de actividad detallada abajo.</div>
+    </div>
+
+    <h3>Cierre y conexión (10 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>10 min</strong> — Resumir los 3 puntos clave. Presentar la conexión con semana 8 (IA aplicada). Pregunta de cierre: "¿Cuál de los KPIs que formularon hoy es el que más directamente mide el éxito del MVP de WhatsApp?"</div>
+    </div>
+  </div>
+
+  <!-- Actividad detallada -->
+  <div class="card">
+    <h2>🔴 Actividad práctica — Taller de KPIs (60 min)</h2>
+
+    <h3>Bloque 1 — Identificar fuentes (20 min)</h3>
+    <ul>
+      <li><strong>Objetivo:</strong> Que los equipos clasifiquen las fuentes de datos de su caso asignado.</li>
+      <li><strong>Entregable:</strong> Tabla con fuentes clasificadas en interno/externo y operacional/estratégico.</li>
+      <li><strong>Patrón de respuesta esperado:</strong> POS (interno/operacional), WhatsApp (interno/operacional), precios competidores (externo/estratégico), datos climáticos (externo/estratégico).</li>
+    </ul>
+
+    <h3>Bloque 2 — Formular KPIs (30 min)</h3>
+    <ul>
+      <li><strong>Objetivo:</strong> Que cada equipo formule 6 KPIs (3 de proceso, 3 de resultado) con los 6 componentes.</li>
+      <li><strong>Formato:</strong> Tarjetas o post-its para cada KPI, organizados por categoría.</li>
+      <li><strong>Validación:</strong> Antes de presentar, cada equipo debe verificar que cada KPI tenga la decisión asociada. Si no la tienen, no presentan ese KPI.</li>
+    </ul>
+
+    <div class="prof-note">
+      <h4>Guía para el docente</h4>
+      <p>Mientras los equipos trabajan, recorrer los grupos y hacer la pregunta clave para cada KPI: "¿Y si este número baja del 70%, qué haces?" Si la respuesta es "investigar más" o "no sé", el KPI no está listo. Esto es lo que deben corregir antes de presentar.</p>
+    </div>
+
+    <h3>Bloque 3 — Presentación (10 min)</h3>
+    <ul>
+      <li><strong>Tiempo por equipo:</strong> 3 minutos máximo.</li>
+      <li><strong>Formato:</strong> 2 fuentes priorizadas + 3 KPIs con decisión + justificación de por qué esos KPIs.</li>
+    </ul>
+  </div>
+
+  <!-- Errores comunes -->
+  <div class="card">
+    <h2>⚠️ Errores comunes de los estudiantes</h2>
+
+    <div class="mistake">
+      <strong>Error 1: KPI sin decisión.</strong>
+      <p>Formulan el KPI con nombre, fórmula y fuente pero sin la decisión. "Tasa de resolución = 68%" — perfecto. "¿Y qué haces si baja a 50%?" — silencio. Este es el error más frecuente y el más importante de corregir.</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 2: Confundir fuente con fórmula.</strong>
+      <p>Escriben "WhatsApp" como fórmula en lugar de la operación matemática. La fórmula debe decir cómo se calcula el número, no de dónde sale.</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 3: KPIs operativos para decisiones estratégicas.</strong>
+      <p>Proponen un KPI de tiempo de ciclo como métrica de éxito del proyecto completo. Un KPI de proceso mide eficiencia, no impacto estratégico. Se necesitan ambos tipos, pero hay que distinguir cuál responde a cuál pregunta.</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 4: Demasiados KPIs.</strong>
+      <p>Presentan 15 KPIs para un solo proceso. Cuando hay demasiados, ninguno recibe atención. La recomendación es máximo 7 por dashboard y mínimo 1-2 KPIs críticos que son los que se revisan semanalmente sin falta.</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 5: Asumir que los datos existen.</strong>
+      <p>"La fuente es el sistema POS" — pero el sistema no existe o no está actualizado. Siempre verificar si la fuente de datos que proponen existe y se actualiza con la frecuencia prometida. Si no existe, el KPI no se puede medir todavía.</p>
+    </div>
+  </div>
+
+  <!-- Rúbrica de evaluación -->
+  <div class="card">
+    <h2>📊 Rúbrica simplificada — Evidencia de semana 7</h2>
+
+    <table>
+      <tr><th>Criterio</th><th>Peso</th><th>Bueno (80-100%)</th><th>Aceptable (60-79%)</th><th>Insuficiente (0-59%)</th></tr>
+      <tr>
+        <td><strong>6 componentes del KPI</strong></td>
+        <td>30%</td>
+        <td>Todos los KPIs tienen nombre, fórmula, fuente, frecuencia, meta y decisión. Coherencia clara entre el indicador y la decisión.</td>
+        <td>La mayoría de KPIs tienen 4-5 componentes. Falta al menos una decisión.</td>
+        <td>KPI sin decisión o sin fórmula. Mezclan datos con información.</td>
+      </tr>
+      <tr>
+        <td><strong>Categorías (3/3/2)</strong></td>
+        <td>20%</td>
+        <td>3 de cliente, 3 de proceso, 2 de resultado. Cada KPI tiene la categoría correcta.</td>
+        <td>5-7 KPIs en total, distribución parcial.</td>
+        <td>Menos de 5 KPIs o todas del mismo tipo.</td>
+      </tr>
+      <tr>
+        <td><strong>Dashboard conceptual</strong></td>
+        <td>20%</td>
+        <td>Dashboard con audiencia definida, máximo 6 indicadores, coherencia visual.</td>
+        <td>Dashboard presente pero sin audiencia definida o con más de 6 indicadores.</td>
+        <td>No hay dashboard o es solo una lista de números.</td>
+      </tr>
+      <tr>
+        <td><strong>Decisiones coherentes</strong></td>
+        <td>20%</td>
+        <td>Todas las decisiones son accionables y proporcionales al cambio esperado del indicador.</td>
+        <td>Algunas decisiones son genéricas ("revisar proceso").</td>
+        <td>Decisiones faltantes o no accionables.</td>
+      </tr>
+      <tr>
+        <td><strong>Fuentes priorizadas</strong></td>
+        <td>10%</td>
+        <td>2 fuentes identificadas con justificación clara de por qué son las más valiosas.</td>
+        <td>2 fuentes sin justificación detallada.</td>
+        <td>Fuentes genéricas o sin relación con el caso.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Puntos clave para enfatizar -->
+  <div class="card">
+    <h2>💎 Puntos clave para enfatizar en clase</h2>
+
+    <div class="checkpoint">
+      <strong>1. Dato ≠ Información.</strong> Un registro de venta es un dato. Saber que los clientes compran más los lunes es información. No se puede construir analítica sin esta distinción.
+    </div>
+
+    <div class="checkpoint">
+      <strong>2. Analítica descriptiva antes de predictiva.</strong> No tiene sentido hacer modelos predictivos si no hay reportes coherentes de lo que pasó. Preguntar: "¿Saben cuánto vendieron la semana pasada por producto?" Si la respuesta es no, empezar por ahí.
+    </div>
+
+    <div class="checkpoint">
+      <strong>3. Un KPI sin decisión es un número muerto.</strong> Este es el mensaje de la semana. Cada KPI debe responder a la pregunta: "¿qué haríamos si cambia?" Si no hay respuesta, el KPI no está terminado.
+    </div>
+
+    <div class="checkpoint">
+      <strong>4. Dashboard por audiencia, no universal.</strong> El dueño de Mercado360 necesita un dashboard diferente al del coordinador de ventas. No existe un dashboard para todos.
+    </div>
+
+    <div class="checkpoint">
+      <strong>5. La fuente de datos debe existir y actualizarse.</strong> Si el estudiante propone un KPI con fuente "WhatsApp Business" pero el WhatsApp no se responde consistentemente, ese KPI no se puede medir todavía. Primero mejorar la operación, después medir.
+    </div>
+  </div>
+
+  <!-- Conexión con semana 8 -->
+  <div class="card">
+    <h2>🔜 Conexión con semana 8 — IA aplicada a negocio</h2>
+    <p>La semana 8 introduce inteligencia artificial aplicada a negocio. El puente natural es:</p>
+    <ul>
+      <li>Con los datos y KPIs definidos en S7, Mercado360 tiene la base para aplicar IA.</li>
+      <li>Pregunta de apertura S8: "Si tenemos 6 meses de datos de ventas por producto, ¿qué predicción podría hacer la IA que un humano no podría?"</li>
+      <li>Los KPIs de Mercado360 (tasa de resolución, conversión, satisfacción) son los inputs para un modelo predictivo.</li>
+    </ul>
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p><strong>Nota para el docente:</strong> En S8 se puede usar el caso RetailNova (parcial 1) para mostrar cómo la IA analiza datos de clientes para predecir comportamiento de compra. Los KPIs que los estudiantes formulen en S7 son los que alimentarán el caso de S8.</p>
+    </div>
+  </div>
+
+  <!-- Notas rápidas -->
+  <div class="card">
+    <h2>📝 Notas rápidas de la sesión</h2>
+    <p>Espacio para registro del docente después de cada clase:</p>
+    <div style="border: 1px dashed var(--border); border-radius: 8px; padding: 1rem; min-height: 120px; font-size: .88rem; color: var(--muted);">
+      [Registrar: temas que generaron más interés, errores comunes observados, preguntas de los estudiantes, ajustes para próxima sesión, nivel de participación.]
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

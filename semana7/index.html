@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 7 — Datos, Analítica y KPIs | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .bloom { display: inline-flex; align-items: center; gap: .4rem; background: #fff9c4; border: 1px solid #FFDF2D; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #5d4037; margin-bottom: 1rem; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .method-card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 1.5rem; border-left: 6px solid var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .method-card h3 { color: var(--primary); font-size: 1.05rem; margin-bottom: .8rem; }
+    .method-card .method-tag { display: inline-block; background: var(--accent); color: #fff; border-radius: 6px; padding: .15rem .6rem; font-size: .72rem; font-weight: 700; margin-bottom: .8rem; text-transform: uppercase; }
+    .method-card .author { font-size: .82rem; color: var(--muted); margin-bottom: .6rem; }
+    .method-card p { font-size: .9rem; margin-bottom: .6rem; }
+
+    .pyramid { display: flex; flex-direction: column; align-items: center; gap: .4rem; margin: 1.5rem 0; }
+    .pyramid-level { border-radius: 8px; padding: .8rem 1.5rem; font-size: .85rem; font-weight: 700; text-align: center; color: #fff; width: 70%; }
+    .pyramid-level:nth-child(1) { background: #1565c0; width: 30%; }
+    .pyramid-level:nth-child(2) { background: #7b1fa2; width: 42%; }
+    .pyramid-level:nth-child(3) { background: #00838f; width: 54%; }
+    .pyramid-level:nth-child(4) { background: #2e7d32; width: 66%; }
+    .pyramid-label { font-size: .75rem; font-weight: 600; margin-top: .2rem; color: var(--muted); }
+
+    .analytics-types { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; margin: 1rem 0; }
+    .analytics-type { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
+    .analytics-type .type-icon { font-size: 2rem; margin-bottom: .5rem; }
+    .analytics-type h4 { font-size: .85rem; color: var(--primary); margin-bottom: .4rem; }
+    .analytics-type p { font-size: .78rem; color: var(--muted); margin: 0; line-height: 1.4; }
+    .analytics-type .type-question { display: block; font-weight: 700; color: var(--accent); font-size: .8rem; margin-bottom: .3rem; }
+
+    .kpi-formula { background: #f3e5f5; border-radius: 8px; padding: .8rem 1.2rem; margin: .8rem 0; font-family: monospace; font-size: .88rem; color: #4a148c; }
+
+    .kpi-example { background: #e8f5e9; border-radius: 10px; padding: 1rem 1.3rem; margin: .8rem 0; }
+    .kpi-example strong { color: var(--green); display: block; margin-bottom: .4rem; font-size: .9rem; }
+    .kpi-example p { font-size: .85rem; margin: .3rem 0; }
+
+    .dashboard-sketch { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1rem 0; }
+    .dash-header { background: var(--primary); color: #fff; border-radius: 8px 8px 0 0; padding: .8rem 1.2rem; font-weight: 700; font-size: .88rem; }
+    .dash-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; padding: 1rem; }
+    .dash-widget { background: var(--light-bg); border-radius: 8px; padding: .8rem; text-align: center; }
+    .dash-widget .widget-value { font-size: 1.6rem; font-weight: 800; color: var(--primary); }
+    .dash-widget .widget-label { font-size: .72rem; color: var(--muted); margin-top: .2rem; }
+    .dash-widget .widget-status { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-top: .3rem; }
+    .dash-widget .status-ok { background: var(--green); }
+    .dash-widget .status-warn { background: #e6c800; }
+    .dash-widget .status-alert { background: var(--red); }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-header.hti-a      { background: #e8f5e9; color: var(--green); }
+    .activity-header.hti-b      { background: #fff8e1; color: #e65100; }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body ol, .activity-body ul { padding-left: 1.4rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .next-week { background: #e3f2fd; border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-top: 1.5rem; border-left: 4px solid #1976d2; }
+    .next-week h4 { font-size: .92rem; color: var(--primary); margin-bottom: .5rem; }
+    .next-week p { font-size: .88rem; margin: 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="badge-module">TD — Transformación Digital</span>
+  <h1>Semana 7 — Datos, Analítica y KPIs</h1>
+  <p>Medir para decidir · IUB — Inteligencia de Negocios</p>
+</header>
+
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/">← Volver al módulo</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana6/">Semana 6</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana8/">Semana 8 →</a>
+</nav>
+
+<main>
+
+  <!-- Propósito -->
+  <div class="card">
+    <h2>🎯 Propósito de la semana</h2>
+    <p>Definir qué información estratégica necesita Mercado360 para saber si su transformación digital está funcionando. <strong>Un KPI sin decisión no es un KPI — es un número sin propósito.</strong></p>
+
+    <div class="info-box brain">
+      <span class="icon">🧠</span>
+      <p><strong>Regla central:</strong> La tecnología genera datos. Los datos se convierten en información. La información genera conocimiento. Y el conocimiento genera decisiones. Pero sin la última capa, todo lo anterior es ruido.</p>
+    </div>
+
+    <table>
+      <tr><th>Pregunta clave</th><th>Respuesta al terminar la semana</th></tr>
+      <tr><td>¿Qué datos tiene hoy Mercado360?</td><td>Un inventario explícito de fuentes internas y externas, clasificadas.</td></tr>
+      <tr><td>¿Cómo se transforma un dolor en un número?</td><td>Formulando un KPI con fórmula, fuente, frecuencia y decisión.</td></tr>
+      <tr><td>¿Qué mide el éxito del MVP de WhatsApp?</td><td>Conjunto de 4 KPIs claros con sus umbrales de alerta.</td></tr>
+    </table>
+
+    <div class="bloom">🧠 Nivel: Analizar — Clasificar y seleccionar información estratégica</div>
+  </div>
+
+  <!-- Pregunta de apertura -->
+  <div class="info-box warn" style="margin-bottom: 2rem;">
+    <span class="icon">⚠️</span>
+    <p><strong>Pregunta de apertura:</strong> La semana 6 propuso el MVP de consulta de inventario por WhatsApp como quick win. Si ese MVP se lanza a 20 clientes en 2 semanas, ¿qué métricas nos dirían si está funcionando o no? Escriban 3 indicadores en el chat.</p>
+  </div>
+
+  <!-- DIKW -->
+  <div class="method-card">
+    <span class="method-tag">Marco conceptual</span>
+    <h3>La Pirámide DIKW — Rowley (2007)</h3>
+    <p class="author">Rowley, J. (2007). "The wisdom hierarchy: representations of the DIKW hierarchy." <em>Journal of Information Science</em>, 33(2).</p>
+
+    <div class="pyramid">
+      <div class="pyramid-level">Sabiduría</div>
+      <div class="pyramid-level">Conocimiento</div>
+      <div class="pyramid-level">Información</div>
+      <div class="pyramid-level">Datos</div>
+    </div>
+    <div style="text-align:center; margin-top:.5rem;">
+      <span class="pyramid-label">Las decisiones correctas requieren sabiduría, no solo datos.</span>
+    </div>
+
+    <table>
+      <tr><th>Nivel</th><th>Definición</th><th>Ejemplo en Mercado360</th></tr>
+      <tr><td><strong>Datos</strong></td><td>Hechos sin contexto. "El cliente X compró 3 unidades."</td><td>Registro de venta: producto, cantidad, hora.</td></tr>
+      <tr><td><strong>Información</strong></td><td>Datos procesados. "El cliente X compra 3 unidades mensuales de fertilizante."</td><td>Reporte de ventas por producto y cliente.</td></tr>
+      <tr><td><strong>Conocimiento</strong></td><td>Información aplicada. "El cliente X compra más cuando llega temporada de siembra."</td><td>Análisis de patrón estacional de compras.</td></tr>
+      <tr><td><strong>Sabiduría</strong></td><td>Decisión correcta. "Ofrecer al cliente X la promoción de fertilizante en marzo, antes de que necesite buscarlo."</td><td>KPI: tasa de respuesta a promoción estacional.</td></tr>
+    </table>
+
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Error común:</strong> Muchas empresas saltan de datos directamente a tecnología (compran software BI) esperando obtener sabiduría. El software no genera sabiduría — genera más datos. La sabiduría requiere análisis humano, contexto y decisión.</p>
+    </div>
+  </div>
+
+  <!-- Tipos de analítica -->
+  <div class="method-card">
+    <span class="method-tag">Taxonomía</span>
+    <h3>Tipos de Analítica — Gartner</h3>
+    <p class="author">Gartner (2023). "Magic Quadrant for Analytics and Business Intelligence Platforms."</p>
+
+    <div class="analytics-types">
+      <div class="analytics-type">
+        <div class="type-icon">📊</div>
+        <h4>Descriptiva</h4>
+        <span class="type-question">¿Qué pasó?</span>
+        <p>Resumen de resultados históricos. dashboards de ventas, reportes mensuales.</p>
+      </div>
+      <div class="analytics-type">
+        <div class="type-icon">🔍</div>
+        <h4>Diagnóstica</h4>
+        <span class="type-question">¿Por qué pasó?</span>
+        <p>Análisis de causa raíz. ¿Por qué cayeron las ventas en marzo?</p>
+      </div>
+      <div class="analytics-type">
+        <div class="type-icon">🔮</div>
+        <h4>Predictiva</h4>
+        <span class="type-question">¿Qué va a pasar?</span>
+        <p>Modelos de pronóstico. Demanda de producto para la próxima semana.</p>
+      </div>
+      <div class="analytics-type">
+        <div class="type-icon">🎯</div>
+        <h4>Prescriptiva</h4>
+        <span class="type-question">¿Qué debemos hacer?</span>
+        <p>Recomendaciones automatizadas. ¿Cuánto pedir y cuándo?</p>
+      </div>
+    </div>
+
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p><strong>Aplicación en Mercado360:</strong> Empezar con analítica descriptiva. Si Mercado360 no sabe cuánto vende hoy por producto, no tiene sentido hacer modelos predictivos. El orden correcto: describir → diagnosticar → predecir → prescribir.</p>
+    </div>
+  </div>
+
+  <!-- Fuentes de datos -->
+  <div class="card">
+    <h2>📂 Fuentes de datos en una organización</h2>
+
+    <h3>Fuentes internas</h3>
+    <table>
+      <tr><th>Fuente</th><th>Qué mide</th><th>Disponible en Mercado360</th></tr>
+      <tr><td>Sistema POS (punto de venta)</td><td>Ventas por producto, canal, horario</td><td>⚠️ Parcial — sin análisis automático</td></tr>
+      <tr><td>Inventario</td><td>Existencias, entradas, salidas, rotación</td><td>⚠️ Manual — desactualizado</td></tr>
+      <tr><td>Clientes (CRM)</td><td>Registro, historial, valor del cliente</td><td>❌ No hay sistema</td></tr>
+      <tr><td>WhatsApp / canales</td><td>Volumen de consultas, tipo, resolución</td><td>✅ Manual — sin consolidar</td></tr>
+      <tr><td>Finanzas</td><td>Ingresos, costos, márgenes, flujo de caja</td><td>⚠️ Parcial — reporte mensual</td></tr>
+    </table>
+
+    <h3>Fuentes externas</h3>
+    <table>
+      <tr><th>Fuente</th><th>Qué aporta</th><th>Acceso en Mercado360</th></tr>
+      <tr><td>Precios de competidores</td><td>Posicionamiento de precio</td><td>❌ No se documenta</td></tr>
+      <tr><td>Proveedores (catálogos)</td><td>Lead times, disponibilidad, precios</td><td>⚠️ Verbal — no sistematizado</td></tr>
+      <tr><td>Redes sociales</td><td>Reputación, menciones, reseñas</td><td>❌ No se monitorea</td></tr>
+      <tr><td>Datos climáticos</td><td>Demanda estacional de insumos</td><td>⚠️ Intuitivo — sin datos formales</td></tr>
+    </table>
+
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Hallazgo frecuente:</strong> En empresas como Mercado360, la mayoría de los datos valiosos ya existen — solo están en la cabeza del dueño, en un cuaderno o en un Excel que nadie actualiza. El primer paso no es comprar software; es poner en un formato estructurado lo que ya existe.</p>
+    </div>
+  </div>
+
+  <!-- KPI -->
+  <div class="card">
+    <h2>📏 KPI — Key Performance Indicator</h2>
+
+    <p>Un KPI es un indicador que permite medir el avance hacia un objetivo estratégico. La diferencia entre un número y un KPI es la decisión asociada.</p>
+
+    <h3>Los 6 componentes de un KPI válido</h3>
+    <table>
+      <tr><th>Componente</th><th>Descripción</th><th>Pregunta que responde</th></tr>
+      <tr><td><strong>1. Nombre</strong></td><td>Claro y sin ambigüedad</td><td>¿Qué estamos midiendo?</td></tr>
+      <tr><td><strong>2. Fórmula</strong></td><td>Cómo se calcula el indicador</td><td>¿De dónde sale el número?</td></tr>
+      <tr><td><strong>3. Fuente</strong></td><td>De dónde provienen los datos</td><td>¿Con qué datos trabaja?</td></tr>
+      <tr><td><strong>4. Frecuencia</strong></td><td>Cada cuánto se mide</td><td>¿Cuándo lo revisamos?</td></tr>
+      <tr><td><strong>5. Decisión</strong></td><td>Qué hacer si sube o baja</td><td>¿Y ahora qué?</td></tr>
+      <tr><td><strong>6. Meta</strong></td><td>Valor objetivo</td><td>¿Cuánto es éxito?</td></tr>
+    </table>
+
+    <div class="info-box brain">
+      <span class="icon">🧠</span>
+      <p><strong>La regla del KPI:</strong> Si no puedes responder la pregunta "¿qué haríamos si este indicador baja del 80% de la meta?", entonces ese número no es un KPI — es una curiosidad. Un KPI sin decisión es un KPI incompleto.</p>
+    </div>
+
+    <h3>Categorías de KPIs</h3>
+    <table>
+      <tr><th>Categoría</th><th>Qué mide</th><th>Ejemplos</th></tr>
+      <tr><td><strong>Cliente</strong></td><td>Experiencia y adquisición</td><td>Tasa de retención, NPS, costo de adquisición, tiempo de respuesta</td></tr>
+      <tr><td><strong>Proceso</strong></td><td>Eficiencia operativa</td><td>Tiempo de ciclo, tasa de errores, capacidad utilizada</td></tr>
+      <tr><td><strong>Resultado</strong></td><td>Impacto financiero y estratégico</td><td>Margen bruto, crecimiento de ventas, ROI de proyecto</td></tr>
+    </table>
+
+    <h3>Ejemplo completo — Mercado360</h3>
+    <div class="kpi-example">
+      <strong>Nombre:</strong> Tasa de resolución de consultas de inventario
+      <p><strong>Fórmula:</strong> (Consultas con respuesta de disponibilidad / Total de consultas de inventario) × 100</p>
+      <p><strong>Fuente:</strong> WhatsApp Business (conteo manual al final del día)</p>
+      <p><strong>Frecuencia:</strong> Semanal</p>
+      <p><strong>Meta:</strong> Mayor al 70%</p>
+      <p><strong>Decisión:</strong> Si la tasa cae por debajo del 70% durante 2 semanas consecutivas, mejorar la calidad del inventario antes de escalar el canal WhatsApp.</p>
+    </div>
+
+    <h3>Fórmula de ejemplo para calcular KPIs comunes</h3>
+    <div class="kpi-formula">
+      Tasa de retención = (Clientes que recompran en periodo N / Total clientes al inicio de periodo N) × 100
+    </div>
+    <div class="kpi-formula">
+      Costo de adquisición = (Gasto en marketing + costo comercial) / Número de clientes nuevos adquiridos
+    </div>
+    <div class="kpi-formula">
+      Tiempo de ciclo promedio = Suma de tiempo total de pedidos / Número de pedidos
+    </div>
+  </div>
+
+  <!-- Dashboard conceptual -->
+  <div class="card">
+    <h2>📱 Tableros (dashboards) conceptuales</h2>
+
+    <p>Un dashboard es una representación visual de los KPIs más importantes para una audiencia específica. No existe un dashboard universal — lo que necesita el dueño de Mercado360 es diferente de lo que necesita el coordinador de ventas.</p>
+
+    <h3>Reglas de diseño</h3>
+    <ul>
+      <li><strong>Máximo 7 indicadores</strong> sin necesidad de scroll.</li>
+      <li><strong>Un dashboard por audiencia:</strong> gerente general vs. coordinador de ventas vs. proveedor.</li>
+      <li><strong>Colores consistentes:</strong> verde = meta cumplida, amarillo = atención, rojo = acción urgente.</li>
+      <li><strong>Frecuencia de actualización</strong> según la velocidad del negocio (ventas diarias = actualización diaria).</li>
+    </ul>
+
+    <h3>Mockup — Dashboard del dueño de Mercado360</h3>
+    <div class="dashboard-sketch">
+      <div class="dash-header">📊 Dashboard — Gerente General | Mercado360</div>
+      <div class="dash-body">
+        <div class="dash-widget">
+          <div class="widget-value">$14.2M</div>
+          <div class="widget-label">Ventas mes (vs $12M meta)</div>
+          <span class="dash-widget .status-ok"></span>
+        </div>
+        <div class="dash-widget">
+          <div class="widget-value">68%</div>
+          <div class="widget-label">Tasa resolución inventario</div>
+          <span class="dash-widget status-warn"></span>
+        </div>
+        <div class="dash-widget">
+          <div class="widget-value">23</div>
+          <div class="widget-label">Clientes nuevos (mes)</div>
+          <span class="dash-widget status-ok"></span>
+        </div>
+        <div class="dash-widget">
+          <div class="widget-value">4.1</div>
+          <div class="widget-label">NPS (escala 1-5)</div>
+          <span class="dash-widget status-warn"></span>
+        </div>
+        <div class="dash-widget">
+          <div class="widget-value">82%</div>
+          <div class="widget-label">Cumplimiento pedidos</div>
+          <span class="dash-widget status-ok"></span>
+        </div>
+        <div class="dash-widget">
+          <div class="widget-value">6.2h</div>
+          <div class="widget-label">Tiempo ciclo pedido</div>
+          <span class="dash-widget status-alert"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p><strong>Nota práctica:</strong> No se necesita una herramienta cara para hacer un dashboard funcional. Una hoja de cálculo bien diseñada con colores condicionales y gráficos simples puede ser más útil que un software de BI para una empresa mediana. Lo importante es que los datos sean reales y se actualicen con la frecuencia prometida.</p>
+    </div>
+  </div>
+
+  <!-- Aplicación a Mercado360 -->
+  <div class="card">
+    <h2>🏪 Aplicación a Mercado360 — KPIs para el MVP</h2>
+
+    <p>El MVP propuesto en la semana 6 es: <strong>consulta de inventario por WhatsApp Business con respuesta humana</strong>. Se testa con 20 clientes durante 2 semanas. Los KPIs para medir el éxito:</p>
+
+    <table>
+      <tr><th>KPI</th><th>Fórmula</th><th>Fuente</th><th>Frecuencia</th><th>Meta</th><th>Decisión</th></tr>
+      <tr>
+        <td>Tasa de respuesta</td>
+        <td>Mensajes respondidos / Total mensajes</td>
+        <td>WhatsApp Business</td>
+        <td>Semanal</td>
+        <td>> 90%</td>
+        <td>Si &lt; 80%: aumentar horas de respuesta.</td>
+      </tr>
+      <tr>
+        <td>Tasa de consulta completada</td>
+        <td>Consultas con respuesta de disponibilidad / Total consultas</td>
+        <td>WhatsApp + inventario</td>
+        <td>Semanal</td>
+        <td>> 70%</td>
+        <td>Si &lt; 60%: mejorar datos de inventario antes de escalar.</td>
+      </tr>
+      <tr>
+        <td>Tasa de conversión</td>
+        <td>Consultas que generaron pedido / Total consultas</td>
+        <td>WhatsApp + POS</td>
+        <td>Quincenal</td>
+        <td>> 15%</td>
+        <td>Si > 20%: escalar a más clientes.</td>
+      </tr>
+      <tr>
+        <td>Satisfacción del cliente</td>
+        <td>Calificación promedio (1-5) en encuesta breve</td>
+        <td>WhatsApp (encuesta)</td>
+        <td>Quincenal</td>
+        <td>> 4.0</td>
+        <td>Si &lt; 3.5: revisar tono y precisión de respuesta.</td>
+      </tr>
+    </table>
+
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Importante:</strong> Estos KPIs miden el MVP, no la operación completa. Una vez el MVP funcione, los KPIs se amplían para incluir inventario, logística y finanzas.</p>
+    </div>
+  </div>
+
+  <!-- Actividad práctica -->
+  <div class="activity">
+    <div class="activity-header presencial">
+      🔴 Actividad práctica — Taller de KPIs (60 min)
+    </div>
+    <div class="activity-body">
+
+      <h3>Bloque 1 — Identificar fuentes (20 minutos)</h3>
+      <ol>
+        <li>En equipos de 3-4 personas.</li>
+        <li>Elegir la empresa del caso asignado (Mercado360 o caso espejo).</li>
+        <li>Listar las fuentes de datos que ya existen en la empresa.</li>
+        <li>Listar las fuentes de datos que faltan y serían valiosas.</li>
+        <li>Clasificar cada fuente: interna vs. externa y operacional vs. estratégica.</li>
+      </ol>
+
+      <h3>Bloque 2 — Formular KPIs (30 minutos)</h3>
+      <ol>
+        <li>Elegir 3 dolores priorizados en las semanas anteriores.</li>
+        <li>Por cada dolor, formular 2 KPIs: uno de proceso, uno de resultado.</li>
+        <li>Para cada KPI escribir: nombre, fórmula, fuente, frecuencia, decisión y meta.</li>
+        <li>Identificar el KPI más crítico — el que si no se cumple, el proyecto de transformación falla.</li>
+        <li>Preparar 3 minutos de presentación por equipo.</li>
+      </ol>
+
+      <h3>Bloque 3 — Presentación (10 minutos)</h3>
+      <ul>
+        <li>Las 2 fuentes de datos más valiosas identificadas.</li>
+        <li>Los 3 KPIs formulados con su decisión asociada.</li>
+        <li>Por qué esos KPIs son los correctos para medir el avance de la transformación.</li>
+      </ul>
+
+      <div class="info-box warn">
+        <span class="icon">⚠️</span>
+        <p>El posicionamiento no es subjetivo. Deben poder justificar por qué una solución es alta impacto vs. baja impacto, y por qué es alto esfuerzo vs. bajo esfuerzo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evidencia -->
+  <div class="card">
+    <h2>📋 Evidencia entregable</h2>
+    <p><strong>Lista de KPIs con fórmula, fuente de datos, frecuencia y decisión asociada.</strong></p>
+
+    <p><strong>Debe incluir:</strong></p>
+    <ol>
+      <li>Mínimo <strong>8 KPIs</strong> formulados (mínimo 3 de cliente, 3 de proceso, 2 de resultado).</li>
+      <li>Para cada KPI: nombre, fórmula, fuente de datos, frecuencia de medición, meta y decisión.</li>
+      <li>Un <strong>dashboard conceptual</strong> (mockup en formato libre: dibujo, screenshot de herramienta, o descripción) con máximo 6 indicadores para una audiencia específica.</li>
+      <li>Identificación de las <strong>2 fuentes de datos más valiosas</strong> que recomienda activar primero y por qué.</li>
+    </ol>
+
+    <table>
+      <tr><th>Criterio</th><th>Peso</th></tr>
+      <tr><td>8 KPIs formulados con los 6 componentes completos</td><td>30%</td></tr>
+      <tr><td>Al menos 3 KPIs de cliente, 3 de proceso, 2 de resultado</td><td>20%</td></tr>
+      <tr><td>Dashboard conceptual con audiencia definida y máximo 6 indicadores</td><td>20%</td></tr>
+      <tr><td>Decisiones coherentes con el cambio esperado del indicador</td><td>20%</td></tr>
+      <tr><td>Fuentes de datos priorizadas con justificación</td><td>10%</td></tr>
+    </table>
+
+    <p><strong>Extensión máxima:</strong> 5 páginas. <strong>Formato:</strong> Word o PDF.</p>
+  </div>
+
+  <!-- Preguntas orientadoras -->
+  <div class="card">
+    <h2>❓ Preguntas orientadoras</h2>
+    <ol>
+      <li>¿Por qué una empresa no puede empezar analítica predictiva si no tiene analítica descriptiva?</li>
+      <li>¿Cuál es la diferencia entre un dato y una información? Dé un ejemplo del caso Mercado360.</li>
+      <li>¿Por qué un KPI sin decisión asociada no es un KPI válido?</li>
+      <li>¿Qué fuente de datos de Mercado360 es la más valiosa y por qué?</li>
+      <li>Si el KPI de tasa de resolución de inventario cae del 70% al 45% en una semana, ¿qué acción tomarías y por qué?</li>
+      <li>¿Qué tipos de analítica podría usar Mercado360 en 6 meses si el MVP de WhatsApp funciona?</li>
+      <li>¿Cuál es la diferencia entre un KPI operativo y un KPI estratégico?</li>
+    </ol>
+  </div>
+
+  <!-- Fuentes -->
+  <div class="card">
+    <h2>📚 Fuentes recomendadas</h2>
+
+    <h3>Obligatorias</h3>
+    <ul>
+      <li>Davenport, T.H. & Harris, J.G. (2017). <em>Competing on Analytics: The New Science of Winning</em>. Harvard Business Review Press. Caps 1-3.</li>
+      <li>Rowley, J. (2007). "The wisdom hierarchy: representations of the DIKW hierarchy." <em>Journal of Information Science</em>, 33(2).</li>
+    </ul>
+
+    <h3>Complementarias</h3>
+    <ul>
+      <li>Gartner (2023). "Magic Quadrant for Analytics and Business Intelligence Platforms."</li>
+      <li>Cokins, S. (2013). <em>Performance Management: Finding the Right Information</em>. Wiley. Caps 1-2.</li>
+      <li>Parikh, R. (2019). "Why most dashboards fail." <em MIT Sloan Management Review>.</li>
+    </ul>
+
+    <h3>Videos recomendados</h3>
+    <ul>
+      <li>"Google Analytics Tutorial for Beginners" — concepto de métricas vs. dimensiones.</li>
+      <li>"How to build a KPI dashboard" — ejemplo práctico de dashboard en hoja de cálculo.</li>
+    </ul>
+  </div>
+
+  <!-- Conexión semanas -->
+  <div class="next-week">
+    <h4>🔜 Conexión con la semana siguiente</h4>
+    <p>La semana 8 aborda <strong>IA aplicada a negocio</strong>. Los KPIs definidos en esta semana son el punto de partida: para aplicar IA predictiva o prescriptiva, primero se necesitan datos limpios y KPIs que midan el proceso. La pregunta de apertura será: <strong>"Si Mercado360 tiene 6 meses de datos de ventas por producto, ¿qué predicción podría hacer la IA que un humano no podría?"</strong></p>
+  </div>
+
+</main>
+
+<script>
+  // Widget de progreso PT
+  const STORAGE_KEY = 'td_s7';
+  const maxWeeks = 14;
+  const currentWeek = 7;
+
+  function getStoredProgress() {
+    try { return JSON.parse(localStorage.getItem('td_progress') || '{}'); }
+    catch { return {}; }
+  }
+
+  function saveProgress(week, status) {
+    const p = getStoredProgress();
+    p[week] = status;
+    localStorage.setItem('td_progress', JSON.stringify(p));
+  }
+
+  function renderProgressWidget() {
+    const p = getStoredProgress();
+    let completed = 0;
+    for (let i = 1; i <= maxWeeks; i++) {
+      const w = 'td_s' + i;
+      if (p[w] === 'completada') completed++;
+    }
+
+    const container = document.createElement('div');
+    container.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:999';
+    container.innerHTML = `
+      <div style="background:#1E2843;color:#fff;border-radius:12px;padding:12px 16px;font-size:12px;box-shadow:0 4px 12px rgba(0,0,0,.25);min-width:160px;">
+        <div style="font-weight:700;margin-bottom:8px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;">Progreso TD</div>
+        <div style="background:#2d3a5e;border-radius:6px;height:6px;overflow:hidden;margin-bottom:8px;">
+          <div style="background:#FFDF2D;height:100%;width:${(completed/maxWeeks*100).toFixed(1)}%;transition:width .4s;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;opacity:.8;">
+          <span>Semana ${currentWeek}/14</span>
+          <span>${completed}/${maxWeeks} semanas</span>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap;">
+          ${Array.from({length:maxWeeks},(_,i)=>{
+            const w = i+1;
+            const state = p['td_s'+w];
+            const color = state==='completada'?'#FFDF2D':state==='en_progreso'?'#2e7d32':'rgba(255,255,255,.2)';
+            const label = state ? (state==='completada'?'✓':'●') : '○';
+            return `<span style="width:18px;height:18px;background:${color};border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#1E2843;cursor:pointer;" title="Semana ${w}" onclick="toggleWeek(${w})">${label}</span>`;
+          }).join('')}
+        </div>
+        <div style="font-size:10px;opacity:.6;margin-top:6px;cursor:pointer;text-align:center;" onclick="resetProgress()">Reiniciar</div>
+      </div>
+    `;
+    document.body.appendChild(container);
+  }
+
+  function toggleWeek(w) {
+    const p = getStoredProgress();
+    const key = 'td_s'+w;
+    if (p[key]==='completada') { delete p[key]; }
+    else { p[key]='completada'; }
+    localStorage.setItem('td_progress', JSON.stringify(p));
+    location.reload();
+  }
+
+  function resetProgress() {
+    if (confirm('¿Reiniciar todo el progreso?')) {
+      localStorage.removeItem('td_progress');
+      location.reload();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', renderProgressWidget);
+</script>
+
+</body>
+</html>
