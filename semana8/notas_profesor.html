@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 8 — Cultura Digital, Talento y Gestión del Cambio | TD04 | Notas del Profesor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .prof-note { background: #fff3e0; border: 1px solid #ff9800; border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; }
+    .prof-note h4 { color: #e65100; font-size: .9rem; margin-bottom: .5rem; }
+    .prof-note p { font-size: .88rem; margin: .3rem 0; }
+
+    .timing { background: #e3f2fd; border-radius: 8px; padding: .8rem 1.2rem; margin: .5rem 0; font-size: .88rem; display: flex; gap: 1rem; align-items: center; }
+    .timing .clock { font-size: 1.2rem; }
+    .timing strong { color: var(--primary); }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .mistake { background: #fce4ec; border-left: 4px solid var(--red); border-radius: 6px; padding: .8rem 1.2rem; margin: .6rem 0; }
+    .mistake strong { color: var(--red); font-size: .85rem; }
+    .mistake p { font-size: .85rem; margin: .3rem 0 0; }
+
+    .checkpoint { background: #e8f5e9; border-radius: 8px; padding: .8rem 1.2rem; margin: .6rem 0; font-size: .88rem; }
+    .checkpoint strong { color: var(--green); }
+
+    .answer { background: #e8eaf6; border-left: 4px solid #3949ab; border-radius: 6px; padding: .8rem 1.2rem; margin: .6rem 0; }
+    .answer strong { color: #283593; font-size: .85rem; }
+    .answer p { font-size: .85rem; margin: .3rem 0 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="badge-module">TD — Notas del Profesor</span>
+  <h1>Semana 8 — Cultura Digital, Talento y Gestión del Cambio</h1>
+  <p>Guía docente · IUB — Inteligencia de Negocios</p>
+</header>
+
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana8/index.html">Ver material estudiante →</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana7/notas_profesor.html">← Semana 7</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana9/notas_profesor.html">Semana 9 →</a>
+</nav>
+
+<main>
+
+  <!-- Mensaje central -->
+  <div class="prof-note">
+    <h4>🎯 Mensaje central de la semana</h4>
+    <p><strong>La tecnología es el 20% del desafío. El 80% es cultura, personas y gestión del cambio.</strong> El estudiante debe salir de esta semana entendiendo que puede diseñar el mejor sistema del mundo, pero si no diseña cómo las personas lo van a adoptar, el proyecto fracasa. ADKAR y Kotter no son teoría — son herramientas de diagnóstico y acción.</p>
+  </div>
+
+  <!-- Objetivos de aprendizaje -->
+  <div class="card">
+    <h2>🎓 Objetivos de aprendizaje</h2>
+    <p>Al finalizar la semana, el estudiante será capaz de:</p>
+    <ol>
+      <li><strong>Identificar</strong> los actores afectados por un cambio tecnológico en una organización y clasificarlos por nivel de impacto y resistencia.</li>
+      <li><strong>Diagnosticar</strong> la causa raíz de la resistencia al cambio usando el modelo ADKAR (¿falta A, D, K, A o R?).</li>
+      <li><strong>Diseñar</strong> una estrategia de adopción diferenciada por actor, usando ADKAR y los 8 pasos de Kotter.</li>
+      <li><strong>Proponer</strong> quick wins concretos, medibles y conectados con los KPIs definidos en la semana 7.</li>
+      <li><strong>Argumentar</strong> por qué la gestión del cambio es un componente crítico — no accesorio — de cualquier proyecto de transformación digital.</li>
+    </ol>
+  </div>
+
+  <!-- Preparación previa -->
+  <div class="card">
+    <h2>📋 Preparación previa del docente</h2>
+    <ul>
+      <li><strong>Revisar el caso Mercado360</strong> para tener frescos los actores, el MVP de WhatsApp (S6) y los KPIs (S7). Esta semana conecta todo lo anterior.</li>
+      <li><strong>Tener preparado un ejemplo personal</strong> de un cambio que te costó adoptar (una herramienta, un proceso, una rutina) y por qué. Compartirlo en la apertura genera confianza y normaliza la resistencia.</li>
+      <li><strong>Memorizar el acrónimo ADKAR</strong> y tener un ejemplo listo para cada letra. Los estudiantes recordarán ADKAR si cada letra tiene una historia.</li>
+      <li><strong>Llevar impresa o proyectada la tabla de actores de Mercado360</strong> (la del material del estudiante). Se usará como punto de partida para la discusión.</li>
+      <li><strong>Preparar 2-3 preguntas de sondeo</strong> para la actividad: "¿qué harías si el dueño te dice que no quiere usar el sistema?", "¿y si el vendedor senior se va de la empresa?"</li>
+    </ul>
+  </div>
+
+  <!-- Estructura de clase -->
+  <div class="card">
+    <h2>⏱️ Estructura sugerida — 2 horas</h2>
+
+    <h3>Bienvenida y apertura (10 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>10 min</strong> — Pregunta de apertura: "Si mañana el dueño de Mercado360 anuncia que desde hoy se usa el nuevo sistema, ¿cuántos empleados creen que lo usarían realmente en la primera semana? ¿Por qué?" Recoger respuestas en el tablero. El objetivo es que los estudiantes verbalicen que la gente no cambia por decreto.</span>
+    </div>
+
+    <div class="prof-note">
+      <h4>Técnica de apertura</h4>
+      <p>Pedir que escriban su respuesta en un papel antes de compartirla. Esto evita que el primero que habla condicione al resto. Luego recoger 4-5 respuestas y agruparlas: "los que dijeron menos del 50% levantaron la mano." La sorpresa de ver que la mayoría espera baja adopción prepara el terreno para ADKAR.</p>
+    </div>
+
+    <h3>Bloque 1 — ¿Qué es cultura digital? (15 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>15 min</strong> — Definir cultura digital no como "uso de herramientas" sino como valores y comportamientos. Usar el contraste: cultura actual de Mercado360 vs. cultura digital deseada. Preguntar: "¿qué comportamiento cambiaría primero y por qué?"</span>
+    </div>
+
+    <div class="prof-note">
+      <h4>Punto de atención</h4>
+      <p>No gastar más de 15 minutos en este bloque. La tentación es dar una conferencia sobre cultura organizacional. La cultura se entiende mejor cuando se aplica al mapa de actores (bloque 3). Este bloque es solo el marco.</p>
+    </div>
+
+    <h3>Bloque 2 — Modelo ADKAR (25 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>25 min</strong> — Este es el bloque teórico más importante. Explicar cada letra con un ejemplo de Mercado360. La pregunta clave: "si un vendedor no quiere usar el sistema, ¿cómo sabes si le falta A, D, K, A o R?" Hacer que los estudiantes practiquen el diagnóstico con 2-3 escenarios.</span>
+    </div>
+
+    <div class="prof-note">
+      <h4>Técnica: diagnóstico en vivo</h4>
+      <p>Plantear 3 escenarios y pedir que diagnostiquen la letra que falla:</p>
+      <p><strong>Escenario 1:</strong> "El bodeguero dice que el sistema es muy lento y prefiere su cuaderno." → Respuesta: probablemente K (no sabe usarlo bien) o A (no puede hacerlo en su contexto real).</p>
+      <p><strong>Escenario 2:</strong> "El vendedor senior usó el sistema la primera semana pero ya volvió a llamar al dueño para preguntar." → Respuesta: posiblemente R (falta refuerzo).</p>
+      <p><strong>Escenario 3:</strong> "El dueño compró el software pero nunca lo usa él mismo." → Respuesta: D (no tiene deseo — no ve qué gana) o A (no ve la urgencia).</p>
+    </div>
+
+    <h3>Bloque 3 — Kotter y mapa de actores (20 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>20 min</strong> — Presentar los 8 pasos de Kotter como el complemento organizacional de ADKAR. Luego mostrar el mapa de actores de Mercado360 y hacer la conexión: Kotter dice qué hace el líder, ADKAR dice qué necesita cada persona.</span>
+    </div>
+
+    <h3>Actividad práctica — Taller de gestión del cambio (60 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>60 min total</strong> — Ver sección de actividad detallada abajo.</span>
+    </div>
+
+    <h3>Cierre y conexión (10 min)</h3>
+    <div class="timing">
+      <span class="clock">🕐</span>
+      <span><strong>10 min</strong> — Resumir los 3 puntos clave. Pregunta de cierre: "De todos los actores de Mercado360, ¿cuál creen que es el más peligroso para el éxito del proyecto y por qué?" La respuesta más común es "el dueño" — si él no adopta, nadie lo hará. Conectar con S9: "La semana que viene veremos que la tecnología también trae riesgos — pero el primer riesgo siempre son las personas."</span>
+    </div>
+  </div>
+
+  <!-- Actividad detallada -->
+  <div class="card">
+    <h2>🔴 Actividad práctica — Taller de gestión del cambio (60 min)</h2>
+
+    <h3>Bloque 1 — Mapa de actores (25 min)</h3>
+    <ul>
+      <li><strong>Objetivo:</strong> Que los equipos identifiquen actores, diagnostiquen resistencia y ubiquen a cada actor en una matriz impacto vs. resistencia.</li>
+      <li><strong>Entregable:</strong> Tabla con mínimo 5 actores, cada uno con: nombre, rol, impacto (alto/medio/bajo), resistencia (alto/medio/bajo), causa raíz (letra ADKAR).</li>
+      <li><strong>Patrón de respuesta esperado:</strong> Vendedor senior (alto impacto, alta resistencia, falta de D), bodeguero (alto impacto, alta resistencia, falta de K/A), dueño (alto impacto, media resistencia, falta de A/D), vendedor junior (medio impacto, baja resistencia, falta de K), cliente (bajo impacto, baja resistencia, N/A).</li>
+      <li><strong>Trampa a evitar:</strong> Que los estudiantes pongan "resistencia: alta" para todos. Forzarlos a diferenciar: ¿el dueño se resiste por lo mismo que el bodeguero? No. El dueño teme perder control; el bodeguero teme que sea más trabajo.</li>
+    </ul>
+
+    <h3>Bloque 2 — Estrategia ADKAR (25 min)</h3>
+    <ul>
+      <li><strong>Objetivo:</strong> Que cada equipo diseñe una estrategia ADKAR completa para los 3 actores más resistentes.</li>
+      <li><strong>Formato:</strong> Una fila por actor, 5 columnas (A-D-K-A-R). Cada celda debe tener una acción concreta, no una frase genérica.</li>
+      <li><strong>Validación:</strong> Preguntar a cada equipo: "si tu estrategia para el bodeguero es 'capacitación', ¿eso cubre qué letra de ADKAR? ¿Y las otras 4?"</li>
+    </ul>
+
+    <div class="prof-note">
+      <h4>Guía para el docente durante el taller</h4>
+      <p>Recorrer los grupos y hacer preguntas de presión:</p>
+      <ul>
+        <li>"¿Cómo sabes que el problema del vendedor senior es D y no K?" → Deben argumentar con evidencia del caso.</li>
+        <li>"Si tu quick win es 'el sistema funcionó', ¿cómo lo mides? ¿Qué número cambia?" → Deben conectar con KPIs de S7.</li>
+        <li>"¿Qué pasa si el campeón digital que eligieron renuncia en la semana 2?" → Deben tener un plan B.</li>
+        <li>"¿Tu estrategia funcionaría si el dueño se opone activamente?" → Deben reconocer que sin el dueño, ningún plan funciona.</li>
+      </ul>
+    </div>
+
+    <h3>Bloque 3 — Presentación (10 min)</h3>
+    <ul>
+      <li><strong>Tiempo por equipo:</strong> 2-3 minutos máximo. Solo 2 equipos presentan (rotar respecto a semanas anteriores).</li>
+      <li><strong>Formato:</strong> 3 actores + causa raíz + estrategia ADKAR del más resistente + 2 quick wins + lección aprendida.</li>
+      <li><strong>Cierre del docente:</strong> Señalar patrones: ¿todos los equipos identificaron al vendedor senior como el más resistente? ¿Alguno identificó al dueño como el verdadero obstáculo? ¿Cuántos quick wins estaban realmente conectados a KPIs?</li>
+    </ul>
+  </div>
+
+  <!-- Errores comunes -->
+  <div class="card">
+    <h2>⚠️ Errores comunes de los estudiantes</h2>
+
+    <div class="mistake">
+      <strong>Error 1: Tratar todas las resistencias con "más capacitación".</strong>
+      <p>Este es el error más frecuente y más grave. Cuando un estudiante dice "hay que capacitarlos", preguntar: "¿capacitación resuelve que el empleado no quiera usar el sistema (D) o resuelve que no sepa usarlo (K)?" Si no saben, la capacitación ayuda. Si no quieren, la capacitación es inútil. Forzarlos a diagnosticar antes de recetar.</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 2: Ignorar al dueño como actor.</strong>
+      <p>Muchos estudiantes se enfocan en los empleados y olvidan que el dueño es el actor más poderoso. Si el dueño no adopta el cambio — si sigue tomando decisiones sin consultar el sistema — nadie más lo hará. El dueño debe ser el primer actor en el mapa.</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 3: Quick wins abstractos.</strong>
+      <p>"El quick win es que el sistema funcione" no es un quick win. Un quick win debe ser: específico (qué pasó), medible (qué número cambió), atribuible (quién lo logró) y comunicable (quién se enteró). Ejemplo correcto: "El martes, el vendedor Juan respondió una consulta de inventario en 2 minutos usando el sistema. Antes tomaba 15 minutos ir a la bodega. El cliente confirmó el pedido en el momento."</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 4: Confundir ADKAR con Kotter.</strong>
+      <p>ADKAR es individual ("qué necesita esta persona"), Kotter es organizacional ("qué debe hacer el líder"). No son intercambiables. Si un estudiante dice "el paso 3 de ADKAR es comunicar la visión", corregir: eso es Kotter paso 4. ADKAR paso 3 es K — Conocimiento.</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 5: Estrategias genéricas para todos los actores.</strong>
+      <p>"Para el dueño: capacitación. Para el vendedor: capacitación. Para el bodeguero: capacitación." Esto revela que no diagnosticaron la causa raíz. Cada actor debe tener una estrategia distinta porque su resistencia tiene una causa distinta. Si todos reciben lo mismo, el diagnóstico no se hizo.</p>
+    </div>
+
+    <div class="mistake">
+      <strong>Error 6: No conectar con semanas anteriores.</strong>
+      <p>Esta semana no existe en el vacío. El MVP de WhatsApp (S6) es lo que hay que adoptar. Los KPIs (S7) son cómo se mide si la adopción funciona. Si un estudiante propone quick wins sin referenciar ningún KPI, no está conectando el curso. Forzar la conexión: "¿qué KPI de la semana 7 mediría si tu quick win funcionó?"</p>
+    </div>
+  </div>
+
+  <!-- Respuestas esperadas -->
+  <div class="card">
+    <h2>💬 Respuestas esperadas — Preguntas orientadoras</h2>
+
+    <div class="answer">
+      <strong>1. ¿Por qué una empresa puede tener el mejor software del mundo y aun así fracasar en su transformación digital?</strong>
+      <p>Porque el software es solo el 20% del desafío. Si las personas no lo adoptan — por resistencia, falta de capacitación, desconfianza o porque no ven el beneficio — la inversión se pierde. La transformación digital es un cambio cultural, no una instalación técnica. Citando a Kane (2015): "Strategy, not technology, drives digital transformation."</p>
+    </div>
+
+    <div class="answer">
+      <strong>2. Si un empleado dice "yo siempre lo he hecho así y funciona", ¿qué etapa de ADKAR está fallando? ¿Qué harías para resolverlo?</strong>
+      <p>Está fallando la A (Conciencia/Awareness) y posiblemente la D (Deseo). No ve por qué necesita cambiar (A) y no ve qué gana cambiando (D). Estrategia: mostrar datos concretos de lo que se pierde al no cambiar (A) y mostrar el beneficio personal: "si usas el sistema, recibirás 5 llamadas menos al día de clientes preguntando si hay stock" (D).</p>
+    </div>
+
+    <div class="answer">
+      <strong>3. ¿Cuál es la diferencia entre la resistencia del dueño y la resistencia del bodeguero en Mercado360? ¿Por qué requieren estrategias distintas?</strong>
+      <p>El dueño teme perder el control sobre la información (antes todo pasaba por él). Su resistencia es cultural y de poder. El bodeguero teme que el sistema sea más trabajo que su cuaderno. Su resistencia es operativa y de esfuerzo. La estrategia para el dueño debe apelar al control que gana (datos en tiempo real, mejor visibilidad). La estrategia para el bodeguero debe apelar al tiempo que ahorra a mediano plazo.</p>
+    </div>
+
+    <div class="answer">
+      <strong>4. ¿Por qué el orden de ADKAR importa? ¿Qué pasa si una empresa invierte en capacitación (K) sin haber generado deseo (D)?</strong>
+      <p>Porque las etapas son secuenciales: no se puede construir Conocimiento sin Deseo, ni Deseo sin Conciencia. Si capacitas a alguien que no quiere cambiar (sin D), aprende la herramienta pero no la usa. Es como enseñarle a nadar a alguien que no quiere meterse al agua. El resultado: dinero gastado en capacitación y cero adopción.</p>
+    </div>
+
+    <div class="answer">
+      <strong>5. Nombra un quick win que hayas vivido y explica por qué funcionó.</strong>
+      <p>Respuesta abierta. El docente debe evaluar que el quick win cumpla los 4 criterios: específico, medible, atribuible y comunicable. Ejemplo esperado: "En mi trabajo anterior implementaron un sistema de turnos digital. El quick win fue que la primera semana nadie llegó tarde porque el sistema enviaba recordatorios automáticos. Funcionó porque todos vieron el beneficio inmediato."</p>
+    </div>
+
+    <div class="answer">
+      <strong>6. ¿Qué actor del mapa de Mercado360 crees que es el más peligroso para el éxito del proyecto y por qué?</strong>
+      <p>El dueño. Si él no adopta el sistema — si sigue preguntando "¿hay stock?" por teléfono en lugar de consultar el sistema — ningún empleado lo hará. El dueño es el modelo a seguir. La segunda respuesta válida es el vendedor senior, porque su resistencia puede contagiar al resto del equipo y tiene influencia sobre los clientes.</p>
+    </div>
+
+    <div class="answer">
+      <strong>7. Si fueras el dueño de Mercado360, ¿a quién elegirías como campeón digital y por qué?</strong>
+      <p>Respuesta esperada: al vendedor junior, porque tiene baja resistencia, está dispuesto a aprender y no tiene vicios arraigados. Si se elige al vendedor senior (por su influencia) hay que argumentar cómo se manejaría su alta resistencia. No hay una respuesta única correcta; lo importante es la justificación basada en el diagnóstico de resistencia.</p>
+    </div>
+  </div>
+
+  <!-- Rúbrica de evaluación -->
+  <div class="card">
+    <h2>📊 Rúbrica simplificada — Evidencia de semana 8</h2>
+
+    <table>
+      <tr><th>Criterio</th><th>Peso</th><th>Bueno (80-100%)</th><th>Aceptable (60-79%)</th><th>Insuficiente (0-59%)</th></tr>
+      <tr>
+        <td><strong>Mapa de actores</strong></td>
+        <td>30%</td>
+        <td>5+ actores con impacto, resistencia y causa raíz (letra ADKAR). La causa raíz está bien diagnosticada y diferenciada por actor.</td>
+        <td>5 actores pero con causas genéricas ("resistencia al cambio") sin diagnóstico ADKAR.</td>
+        <td>Menos de 5 actores, sin niveles de impacto/resistencia, o todos con el mismo diagnóstico.</td>
+      </tr>
+      <tr>
+        <td><strong>Estrategia ADKAR</strong></td>
+        <td>30%</td>
+        <td>3 actores con estrategia ADKAR completa (5 etapas). Cada etapa tiene una acción concreta y diferenciada. La estrategia responde a la causa raíz diagnosticada.</td>
+        <td>3 actores con estrategia, pero algunas etapas son genéricas o se repiten entre actores.</td>
+        <td>Estrategia incompleta (menos de 5 etapas), o "capacitación" como única acción para todas las etapas y actores.</td>
+      </tr>
+      <tr>
+        <td><strong>Quick wins</strong></td>
+        <td>20%</td>
+        <td>2+ quick wins específicos, medibles, con responsable y conectados a un KPI de la semana 7.</td>
+        <td>Quick wins presentes pero abstractos ("que el sistema funcione") o sin conexión a KPIs.</td>
+        <td>Sin quick wins o sin relación con el caso Mercado360.</td>
+      </tr>
+      <tr>
+        <td><strong>Matriz 2×2</strong></td>
+        <td>10%</td>
+        <td>Matriz impacto vs. resistencia con actores correctamente ubicados y justificación escrita de cada posición.</td>
+        <td>Matriz presente pero con ubicaciones cuestionables o sin justificación.</td>
+        <td>Sin matriz o con ubicaciones aleatorias sin justificación.</td>
+      </tr>
+      <tr>
+        <td><strong>Uso de modelos</strong></td>
+        <td>10%</td>
+        <td>Uso correcto de nomenclatura ADKAR (A-D-K-A-R). Referencia explícita a Kotter donde aplica. No confunde los modelos.</td>
+        <td>Usa los modelos pero con imprecisiones (confunde etapas, mezcla ADKAR con Kotter).</td>
+        <td>No referencia ningún modelo o los usa de forma incorrecta.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Puntos clave para enfatizar -->
+  <div class="card">
+    <h2>💎 Puntos clave para enfatizar en clase</h2>
+
+    <div class="checkpoint">
+      <strong>1. La tecnología es el 20%. Las personas son el 80%.</strong> Si los estudiantes solo recuerdan una cosa de esta semana, que sea esta. Cada vez que un estudiante proponga una solución puramente técnica, preguntar: "¿y quién la va a usar?"
+    </div>
+
+    <div class="checkpoint">
+      <strong>2. Diagnosticar antes de recetar.</strong> ADKAR no es una lista de tareas — es una herramienta de diagnóstico. La pregunta no es "¿qué hago?" sino "¿qué está fallando: A, D, K, A o R?" Si no sabes qué falla, no sabes qué hacer.
+    </div>
+
+    <div class="checkpoint">
+      <strong>3. Cada actor tiene una resistencia distinta.</strong> El dueño no se resiste por lo mismo que el bodeguero. Tratarlos a todos igual es garantía de fracaso. La estrategia debe ser personalizada.
+    </div>
+
+    <div class="checkpoint">
+      <strong>4. Quick wins reales, no abstractos.</strong> "El sistema funcionó bien" no es un quick win. Un quick win debe poder contarse en 30 segundos: qué pasó, quién lo hizo, qué mejoró y cómo se midió.
+    </div>
+
+    <div class="checkpoint">
+      <strong>5. Si el líder no adopta, nadie adopta.</strong> En Mercado360, el dueño es el actor más importante. Si él sigue consultando el cuaderno, el sistema está muerto. El ejemplo del líder es la herramienta de gestión del cambio más poderosa — y la más subestimada.
+    </div>
+  </div>
+
+  <!-- Conexión con semana 9 -->
+  <div class="card">
+    <h2>🔜 Conexión con semana 9 — Ciberseguridad, privacidad y continuidad</h2>
+    <p>La semana 9 aborda los riesgos digitales. El puente natural con esta semana es:</p>
+    <ul>
+      <li>Una vez que Mercado360 adopta WhatsApp Business y un sistema de inventario digital, aparecen riesgos que antes no existían: ¿quién más puede ver los datos de clientes? ¿qué pasa si el sistema se cae?</li>
+      <li>La gestión del cambio (S8) y la gestión de riesgos (S9) son complementarias: <strong>las personas adoptan la tecnología, y la tecnología debe protegerse.</strong></li>
+      <li>Pregunta de apertura para S9: "Si un ex-empleado de Mercado360 se lleva la lista de clientes en su celular, ¿qué puede pasar? ¿Es eso un riesgo técnico o un riesgo humano?"</li>
+      <li>Conectar con Ley 1581 de 2012 (protección de datos personales en Colombia): la adopción digital implica nuevas obligaciones legales.</li>
+    </ul>
+  </div>
+
+  <!-- Notas rápidas -->
+  <div class="card">
+    <h2>📝 Notas rápidas de la sesión</h2>
+    <p>Espacio para registro del docente después de cada clase:</p>
+    <div style="border: 1px dashed var(--border); border-radius: 8px; padding: 1rem; min-height: 120px; font-size: .88rem; color: var(--muted);">
+      [Registrar: ¿entendieron la diferencia entre ADKAR y Kotter? ¿Hubo algún estudiante que diagnosticó una resistencia que no esperabas? ¿Qué actor generó más debate? ¿Los quick wins propuestos fueron concretos o abstractos? ¿Algún estudiante compartió una experiencia personal de resistencia al cambio?]
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

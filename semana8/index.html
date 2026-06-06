@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 8 — Cultura Digital, Talento y Gestión del Cambio | TD04</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #1E2843;
+      --accent:    #2d3a5e;
+      --gold:      #FFDF2D;
+      --green:     #2e7d32;
+      --red:       #c62828;
+      --light-bg:  #FAFAFA;
+      --card-bg:   #ffffff;
+      --text:      #212121;
+      --muted:     #546e7a;
+      --border:    #DEDFE4;
+      --radius:    12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
+    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
+
+    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
+    nav a:hover { background: var(--border); }
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
+    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
+    .card p  { margin-bottom: .8rem; }
+    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
+    .card li { margin-bottom: .4rem; }
+
+    .bloom { display: inline-flex; align-items: center; gap: .4rem; background: #fff9c4; border: 1px solid #FFDF2D; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #5d4037; margin-bottom: 1rem; }
+
+    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
+    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
+    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
+    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .info-box p     { margin: 0; font-size: .93rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1rem 0; }
+    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--light-bg); }
+
+    .method-card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 1.5rem; border-left: 6px solid var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .method-card h3 { color: var(--primary); font-size: 1.05rem; margin-bottom: .8rem; }
+    .method-card .method-tag { display: inline-block; background: var(--accent); color: #fff; border-radius: 6px; padding: .15rem .6rem; font-size: .72rem; font-weight: 700; margin-bottom: .8rem; text-transform: uppercase; }
+    .method-card .author { font-size: .82rem; color: var(--muted); margin-bottom: .6rem; }
+    .method-card p { font-size: .9rem; margin-bottom: .6rem; }
+
+    .adkar-flow { display: flex; gap: .5rem; margin: 1rem 0; flex-wrap: wrap; justify-content: center; }
+    .adkar-step { background: var(--card-bg); border: 2px solid var(--border); border-radius: 10px; padding: .8rem; text-align: center; min-width: 100px; flex: 1; }
+    .adkar-step .step-letter { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .adkar-step .step-word { font-size: .7rem; color: var(--muted); margin-top: .2rem; }
+    .adkar-step .step-question { font-size: .72rem; color: var(--primary); margin-top: .3rem; font-weight: 600; }
+
+    .kotter-steps { display: flex; flex-direction: column; gap: .6rem; margin: 1rem 0; }
+    .kotter-step { display: flex; align-items: center; gap: .8rem; background: var(--light-bg); border-radius: 8px; padding: .7rem 1rem; }
+    .kotter-step .step-num { background: var(--accent); color: #fff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .8rem; flex-shrink: 0; }
+    .kotter-step .step-text { font-size: .85rem; }
+    .kotter-step .step-example { font-size: .78rem; color: var(--muted); }
+
+    .stakeholder-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1rem 0; }
+    .stakeholder-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+    .stakeholder-card .sh-name { font-weight: 700; font-size: .9rem; color: var(--primary); margin-bottom: .4rem; }
+    .stakeholder-card .sh-metrics { display: flex; gap: 1rem; margin: .5rem 0; }
+    .stakeholder-card .sh-metric { font-size: .78rem; }
+    .stakeholder-card .sh-bar { height: 6px; border-radius: 3px; margin: .3rem 0; }
+    .bar-alta { background: var(--red); width: 80%; }
+    .bar-media { background: #e6c800; width: 50%; }
+    .bar-baja { background: var(--green); width: 25%; }
+
+    .strategy-card { background: #e8f5e9; border-radius: 10px; padding: 1rem 1.3rem; margin: .8rem 0; }
+    .strategy-card h4 { color: var(--green); font-size: .9rem; margin-bottom: .5rem; }
+    .strategy-card p { font-size: .85rem; margin: .3rem 0; }
+
+    .quick-win { background: #fff8e1; border-left: 4px solid #FFDF2D; border-radius: 6px; padding: .8rem 1.2rem; margin: .6rem 0; }
+    .quick-win strong { color: #e65100; }
+
+    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
+    .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
+    .activity-header.presencial { background: #E9EAED; color: var(--primary); }
+    .activity-header.hti-a      { background: #e8f5e9; color: var(--green); }
+    .activity-header.hti-b      { background: #fff8e1; color: #e65100; }
+    .activity-body { padding: 1.2rem 1.5rem; }
+    .activity-body ol, .activity-body ul { padding-left: 1.4rem; }
+    .activity-body li { margin-bottom: .5rem; }
+
+    .next-week { background: #e3f2fd; border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-top: 1.5rem; border-left: 4px solid #1976d2; }
+    .next-week h4 { font-size: .92rem; color: var(--primary); margin-bottom: .5rem; }
+    .next-week p { font-size: .88rem; margin: 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="badge-module">TD — Transformación Digital</span>
+  <h1>Semana 8 — Cultura Digital, Talento y Gestión del Cambio</h1>
+  <p>Las personas antes que la tecnología · IUB — Inteligencia de Negocios</p>
+</header>
+
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/">← Volver al módulo</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana7/">Semana 7</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana9/">Semana 9 →</a>
+</nav>
+
+<main>
+
+  <!-- Propósito -->
+  <div class="card">
+    <h2>🎯 Propósito de la semana</h2>
+    <p>Comprender que <strong>la transformación digital fracasa cuando se ve solo como un proyecto tecnológico.</strong> El verdadero desafío no es instalar software — es lograr que las personas cambien su manera de trabajar, decidir y colaborar. La cultura digital no se decreta: se diseña, se comunica y se sostiene con acciones concretas.</p>
+
+    <div class="info-box brain">
+      <span class="icon">🧠</span>
+      <p><strong>Regla central:</strong> Puedes tener el mejor software del mundo, pero si las personas no lo usan — o lo usan mal — la inversión se pierde. La tecnología es el 20% del desafío. El 80% restante es cultura, personas y gestión del cambio.</p>
+    </div>
+
+    <table>
+      <tr><th>Pregunta clave</th><th>Respuesta al terminar la semana</th></tr>
+      <tr><td>¿Quiénes son los actores afectados por el cambio en Mercado360?</td><td>Un mapa de al menos 5 actores con su nivel de impacto y resistencia.</td></tr>
+      <tr><td>¿Por qué la gente se resiste al cambio digital?</td><td>Cinco causas de resistencia identificadas, cada una con su estrategia de adopción.</td></tr>
+      <tr><td>¿Cómo se diseña una estrategia de adopción?</td><td>Usando ADKAR o Kotter para cada actor clave, con quick wins medibles.</td></tr>
+    </table>
+
+    <div class="bloom">🧠 Nivel: Evaluar — Diseñar estrategias de adopción para distintos perfiles de resistencia</div>
+  </div>
+
+  <!-- Pregunta de apertura -->
+  <div class="info-box warn" style="margin-bottom: 2rem;">
+    <span class="icon">⚠️</span>
+    <p><strong>Pregunta de apertura:</strong> La semana 6 propuso un MVP de WhatsApp para consultas de inventario y la semana 7 definió KPIs para medirlo. Pero si mañana el dueño de Mercado360 anuncia "desde hoy usamos este sistema", ¿cuántos empleados creen que lo usarían realmente en la primera semana? ¿Por qué? Escriban su estimación en el chat.</p>
+  </div>
+
+  <!-- ADKAR -->
+  <div class="method-card">
+    <span class="method-tag">Modelo de gestión del cambio</span>
+    <h3>Modelo ADKAR — Hiatt (2006), Prosci</h3>
+    <p class="author">Hiatt, J.M. (2006). <em>ADKAR: A Model for Change in Business, Government and Our Community</em>. Prosci.</p>
+
+    <p>ADKAR es un modelo centrado en el <strong>individuo</strong>. Reconoce que el cambio organizacional ocurre una persona a la vez. Cada persona debe pasar por cinco etapas para adoptar un cambio. Si una etapa falla, el cambio se detiene.</p>
+
+    <div class="adkar-flow">
+      <div class="adkar-step">
+        <div class="step-letter">A</div>
+        <div class="step-word">Awareness</div>
+        <div class="step-question">¿Por qué cambiar?</div>
+      </div>
+      <div class="adkar-step">
+        <div class="step-letter">D</div>
+        <div class="step-word">Desire</div>
+        <div class="step-question">¿Qué gano yo?</div>
+      </div>
+      <div class="adkar-step">
+        <div class="step-letter">K</div>
+        <div class="step-word">Knowledge</div>
+        <div class="step-question">¿Cómo se hace?</div>
+      </div>
+      <div class="adkar-step">
+        <div class="step-letter">A</div>
+        <div class="step-word">Ability</div>
+        <div class="step-question">¿Puedo hacerlo?</div>
+      </div>
+      <div class="adkar-step">
+        <div class="step-letter">R</div>
+        <div class="step-word">Reinforcement</div>
+        <div class="step-question">¿Se va a sostener?</div>
+      </div>
+    </div>
+
+    <table>
+      <tr><th>Etapa</th><th>Significado</th><th>Ejemplo en Mercado360</th><th>Señal de que falló</th></tr>
+      <tr><td><strong>A — Conciencia</strong></td><td>Entender por qué el cambio es necesario</td><td>El dueño muestra cuántas ventas se pierden por falta de inventario actualizado</td><td>"Esto siempre ha funcionado así, ¿para qué cambiar?"</td></tr>
+      <tr><td><strong>D — Deseo</strong></td><td>Querer participar en el cambio</td><td>El vendedor ve que responder consultas más rápido le ahorra llamadas de clientes molestos</td><td>"Que lo use otro, yo sigo como siempre"</td></tr>
+      <tr><td><strong>K — Conocimiento</strong></td><td>Saber cómo cambiar</td><td>Capacitación de 30 minutos en WhatsApp Business + consulta de inventario</td><td>"No entiendo cómo funciona esto"</td></tr>
+      <tr><td><strong>A — Habilidad</strong></td><td>Poder ejecutar el cambio en el día a día</td><td>Primera semana con acompañamiento: un compañero ayuda si hay dudas</td><td>"En el entrenamiento sí pude, pero en la vida real no me da tiempo"</td></tr>
+      <tr><td><strong>R — Refuerzo</strong></td><td>Mantener el cambio en el tiempo</td><td>Reunión semanal de 5 minutos: "¿qué funcionó y qué no esta semana con el sistema?"</td><td>"Ya nadie revisa eso, volvimos a lo de antes"</td></tr>
+    </table>
+
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Error más común:</strong> Las empresas invierten en capacitación (K) sin haber generado conciencia (A) ni deseo (D). Resultado: la gente sabe usar la herramienta pero no quiere usarla. El orden importa: no se puede saltar de A a K sin pasar por D.</p>
+    </div>
+  </div>
+
+  <!-- Kotter -->
+  <div class="method-card">
+    <span class="method-tag">Modelo de liderazgo del cambio</span>
+    <h3>Los 8 pasos de Kotter (2012)</h3>
+    <p class="author">Kotter, J.P. (2012). <em>Leading Change</em>. Harvard Business Review Press.</p>
+
+    <p>Mientras ADKAR se enfoca en el individuo, Kotter propone una secuencia para <strong>liderar el cambio desde arriba</strong>. Los 8 pasos no son opcionales: saltarse uno debilita todo el proceso.</p>
+
+    <div class="kotter-steps">
+      <div class="kotter-step">
+        <span class="step-num">1</span>
+        <div>
+          <div class="step-text"><strong>Crear sentido de urgencia</strong></div>
+          <div class="step-example">Mercado360: mostrar que se pierden 5 ventas por semana porque el inventario no está actualizado.</div>
+        </div>
+      </div>
+      <div class="kotter-step">
+        <span class="step-num">2</span>
+        <div>
+          <div class="step-text"><strong>Formar una coalición de líderes</strong></div>
+          <div class="step-example">El dueño + el vendedor más respetado + el contador. No puede ser solo el dueño.</div>
+        </div>
+      </div>
+      <div class="kotter-step">
+        <span class="step-num">3</span>
+        <div>
+          <div class="step-text"><strong>Desarrollar una visión clara</strong></div>
+          <div class="step-example">"En 3 meses, cualquier cliente podrá consultar disponibilidad en menos de 2 minutos."</div>
+        </div>
+      </div>
+      <div class="kotter-step">
+        <span class="step-num">4</span>
+        <div>
+          <div class="step-text"><strong>Comunicar la visión</strong></div>
+          <div class="step-example">Reunión de 10 minutos con todo el equipo. No un correo. No un memo. Cara a cara.</div>
+        </div>
+      </div>
+      <div class="kotter-step">
+        <span class="step-num">5</span>
+        <div>
+          <div class="step-text"><strong>Eliminar obstáculos</strong></div>
+          <div class="step-example">Si el bodeguero no tiene acceso al sistema desde la bodega, poner un celular o tablet allí.</div>
+        </div>
+      </div>
+      <div class="kotter-step">
+        <span class="step-num">6</span>
+        <div>
+          <div class="step-text"><strong>Generar quick wins</strong></div>
+          <div class="step-example">Primera semana: "gracias al sistema evitamos vender un producto agotado. Esa venta no se perdió."</div>
+        </div>
+      </div>
+      <div class="kotter-step">
+        <span class="step-num">7</span>
+        <div>
+          <div class="step-text"><strong>Consolidar y escalar</strong></div>
+          <div class="step-example">Después de 1 mes con 5 clientes, expandir a 20. Luego agregar consulta de precios, no solo inventario.</div>
+        </div>
+      </div>
+      <div class="kotter-step">
+        <span class="step-num">8</span>
+        <div>
+          <div class="step-text"><strong>Anclar el cambio en la cultura</strong></div>
+          <div class="step-example">El nuevo vendedor, desde su primer día, aprende que "así se hace aquí": se consulta el sistema antes de prometer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p><strong>Conexión ADKAR + Kotter:</strong> Kotter responde "¿qué debe hacer el líder?" y ADKAR responde "¿qué necesita cada persona?". Los quick wins de Kotter (paso 6) alimentan el Deseo (D) de ADKAR. La comunicación de la visión (paso 4) alimenta la Conciencia (A). Úsalos juntos, no como modelos rivales.</p>
+    </div>
+  </div>
+
+  <!-- Mapa de actores -->
+  <div class="card">
+    <h2>🗺️ Mapa de actores de Mercado360</h2>
+
+    <p>El primer paso de la gestión del cambio es saber <strong>quiénes son afectados</strong>, cuánto poder tienen, cuánta resistencia opondrán y por qué.</p>
+
+    <h3>Actores identificados</h3>
+    <table>
+      <tr><th>Actor</th><th>Rol actual</th><th>¿Cómo le afecta el cambio?</th><th>Impacto</th><th>Resistencia</th></tr>
+      <tr>
+        <td><strong>Dueño</strong></td>
+        <td>Decide todo, centraliza la información</td>
+        <td>Pierde control parcial sobre la información. El sistema le da visibilidad que antes dependía de su memoria.</td>
+        <td><span style="color:#c62828;font-weight:700;">Alto</span></td>
+        <td><span style="color:#e6c800;font-weight:700;">Media</span> — Quiere mejorar, pero teme perder el control.</td>
+      </tr>
+      <tr>
+        <td><strong>Vendedor senior</strong></td>
+        <td>Atiende clientes por teléfono, conoce el inventario "de memoria"</td>
+        <td>Debe consultar el sistema antes de prometer disponibilidad. Siente que pierde autoridad.</td>
+        <td><span style="color:#c62828;font-weight:700;">Alto</span></td>
+        <td><span style="color:#c62828;font-weight:700;">Alta</span> — "Yo ya sé lo que hay, no necesito sistema."</td>
+      </tr>
+      <tr>
+        <td><strong>Vendedor junior</strong></td>
+        <td>Apoya en mostrador, está aprendiendo</td>
+        <td>Misma transición que el senior, pero con menos experiencia previa a la que aferrarse.</td>
+        <td><span style="color:#e6c800;font-weight:700;">Medio</span></td>
+        <td><span style="color:#2e7d32;font-weight:700;">Baja</span> — Más dispuesto a aprender cosas nuevas.</td>
+      </tr>
+      <tr>
+        <td><strong>Bodeguero</strong></td>
+        <td>Controla inventario manualmente con un cuaderno</td>
+        <td>Debe actualizar existencias en el sistema digital. Su cuaderno deja de ser la fuente oficial.</td>
+        <td><span style="color:#c62828;font-weight:700;">Alto</span></td>
+        <td><span style="color:#c62828;font-weight:700;">Alta</span> — "Es más rápido anotar en el cuaderno."</td>
+      </tr>
+      <tr>
+        <td><strong>Cliente frecuente</strong></td>
+        <td>Compra por teléfono, confía en lo que le dicen</td>
+        <td>Recibe respuesta más precisa sobre disponibilidad. Menos llamadas de seguimiento.</td>
+        <td><span style="color:#2e7d32;font-weight:700;">Bajo</span></td>
+        <td><span style="color:#2e7d32;font-weight:700;">Baja</span> — Se beneficia del cambio.</td>
+      </tr>
+      <tr>
+        <td><strong>Proveedor</strong></td>
+        <td>Recibe pedidos por teléfono o WhatsApp</td>
+        <td>Puede recibir pedidos más precisos y con mejor anticipación si el sistema de inventario funciona.</td>
+        <td><span style="color:#2e7d32;font-weight:700;">Bajo</span></td>
+        <td><span style="color:#2e7d32;font-weight:700;">Baja</span> — No se ve afectado directamente.</td>
+      </tr>
+    </table>
+
+    <div class="info-box brain">
+      <span class="icon">🧠</span>
+      <p><strong>Lectura del mapa:</strong> Los tres actores con mayor resistencia son el vendedor senior, el bodeguero y el dueño. Pero el dueño tiene una resistencia diferente: no es técnica ("no sé usar el sistema") sino cultural ("pierdo el control"). La estrategia para él debe ser distinta que para el bodeguero.</p>
+    </div>
+  </div>
+
+  <!-- Estrategias de resistencia -->
+  <div class="card">
+    <h2>🛡️ Estrategias de adopción por tipo de resistencia</h2>
+
+    <p>No toda resistencia es igual. Cada tipo tiene una causa diferente y, por tanto, una estrategia diferente. Estas son las cinco resistencias más comunes y cómo abordarlas:</p>
+
+    <table>
+      <tr><th>Tipo de resistencia</th><th>Causa raíz (ADKAR)</th><th>Estrategia</th><th>Actor de Mercado360</th></tr>
+      <tr>
+        <td>"No sé hacerlo"</td>
+        <td>Falta de Conocimiento (K)</td>
+        <td>Capacitación práctica de 30 min + acompañamiento el primer día real. No capacitación genérica: casos reales con clientes reales.</td>
+        <td>Bodeguero, vendedor junior</td>
+      </tr>
+      <tr>
+        <td>"No quiero hacerlo"</td>
+        <td>Falta de Deseo (D)</td>
+        <td>Mostrar el beneficio personal: "vas a recibir menos llamadas de clientes preguntando si hay stock." El beneficio debe ser concreto y personal, no abstracto.</td>
+        <td>Vendedor senior</td>
+      </tr>
+      <tr>
+        <td>"No confío en el sistema"</td>
+        <td>Falta de Conciencia (A)</td>
+        <td>Período de prueba paralelo: usar el sistema y el cuaderno durante 2 semanas. Comparar resultados. Dejar que los datos hablen.</td>
+        <td>Bodeguero, dueño</td>
+      </tr>
+      <tr>
+        <td>"No tengo tiempo"</td>
+        <td>Falta de Conciencia (A)</td>
+        <td>Reducir otra tarea durante la transición. Medir el tiempo antes y después: "la primera semana toma 5 min extra, pero a la tercera ahorras 15 min al día."</td>
+        <td>Vendedor senior</td>
+      </tr>
+      <tr>
+        <td>"El jefe no lo usa"</td>
+        <td>Falta de ejemplo (Kotter paso 2)</td>
+        <td>El dueño debe ser el primero en consultar el sistema, no el cuaderno. Si el dueño no lo usa, nadie lo usará. El ejemplo es la comunicación más poderosa.</td>
+        <td>Todos (causado por el dueño)</td>
+      </tr>
+    </table>
+
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Peligro:</strong> El error más frecuente es tratar todas las resistencias con la misma estrategia (usualmente "más capacitación"). Si un vendedor no quiere usar el sistema (D), más capacitación (K) no lo va a convencer. Hay que diagnosticar la causa antes de recetar la solución.</p>
+    </div>
+  </div>
+
+  <!-- Quick wins -->
+  <div class="card">
+    <h2>⚡ Quick wins para Mercado360</h2>
+
+    <p>Un quick win es una <strong>mejora visible en poco tiempo</strong> que demuestra que el cambio vale la pena. No es un logro grande — es una señal temprana de que el camino es correcto.</p>
+
+    <div class="quick-win">
+      <strong>Quick win 1 — Primera semana:</strong> El sistema de inventario actualizado evita vender un producto agotado. Se registra la venta que se habría perdido (~$150,000 COP) y se comunica al equipo en la reunión semanal.
+    </div>
+
+    <div class="quick-win">
+      <strong>Quick win 2 — Segunda semana:</strong> Un cliente recibe respuesta sobre disponibilidad en 2 minutos (vs. 20 minutos antes, cuando el vendedor tenía que ir a la bodega). El vendedor que lo logró comparte su experiencia con el resto del equipo.
+    </div>
+
+    <div class="quick-win">
+      <strong>Quick win 3 — Tercera semana:</strong> Se compara el tiempo promedio de respuesta antes y después del cambio. Si mejoró, se celebra con un almuerzo de equipo. La métrica la provee el KPI de "tasa de respuesta" definido en la semana 7.
+    </div>
+
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p><strong>Regla del quick win:</strong> Debe ser real, medible y comunicado. Si nadie sabe que ocurrió, no es un quick win — es un dato. La comunicación del quick win es tan importante como el quick win mismo.</p>
+    </div>
+  </div>
+
+  <!-- Roles y talento -->
+  <div class="card">
+    <h2>👥 Nuevos roles para la transformación digital</h2>
+
+    <p>La transformación digital no siempre requiere contratar gente nueva. A veces significa <strong>redistribuir responsabilidades</strong> entre quienes ya están. En Mercado360, estos son los roles necesarios:</p>
+
+    <table>
+      <tr><th>Rol</th><th>¿Quién lo asume?</th><th>Responsabilidad principal</th></tr>
+      <tr>
+        <td><strong>Dueño digital</strong></td>
+        <td>El dueño</td>
+        <td>Definir la visión, comunicar la urgencia, ser el ejemplo. Si el dueño no usa el sistema, nadie lo hará.</td>
+      </tr>
+      <tr>
+        <td><strong>Campeón digital</strong></td>
+        <td>Un vendedor con influencia (puede ser el junior si el senior se resiste)</td>
+        <td>Usar el sistema primero, ayudar a sus compañeros, reportar problemas. Es el "traductor" entre la tecnología y el equipo.</td>
+      </tr>
+      <tr>
+        <td><strong>Custodio de datos</strong></td>
+        <td>El bodeguero o contador</td>
+        <td>Asegurar que los datos del inventario se actualicen diariamente. Sin datos confiables, el sistema pierde credibilidad en una semana.</td>
+      </tr>
+      <tr>
+        <td><strong>Voz del cliente</strong></td>
+        <td>Un vendedor rotativo (cada semana uno distinto)</td>
+        <td>Revisar semanalmente las consultas de clientes y proponer mejoras. Conecta los KPIs de la semana 7 con acciones concretas.</td>
+      </tr>
+    </table>
+
+    <div class="info-box tip">
+      <span class="icon">💡</span>
+      <p><strong>Nota importante:</strong> Estos roles no son cargos nuevos ni implican aumento de salario. Son responsabilidades que se suman al rol actual con un propósito claro. Lo importante es que cada persona sepa qué se espera de ella en el nuevo escenario digital.</p>
+    </div>
+  </div>
+
+  <!-- Aplicación a Mercado360 -->
+  <div class="card">
+    <h2>🏪 Plan de adopción para Mercado360 — MVP de WhatsApp</h2>
+
+    <p>Retomando el MVP propuesto en la semana 6 (consulta de inventario por WhatsApp Business), este es el plan de adopción semana a semana:</p>
+
+    <table>
+      <tr><th>Semana</th><th>Acción (Kotter)</th><th>Foco ADKAR</th><th>Responsable</th><th>Indicador</th></tr>
+      <tr>
+        <td><strong>1</strong></td>
+        <td>Reunión del dueño con el equipo: mostrar datos de ventas perdidas. Anunciar el plan.</td>
+        <td>A — Conciencia</td>
+        <td>Dueño</td>
+        <td>100% del equipo sabe por qué se hace el cambio (preguntar en la reunión)</td>
+      </tr>
+      <tr>
+        <td><strong>2</strong></td>
+        <td>Capacitación de 30 min. Cada vendedor hace una consulta real con un cliente real.</td>
+        <td>K — Conocimiento</td>
+        <td>Campeón digital</td>
+        <td>3 de 3 vendedores completan al menos 1 consulta real</td>
+      </tr>
+      <tr>
+        <td><strong>3</strong></td>
+        <td>Primera semana de uso real. El dueño solo responde por el sistema, no por teléfono.</td>
+        <td>A — Habilidad</td>
+        <td>Dueño (ejemplo)</td>
+        <td>Tasa de respuesta > 70% (KPI de S7)</td>
+      </tr>
+      <tr>
+        <td><strong>4</strong></td>
+        <td>Revisión de quick wins. Celebrar la primera venta que el sistema evitó perder.</td>
+        <td>D — Deseo</td>
+        <td>Dueño + campeón</td>
+        <td>Al menos 1 quick win documentado y comunicado</td>
+      </tr>
+      <tr>
+        <td><strong>8</strong></td>
+        <td>Revisión de KPIs. Ajustar lo que no funciona. Expandir a más clientes si los KPIs son positivos.</td>
+        <td>R — Refuerzo</td>
+        <td>Dueño + custodio de datos</td>
+        <td>4 KPIs de S7 revisados con tendencia positiva en al menos 3</td>
+      </tr>
+    </table>
+
+    <div class="info-box warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Importante:</strong> Este plan asume que el MVP técnico ya existe (semana 6) y que los KPIs ya están definidos (semana 7). Si alguna de esas piezas falta, el plan de adopción se debilita. La transformación digital es acumulativa: cada semana construye sobre la anterior.</p>
+    </div>
+  </div>
+
+  <!-- Actividad práctica -->
+  <div class="activity">
+    <div class="activity-header presencial">
+      🔴 Actividad práctica — Taller de gestión del cambio (60 min)
+    </div>
+    <div class="activity-body">
+
+      <h3>Bloque 1 — Mapa de actores (25 minutos)</h3>
+      <ol>
+        <li>En equipos de 3-4 personas.</li>
+        <li>Identificar mínimo 5 actores afectados por la transformación digital en Mercado360 (internos y externos).</li>
+        <li>Para cada actor, evaluar: nivel de impacto (alto/medio/bajo) y nivel de resistencia (alto/medio/bajo).</li>
+        <li>Identificar la <strong>causa raíz</strong> de la resistencia de cada actor usando ADKAR: ¿es falta de A, D, K, A o R?</li>
+        <li>Ubicar a los actores en una matriz 2×2: impacto (eje Y) vs. resistencia (eje X).</li>
+      </ol>
+
+      <h3>Bloque 2 — Estrategia de adopción (25 minutos)</h3>
+      <ol>
+        <li>Elegir los 3 actores con mayor resistencia de su mapa.</li>
+        <li>Para cada uno, diseñar una estrategia usando el modelo ADKAR: ¿cómo generarían conciencia (A), deseo (D), conocimiento (K), habilidad (A) y refuerzo (R)?</li>
+        <li>Proponer 2 quick wins que se puedan implementar en la primera semana de adopción del MVP de WhatsApp.</li>
+        <li>Identificar qué rol (dueño digital, campeón digital, custodio de datos, voz del cliente) asume cada acción.</li>
+        <li>Conectar cada quick win con al menos un KPI de la semana 7.</li>
+      </ol>
+
+      <h3>Bloque 3 — Presentación y contraste (10 minutos)</h3>
+      <ul>
+        <li>Los 3 actores con mayor resistencia y la causa principal de cada uno.</li>
+        <li>La estrategia ADKAR para el actor más resistente.</li>
+        <li>Los 2 quick wins propuestos y cómo medirían su efectividad.</li>
+        <li>Una lección aprendida: ¿qué harían distinto si tuvieran que liderar este cambio en una empresa real?</li>
+      </ul>
+
+      <div class="info-box warn">
+        <span class="icon">⚠️</span>
+        <p>No basta con decir "hay que capacitar". La capacitación solo resuelve falta de conocimiento (K). Deben diagnosticar qué etapa de ADKAR está fallando y diseñar la estrategia para esa etapa específica.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evidencia -->
+  <div class="card">
+    <h2>📋 Evidencia entregable</h2>
+    <p><strong>Mapa de actores con impacto, resistencia y estrategia de adopción.</strong></p>
+
+    <p><strong>Debe incluir:</strong></p>
+    <ol>
+      <li><strong>Mapa de al menos 5 actores</strong> (internos y externos) con: nombre del actor, rol, nivel de impacto (alto/medio/bajo), nivel de resistencia (alto/medio/bajo), causa raíz de la resistencia (usando nomenclatura ADKAR: A, D, K, A, R).</li>
+      <li><strong>Estrategia de adopción</strong> para los 3 actores con mayor resistencia, usando el modelo ADKAR completo (5 etapas).</li>
+      <li><strong>Al menos 2 quick wins</strong> con: descripción, responsable, indicador de éxito y conexión con un KPI de la semana 7.</li>
+      <li><strong>Matriz 2×2</strong> (impacto vs. resistencia) con los actores ubicados y justificación de su posición.</li>
+    </ol>
+
+    <table>
+      <tr><th>Criterio</th><th>Peso</th></tr>
+      <tr><td>Mapa de actores completo (mínimo 5) con impacto, resistencia y causa raíz bien diagnosticada</td><td>30%</td></tr>
+      <tr><td>Estrategia ADKAR para los 3 actores más resistentes — las 5 etapas por actor</td><td>30%</td></tr>
+      <tr><td>Quick wins concretos, medibles y conectados con KPIs de la semana 7</td><td>20%</td></tr>
+      <tr><td>Matriz 2×2 con justificación de la posición de cada actor</td><td>10%</td></tr>
+      <tr><td>Uso correcto de la nomenclatura ADKAR (A-D-K-A-R) y conexión con Kotter donde aplique</td><td>10%</td></tr>
+    </table>
+
+    <p><strong>Extensión máxima:</strong> 4 páginas. <strong>Formato:</strong> Word o PDF.</p>
+  </div>
+
+  <!-- Preguntas orientadoras -->
+  <div class="card">
+    <h2>❓ Preguntas orientadoras</h2>
+    <ol>
+      <li>¿Por qué una empresa puede tener el mejor software del mundo y aun así fracasar en su transformación digital?</li>
+      <li>Si un empleado dice "yo siempre lo he hecho así y funciona", ¿qué etapa de ADKAR está fallando? ¿Qué harías para resolverlo?</li>
+      <li>¿Cuál es la diferencia entre la resistencia del dueño y la resistencia del bodeguero en Mercado360? ¿Por qué requieren estrategias distintas?</li>
+      <li>¿Por qué el orden de ADKAR importa? ¿Qué pasa si una empresa invierte en capacitación (K) sin haber generado deseo (D)?</li>
+      <li>Nombra un quick win que hayas vivido (en cualquier contexto) y explica por qué funcionó.</li>
+      <li>¿Qué actor del mapa de Mercado360 crees que es el más peligroso para el éxito del proyecto y por qué?</li>
+      <li>Si fueras el dueño de Mercado360, ¿a quién elegirías como campeón digital y por qué?</li>
+    </ol>
+  </div>
+
+  <!-- Fuentes -->
+  <div class="card">
+    <h2>📚 Fuentes recomendadas</h2>
+
+    <h3>Obligatorias</h3>
+    <ul>
+      <li>Kotter, J.P. (2012). <em>Leading Change</em>. Harvard Business Review Press. Caps 1-3, 8.</li>
+      <li>Hiatt, J.M. (2006). <em>ADKAR: A Model for Change in Business, Government and Our Community</em>. Prosci. Caps 1-4.</li>
+      <li>Kane, G.C., Palmer, D., Phillips, A.N., Kiron, D., & Buckley, N. (2015). "Strategy, not technology, drives digital transformation." <em>MIT Sloan Management Review</em>, 57(1).</li>
+    </ul>
+
+    <h3>Complementarias</h3>
+    <ul>
+      <li>Rogers, D.L. (2016). <em>The Digital Transformation Playbook</em>. Columbia Business School Publishing. Cap 7 (cultura y talento).</li>
+      <li>Hammer, M. & Champy, J. (1993). <em>Reengineering the Corporation</em>. Harper Business. Cap 5 (factor humano en reingeniería).</li>
+      <li>Vial, G. (2019). "Understanding digital transformation: A review and a research agenda." <em>Journal of Strategic Information Systems</em>, 28(2).</li>
+      <li>World Economic Forum (2018). <em>The Future of Jobs and Skills in the Fourth Industrial Revolution</em>.</li>
+    </ul>
+  </div>
+
+  <!-- Conexión semanas -->
+  <div class="next-week">
+    <h4>🔜 Conexión con la semana siguiente</h4>
+    <p>La semana 9 aborda <strong>ciberseguridad, privacidad y continuidad del negocio</strong>. El puente natural es: una vez que el equipo de Mercado360 adopta herramientas digitales (WhatsApp Business, sistema de inventario), aparecen nuevos riesgos. ¿Qué pasa si alguien externo accede a los datos de clientes? ¿Qué pasa si el sistema se cae un día de alta demanda? La gestión del cambio (S8) y la gestión de riesgos (S9) son las dos caras de la misma moneda: <strong>personas y protección.</strong></p>
+  </div>
+
+</main>
+
+<script>
+  // Widget de progreso PT
+  const STORAGE_KEY = 'td_s8';
+  const maxWeeks = 14;
+  const currentWeek = 8;
+
+  function getStoredProgress() {
+    try { return JSON.parse(localStorage.getItem('td_progress') || '{}'); }
+    catch { return {}; }
+  }
+
+  function saveProgress(week, status) {
+    const p = getStoredProgress();
+    p[week] = status;
+    localStorage.setItem('td_progress', JSON.stringify(p));
+  }
+
+  function renderProgressWidget() {
+    const p = getStoredProgress();
+    let completed = 0;
+    for (let i = 1; i <= maxWeeks; i++) {
+      const w = 'td_s' + i;
+      if (p[w] === 'completada') completed++;
+    }
+
+    const container = document.createElement('div');
+    container.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:999';
+    container.innerHTML = `
+      <div style="background:#1E2843;color:#fff;border-radius:12px;padding:12px 16px;font-size:12px;box-shadow:0 4px 12px rgba(0,0,0,.25);min-width:160px;">
+        <div style="font-weight:700;margin-bottom:8px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;">Progreso TD</div>
+        <div style="background:#2d3a5e;border-radius:6px;height:6px;overflow:hidden;margin-bottom:8px;">
+          <div style="background:#FFDF2D;height:100%;width:${(completed/maxWeeks*100).toFixed(1)}%;transition:width .4s;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;opacity:.8;">
+          <span>Semana ${currentWeek}/14</span>
+          <span>${completed}/${maxWeeks} semanas</span>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap;">
+          ${Array.from({length:maxWeeks},(_,i)=>{
+            const w = i+1;
+            const state = p['td_s'+w];
+            const color = state==='completada'?'#FFDF2D':state==='en_progreso'?'#2e7d32':'rgba(255,255,255,.2)';
+            const label = state ? (state==='completada'?'✓':'●') : '○';
+            return `<span style="width:18px;height:18px;background:${color};border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#1E2843;cursor:pointer;" title="Semana ${w}" onclick="toggleWeek(${w})">${label}</span>`;
+          }).join('')}
+        </div>
+        <div style="font-size:10px;opacity:.6;margin-top:6px;cursor:pointer;text-align:center;" onclick="resetProgress()">Reiniciar</div>
+      </div>
+    `;
+    document.body.appendChild(container);
+  }
+
+  function toggleWeek(w) {
+    const p = getStoredProgress();
+    const key = 'td_s'+w;
+    if (p[key]==='completada') { delete p[key]; }
+    else { p[key]='completada'; }
+    localStorage.setItem('td_progress', JSON.stringify(p));
+    location.reload();
+  }
+
+  function resetProgress() {
+    if (confirm('¿Reiniciar todo el progreso?')) {
+      localStorage.removeItem('td_progress');
+      location.reload();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', renderProgressWidget);
+</script>
+
+</body>
+</html>
