@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test de Madurez de Uso Personal de IA – MM-UPIA</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --muted: #8b8fa3;
+    --accent: #6c8cff;
+    --accent2: #45d9c5;
+    --gold: #f0c060;
+    --warn: #ff7b72;
+    --green: #3fb950;
+    --l1: #6c8cff;
+    --l2: #45d9c5;
+    --l3: #f0c060;
+    --l4: #ff9b54;
+    --l5: #e050f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle { text-align: center; color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--border); }
+  .tab {
+    padding: 0.75rem 1.5rem; cursor: pointer; border: none; background: none;
+    color: var(--muted); font-size: 0.95rem; font-weight: 500;
+    border-bottom: 2px solid transparent; margin-bottom: -2px;
+    transition: all 0.2s;
+  }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab:hover { color: var(--text); }
+
+  /* Cards */
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem;
+  }
+  .level-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem; margin-bottom: 1.5rem;
+  }
+  .level-card {
+    background: var(--card); border: 2px solid var(--border);
+    border-radius: 12px; padding: 1.25rem;
+    border-top: 4px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .level-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+  .level-card.l1 { border-top-color: var(--l1); }
+  .level-card.l2 { border-top-color: var(--l2); }
+  .level-card.l3 { border-top-color: var(--l3); }
+  .level-card.l4 { border-top-color: var(--l4); }
+  .level-card.l5 { border-top-color: var(--l5); }
+  .level-card .num {
+    font-size: 2.5rem; font-weight: 800; line-height: 1;
+    opacity: 0.3;
+  }
+  .level-card.l1 .num { color: var(--l1); }
+  .level-card.l2 .num { color: var(--l2); }
+  .level-card.l3 .num { color: var(--l3); }
+  .level-card.l4 .num { color: var(--l4); }
+  .level-card.l5 .num { color: var(--l5); }
+  .level-card h3 { font-size: 1.05rem; margin: 0.25rem 0 0.5rem; }
+  .level-card .metaphor { font-style: italic; color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .level-card .desc { font-size: 0.88rem; color: var(--text); }
+
+  /* Quiz */
+  .quiz-section { margin-top: 1rem; }
+  .quiz-section h2 { margin-bottom: 1rem; }
+  .level-block { margin-bottom: 2rem; }
+  .level-block h3 {
+    font-size: 1.1rem; padding: 0.5rem 0.75rem; border-radius: 8px;
+    margin-bottom: 1rem; display: inline-block;
+  }
+  .level-block.l1 h3 { background: var(--l1); color: #000; }
+  .level-block.l2 h3 { background: var(--l2); color: #000; }
+  .level-block.l3 h3 { background: var(--l3); color: #000; }
+  .level-block.l4 h3 { background: var(--l4); color: #000; }
+  .level-block.l5 h3 { background: var(--l5); color: #000; }
+  .question { margin-bottom: 1.25rem; }
+  .question p { font-weight: 500; margin-bottom: 0.5rem; }
+  .options { display: flex; flex-direction: column; gap: 0.35rem; }
+  .options label {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.6rem 0.75rem; border-radius: 8px;
+    border: 1px solid var(--border); cursor: pointer;
+    transition: all 0.15s;
+  }
+  .options label:hover { border-color: var(--accent); background: rgba(108,140,255,0.05); }
+  .options input[type="radio"] { accent-color: var(--accent); transform: scale(1.15); }
+  .options label.selected { border-color: var(--accent); background: rgba(108,140,255,0.1); }
+
+  .btn {
+    padding: 0.75rem 2rem; border: none; border-radius: 10px;
+    font-size: 1rem; font-weight: 600; cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), #5b7fe3);
+    color: #fff; display: block; margin: 2rem auto 0;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+
+  /* Results */
+  #results { display: none; }
+  .result-header { text-align: center; margin-bottom: 2rem; }
+  .result-badge {
+    display: inline-block; padding: 0.5rem 1.5rem; border-radius: 50px;
+    font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;
+  }
+  .result-badge.l1 { background: var(--l1); color: #000; }
+  .result-badge.l2 { background: var(--l2); color: #000; }
+  .result-badge.l3 { background: var(--l3); color: #000; }
+  .result-badge.l4 { background: var(--l4); color: #000; }
+  .result-badge.l5 { background: var(--l5); color: #000; }
+  .result-meta { color: var(--muted); font-size: 0.9rem; }
+
+  .bar-container { margin-bottom: 1.5rem; }
+  .bar-label { display: flex; justify-content: space-between; margin-bottom: 0.3rem; font-size: 0.85rem; }
+  .bar-outer { height: 28px; background: var(--border); border-radius: 8px; overflow: hidden; }
+  .bar-inner { height: 100%; border-radius: 8px; transition: width 0.8s ease; min-width: 2px; }
+  .bar-inner.l1 { background: var(--l1); }
+  .bar-inner.l2 { background: var(--l2); }
+  .bar-inner.l3 { background: var(--l3); }
+  .bar-inner.l4 { background: var(--l4); }
+  .bar-inner.l5 { background: var(--l5); }
+
+  .recommendations { margin-top: 2rem; }
+  .rec-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem;
+  }
+  .rec-card h4 { color: var(--accent2); margin-bottom: 0.5rem; }
+
+  .back-btn { background: var(--border); margin-top: 1.5rem; }
+
+  footer { text-align: center; margin-top: 3rem; color: var(--muted); font-size: 0.8rem; }
+
+  @media (max-width: 600px) {
+    body { padding: 1rem 0.5rem; }
+    h1 { font-size: 1.5rem; }
+    .level-grid { grid-template-columns: 1fr; }
+    .tabs { overflow-x: auto; }
+    .tab { padding: 0.6rem 1rem; font-size: 0.85rem; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🧠 Test de Madurez de Uso Personal de IA</h1>
+  <p class="subtitle">MM-UPIA — Descubre tu nivel de dominio y relación con la Inteligencia Artificial</p>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('model')">📖 El Modelo</button>
+    <button class="tab" onclick="switchTab('test')">📝 Autodiagnóstico</button>
+    <button class="tab" id="tab-results" style="display:none" onclick="switchTab('results')">📊 Resultados</button>
+  </div>
+
+  <!-- MODEL TAB -->
+  <div id="tab-model" class="tab-content">
+    <div class="card">
+      <p style="margin-bottom:1rem">Este modelo mide tu <strong>progreso individual</strong> en la adopción de IA — desde hacer preguntas simples hasta diseñar ecosistemas inteligentes. Inspirado en los modelos de madurez digital de Gartner, Deloitte y BCG, pero adaptado a la experiencia personal.</p>
+    </div>
+
+    <div class="level-grid">
+      <div class="level-card l1">
+        <div class="num">01</div>
+        <h3>El Turista de la IA</h3>
+        <div class="metaphor">🖼️ El Visitante de Museo</div>
+        <div class="desc">Exploración inicial. Hace preguntas simples, usa IA como un buscador avanzado. Actitud: fascinación o escepticismo superficial.</div>
+      </div>
+      <div class="level-card l2">
+        <div class="num">02</div>
+        <h3>El Copiloto Funcional</h3>
+        <div class="metaphor">🧭 El Conductor con GPS</div>
+        <div class="desc">IA integrada al trabajo diario. Prompts estructurados, resume textos, redacta borradores. Actitud: pragmatismo utilitario.</div>
+      </div>
+      <div class="level-card l3">
+        <div class="num">03</div>
+        <h3>El Alquimista de Flujos</h3>
+        <div class="metaphor">🎻 Director de Orquesta de Cámara</div>
+        <div class="desc">Combina múltiples IAs, crea GPTs personalizados, sube datos para análisis. Actitud: colaboración activa y experimentación.</div>
+      </div>
+      <div class="level-card l4">
+        <div class="num">04</div>
+        <h3>El Arquitecto de Agentes</h3>
+        <div class="metaphor">🏭 Ingeniero de Fábrica Automatizada</div>
+        <div class="desc">Diseña flujos automatizados con APIs, conecta IA a otras apps. Actitud: pensamiento sistémico, delega procesos completos.</div>
+      </div>
+      <div class="level-card l5">
+        <div class="num">05</div>
+        <h3>El Creador Simbiótico</h3>
+        <div class="metaphor">🌐 Diseñador del Ecosistema</div>
+        <div class="desc">Fine-tuning, modelos locales, desarrollo de apps con IA como núcleo. Actitud: co-evolución, soberanía tecnológica.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEST TAB -->
+  <div id="tab-test" class="tab-content" style="display:none">
+    <div class="card">
+      <p>Responde las 20 preguntas (4 por nivel). Al finalizar, el sistema calculará tu perfil de madurez automáticamente.</p>
+    </div>
+    <form id="quiz-form">
+      <!-- Nivel 1 -->
+      <div class="level-block l1"><h3>🌱 Nivel 1 — El Turista de la IA</h3></div>
+      <div class="quiz-section">
+        <div class="question"><p>1. ¿Con qué frecuencia utilizas herramientas de IA como ChatGPT o Gemini?</p>
+          <div class="options">
+            <label><input type="radio" name="q1" value="a" onchange="markSelected(this)"> a) Rara vez (menos de una vez al mes) o nunca.</label>
+            <label><input type="radio" name="q1" value="b" onchange="markSelected(this)"> b) Un par de veces por semana, para datos curiosos o entretenimiento.</label>
+            <label><input type="radio" name="q1" value="c" onchange="markSelected(this)"> c) Todos los días para mis actividades principales.</label>
+          </div>
+        </div>
+        <div class="question"><p>2. Cuando la IA da una respuesta incorrecta, ¿qué haces?</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="a" onchange="markSelected(this)"> a) Abandono la herramienta y busco en Google.</label>
+            <label><input type="radio" name="q2" value="b" onchange="markSelected(this)"> b) Reformulo un poco la pregunta, pero si falla me rindo.</label>
+            <label><input type="radio" name="q2" value="c" onchange="markSelected(this)"> c) Guío a la IA con reformulaciones hasta obtener la respuesta correcta.</label>
+          </div>
+        </div>
+        <div class="question"><p>3. ¿Cómo describirías tu comprensión del funcionamiento de un chat de IA?</p>
+          <div class="options">
+            <label><input type="radio" name="q3" value="a" onchange="markSelected(this)"> a) No entiendo bien; me parece un buscador mágico.</label>
+            <label><input type="radio" name="q3" value="b" onchange="markSelected(this)"> b) Sé que predice palabras, pero la uso como si fuera humana.</label>
+            <label><input type="radio" name="q3" value="c" onchange="markSelected(this)"> c) Entiendo tokens, ventanas de contexto y limitaciones de entrenamiento.</label>
+          </div>
+        </div>
+        <div class="question"><p>4. ¿Cuántas herramientas de IA tienes configuradas para uso recurrente?</p>
+          <div class="options">
+            <label><input type="radio" name="q4" value="a" onchange="markSelected(this)"> a) Ninguna; solo entro cuando me la recomiendan.</label>
+            <label><input type="radio" name="q4" value="b" onchange="markSelected(this)"> b) Una o dos, siempre versión gratuita y sin personalizar.</label>
+            <label><input type="radio" name="q4" value="c" onchange="markSelected(this)"> c) Varias, incluyendo versiones de pago o herramientas especializadas.</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nivel 2 -->
+      <div class="level-block l2"><h3>📝 Nivel 2 — El Copiloto Funcional</h3></div>
+      <div class="quiz-section">
+        <div class="question"><p>5. ¿Con qué frecuencia asignas un rol, contexto o formato a tus prompts?</p>
+          <div class="options">
+            <label><input type="radio" name="q5" value="a" onchange="markSelected(this)"> a) Casi nunca; voy directo a la pregunta.</label>
+            <label><input type="radio" name="q5" value="b" onchange="markSelected(this)"> b) A veces, cuando recuerdo que mejora la calidad.</label>
+            <label><input type="radio" name="q5" value="c" onchange="markSelected(this)"> c) Siempre; tengo estructura clara (Rol + Contexto + Tarea + Restricciones).</label>
+          </div>
+        </div>
+        <div class="question"><p>6. ¿En qué medida usas IA para redactar correos, informes o trabajos escritos?</p>
+          <div class="options">
+            <label><input type="radio" name="q6" value="a" onchange="markSelected(this)"> a) No la uso para eso.</label>
+            <label><input type="radio" name="q6" value="b" onchange="markSelected(this)"> b) La uso para corregir ortografía, redactar borradores o resumir textos.</label>
+            <label><input type="radio" name="q6" value="c" onchange="markSelected(this)"> c) Tengo flujos automatizados que redactan con mi tono de voz preestablecido.</label>
+          </div>
+        </div>
+        <div class="question"><p>7. ¿Cómo validas la veracidad de información compleja de una IA?</p>
+          <div class="options">
+            <label><input type="radio" name="q7" value="a" onchange="markSelected(this)"> a) Confío en lo que dice por defecto.</label>
+            <label><input type="radio" name="q7" value="b" onchange="markSelected(this)"> b) Reviso puntos críticos manualmente o pido fuentes a la misma IA.</label>
+            <label><input type="radio" name="q7" value="c" onchange="markSelected(this)"> c) Sé cuándo un modelo alucina y cruzo con fuentes académicas o bases de datos confiables.</label>
+          </div>
+        </div>
+        <div class="question"><p>8. ¿Qué herramientas de IA de pago o asistentes integrados usas activamente?</p>
+          <div class="options">
+            <label><input type="radio" name="q8" value="a" onchange="markSelected(this)"> a) Ninguno; solo herramientas gratuitas.</label>
+            <label><input type="radio" name="q8" value="b" onchange="markSelected(this)"> b) Al menos una herramienta avanzada integrada en mi productividad.</label>
+            <label><input type="radio" name="q8" value="c" onchange="markSelected(this)"> c) Múltiples suscripciones y herramientas avanzadas para optimizar mi flujo.</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nivel 3 -->
+      <div class="level-block l3"><h3>⚗️ Nivel 3 — El Alquimista de Flujos</h3></div>
+      <div class="quiz-section">
+        <div class="question"><p>9. ¿Has creado GPTs personalizados, Gems o Proyectos en Claude con instrucciones fijas?</p>
+          <div class="options">
+            <label><input type="radio" name="q9" value="a" onchange="markSelected(this)"> a) No sabía que se podía hacer eso.</label>
+            <label><input type="radio" name="q9" value="b" onchange="markSelected(this)"> b) He usado algunos de otras personas, pero no he creado uno propio.</label>
+            <label><input type="radio" name="q9" value="c" onchange="markSelected(this)"> c) Sí, he creado varios adaptados a tareas específicas de mi trabajo.</label>
+          </div>
+        </div>
+        <div class="question"><p>10. ¿Subes archivos (PDFs, Excel) para pedir análisis complejos a la IA?</p>
+          <div class="options">
+            <label><input type="radio" name="q10" value="a" onchange="markSelected(this)"> a) Nunca; solo interactúo por texto.</label>
+            <label><input type="radio" name="q10" value="b" onchange="markSelected(this)"> b) Ocasionalmente, para resumir un PDF largo o explicar un artículo.</label>
+            <label><input type="radio" name="q10" value="c" onchange="markSelected(this)"> c) Regularmente; analizo tablas, encuentro patrones, contrasto documentos.</label>
+          </div>
+        </div>
+        <div class="question"><p>11. En un proyecto creativo (presentación, video, reporte), ¿cómo coordinas las IAs?</p>
+          <div class="options">
+            <label><input type="radio" name="q11" value="a" onchange="markSelected(this)"> a) Uso una sola IA para estructurar ideas.</label>
+            <label><input type="radio" name="q11" value="b" onchange="markSelected(this)"> b) Genero texto en una IA y luego manualmente busco imágenes o diseño.</label>
+            <label><input type="radio" name="q11" value="c" onchange="markSelected(this)"> c) Diseño secuencias: extraigo datos, estructuro, genero imágenes y automatizo formato.</label>
+          </div>
+        </div>
+        <div class="question"><p>12. ¿Qué tan familiarizado estás con técnicas como Few-Shot o Chain of Thought?</p>
+          <div class="options">
+            <label><input type="radio" name="q12" value="a" onchange="markSelected(this)"> a) No conozco esos términos.</label>
+            <label><input type="radio" name="q12" value="b" onchange="markSelected(this)"> b) Los he escuchado o aplicado intuitivamente, pero no de forma sistemática.</label>
+            <label><input type="radio" name="q12" value="c" onchange="markSelected(this)"> c) Los aplico conscientemente para programar el comportamiento del modelo.</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nivel 4 -->
+      <div class="level-block l4"><h3>🤖 Nivel 4 — El Arquitecto de Agentes</h3></div>
+      <div class="quiz-section">
+        <div class="question"><p>13. ¿Has conectado IA con otras apps (Slack, Gmail, Sheets) vía Make, Zapier o APIs?</p>
+          <div class="options">
+            <label><input type="radio" name="q13" value="a" onchange="markSelected(this)"> a) No, me parece muy complejo técnicamente.</label>
+            <label><input type="radio" name="q13" value="b" onchange="markSelected(this)"> b) Lo he intentado, pero no tengo un flujo activo funcionando.</label>
+            <label><input type="radio" name="q13" value="c" onchange="markSelected(this)"> c) Sí, tengo automatizaciones activas donde IA interactúa autónomamente.</label>
+          </div>
+        </div>
+        <div class="question"><p>14. ¿Usas IA para escribir, corregir o completar código de programación?</p>
+          <div class="options">
+            <label><input type="radio" name="q14" value="a" onchange="markSelected(this)"> a) Nunca programo ni uso código.</label>
+            <label><input type="radio" name="q14" value="b" onchange="markSelected(this)"> b) A veces pido fórmulas avanzadas de Excel o pequeños scripts.</label>
+            <label><input type="radio" name="q14" value="c" onchange="markSelected(this)"> c) Uso IDEs asistidos por IA a diario para construir herramientas y scripts.</label>
+          </div>
+        </div>
+        <div class="question"><p>15. ¿Cuál es tu relación con los agentes autónomos de IA?</p>
+          <div class="options">
+            <label><input type="radio" name="q15" value="a" onchange="markSelected(this)"> a) No sé qué es un agente de IA.</label>
+            <label><input type="radio" name="q15" value="b" onchange="markSelected(this)"> b) Entiendo el concepto, pero no he configurado ninguno.</label>
+            <label><input type="radio" name="q15" value="c" onchange="markSelected(this)"> c) He configurado plataformas donde agentes se pasan tareas automáticamente.</label>
+          </div>
+        </div>
+        <div class="question"><p>16. Al resolver un problema de automatización, tu primer instinto es:</p>
+          <div class="options">
+            <label><input type="radio" name="q16" value="a" onchange="markSelected(this)"> a) Buscar un especialista técnico o hacerlo manualmente.</label>
+            <label><input type="radio" name="q16" value="b" onchange="markSelected(this)"> b) Preguntar a ChatGPT cómo resolverlo paso a paso.</label>
+            <label><input type="radio" name="q16" value="c" onchange="markSelected(this)"> c) Diseñar un flujo que conecte APIs de IA con mis fuentes de datos.</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nivel 5 -->
+      <div class="level-block l5"><h3>🧬 Nivel 5 — El Creador Simbiótico</h3></div>
+      <div class="quiz-section">
+        <div class="question"><p>17. ¿Has ejecutado modelos de lenguaje open-source localmente (sin internet)?</p>
+          <div class="options">
+            <label><input type="radio" name="q17" value="a" onchange="markSelected(this)"> a) No, no sabía que era posible o no sé cómo.</label>
+            <label><input type="radio" name="q17" value="b" onchange="markSelected(this)"> b) Conozco herramientas como Ollama, pero no las uso regularmente.</label>
+            <label><input type="radio" name="q17" value="c" onchange="markSelected(this)"> c) Sí, ejecuto modelos locales por privacidad, desarrollo o experimentación.</label>
+          </div>
+        </div>
+        <div class="question"><p>18. ¿Has hecho Fine-Tuning de un modelo con datos propios?</p>
+          <div class="options">
+            <label><input type="radio" name="q18" value="a" onchange="markSelected(this)"> a) No, me parece fuera de mi alcance.</label>
+            <label><input type="radio" name="q18" value="b" onchange="markSelected(this)"> b) Entiendo el concepto, pero no lo he implementado.</label>
+            <label><input type="radio" name="q18" value="c" onchange="markSelected(this)"> c) Sí, he entrenado/ajustado modelos o LoRAs para mis necesidades.</label>
+          </div>
+        </div>
+        <div class="question"><p>19. Cuando necesitas una app específica para tu flujo de trabajo:</p>
+          <div class="options">
+            <label><input type="radio" name="q19" value="a" onchange="markSelected(this)"> a) Busco una app comercial y me adapto.</label>
+            <label><input type="radio" name="q19" value="b" onchange="markSelected(this)"> b) Pido a un LLM que me ayude a buscar alternativas.</label>
+            <label><input type="radio" name="q19" value="c" onchange="markSelected(this)"> c) Construyo mi propia app integrando librerías de IA a mis necesidades.</label>
+          </div>
+        </div>
+        <div class="question"><p>20. ¿Cuál es tu nivel de contribución al ecosistema global de IA?</p>
+          <div class="options">
+            <label><input type="radio" name="q20" value="a" onchange="markSelected(this)"> a) Ninguno; soy solo un usuario final.</label>
+            <label><input type="radio" name="q20" value="b" onchange="markSelected(this)"> b) Comparto prompts, GPTs públicos o participo en foros.</label>
+            <label><input type="radio" name="q20" value="c" onchange="markSelected(this)"> c) Comparto código en GitHub, contribuyo a open-source, publico modelos/datasets.</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn" onclick="calculateResults()">🔍 Calcular mi nivel de madurez</button>
+    </form>
+  </div>
+
+  <!-- RESULTS TAB -->
+  <div id="tab-results" class="tab-content" style="display:none">
+    <div class="result-header">
+      <div class="result-badge" id="result-badge">Nivel ?</div>
+      <div class="result-meta" id="result-meta"></div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:1rem">📊 Perfil detallado por nivel</h3>
+      <div id="bars-container"></div>
+    </div>
+
+    <div class="card recommendations" id="recommendations"></div>
+
+    <button class="btn back-btn" onclick="switchTab('test')">↩️ Volver al test</button>
+  </div>
+
+  <footer>
+    MM-UPIA — Modelo de Madurez de Uso Personal de IA<br>
+    Generado con Hermes Agent + Antigravity CLI. Transformación Digital — Unibarranquilla.
+  </footer>
+</div>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).style.display = 'block';
+  if (name === 'results') {
+    document.getElementById('tab-results').style.display = 'block';
+    document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-results').classList.add('active');
+  } else {
+    document.querySelector('.tab[onclick*="' + name + '"]').classList.add('active');
+  }
+  if (name === 'results') {
+    document.getElementById('tab-results').style.display = 'block';
+  }
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function markSelected(radio) {
+  const parent = radio.closest('.options');
+  parent.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+  radio.closest('label').classList.add('selected');
+}
+
+const LEVEL_NAMES = {
+  1: 'Turista de la IA',
+  2: 'Copiloto Funcional',
+  3: 'Alquimista de Flujos',
+  4: 'Arquitecto de Agentes',
+  5: 'Creador Simbiótico'
+};
+
+const LEVEL_CLASSES = {1:'l1',2:'l2',3:'l3',4:'l4',5:'l5'};
+
+const RECOMMENDATIONS = {
+  1: {
+    title: '🚀 Tu siguiente paso: del consumo pasivo al uso activo',
+    items: [
+      'Prueba <strong>ChatGPT</strong> o <strong>Gemini</strong> al menos 3 veces esta semana para tareas reales (no solo curiosidad).',
+      'Aprende a hacer prompts con <strong>rol + contexto + tarea</strong>: "Actúa como un editor y revisa este texto..."',
+      'Mira un tutorial de 10 minutos sobre <a href="https://www.youtube.com/results?search_query=prompt+engineering+para+principiantes" target="_blank">prompt engineering básico</a>.',
+      'Explora <strong>Claude</strong> o <strong>Copilot</strong> gratuitos para comparar estilos de respuesta.'
+    ]
+  },
+  2: {
+    title: '📈 Tu siguiente paso: de la productividad a la integración creativa',
+    items: [
+      'Crea tu primer <strong>GPT personalizado</strong> o <strong>Proyecto en Claude</strong> con instrucciones fijas para una tarea repetitiva.',
+      'Sube un PDF largo o un Excel y pide a la IA que extraiga <strong>patrones y conclusiones</strong>, no solo resúmenes.',
+      'Experimenta combinando herramientas: genera un guion con LLM, imágenes con <strong>Midjourney/DALL-E</strong>, voz con <strong>ElevenLabs</strong>.',
+      'Aprende <strong>Few-Shot prompting</strong>: incluye 2-3 ejemplos en tu prompt para guiar el formato de salida.'
+    ]
+  },
+  3: {
+    title: '⚡ Tu siguiente paso: de la integración a la automatización',
+    items: [
+      'Conecta una IA a otra app usando <strong>Make.com</strong> o <strong>Zapier</strong>: por ejemplo, que resuma correos automáticamente.',
+      'Explora <strong>Dify</strong> o <strong>Flowise</strong> para crear flujos de IA con interfaz visual (no-code).',
+      'Aprende a usar una <strong>API de OpenAI o Anthropic</strong> desde Python con un script sencillo.',
+      'Prueba <strong>Cursor</strong> o <strong>Windsurf</strong> como IDE asistido por IA para automatizar tus propias tareas.'
+    ]
+  },
+  4: {
+    title: '🧠 Tu siguiente paso: del diseño de sistemas a la creación',
+    items: [
+      'Descarga <strong>Ollama</strong> y ejecuta un modelo open-source localmente (Llama, Mistral, Gemma).',
+      'Aprende <strong>LangChain</strong> o <strong>LlamaIndex</strong> para construir aplicaciones RAG sobre tus propios documentos.',
+      'Experimenta con <strong>Fine-Tuning</strong> básico: ajusta un modelo pequeño con tus datos usando Hugging Face.',
+      'Contribuye a un proyecto <strong>open-source de IA</strong> en GitHub o publica un modelo/dataset en Hugging Face.'
+    ]
+  },
+  5: {
+    title: '🌌 Estás en la frontera. Mantén el impulso:',
+    items: [
+      'Publica tus modelos, datasets o herramientas en <strong>Hugging Face</strong> y <strong>GitHub</strong>.',
+      'Escribe sobre tus experimentos y aprendizajes; comparte conocimiento con la comunidad.',
+      'Explora arquitecturas <strong>multi-agente</strong> avanzadas con CrewAI, AutoGen o LangGraph.',
+      'Mentorea a otros en su camino de madurez digital. Enseñar consolida el aprendizaje.'
+    ]
+  }
+};
+
+function calculateResults() {
+  const totalQuestions = 20;
+  let scores = {1:0, 2:0, 3:0, 4:0, 5:0};
+  let answered = 0;
+
+  for (let i = 1; i <= totalQuestions; i++) {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if (!selected) continue;
+    answered++;
+    const level = Math.ceil(i / 4);
+    if (selected.value === 'c') scores[level] += 3;
+    else if (selected.value === 'b') scores[level] += 1;
+    // a = 0 points
+  }
+
+  if (answered < totalQuestions) {
+    alert(`⚠️ Has respondido ${answered} de ${totalQuestions} preguntas. Por favor responde todas para obtener un diagnóstico preciso.`);
+    return;
+  }
+
+  // Determine dominant level
+  let maxScore = 0;
+  let dominantLevel = 1;
+  for (let l = 1; l <= 5; l++) {
+    if (scores[l] > maxScore) { maxScore = scores[l]; dominantLevel = l; }
+  }
+  // If tie, pick highest level with tie
+  for (let l = 5; l >= 1; l--) {
+    if (scores[l] === maxScore && l > dominantLevel) dominantLevel = l;
+  }
+
+  // Build bars
+  let barsHTML = '';
+  const maxPossible = 12;
+  for (let l = 1; l <= 5; l++) {
+    const pct = Math.round((scores[l] / maxPossible) * 100);
+    barsHTML += `
+      <div class="bar-container">
+        <div class="bar-label"><span>Nivel ${l}: ${LEVEL_NAMES[l]}</span><span>${scores[l]}/${maxPossible} (${pct}%)</span></div>
+        <div class="bar-outer"><div class="bar-inner ${LEVEL_CLASSES[l]}" style="width:${pct}%"></div></div>
+      </div>`;
+  }
+
+  // Build recommendations
+  const rec = RECOMMENDATIONS[dominantLevel];
+  let recHTML = `<h3 style="margin-bottom:1rem">💡 ${rec.title}</h3><ul style="padding-left:1.25rem; line-height:2">`;
+  rec.items.forEach(item => { recHTML += `<li>${item}</li>`; });
+  recHTML += '</ul>';
+
+  // Fill results
+  document.getElementById('result-badge').textContent = `Nivel ${dominantLevel}: ${LEVEL_NAMES[dominantLevel]}`;
+  document.getElementById('result-badge').className = `result-badge ${LEVEL_CLASSES[dominantLevel]}`;
+  document.getElementById('result-meta').textContent = `MM-UPIA — Puntuación máxima en este nivel: ${maxScore} de 12 puntos posibles`;
+  document.getElementById('bars-container').innerHTML = barsHTML;
+  document.getElementById('recommendations').innerHTML = recHTML;
+
+  // Show results tab
+  document.getElementById('tab-results').style.display = 'block';
+  switchToResultsTab();
+}
+
+function switchToResultsTab() {
+  document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-results').style.display = 'block';
+  document.getElementById('tab-results').classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Also expose the function globally for the button onclick
+window.switchTab = switchTab;
+
+// Fix the results tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    const txt = this.textContent.trim();
+    if (txt.includes('Resultados')) {
+      switchToResultsTab();
+    } else if (txt.includes('Modelo')) {
+      switchTab('model');
+    } else if (txt.includes('Autodiagnóstico')) {
+      switchTab('test');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
