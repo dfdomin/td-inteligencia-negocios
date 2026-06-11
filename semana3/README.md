@@ -10,7 +10,7 @@ Reconocer procesos manuales, errores recurrentes y oportunidades de automatizaci
 **Preguntas clave:**
 - ?Cual es el proceso actual de un pedido por WhatsApp en Mercado360?
 - ?Donde se pierde informacion, donde hay reprocesos y donde hay errores?
-- ?Cual es el proceso mejorado que reduce los dores y las ineficiencias?
+- ¿Cuál es el proceso mejorado que reduce los dolores y las ineficiencias?
 - ?Cual es la diferencia entre automatizar y mejorar un proceso?
 
 ---
@@ -209,9 +209,9 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 | Criterio | Peso | Destacado | Satisfactorio | En desarrollo | Insuficiente |
 |---|---|---|---|---|---|
 | Proceso AS-IS completo (5+ pasos) | 25% | 5+ pasos con responsable, tiempo y problemas identificados. Cada problema tiene causa raiz. | 5+ pasos pero algunos sin problemas identificados. | Menos de 5 pasos o sin estructura. | No entrega AS-IS. |
-| Puntos de friccion (3+ dolres) | 20% | 3+ dores con causa raiz y costo estimado por paso. | 3 dores pero sin costo estimado. | 1-2 dores sin causa raiz. | No identifica dores. |
-| Proceso TO-BE con cambios | 25% | TO-BE completo con 3+ cambios. Cada cambio tiene justificacion (problema que resuelve) y tecnologia habilitadora. | TO-BE con cambios pero faltan justificaciones o tecnologia. | TO-BE incompleto o sin justificacion. | No entrega TO-BE o es copia del AS-IS. |
-| Automatizacion de mayor impacto | 20% | Identifica automatizacion con justificacion clara (impacto, viabilidad, costo estimado). | Identifica automatizacion pero sin justification completa. | Identifica automatizacion sin justification. | No entrega. |
+| Puntos de fricción (3+ dolores) | 20% | 3+ dolores con causa raíz y costo estimado por paso. | 3 dolores pero sin costo estimado. | 1-2 dolores sin causa raíz. | No identifica dolores. |
+| Proceso TO-BE con cambios | 25% | TO-BE completo con 3+ cambios. Cada cambio tiene justificación (problema que resuelve) y tecnología habilitadora. | TO-BE con cambios pero faltan justificaciones o tecnología. | TO-BE incompleto o sin justificación. | No entrega TO-BE o es copia del AS-IS. |
+| Automatización de mayor impacto | 20% | Identifica automatización con justificación clara (impacto, viabilidad, costo estimado). | Identifica automatización pero sin justificación completa. | Identifica automatización sin justificación. | No entrega. |
 | Estructura y calidad | 10% | Documento claro, maximo 5 paginas, sin errores. | Documento claro con maximo 5 paginas. | Documento desorganizado o > 5 paginas. | No entrega. |
 
 ---
@@ -220,7 +220,7 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 
 | Semana | Tema | Conexion con semana 3 |
 |---|---|---|
-| Semana 2 | Journey map | La etapa de mayor friccion del journey se convierte en el proceso a redisenar. |
+| Semana 2 | Mapa del recorrido del cliente (journey map) | La etapa de mayor fricción del recorrido del cliente (journey) se convierte en el proceso a rediseñar. |
 | Semana 4 | Tecnologias habilitadoras | Las tecnologias propuestas en el TO-BE se evaluaran en detalle. |
 | Semana 7 | Datos y analitica | Los datos que genera el proceso automatizado se convierten en KPIs. |
 | Semana 5 | Parcial 1 | Se aplica el metodo AS-IS/TO-BE a RetailNova. |
