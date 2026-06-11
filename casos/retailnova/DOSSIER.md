@@ -25,17 +25,17 @@ Presupuesto: no tenemos mucho, pero sabemos que hay que invertir. Necesito enten
 Quedo atenta.
 Camila Rodriguez G.
 Gerente General — RetailNova S.A.S.
-NIT 901.334.567-8
+NIT (Número de Identificación Tributaria) 901.334.567-8
 
 ---
 
 ## 2. Descripcion del negocio
 
 **Razon social:** RetailNova S.A.S.
-**NIT:** 901.334.567-8
+**NIT (Número de Identificación Tributaria):** 901.334.567-8
 **Ubicacion:** Barranquilla, Atlantico
 **Fecha de fundacion:** 2019
-**Regimen:** Comun, responsable de IVA
+**Regimen:** Comun, responsable de IVA (Impuesto al Valor Agregado)
 
 **Modelo de negocio:** Tienda fisica de ropa y accesorios con presencia digital mediante Instagram e Instagram Shopping. Ventas presenciales en tienda, reservas por WhatsApp, pagos en efectivo y transferencia.
 
@@ -44,7 +44,7 @@ NIT 901.334.567-8
 - Tienda norte (Carrera 46 #93-15): 1 vendedor, muestra reducida
 - Tienda Soledad (Calle 15 #9-28): 1 vendedor, solo temporada
 
-**Productos:** Ropa casual y formal para mujer, hombre y ninos. Marcas propias y marcas blancas. Aproximadamente 450 SKUs activos.
+**Productos:** Ropa casual y formal para mujer, hombre y ninos. Marcas propias y marcas blancas. Aproximadamente 450 SKU (referencias de producto) activos.
 
 **Canales de venta:**
 - Tienda fisica: 70% de ventas
@@ -58,13 +58,13 @@ NIT 901.334.567-8
 ## 3. Descripcion del proceso actual
 
 ### 3.1 Compra y abastecimiento
-El inventario se maneja en Excel basico por sucursal. Cuando el stock baja, los vendedores avisan por WhatsApp al almacen central. No hay punto de reorden automatico. Las ordenes de compra las hace la gerente con su socio, sin datos de rotacion por SKU. Los proveedores principales son Distribuidora Santana (Bogota) y Textiles del Norte (Medellin).
+El inventario se maneja en Excel basico por sucursal. Cuando el stock baja, los vendedores avisan por WhatsApp al almacen central. No hay punto de reorden automatico. Las ordenes de compra las hace la gerente con su socio, sin datos de rotacion por SKU (referencia de producto). Los proveedores principales son Distribuidora Santana (Bogota) y Textiles del Norte (Medellin).
 
 ### 3.2 Gestion de inventario
-Cada sucursal lleva su inventario en un cuaderno. El inventario de almacen central se lleva en Excel sin sincronizar con tiendas. Cuando un cliente pregunta por un producto en otra sucursal, no hay forma rapida de verificar. La coincidencia entre lo que se ofrece y lo que hay fisicamente es aproximada: la gerente estima que difiere en un 15-20% de los SKUs en un momento dado.
+Cada sucursal lleva su inventario en un cuaderno. El inventario de almacen central se lleva en Excel sin sincronizar con tiendas. Cuando un cliente pregunta por un producto en otra sucursal, no hay forma rapida de verificar. La coincidencia entre lo que se ofrece y lo que hay fisicamente es aproximada: la gerente estima que difiere en un 15-20% de los SKU (referencias de producto) en un momento dado.
 
 ### 3.3 Promociones
-Las promociones se publican en Instagram sin planeacion estructurada. No hay documento de aprobacion ni registro de la promocion. Se miden implicitamente por la experiencia del vendedor. No hay codigos de seguimiento ni enlaces UTM. La tasa de conversion se estima "a ojo".
+Las promociones se publican en Instagram sin planeacion estructurada. No hay documento de aprobacion ni registro de la promocion. Se miden implicitamente por la experiencia del vendedor. No hay codigos de seguimiento ni enlaces UTM (parametros de seguimiento en enlaces web). La tasa de conversion se estima "a ojo".
 
 ### 3.4 Servicio al cliente por WhatsApp
 El WhatsApp Business esta instalado pero sin etiquetas ni categorias. Las conversaciones se eliminan cuando el celular se daña o se pierde. No hay historial centralizado de interacciones por cliente. Los clientes recurrentes deben volver a explicar que quieren cada vez.
@@ -73,7 +73,7 @@ El WhatsApp Business esta instalado pero sin etiquetas ni categorias. Las conver
 No existe politica de devoluciones por escrito. La decision queda a criterio del vendedor en el momento. Las devoluciones informales no se registran. La gerente estima un 8% de devoluciones sobre ventas, pero no hay datos exactos.
 
 ### 3.6 Pagos y facturacion
-Pagos en efectivo y transferencia a Bancolombia. Facturacion electronica mediante Dian por sistema contable basico. No hay terminal de pago con tarjetas.
+Pagos en efectivo y transferencia a Bancolombia. Facturacion electronica mediante DIAN (Direccion de Impuestos y Aduanas Nacionales) por sistema contable basico. No hay terminal de pago con tarjetas.
 
 ---
 
@@ -81,14 +81,14 @@ Pagos en efectivo y transferencia a Bancolombia. Facturacion electronica mediant
 
 | Indicador | Valor estimado | Fuente |
 |---|---|---|
-| Ventas mensuales (promedio) | $85.000.000 COP | Reportes internos |
+| Ventas mensuales (promedio) | $85.000.000 COP (pesos colombianos) | Reportes internos |
 | Numero de transacciones/mes | 620 | Estimado gerente |
-| Numero de SKUs activos | 450 | Inventario Excel |
+| Numero de SKU (referencias de producto) activos | 450 | Inventario Excel |
 | Margen bruto promedio | 38% | Estados financieros |
 | Tasa de devolucion | 8% estimado | Estimado gerente |
 | Conversion de promociones | Desconocida | Sin medicion |
-| Cumplimiento promesa de entrega | N/A | No hay delivery |
-| Ticket promedio por compra | $137.000 COP | Estimado |
+| Cumplimiento promesa de entrega | N/A (no aplica) | No hay delivery |
+| Ticket promedio por compra | $137.000 COP (pesos colombianos) | Estimado |
 | Clientes recurrentes | ~25% | Estimado sin datos |
 | Satisfaccion del cliente | "creemos que bien" | Sin medicion formal |
 
@@ -107,7 +107,7 @@ Pagos en efectivo y transferencia a Bancolombia. Facturacion electronica mediant
 **Testimonio 3 — Vendedor Tienda Norte:**
 "En la tienda norte a veces me preguntan por algo que esta en la tienda centro y no tengo como saber si lo tienen. Pierdo la venta."
 
-**Testimonio 4 — Cliente potencial (evaluacion Mystery Shopper informal):**
+**Testimonio 4 — Cliente potencial (evaluacion con cliente misterioso — comprador incognito):**
 "La experiencia en tienda es agradable, pero cuando pregunto si puedo apartar ropa o si me avisan cuando llegue lo que me gusto, me dicen que no tienen sistema para eso."
 
 ---
@@ -135,9 +135,9 @@ Laura V. Mosquera
 
 | Restriccion | Detalle |
 |---|---|
-| Presupuesto maximo estimado | $15.000.000 COP para fase 1 |
+| Presupuesto maximo estimado | $15.000.000 COP (pesos colombianos) para fase 1 |
 | Tiempo de implementacion fase 1 | 60 dias maximo |
-| Personal TI interno | Ninguno (gerencia no tecnica) |
+| Personal TI (Tecnologias de la Informacion) interno | Ninguno (gerencia no tecnica) |
 | Conocimiento tecnologico del equipo | Basico (WhatsApp, Excel, Instagram) |
 | Proveedor de hosting actual | Hosting compartido de terceros |
 | Telefonia del equipo | Celulares personales Android |
@@ -158,7 +158,7 @@ El estudiante debe actuar como consultor junior y entregar:
    - Dolores para el proceso operativo
    - Dolores para la gerencia
 
-3. **Journey map** de un cliente que tuvo una experiencia de frustracion.
+3. **Journey map (mapa del recorrido del cliente)** de un cliente que tuvo una experiencia de frustracion.
 
 4. **Priorizacion de una oportunidad** con:
    - Problema seleccionado
