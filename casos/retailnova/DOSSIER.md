@@ -44,7 +44,7 @@ NIT (Número de Identificación Tributaria) 901.334.567-8
 - Tienda norte (Carrera 46 #93-15): 1 vendedor, muestra reducida
 - Tienda Soledad (Calle 15 #9-28): 1 vendedor, solo temporada
 
-**Productos:** Ropa casual y formal para mujer, hombre y ninos. Marcas propias y marcas blancas. Aproximadamente 450 SKU (referencias de producto) activos.
+**Productos:** Ropa casual y formal para mujer, hombre y ninos. Marcas propias y marcas blancas. Aproximadamente 450 SKU (referencia de producto / Stock Keeping Unit) activos.
 
 **Canales de venta:**
 - Tienda fisica: 70% de ventas
@@ -58,13 +58,13 @@ NIT (Número de Identificación Tributaria) 901.334.567-8
 ## 3. Descripcion del proceso actual
 
 ### 3.1 Compra y abastecimiento
-El inventario se maneja en Excel basico por sucursal. Cuando el stock baja, los vendedores avisan por WhatsApp al almacen central. No hay punto de reorden automatico. Las ordenes de compra las hace la gerente con su socio, sin datos de rotacion por SKU (referencia de producto). Los proveedores principales son Distribuidora Santana (Bogota) y Textiles del Norte (Medellin).
+El inventario se maneja en Excel basico por sucursal. Cuando el stock baja, los vendedores avisan por WhatsApp al almacen central. No hay punto de reorden automatico. Las ordenes de compra las hace la gerente con su socio, sin datos de rotacion por SKU (referencia de producto / Stock Keeping Unit). Los proveedores principales son Distribuidora Santana (Bogota) y Textiles del Norte (Medellin).
 
 ### 3.2 Gestion de inventario
-Cada sucursal lleva su inventario en un cuaderno. El inventario de almacen central se lleva en Excel sin sincronizar con tiendas. Cuando un cliente pregunta por un producto en otra sucursal, no hay forma rapida de verificar. La coincidencia entre lo que se ofrece y lo que hay fisicamente es aproximada: la gerente estima que difiere en un 15-20% de los SKU (referencias de producto) en un momento dado.
+Cada sucursal lleva su inventario en un cuaderno. El inventario de almacen central se lleva en Excel sin sincronizar con tiendas. Cuando un cliente pregunta por un producto en otra sucursal, no hay forma rapida de verificar. La coincidencia entre lo que se ofrece y lo que hay fisicamente es aproximada: la gerente estima que difiere en un 15-20% de los SKU (referencias de producto / Stock Keeping Unit) en un momento dado.
 
 ### 3.3 Promociones
-Las promociones se publican en Instagram sin planeacion estructurada. No hay documento de aprobacion ni registro de la promocion. Se miden implicitamente por la experiencia del vendedor. No hay codigos de seguimiento ni enlaces UTM (parametros de seguimiento en enlaces web). La tasa de conversion se estima "a ojo".
+Las promociones se publican en Instagram sin planeacion estructurada. No hay documento de aprobacion ni registro de la promocion. Se miden implicitamente por la experiencia del vendedor. No hay codigos de seguimiento ni enlaces UTM (parametros de seguimiento en enlaces web / Urchin Tracking Module). La tasa de conversion se estima "a ojo".
 
 ### 3.4 Servicio al cliente por WhatsApp
 El WhatsApp Business esta instalado pero sin etiquetas ni categorias. Las conversaciones se eliminan cuando el celular se daña o se pierde. No hay historial centralizado de interacciones por cliente. Los clientes recurrentes deben volver a explicar que quieren cada vez.
@@ -83,7 +83,7 @@ Pagos en efectivo y transferencia a Bancolombia. Facturacion electronica mediant
 |---|---|---|
 | Ventas mensuales (promedio) | $85.000.000 COP (pesos colombianos) | Reportes internos |
 | Numero de transacciones/mes | 620 | Estimado gerente |
-| Numero de SKU (referencias de producto) activos | 450 | Inventario Excel |
+| Numero de SKU (referencia de producto / Stock Keeping Unit) activos | 450 | Inventario Excel |
 | Margen bruto promedio | 38% | Estados financieros |
 | Tasa de devolucion | 8% estimado | Estimado gerente |
 | Conversion de promociones | Desconocida | Sin medicion |
@@ -107,7 +107,7 @@ Pagos en efectivo y transferencia a Bancolombia. Facturacion electronica mediant
 **Testimonio 3 — Vendedor Tienda Norte:**
 "En la tienda norte a veces me preguntan por algo que esta en la tienda centro y no tengo como saber si lo tienen. Pierdo la venta."
 
-**Testimonio 4 — Cliente potencial (evaluacion con cliente misterioso — comprador incognito):**
+**Testimonio 4 — Cliente potencial (evaluacion con cliente misterioso (mystery shopper) — comprador incognito):**
 "La experiencia en tienda es agradable, pero cuando pregunto si puedo apartar ropa o si me avisan cuando llegue lo que me gusto, me dicen que no tienen sistema para eso."
 
 ---
@@ -158,7 +158,7 @@ El estudiante debe actuar como consultor junior y entregar:
    - Dolores para el proceso operativo
    - Dolores para la gerencia
 
-3. **Journey map (mapa del recorrido del cliente)** de un cliente que tuvo una experiencia de frustracion.
+3. **Mapa del recorrido del cliente (journey map)** de un cliente que tuvo una experiencia de frustracion.
 
 4. **Priorizacion de una oportunidad** con:
    - Problema seleccionado

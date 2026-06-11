@@ -7,7 +7,7 @@
 
 ## 1. Contexto de la evaluacion final
 
-LogisCaribe es un operador logistico regional en Barranquilla con 12 vehiculos, 22 empleados, servicios de distribucion, bodegaje y messenjeria. La empresa opera con Excel, llamadas telefonicas y WhatsApp. La gerente de Distribuidora del Caribe — que representa el 40% de los ingresos — ha announced que evaluara si renueva el contrato si LogisCaribe no mejora la trazabilidad antes de marzo de 2026.
+LogisCaribe es un operador logistico regional en Barranquilla con 12 vehiculos, 22 empleados, servicios de distribucion, bodegaje y mensajeria. La empresa opera con Excel, llamadas telefonicas y WhatsApp. El director de logistica de Distribuidora del Caribe — que representa el 40% de los ingresos — ha anunciado que evaluara si renueva el contrato si LogisCaribe no mejora la trazabilidad antes de marzo de 2026.
 
 El estudiante actuara como **asesor estrategico senior de transformacion digital** y debera entregar una propuesta integral que demuestre capacidad para disenar una hoja de ruta realista y viable.
 
@@ -55,8 +55,8 @@ Un documento de maximo 15 paginas (sin contar anexos) que incluya:
 **Seccion 1 — Resumen ejecutivo (1 pagina)**
 - Problema central.
 - Estrategia elegida.
-- Resultado esperado (roadmap + KPIs clave).
-- Inversiobn estimada.
+- Resultado esperado (hoja de ruta / roadmap + KPIs clave).
+- Inversion estimada.
 - Tiempo de implementacion.
 
 **Seccion 2 — Diagnostico de madurez digital (1 pagina)**
@@ -87,7 +87,7 @@ Un documento de maximo 15 paginas (sin contar anexos) que incluya:
 - **Presupuesto total no puede superar $40.000.000 COP.**
 
 **Seccion 6 — Plan de gestion del cambio (1.5 paginas)**
-- Roles impacted (gerencia, coordinacion, conductores, administrativa).
+- Roles impactados (gerencia, coordinacion, conductores, administrativa).
 - Acciones de formacion para cada rol.
 - Plan de comunicacion interna.
 - Gestion de resistencia al cambio (minimo 2 estrategias concretas).
@@ -98,14 +98,14 @@ Un documento de maximo 15 paginas (sin contar anexos) que incluya:
 - Al menos 2 riesgos relacionados con proteccion de datos (Ley 1581).
 - Al menos 1 riesgo relacionado con continuidad operativa (Decreto 1079).
 
-**Seccion 8 — Indicadores de exito — KPIs (1 pagina)**
+**Seccion 8 — Indicadores de exito — KPIs (indicadores clave de desempeno / Key Performance Indicators) (1 pagina)**
 - 5 KPIs con: nombre, definicion operacional, formula o metodo de medicion, meta actual, meta a 90 dias, frecuencia de medicion.
-- Al menos 1 KPI debe ser financiero (ROI, costo por entrega).
+- Al menos 1 KPI debe ser financiero (ROI — retorno de la inversion / Return on Investment, costo por entrega).
 
 **Seccion 9 — Caso de negocio ligero (1.5 paginas)**
-- Inversiobn estimada desagregada por fase.
+- Inversion estimada desagregada por fase.
 - Beneficios esperados (cuantificados si es posible).
-- ROI aproximado o payback period estimado.
+- ROI (retorno de la inversion / Return on Investment) aproximado o periodo de recuperacion estimado.
 - Supuestos claros.
 
 **Anexo — Sustentacion (10 minutos)**
@@ -142,14 +142,14 @@ Un documento de maximo 15 paginas (sin contar anexos) que incluya:
 
 | Criterio | Peso | Destacado (90-100) | Satisfactorio (70-89) | En desarrollo (40-69) | Insuficiente (0-39) |
 |---|---|---|---|---|---|
-| **Diagnostico de madurez** | 10% | Modelo reconocido con 4+ dimensiones, justificacion con evidencia del dossier, conclusions claras. | Modelo con 3 dimensiones, justification partial. | Modelo sin citation o sin justification. | No entrega o copy de otra eval. |
+| **Diagnostico de madurez** | 10% | Modelo reconocido con 4+ dimensiones, justificacion con evidencia del dossier, conclusiones claras. | Modelo con 3 dimensiones, justificacion parcial. | Modelo sin citacion o sin justificacion. | No entrega o copia de otra eval. |
 | **Analisis de puntos criticos** | 10% | 4 areas analizadas con evidencia del dossier, impacto cuantificado o cualitativo claro. | 3 areas analizadas, algunas sin evidencia. | 1-2 areas sin profundidad. | No entrega. |
-| **Estrategia priorizada** | 15% | 3 iniciativas bien priorizadas con justification de impacto vs. factibilidad, conexion con restricciones. | 2 iniciativas bien priorizadas. | 1 iniciativa sin justification. | No entrega. |
-| **Roadmap 30-60-90** | 20% | Roadmap completo con 3 fases, acciones, responsables, entregables, costos, metricas. Presupuesto dentro de $40M. Progresion logica de rapido a complejo. | Roadmap con 3 fases pero algunas falencias en actions o metricas. | Roadmap incompleto o sin costos. | Roadmap irreal o faltante. |
+| **Estrategia priorizada** | 15% | 3 iniciativas bien priorizadas con justificacion de impacto vs. factibilidad, conexion con restricciones. | 2 iniciativas bien priorizadas. | 1 iniciativa sin justificacion. | No entrega. |
+| **Roadmap 30-60-90** | 20% | Hoja de ruta completa con 3 fases, acciones, responsables, entregables, costos, metricas. Presupuesto dentro de $40M. Progresion logica de rapido a complejo. | Hoja de ruta con 3 fases pero algunas falencias en acciones o metricas. | Hoja de ruta incompleta o sin costos. | Hoja de ruta irreal o faltante. |
 | **Gestion del cambio** | 10% | 4 roles con acciones de formacion y comunicacion. 2+ estrategias de resistencia. Plan realista. | 3 roles con algunas acciones. | 1-2 roles sin acciones. | No entrega. |
 | **Matriz de riesgos** | 10% | 6+ riesgos bien estructurados (probabilidad, impacto, mitigacion). 2 riesgos de datos, 1 de continuidad operativa. | 5 riesgos bien estructurados. | Menos de 5 riesgos o sin estructura. | No entrega. |
 | **KPIs** | 10% | 5 KPIs bien definidos (nombre, formula, meta, frecuencia). Al menos 1 financiero. | 4 KPIs bien definidos. | 1-3 KPIs parciales. | No entrega. |
-| **Caso de negocio** | 10% | Inversiones por fase, beneficios cuantificados, ROI o payback calculado con supuestos claros. | Inversiones y beneficios sin cuantificar. | Solo inversiones sin beneficios. | No entrega. |
+| **Caso de negocio** | 10% | Inversiones por fase, beneficios cuantificados, ROI o periodo de recuperacion calculado con supuestos claros. | Inversiones y beneficios sin cuantificar. | Solo inversiones sin beneficios. | No entrega. |
 | **Calidad de comunicacion** | 5% | Documento claro, estructurado, sin errores, maximo 15 paginas. | Documento claro con maximo 15 paginas. | Documento desorganizado o > 15 paginas. | No entrega. |
 
 ---
@@ -175,7 +175,7 @@ Breve, ejecutivo, maximo 1 pagina. Debe responder: donde estamos, a donde vamos,
 
 ### Seccion 2 — Diagnostico
 
-LogisCaribe se ubique en nivel Digitalnovato a Explorador. Evidencia:
+LogisCaribe se ubica en nivel Digitalnovato a Explorador. Evidencia:
 - Sin GPS en vehiculos.
 - Inventario en Excel, no sincronizado.
 - Procesos manuales, sin trazabilidad.
@@ -186,7 +186,7 @@ LogisCaribe se ubique en nivel Digitalnovato a Explorador. Evidencia:
 
 ### Seccion 4 — Estrategia priorizada
 
-Prioridades expected:
+Prioridades esperadas:
 
 1. **Trazabilidad de entregas** (mas urgente por contrato Distribuidora del Caribe).
    - GPS en vehiculos o tracking por celular del conductor.
@@ -223,22 +223,22 @@ Prioridades expected:
 **Fase 3 (90 dias, $15-20M):**
 - Integracion con clientes corporativos (API o portal).
 - Automatizacion de reportes semanales.
-- Evaluacion de satisfaction de clientes.
+- Evaluacion de satisfaccion de clientes.
 
-**Total estimado:** $28-40M. Debe quedar dentro de $40M.
+**Total estimado:** $28-40M COP (pesos colombianos). Debe quedar dentro de $40M.
 
 ---
 
 ### Seccion 6 — Gestion del cambio
 
-**Roles affected:**
-- Gerencia (Carlos Martinez): adoption de dashboard.
+**Roles afectados:**
+- Gerencia (Carlos Martinez): adopcion de tablero de control (dashboard).
 - Coordinacion (Maria del Carmen Arenas): nuevo flujo de operaciones.
 - Conductores: uso de app de tracking y firma digital.
 - Administrativa: nuevo sistema de facturacion y registro.
 
 **Estrategias de resistencia:**
-- "No tengo tiempo para aprender" — Mitigacion: formacion de 2 horas, payback rapido visible.
+- "No tengo tiempo para aprender" — Mitigacion: formacion de 2 horas, retorno rapido visible.
 - "Aqui siempre se ha hecho asi" — Mitigacion: mostrar el caso de la carga extraviada como motivacion, involucrar a los conductores en la seleccion de herramientas.
 
 ---
@@ -247,11 +247,11 @@ Prioridades expected:
 
 Riesgos esperados:
 1. **Falla en implementacion de GPS por resistencia de conductores** — Alta probabilidad, impacto medio. Mitigacion: formacion + involucramiento + medicion de productividad del conductor.
-2. **Filtracion de datos de clientes corporativos** (Ley 1581) — Baja probabilidad, impacto alto. Mitigacion: encriptacion, minimun de datos, politica de acceso.
-3. **Dependencia de proveedor de tecnologia** — Media probabilidad, impacto medio. Mitigacion: contrato con SLA, mantener opciones de migracion.
+2. **Filtracion de datos de clientes corporativos** (Ley 1581) — Baja probabilidad, impacto alto. Mitigacion: cifrado, minimo de datos, politica de acceso.
+3. **Dependencia de proveedor de tecnologia** — Media probabilidad, impacto medio. Mitigacion: contrato con SLA (acuerdo de nivel de servicio / Service Level Agreement), mantener opciones de migracion.
 4. **Incidente de continuidad operativa** (vehiculo sin GPS, accidente) — Baja probabilidad, impacto alto. Mitigacion: protocolo de comunicacion alternativo con conductores.
-5. **Costo overruns en fase 2** — Alta probabilidad sin control, impacto medio. Mitigacion: presupuesto de contingencia del 15%.
-6. **Retraso en adopcion por equipo** — Alta probabilidad, impacto medio. Mitigacion: champion interno en operacion.
+5. **Sobrecosto en fase 2** — Alta probabilidad sin control, impacto medio. Mitigacion: presupuesto de contingencia del 15%.
+6. **Retraso en adopcion por equipo** — Alta probabilidad, impacto medio. Mitigacion: campeon interno en operacion.
 
 ---
 
@@ -260,9 +260,9 @@ Riesgos esperados:
 KPIs esperados:
 1. **Tasa de falla en primera entrega:** meta reduccion del 14% al 8% en 90 dias.
 2. **Tiempo de respuesta a cliente** (desde que pregunta hasta que se responde): meta < 2 horas.
-3. **Numero de excepciones operativas** (carga danada, extraviada, retrasada): reduction 30%.
-4. **Costo por entrega:** meta reduccion del 10% vs. baseline.
-5. **Satisfaccion del cliente (NPS):** meta > 4.0/5.0 en 90 dias.
+3. **Numero de excepciones operativas** (carga danada, extraviada, retrasada): reduccion del 30%.
+4. **Costo por entrega:** meta reduccion del 10% vs. linea base.
+5. **Satisfaccion del cliente (NPS — net promoter score / puntaje neto de promotores):** meta > 4.0/5.0 en 90 dias.
 
 ---
 
@@ -278,7 +278,7 @@ KPIs esperados:
 5. Gestion del cambio y riesgos en 2 minutos.
 6. Cierre con mensaje clave en 1 minuto.
 
-**Nota:** La sustentacion se evalua con la misma rubrica. La sustentacion remplace la presentacion de la Semana 14.
+**Nota:** La sustentacion se evalua con la misma rubrica. La sustentacion reemplaza la presentacion de la Semana 14.
 
 ---
 
@@ -289,7 +289,7 @@ KPIs esperados:
 | Dossier de LogisCaribe | Entregado en papel y digital |
 | Portafolio de Mercado360 | Construido durante el semestre |
 | Notas de clase semanas 1-13 | Uso libre |
-| Rubrica commun del modulo | Conocida de parciales anteriores |
+| Rubrica comun del modulo | Conocida de parciales anteriores |
 
 ---
 

@@ -16,7 +16,7 @@ Ciudad
 
 Respetados señores:
 
-El presente documento sirve como formalización de la solicitud de intervención y acompañamiento por parte de esta entidad frente a las dificultades sistemáticas que enfrenta la empresa **SaludConecta IPS S.A.S.** (NIT 901.234.567-8), habilitada mediante Resolución No. 2023012456 del 15 de marzo de 2023, en relación con los procesos de autorización previa de servicios de salud.
+El presente documento sirve como formalización de la solicitud de intervención y acompañamiento por parte de esta entidad frente a las dificultades sistemáticas que enfrenta la empresa **SaludConecta IPS S.A.S.** (NIT — Numero de Identificacion Tributaria: 901.234.567-8), habilitada mediante Resolución No. 2023012456 del 15 de marzo de 2023, en relación con los procesos de autorización previa de servicios de salud.
 
 Luego de un analisis detallado de las quejas recibi das por parte de nuestros usuarios en los ultimos doce (12) meses, se ha identificado que el **78% de las solicitudes de autorizaciones previas presentan demoras superiores a los terminos establecidos en el Decreto 4747 de 2007**, lo cual compromete la atencion oportuna de pacientes con patologias de mediana y alta complejidad.
 
@@ -83,7 +83,7 @@ Email: gerencia@saludconectaips.com.co
 ```
 PASO 1: Solicitud del Médico Tratante
   -> El médico genera orden médica en formato físico o sistema
-  -> Entrega al paciente o 直接 al área de autorizaciones
+  -> Entrega al paciente o directamente al area de autorizaciones
 
 PASO 2: Radicación Manual
   -> Personal de autorizaciones recibe orden (formato físico en 85% de casos)
@@ -99,7 +99,7 @@ PASO 3: Verificación Cobertura con EPS
 PASO 4: Autorización o Negación
   -> Si hay respuesta favorable: se genera autorización escrita a mano
   -> Si hay negación: se radica PQRD interna
-  -> Paciente一脸懵不知道 estado de su solicitud
+  -> Paciente no sabe en que estado quedo su solicitud
 
 PASO 5: Entrega al Paciente
   -> Paciente debe acercarse a IPS a retirar autorización
@@ -113,7 +113,7 @@ PASO 5: Entrega al Paciente
 |-----------|-------------|------|
 | Tiempo promedio autorización ambulatoria | 12 días hábiles | 3 días |
 | Tiempo promedio autorización hospitalaria | 18 días hábiles | 5 días |
-| Tiempo promedio autorización urgências | 4 horas | 2 horas |
+| Tiempo promedio autorización urgencias | 4 horas | 2 horas |
 | Tasa de solicitudes incompletas | 42% | <10% |
 | Tasa de negaciones sin justificación | 23% | <5% |
 | Solicitudes pendientes >30 días | 8% | 0% |
@@ -247,7 +247,7 @@ Columnas actuales:
 2. **Proceso manual:** Documentos físicos se extravían, digitalizaciones duplicadas
 3. **Comunicación deficiente:** No existen canales de notificación al paciente
 4. **Saturación del personal:** 7 personas procesan 1.620 solicitudes/mes
-5. **Sin интеграция con EPS:** Cada EPS tiene canales diferentes (correo, fax, portal)
+5. **Sin integracion con EPS:** Cada EPS tiene canales diferentes (correo, fax, portal)
 6. **Ausencia de indicadores:** No hay dashboard en tiempo real
 
 ---
@@ -278,7 +278,7 @@ Columnas actuales:
 | 04/11/2025 | 1 | Auxiliar digita en Excel, radica solicitud | Técnico Pérez | No se genera acuse de recibo |
 | 05/11/2025 | 2 | Llamada a EPS Delta — línea ocupada 45 min, sin respuesta | Téc. Sánchez | Intentó 3 veces |
 | 06/11/2025 | 3 | Envío por correo electrónico con escaneo de orden | Téc. Sánchez | Sin confirmación de recibo |
-| 10/11/2025 | 7 | Llamada de EPS Delta — requieren formulario FC-08 completo | Téc. Sánchez | Pacientecontacta para informar estado |
+| 10/11/2025 | 7 | Llamada de EPS Delta — requieren formulario FC-08 completo | Téc. Sánchez | Paciente contacta para informar estado |
 | 11/11/2025 | 8 | Se gestiona formulario FC-08 con médico tratante | Dr. Montoya | Formato de solicitud quirúrgica |
 | 12/11/2025 | 9 | Se reenvía documentación completa a EPS Delta | Téc. Sánchez | Correo con adjuntos |
 | 15/11/2025 | 12 | Nueva llamada EPS Delta — no encuentran expediente | Téc. Pérez | Reporta que reenviaron hace 3 días |
@@ -300,7 +300,7 @@ Columnas actuales:
 4. Copia de historia clínica relevante — 12 páginas
 5. Resultados de exámenes prequirúrgicos — 8 páginas
 6. Cotización de prótesis — 2 páginas
-7. Comprobantes de envío por correo electrónico — 4printouts
+7. Comprobantes de envío por correo electrónico — 4 impresiones
 8. Registros de llamadas telefónicas — bitácora 6 entradas
 
 **Total: 39 páginas en físico + archivos digitales dispersos**
@@ -345,9 +345,9 @@ Columnas actuales:
 
 | Artículo | Contenido | Impacto Operativo |
 |----------|-----------|-------------------|
-| Art. 3 | Garantizar acceso sin autorización previa en urgências | Sistema debe identificar autorizaciones urgentes |
-| Art. 5 | Términos máximos de respuesta: 3 días (ambulatorio), 24h (hospitalario urgente) | Definir SLAs en sistema |
-| Art. 6 | Procedimientos que no requieren autorización | Configurar lista blanca (white list) |
+| Art. 3 | Garantizar acceso sin autorización previa en urgencias | Sistema debe identificar autorizaciones urgentes |
+| Art. 5 | Términos máximos de respuesta: 3 días (ambulatorio), 24h (hospitalario urgente) | Definir SLA (acuerdo de nivel de servicio / Service Level Agreement) en sistema |
+| Art. 6 | Procedimientos que no requieren autorización | Configurar lista blanca |
 | Art. 8 | Glosas y devoluciones | Sistema debe rastrear glosas |
 | Art. 10 | Responsabilidad de la EPS | Trazabilidad de responsabilidad |
 | Art. 15 | Mecanismos de auditoría | Sistema debe generar reportes |
@@ -390,13 +390,13 @@ La **Superintendencia Nacional de Salud** tiene competencia de vigilancia y cont
 | Control | Medidas preventivo/correctivas |
 | Sanciones | Multas, órdenes, intervenciones |
 
-**Canales de denuncia citizens:**
+**Canales de denuncia ciudadanos:**
 - Línea 01-8000-513700
 - Ventanilla única de peticiones
 - Página web: www.supersalud.gov.co
 
 **Tiempos de respuesta a PQRS:**
-- De 15 días hábiles (petições)
+- De 15 días hábiles (peticiones)
 - De 10 días hábiles (quejas)
 - De 5 días hábiles (derechos de petición)
 
@@ -409,10 +409,10 @@ La **Superintendencia Nacional de Salud** tiene competencia de vigilancia y cont
 ```
 RE-01: NO almacenar datos de salud en servidores sin certificación ISO 27001
 RE-02: NO compartir datos de pacientes con terceros sin autorización explícita
-RE-03: NO procesar datos sin anonymización en ambientes de prueba
-RE-04: Encryption requerida para datos en tránsito (TLS 1.2 mínimo)
-RE-05: Retención máxima de datos de autorizaciones: 5 años después del cierre del caso
-RE-06:logs de auditoría deben conservarse por 10 años
+RE-03: NO procesar datos sin anonimizacion en ambientes de prueba
+RE-04: Cifrado requerido para datos en transito (TLS 1.2 minimo)
+RE-05: Retencion maxima de datos de autorizaciones: 5 anos despues del cierre del caso
+RE-06: Registros de auditoria deben conservarse por 10 anos
 RE-07: Derecho al olvido: pacientes pueden solicitar eliminación de datos no obligatorios
 ```
 
@@ -421,7 +421,7 @@ RE-07: Derecho al olvido: pacientes pueden solicitar eliminación de datos no ob
 ```
 RE-08: NO procesar autorizaciones sin verificar vigencia de afiliación
 RE-09: NO cobrar copagos superiores a los establecidos por Ley 1393 de 2010
-RE-10: NO negar servicios de urgência por falta de autorización previa
+RE-10: NO negar servicios de urgencia por falta de autorizacion previa
 RE-11: Tiempos de respuesta máximo: 72h para ambulatorio, 24h para hospitalario urgente
 RE-12: Toda negación debe emitirse por escrito con fundamentos legales
 RE-13: Mecanismo de doble verificación para autorizaciones >$5 millones
@@ -470,7 +470,7 @@ RE-18: Backup diario automático con retención de 30 días
 - Interfaz manual para casos sin integración posible
 
 **Módulo de Gestión Operativa:**
-- Dashboard en tiempo real con indicadores clave (KPIs)
+- Dashboard en tiempo real con indicadores clave (KPIs — indicadores clave de desempeno / Key Performance Indicators)
 - Distribución de cargas de trabajo por funcionario
 - Cola de prioridades con escalamiento automático
 - Bitácora completa de cada solicitud (trazabilidad)
@@ -479,20 +479,20 @@ RE-18: Backup diario automático con retención de 30 días
 **Módulo de Comunicación con Paciente:**
 - Consulta de estado por SMS (USSD) o WhatsApp
 - Notificaciones automáticas de cambios de estado
-- Canal dePQRS integrado
+- Canal de PQRS integrado
 - Recordatorios de citas próximas
 
 **Módulo de Reportes y Cumplimiento:**
 - Reporte mensual para gerencia
-- Informe de indicateurs para CRES/Supersalud
-- Generación de archivos para auditoría
-- Trazabilidad paraglosas y devoluciones
-- Cumplimiento de Ley 1581: logs de acceso, consentimientos
+- Informe de indicadores para CRES/Supersalud
+- Generacion de archivos para auditoria
+- Trazabilidad para glosas y devoluciones
+- Cumplimiento de Ley 1581: registros de acceso, consentimientos
 
 **Módulo de Administración:**
 - Gestión de usuarios con roles y permisos
 - Configuración de parámetros por EPS
-- Maestros: CUP, servicios, médicos,dx
+- Maestros: CUP, servicios, medicos, diagnosticos
 - Respaldo y recuperación de datos
 
 ### 8.3 Entregables Esperados
@@ -546,15 +546,20 @@ Sistema recibe (digital o OCR) ──► Validación automática ──► Verif
 
 | Término | Definición |
 |---------|------------|
-| **CUP** | Clasificación Uniforme de Procedimientos en salud |
-| **FC-08** | Formato de solicitud quirúrgica utilizado por EPS |
+| **NIT** | Numero de Identificacion Tributaria |
+| **EPS** | Entidad Promotora de Salud |
+| **PQRS** | Peticiones, Quejas, Reclamos y Sugerencias |
+| **OCR** | Reconocimiento optico de caracteres / Optical Character Recognition |
+| **API** | Interfaz de programacion de aplicaciones / Application Programming Interface |
+| **CRM** | Gestion de relaciones con clientes / Customer Relationship Management |
+| **CUP** | Clasificacion Uniforme de Procedimientos en salud |
 | **HL7** | Health Level Seven — estándar de intercambio de información médica |
 | **IPS** | Institución Prestadora de Servicios de Salud |
 | **MAI** | Medicamentos e Insumos — autorización especial |
 | **RUAF** | Registro Único de Afiliados — base de datos de aseguramiento |
 | **SISPRO** | Sistema Integral de Información del Protección Social |
 | **SIH** | Sistema de Información Hospitalaria |
-| **SLA** | Service Level Agreement — acuerdo de nivel de servicio |
+| **SLA** | Acuerdo de nivel de servicio / Service Level Agreement |
 
 ### 9.2 Formato de Solicitud de Autorización (Modelo)
 

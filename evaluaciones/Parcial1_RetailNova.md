@@ -53,9 +53,9 @@ Un documento de maximo 8 paginas (sin contar anexos) que incluya:
 - Dolores para la gerencia (minimo 3).
 - Cada dolor debe tener: descripcion, causa raiz, impacto estimado.
 
-**Seccion C — Journey map de frustracion (mapa del recorrido del cliente) (1 pagina)**
+**Seccion C — Mapa del recorrido del cliente (journey map) de frustracion (1 pagina)**
 - Mapear la experiencia de un cliente especifico que tuvo una experiencia de frustracion (usar como base el caso de Laura Mosquera del dossier).
-- Identificar: etapa, accion del cliente, dolor, emocion, touchpoint (punto de contacto), dato que falta.
+- Identificar: etapa, accion del cliente, dolor, emocion, punto de contacto (touchpoint), dato que falta.
 
 **Seccion D — Oportunidad priorizada (2 paginas)**
 - Seleccionar UNA oportunidad como prioridad numero uno.
@@ -74,7 +74,7 @@ Un documento de maximo 8 paginas (sin contar anexos) que incluya:
 |---|---|---:|
 | Seccion A — Diagnostico de madurez | 20 min | 20 |
 | Seccion B — Mapa de dolores | 20 min | 20 |
-| Seccion C — Journey map | 15 min | 15 |
+| Seccion C — Mapa del recorrido del cliente (journey map) | 15 min | 15 |
 | Seccion D — Oportunidad priorizada | 25 min | 35 |
 | Seccion E — Datos faltantes | 10 min | 10 |
 | **Total** | **90 min** | **100 pts** |
@@ -87,7 +87,7 @@ Un documento de maximo 8 paginas (sin contar anexos) que incluya:
 |---|---|---|---|---|---|
 | **Uso de modelo de madurez** | 20% | Aplica un modelo reconocido con rigor, justifica cada nivel, articula las 5+ dimensiones con evidencia del dossier. | Aplica un modelo reconocido con justificacion parcial, cubre 4-5 dimensiones. | Usa modelo sin citacion adecuada o con aplicacion superficial, menos de 4 dimensiones. | No aplica modelo o no hay evidencia. |
 | **Mapa de dolores** | 20% | 9+ dolores bien estructurados (causa, impacto, evidencia del dossier), organizados por categoria. | 6-8 dolores bien estructurados. | 3-5 dolores con falta de estructura o sin causa raiz. | Menos de 3 dolores o sin conexion al caso. |
-| **Journey map** | 15% | Journey completo con las 6 etapas, emociones, touchpoints (puntos de contacto) y datos faltantes claramente identificados y conectados al caso de Laura Mosquera. | Journey con 4-5 etapas, algunos elementos faltantes. | Journey incompleto o sin estructura clara. | No entrega journey o sin relacion al caso. |
+| **Mapa del recorrido del cliente (journey map)** | 15% | Recorrido completo con las 6 etapas, emociones, puntos de contacto (touchpoints) y datos faltantes claramente identificados y conectados al caso de Laura Mosquera. | Recorrido con 4-5 etapas, algunos elementos faltantes. | Recorrido incompleto o sin estructura clara. | No entrega recorrido o sin relacion al caso. |
 | **Oportunidad priorizada** | 35% | Selecciona oportunidad con justificacion estructurada (4 criterios), descarta 2+ alternativas con razon, ofrece una recomendacion inicial viable. | Selecciona oportunidad con justificacion parcial (3 criterios), descarta al menos 1 alternativa. | Selecciona oportunidad sin justificacion clara o sin comparar alternativas. | No prioriza o prioriza sin justificación. |
 | **Datos faltantes** | 10% | 5+ datos pertinentes, realistas y no triviales con explicación de para qué servirían. | 4-5 datos pertinentes. | Menos de 4 datos o datos triviales. | No entrega esta sección. |
 
@@ -145,7 +145,7 @@ Dolores esperados por categoria:
 
 ---
 
-### Seccion C — Journey map
+### Seccion C — Mapa del recorrido del cliente (journey map)
 
 Basado en el caso de Laura Mosquera (cliente que se fue):
 1. Descubrimiento: ve ropa en Instagram.
@@ -155,7 +155,7 @@ Basado en el caso de Laura Mosquera (cliente que se fue):
 5. Decision: se va sin comprar.
 6. Desercion: compra en Zara.
 
-Touchpoints (puntos de contacto): Instagram, tienda fisica, WhatsApp, llamada telefonica.
+Puntos de contacto (touchpoints): Instagram, tienda fisica, WhatsApp, llamada telefonica.
 Datos faltantes: inventario en tiempo real, consulta entre sucursales.
 
 ---
@@ -172,7 +172,7 @@ La prioridad esperada depende del analisis del estudiante, pero se espera que ju
 - Costo estimado: $2-5 millones COP (pesos colombianos) inicial.
 
 **Alternativas descartadas:**
-- CRM (gestion de relaciones con clientes) completo (esfuerzo alto, costo alto, complejo para etapa 1).
+- CRM (gestion de relaciones con clientes / Customer Relationship Management) completo (esfuerzo alto, costo alto, complejo para etapa 1).
 - App de delivery propia (fuera del alcance actual de la empresa).
 
 ---

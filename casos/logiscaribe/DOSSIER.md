@@ -14,34 +14,34 @@
 
 Estimado asesor:
 
-Le contactamos porque Llevamos años gestionando nuestra operacion con Excel, llamadas telefonicas y mucho excel. Somos un operador logistico pequeno pero con ambicion de crecer, y sentimos que si no cambian las cosas internamente no vamos a poder atender contratos mas grandes.
+Le escribimos porque llevamos anos gestionando nuestra operacion con Excel, llamadas telefonicas y hojas de calculo dispersas. Somos un operador logistico pequeno pero con ambicion de crecer, y sentimos que si no cambian las cosas internamente no vamos a poder atender contratos mas grandes.
 
-Hoy por hoy我们在 Logistics pebbles: entregas a tres empresas错了, bodegaje para dos clientes, servicio al cliente por telefono y WhatsApp. Cada conductor maneja su propia hoja de ruta en papel o en el celular. Cuando hay un reclamo, nous escuchamos el telefono y hope que alguien sepa la respuesta.
+Hoy por hoy operamos logistica de ultima milla: entregas a tres empresas, bodegaje para dos clientes, servicio al cliente por telefono y WhatsApp. Cada conductor maneja su propia hoja de ruta en papel o en el celular. Cuando hay un reclamo, atendemos el telefono y esperamos que alguien sepa la respuesta.
 
-Nuestro أكبر problema es que no tenemos visibilidad de donde esta la carga en tiempo real. Si un cliente pregunta donde esta su entrega, alguien tiene que llamar al conductor y rezar para que conteste. Eso no es escala.
+Nuestro mayor problema es que no tenemos visibilidad de donde esta la carga en tiempo real. Si un cliente pregunta donde esta su entrega, alguien tiene que llamar al conductor y rezar para que conteste. Eso no es escala.
 
 Tenemos un cliente importante — Distribuidora del Caribe S.A.S. — que nos ha dicho que si no mejoramos la trazabilidad, van a reconsiderar el contrato para el proximo año. Ese cliente representa el 40% de nuestros ingresos.
 
-Presupuesto para invertir en tecnologia: podemos destinar hasta $40.000.000 COP para los proximos 12 meses. Necesito una hoja de ruta que no pare la operacion, que muestre resultados rapidos y que nos prepare para competir por contratos mas grandes.
+Presupuesto para invertir en tecnologia: podemos destinar hasta $40.000.000 COP (pesos colombianos) para los proximos 12 meses. Necesito una hoja de ruta que no pare la operacion, que muestre resultados rapidos y que nos prepare para competir por contratos mas grandes.
 
 Quedo atento a su propuesta.
 Carlos Eduardo Martinez Puello
 Gerente General — LogisCaribe Operador Logistico S.A.S.
-NIT 890.112.345-1
+NIT (Numero de Identificacion Tributaria) 890.112.345-1
 
 ---
 
 ## 2. Descripcion de la empresa
 
 **Razon social:** LogisCaribe Operador Logistico S.A.S.
-**NIT:** 890.112.345-1
+**NIT (Numero de Identificacion Tributaria):** 890.112.345-1
 **Ubicacion:** Barranquilla, Atlantico (sede administrativa y bodega principal)
 **Fecha de fundacion:** 2015
-**Regimen:** Comun, responsable de IVA
+**Regimen:** Comun, responsable de IVA (Impuesto al Valor Agregado)
 **Representante legal:** Carlos Eduardo Martinez Puello
 
 **Servicios:**
-- Distribucion y ultimo kilom delicioso (DTA)
+- Distribucion y ultima milla (DTA — distribucion terrestre automatizada, en sentido operativo)
 - Bodegaje tercerizado
 - Servicio de Messengeria y puerta a puerta
 - Logistica inversa (devoluciones)
@@ -63,22 +63,22 @@ NIT 890.112.345-1
 ## 3. Descripcion del proceso actual
 
 ### 3.1 Recepcion de pedidos
-Los pedidos llegan por correo electronico, WhatsApp o llamada telefonica. No hay sistema de agendamiento unificado. El coordinador de operaciones (Maria del Carmen Arenas) copia los datos a un Excel de pendientes. Los pedidos se confirman por WhatsApp al cliente. No hay SLA formalizado.
+Los pedidos llegan por correo electronico, WhatsApp o llamada telefonica. No hay sistema de agendamiento unificado. El coordinador de operaciones (Maria del Carmen Arenas) copia los datos a un Excel de pendientes. Los pedidos se confirman por WhatsApp al cliente. No hay SLA (acuerdo de nivel de servicio / Service Level Agreement) formalizado.
 
 ### 3.2 Planificacion de rutas
 Las rutas se asignan por zona geografica, no por optimizacion. El coordinador arma las rutas "a ojo" con base en la experiencia. Los conductores reciben la hoja de ruta por WhatsApp en documento PDF. No hay forma de medir eficiencia de rutas.
 
 ### 3.3 Seguimiento en tiempo real
-No existe. Si un cliente pregunta, se llama alconductor. Los conductores usan celulares personales (Android, planes de datos basicos). No hay GPS en los vehiculos.
+No existe. Si un cliente pregunta, se llama al conductor. Los conductores usan celulares personales (Android, planes de datos basicos). No hay GPS (sistema de posicionamiento global / Global Positioning System) en los vehiculos.
 
 ### 3.4 Entrega
-El cliente recibe la carga sin firma digital. En muchos casos el recepte signs on a papel que los conductores deben fotografiar y enviar por WhatsApp. Esas imagenes seguardan en el celular del conductor, no en un repositorio centralizado.
+El cliente recibe la carga sin firma digital. En muchos casos el receptor firma en papel que los conductores deben fotografiar y enviar por WhatsApp. Esas imagenes se guardan en el celular del conductor, no en un repositorio centralizado.
 
 ### 3.5 Bodegaje
 Los espacios en bodega se asignan por cliente usando un plano de Excel. Las salidas se registran en una hoja de calculo separada. No hay control de inventario en tiempo real.
 
 ### 3.6 Facturacion
-Facturacion electronica por sistema contable. Los costos de flete secalculan manualmente en Excel. Las devoluciones generan notas credito manuales.
+Facturacion electronica por sistema contable. Los costos de flete se calculan manualmente en Excel. Las devoluciones generan notas credito manuales.
 
 ### 3.7 Servicio al cliente
 Atencion por WhatsApp y telefono. No hay sistema de tickets. El coordinator maneja todos los canales y es el unico que tiene visibilidad completa.
@@ -96,12 +96,12 @@ Atencion por WhatsApp y telefono. No hay sistema de tickets. El coordinator mane
 | Satisfaccion del cliente | 3.4/5.0 | Encuesta anual, sin sistema continuo |
 | Vehiculos con GPS | 0 de 12 | Ninguno |
 | Numero de rutas/dia | 6-8 | Variable |
-| Costo promedio por entrega | $38.500 COP | Sin desagregracion por zona |
-| Carga dañada o extraviada | $4.200.000/mes | Estimado gerente |
-| Cumplimiento de SLA formal | 0% | No hay SLA formal |
+| Costo promedio por entrega | $38.500 COP (pesos colombianos) | Sin desagregacion por zona |
+| Carga danada o extraviada | $4.200.000/mes COP (pesos colombianos) | Estimado gerente |
+| Cumplimiento de SLA (acuerdo de nivel de servicio / Service Level Agreement) formal | 0% | No hay SLA formal |
 | Retencion de clientes | ~80% anual | Historico sin datos finos |
 
-**Crecimiento del mercado:** El gerente estimates que el mercado regional de logistica en la Costa crece 15-20% anual, pero LogisCaribe only ha crecido 12% (below promedio del mercado).
+**Crecimiento del mercado:** El gerente estima que el mercado regional de logistica en la Costa crece 15-20% anual, pero LogisCaribe solo ha crecido 12% (por debajo del promedio del mercado).
 
 ---
 
@@ -114,11 +114,11 @@ Atencion por WhatsApp y telefono. No hay sistema de tickets. El coordinator mane
 **De:** Departamento de Logistica — Distribuidora del Caribe S.A.S.
 **Fecha:** 20 de enero de 2026
 
-.Att,
-  
-SOS con la trazabilidad. Llevamos tres meses pidiendo que cuando nosotros preguntemos por una entrega, no haya que esperar a que alguien llame al conductor y esperamos 40 minutos. 
+Atencion,
 
-Nuestros clientes (las tiendas de barrio) nos preguntan donde esta el pedido y nous no tenemos respuesta. Eso nos hace parecer unprofessional ante ellos.
+SOS con la trazabilidad. Llevamos tres meses pidiendo que cuando nosotros preguntemos por una entrega, no haya que esperar a que alguien llame al conductor y esperemos 40 minutos.
+
+Nuestros clientes (las tiendas de barrio) nos preguntan donde esta el pedido y nosotros no tenemos respuesta. Eso nos hace parecer poco profesionales ante ellos.
 
 La proxima semana tendre una reunion con mi junta para decidir si mantenemos el contrato. Necesito saber antes del primero de febrero que plan concreto tienen.
 
@@ -140,7 +140,7 @@ Director Logistica — Distribuidora del Caribe S.A.S.
 "Esa hoja de ruta en PDF a veces me llega cuando ya sali. A veces toca llamar a Maria para que me la reenvie. En la calle no tengo tiempo para eso."
 
 **Conductor (entrevista informal):**
-"A veces me toca entregar en una zona que no conozco y no tengo mapa actualizado. Pierdo tiempo preguntando. ElCelular a veces no tiene senal."
+"A veces me toca entregar en una zona que no conozco y no tengo mapa actualizado. Pierdo tiempo preguntando. El celular a veces no tiene senal."
 
 ---
 
@@ -156,14 +156,14 @@ Director Logistica — Distribuidora del Caribe S.A.S.
 - 12-oct: Carga recibida en bodega. Registro en Excel: 12 unidades.
 - 13-oct: Se arma ruta de entrega. El conductor recibe PDF por WhatsApp.
 - 14-oct: Se entregan 10 unidades. Firmas recolectadas en papel, fotografiadas por conductor.
-- 15-oct: HogarExpress reporta que faltaron 2 microondas. Valor aproximado: $1.800.000 COP.
+- 15-oct: HogarExpress reporta que faltaron 2 microondas. Valor aproximado: $1.800.000 COP (pesos colombianos).
 - 15-oct: LogisCaribe inicia busqueda. El conductor no tiene evidencia de entrega de las 2 unidades restantes.
 - 18-oct: LogisCaribe reconoce extravio parcial. Ofrece nota credito de $300.000.
-- 25-oct: HogarExpress amenaza con revelar el incident en el sector.
+- 25-oct: HogarExpress amenaza con revelar el incidente en el sector.
 
-**Resultado final:** LogisCaribe pago $900.000 COP como compensacion. El incident no fue compartido pubblicamente, pero si genero friccion con el cliente.
+**Resultado final:** LogisCaribe pago $900.000 COP (pesos colombianos) como compensacion. El incidente no fue compartido publicamente, pero si genero friccion con el cliente.
 
-**LecciOn aprendida por la gerencia:** Necesitamos firmas digitales y trazabilidad por GPS.
+**Leccion aprendida por la gerencia:** Necesitamos firmas digitales y trazabilidad por GPS (sistema de posicionamiento global / Global Positioning System).
 
 ---
 
@@ -171,12 +171,12 @@ Director Logistica — Distribuidora del Caribe S.A.S.
 
 | Restriccion | Detalle |
 |---|---|
-| Presupuesto para transformacion | $40.000.000 COP / 12 meses |
+| Presupuesto para transformacion | $40.000.000 COP (pesos colombianos) / 12 meses |
 | Disponibilidad de capital humano para el proyecto | Maria del Carmen Arenas (coordinadora) y Carlos Martinez (gerente) dedican 15 horas/semana maximo |
 | Operacion 24/7 | La empresa no puede detenerse. Los cambios deben ser incrementales. |
-| TecnologIa del equipo de campo | Celulares Android basicos. Conductores no son proficient users de tecnologia. |
-| TecnologIa en vehiculos | Ningun GPS. vehiculos propios, algunos rentados. |
-| Proveedor de TI actual | Sin proveedor habitual. La gerencia tiene conocimientos basicos de informatica. |
+| Tecnologia del equipo de campo | Celulares Android basicos. Conductores no son usuarios expertos de tecnologia. |
+| Tecnologia en vehiculos | Ningun GPS (sistema de posicionamiento global / Global Positioning System). Vehiculos propios, algunos rentados. |
+| Proveedor de TI (Tecnologias de la Informacion) actual | Sin proveedor habitual. La gerencia tiene conocimientos basicos de informatica. |
 | Situacion contractual delicada | Distribuidora del Caribe esta en periodo de evaluacion. |
 | Regulacion aplicable | Ministerio de Transporte (Decreto 1079/2015), Ley de Proteccion de Datos (Ley 1581/2012), normativa Dian para transporte de mercancias con establecimiento de comercio. |
 | Alianzas actuales | Union temporal con Transportemos S.A.S. para contrato con Distribuidora del Caribe. |
@@ -192,15 +192,15 @@ Director Logistica — Distribuidora del Caribe S.A.S.
 
 **Ley 1581 de 2012 — Proteccion de datos personales:**
 - Datos de clientes comerciales (razon social, contacto, direccion) son datos personales de caracter general.
-- Datos de conductores y vehiculos: campos de datos no sensibles pero subject a regulacion.
-- No aplica aun la incident area de salud.
+- Datos de conductores y vehiculos: campos de datos no sensibles pero sujetos a regulacion.
+- No aplica el ambito de datos de salud.
 
 **Circular Externa 01 de 2019 — Supersocietarias:**
-- Obligaciones de gobierno corporativo para sociedades con ingresos > 5.000 SMLMV.
-- LogisCaribe aun no reach este tamano, pero esta en trajectory.
+- Obligaciones de gobierno corporativo para sociedades con ingresos > 5.000 SMLMV (salarios minimos legales mensuales vigentes).
+- LogisCaribe aun no alcanza este tamano, pero esta en trayectoria de crecimiento.
 
 **NTC 5854 — Advertencia de estandares de accesibilidad:**
-- N/A para el proyecto inmediato, pero considera adaptaciones para discapacidad en interfaces.
+- N/A (no aplica) para el proyecto inmediato, pero considera adaptaciones para discapacidad en interfaces.
 
 ---
 
@@ -229,7 +229,7 @@ El estudiante debe actuar como estratega de transformacion digital y entregar un
    - Fase 3 (90 dias): integracion e indicadores.
 
 6. **Plan de gestion del cambio**:
-   - Roles impacted
+   - Roles impactados
    - Plan de formacion
    - Gestion de resistencia
 
@@ -237,14 +237,14 @@ El estudiante debe actuar como estratega de transformacion digital y entregar un
    - Al menos 5 riesgos
    - Probabilidad, impacto, mitigacion
 
-8. **Indicadores de exito (KPIs)**:
+8. **Indicadores de exito (KPIs — indicadores clave de desempeno / Key Performance Indicators)**:
    - Al menos 5 KPIs
    - Definicion y meta
 
 9. **Caso de negocio ligero**:
-   - Inversiobn estimada
+   - Inversion estimada
    - Beneficios esperados
-   - ROI aproximado
+   - ROI (retorno de la inversion / Return on Investment) aproximado
 
 10. **Sustentacion de 10 minutos** (presentacion ejecutiva ante la gerencia).
 

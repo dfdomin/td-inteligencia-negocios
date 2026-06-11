@@ -62,11 +62,11 @@ Un documento de maximo 10 paginas (sin contar anexos) que incluya:
 
 **Seccion C — Tecnologia habilitadora (2 paginas)**
 - Tecnologia seleccionada con justificacion (nombre de herramienta, categoria, razones).
-- Alternatives descartadas (al menos 2) con reason de descarte.
+- Alternativas descartadas (al menos 2) con razon de descarte.
 - Consideraciones de implementacion (integracion, datos existentes, capacidad del equipo).
 - Cumplimiento normativo (proteger datos de salud bajo Ley 1581).
 
-**Seccion D — Datos necesarios y KPIs (1.5 paginas)**
+**Seccion D — Datos necesarios y KPIs (indicadores clave de desempeno / Key Performance Indicators) (1.5 paginas)**
 - Datos que se requieren para operar la solucion.
 - Fuentes de datos identificadas.
 - 5 KPIs con definicion operacional y metas.
@@ -75,7 +75,7 @@ Un documento de maximo 10 paginas (sin contar anexos) que incluya:
 **Seccion E — Matriz de riesgos digitales (1.5 paginas)**
 - Al menos 5 riesgos especificos.
 - Para cada riesgo: descripcion, probabilidad (Alta/Media/Baja), impacto (Alto/Medio/Bajo), estrategia de mitigacion.
-- Al menos 2 riesgos deben связаться con proteccion de datos de salud.
+- Al menos 2 riesgos deben relacionarse con proteccion de datos de salud.
 
 **Seccion F — Prototipo conceptual (1 pagina)**
 - Mockup simple de la pantalla principal de la solucion propuesta (puede ser un wireframe a mano alzada descrito textualmente).
@@ -101,9 +101,9 @@ Un documento de maximo 10 paginas (sin contar anexos) que incluya:
 
 | Criterio | Peso | Destacado (90-100) | Satisfactorio (70-89) | En desarrollo (40-69) | Insuficiente (0-39) |
 |---|---|---|---|---|---|
-| **Proceso AS-IS** | 10% | Flujograma completo con todas las etapas, tiempos, puntos de friccion claramente marcados, causas raiz identificadas. | Flujograma con la mayoria de etapas y puntos de friccion. Faltan algunas causas raiz. | Flujograma incompleto o con pocas etapas. | No entrega o sin connection al caso. |
-| **Proceso TO-BE** | 20% | TO-BE completo con cambios bien justificados (por cada cambio: que problema resuelve), nuevo flujo de tiempo razonable. | TO-BE con mayoria de cambios justificados, flujos claros. | TO-BE incompleto o con justificaciones superficiales. | No entrega o copy del AS-IS sin cambios. |
-| **Tecnologia habilitadora** | 25% | Tecnologia bien justificada con 2+ alternativas descartadas, consideration de integration y capacidad del equipo, referencia a normatividad de datos de salud. | Tecnologia justificada con 1 alternativa descartada. | Tecnologia mencionada sin alternatives ni justificaciones. | No propone tecnologia o es inviable. |
+| **Proceso AS-IS** | 10% | Flujograma completo con todas las etapas, tiempos, puntos de friccion claramente marcados, causas raiz identificadas. | Flujograma con la mayoria de etapas y puntos de friccion. Faltan algunas causas raiz. | Flujograma incompleto o con pocas etapas. | No entrega o sin conexion al caso. |
+| **Proceso TO-BE** | 20% | TO-BE completo con cambios bien justificados (por cada cambio: que problema resuelve), nuevo flujo de tiempo razonable. | TO-BE con mayoria de cambios justificados, flujos claros. | TO-BE incompleto o con justificaciones superficiales. | No entrega o copia del AS-IS sin cambios. |
+| **Tecnologia habilitadora** | 25% | Tecnologia bien justificada con 2+ alternativas descartadas, consideracion de integracion y capacidad del equipo, referencia a normatividad de datos de salud. | Tecnologia justificada con 1 alternativa descartada. | Tecnologia mencionada sin alternativas ni justificaciones. | No propone tecnologia o es inviable. |
 | **Datos y KPIs** | 20% | 5+ KPIs bien definidos (formula o metodo de calculo, meta, frecuencia de medicion), datos y fuentes identificados. | 3-4 KPIs bien definidos. | Menos de 3 KPIs o sin definicion operacional. | No entrega esta seccion. |
 | **Matriz de riesgos** | 15% | 5+ riesgos con probabilidad, impacto y mitigacion. Al menos 2 riesgos de datos de salud. Conexion clara con la solucion propuesta. | 4 riesgos bien estructurados, al menos 1 de datos. | Menos de 4 riesgos o sin estructura. | No entrega o sin relación al caso. |
 | **Prototipo conceptual** | 10% | Wireframe bien descrito con funcionalidad clave de la solucion y flujo de uso. | Wireframe basico con funcionalidad principal. | Wireframe vago o sin descripcion de funcionalidad. | No entrega. |
@@ -136,9 +136,9 @@ Flujo esperado de autorizaciones (resumen):
 
 **Puntos de friccion esperados:**
 - Transcripcion manual a Excel (error humano).
-- Sin tracking: nadie sabe en que estado esta una solicitud.
+- Sin seguimiento: nadie sabe en que estado esta una solicitud.
 - Notificacion pasiva: paciente espera sin saber.
-- Sin SLA: EPS se toma el tiempo que quiera.
+- Sin SLA (acuerdo de nivel de servicio / Service Level Agreement): EPS se toma el tiempo que quiera.
 
 ---
 
@@ -146,10 +146,10 @@ Flujo esperado de autorizaciones (resumen):
 
 Cambios esperados:
 1. Solicitud electronica desde el sistema de informacion (no papel).
-2. Envio automatico a EPS por API o portal (si esta disponible).
-3. Tracking en tiempo real con estado visible para auxiliar y paciente.
+2. Envio automatico a EPS por API (interfaz de programacion de aplicaciones / Application Programming Interface) o portal (si esta disponible).
+3. Seguimiento en tiempo real con estado visible para auxiliar y paciente.
 4. Notificacion automatica por SMS/WhatsApp al paciente.
-5. Registro unico de authorization en base de datos.
+5. Registro unico de autorizacion en base de datos.
 
 **Tiempo esperado:** Reduccion de 12 dias a 3-5 dias.
 
@@ -158,10 +158,8 @@ Cambios esperados:
 ### Seccion C — Tecnologia
 
 Opciones fuertes para una IPS pequena:
-1. **Sistema de informacion hospitalario (SIES) o clinico** basico con modulo de autorizaciones. Ejemplos: Salvi, Sien, Sistema pryTEMIS (o desarrollo interno con AirTable como victoria rapida).
-2. **AirTable o similar** como solu
-
-cion transicional rapida ( bajo costo, sin desarrollo, permite tracking de solicitudes).
+1. **Sistema de informacion hospitalario (SIH) o clinico** basico con modulo de autorizaciones. Ejemplos: Salvi, Sien, Sistema pryTEMIS (o desarrollo interno con Airtable como victoria rapida).
+2. **Airtable o similar** como solucion transicional rapida (bajo costo, sin desarrollo, permite seguimiento de solicitudes).
 3. **Excel mejorado con macros** (ultima opcion, solo si no hay otra).
 
 Se espera que el estudiante considere el costo, la capacidad del equipo y la proteccion de datos de salud (Ley 1581, datos sensibles).
@@ -171,11 +169,11 @@ Se espera que el estudiante considere el costo, la capacidad del equipo y la pro
 ### Seccion D — KPIs
 
 KPIs esperados:
-1. **Tiempo promedio de authorization** (desde solicitud hasta autorizacion不得): meta < 3 dias.
+1. **Tiempo promedio de autorizacion** (desde solicitud hasta autorizacion): meta < 3 dias.
 2. **Tasa de autorizaciones rechazadas** (motivos de rechazo): meta < 10%.
-3. **Tasa de resolucion en primera llamada** (paciente recibe respuesta en el primer contact): meta > 80%.
-4. **Numero de PQRS por demora** (mensual): reduction del 78% actual.
-5. **Costo por proceso de authorization** (costo administrativo / solicitudes): reduccion del 20%.
+3. **Tasa de resolucion en primera llamada** (paciente recibe respuesta en el primer contacto): meta > 80%.
+4. **Numero de PQRS por demora** (mensual): reduccion del 78% actual.
+5. **Costo por proceso de autorizacion** (costo administrativo / solicitudes): reduccion del 20%.
 
 ---
 
@@ -183,10 +181,10 @@ KPIs esperados:
 
 Riesgos esperados:
 1. **Falla de integracion con EPS** — probabilidad media, impacto alto. Mitigacion: tener proceso alternativo en papel mientras tanto.
-2. **Filtracion de datos de salud** ( Ley 1581) — probabilidad baja, impacto muy alto. Mitigacion: encriptacion, politicas de acceso, minima informacion.
-3. **Resistencia del personal administrativo** — probabilidad alta, impacto medio. Mitigacion: formacion, involucramiento early.
-4. **Dependencia de proveedor tecnologico** — probabilidad media, impacto medio. Mitigacion: contratos con SLA, propiedad de datos.
-5. **Cambio de EPS sin API** — probabilidad alta, impacto bajo. Mitigacion: tener formatos PDF estandar como backup.
+2. **Filtracion de datos de salud** (Ley 1581) — probabilidad baja, impacto muy alto. Mitigacion: cifrado, politicas de acceso, minima informacion.
+3. **Resistencia del personal administrativo** — probabilidad alta, impacto medio. Mitigacion: formacion, involucramiento temprano.
+4. **Dependencia de proveedor tecnologico** — probabilidad media, impacto medio. Mitigacion: contratos con SLA (acuerdo de nivel de servicio / Service Level Agreement), propiedad de datos.
+5. **Cambio de EPS sin API** — probabilidad alta, impacto bajo. Mitigacion: tener formatos PDF estandar como respaldo.
 
 ---
 
