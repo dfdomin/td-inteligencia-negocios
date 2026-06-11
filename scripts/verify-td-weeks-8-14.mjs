@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Verifica semanas 1–7 TD: lectura/actividad → Supabase (TD-2026-2).
- * Uso: node scripts/verify-td-weeks-1-7.mjs [--local|--pages] [--1-7|--1-4|--5-7]
+ * Verifica semanas 8–14 TD: lectura/actividad → Supabase (TD-2026-2).
+ * Uso: node scripts/verify-td-weeks-8-14.mjs [--local|--pages] [--8-14|--8-10|--11-14]
  */
 import { chromium } from "playwright";
 import { spawn } from "child_process";
@@ -12,16 +12,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const OFFERING = "TD-2026-2";
 const PAGES_BASE = "https://dfdomin.github.io/td-inteligencia-negocios";
-const LOCAL_PORT = 8792;
+const LOCAL_PORT = 8793;
 
 const WEEKS = [
-  { semana: 1, path: "/semana1/", minXp: 40 },
-  { semana: 2, path: "/semana2/", minXp: 40 },
-  { semana: 3, path: "/semana3/", minXp: 40 },
-  { semana: 4, path: "/semana4/", minXp: 40 },
-  { semana: 5, path: "/semana5/", minXp: 30, parcial: true },
-  { semana: 6, path: "/semana6/", minXp: 40 },
-  { semana: 7, path: "/semana7/", minXp: 40 },
+  { semana: 8, path: "/semana8/", minXp: 40 },
+  { semana: 9, path: "/semana9/", minXp: 40 },
+  { semana: 10, path: "/semana10/", minXp: 30, parcial: true },
+  { semana: 11, path: "/semana11/", minXp: 40 },
+  { semana: 12, path: "/semana12/", minXp: 40 },
+  { semana: 13, path: "/semana13/", minXp: 40 },
+  { semana: 14, path: "/semana14/", minXp: 40 },
 ];
 
 function startServer() {
@@ -36,8 +36,8 @@ function startServer() {
 }
 
 function weekFilter(argv) {
-  if (argv.includes("--5-7")) return WEEKS.filter((w) => w.semana >= 5);
-  if (argv.includes("--1-4")) return WEEKS.filter((w) => w.semana <= 4);
+  if (argv.includes("--8-10")) return WEEKS.filter((w) => w.semana <= 10);
+  if (argv.includes("--11-14")) return WEEKS.filter((w) => w.semana >= 11);
   return WEEKS;
 }
 
@@ -197,7 +197,7 @@ async function main() {
 
   const browser = await chromium.launch({ headless: true });
   const rosterPage = await browser.newPage();
-  await rosterPage.goto(baseUrl + "/semana1/", { waitUntil: "domcontentloaded", timeout: 45000 });
+  await rosterPage.goto(baseUrl + "/semana8/", { waitUntil: "domcontentloaded", timeout: 45000 });
   await rosterPage.waitForFunction(() => !!window.GamifSDK, null, { timeout: 25000 });
   const student = await pickStudent(
     rosterPage,
@@ -246,7 +246,7 @@ async function main() {
   console.log("\n=== RESUMEN TD ·", student.name, "===\n");
   console.log("Pasaron:", results.length - failed, "/", results.length);
   if (failed) process.exit(1);
-  console.log("\n🎉 Semanas 1–7 TD — progreso en Supabase OK.\n");
+  console.log("\n🎉 Semanas 8–14 TD — progreso en Supabase OK.\n");
 }
 
 main();

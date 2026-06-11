@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana 14 — Evaluación final — LogisCaribe | TD</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1E2843; --accent: #2d3a5e; --gold: #FFDF2D; --green: #2e7d32;
+      --light-bg: #FAFAFA; --card-bg: #fff; --text: #212121; --muted: #546e7a;
+      --border: #DEDFE4; --radius: 12px;
+    }
+    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; }
+    header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 2.2rem 1.5rem; text-align: center; }
+    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; margin-bottom: .8rem; }
+    header h1 { font-size: 1.9rem; font-weight: 800; }
+    header p { opacity: .85; margin-top: .4rem; }
+    nav { background: #fff; border-bottom: 2px solid var(--border); padding: .6rem 1rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; }
+    nav a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: .85rem; padding: .3rem .7rem; border-radius: 8px; }
+    nav a:hover { background: var(--border); }
+    main { max-width: 960px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
+    .card, .method-card, .activity { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    .method-card { border-left: 6px solid var(--gold); }
+    .activity { border: 2px solid var(--border); }
+    h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .8rem; }
+    p { margin-bottom: .7rem; }
+    ul { padding-left: 1.3rem; margin-bottom: .7rem; }
+    .evidence { background: #e8f5e9; border-left: 4px solid var(--green); padding: 1rem 1.2rem; border-radius: 10px; }
+  </style>
+  <script src="../js/supabase-config.js"></script>
+  <script src="../js/gamification-sdk.js"></script>
+  <script src="../js/academic-rules.js"></script>
+  <script src="../js/academic-status-bar.js"></script>
+  <script src="../js/celebration.js"></script>
+  <script src="../js/week-auto-sync.js"></script>
+  <script src="../js/reading-tracker.js"></script>
+  <script src="../js/reading-xp-policy.js"></script>
+</head>
+<body>
+<header>
+  <span class="badge-module">TD — Transformación Digital</span>
+  <h1>Semana 14 — Evaluación final — LogisCaribe</h1>
+  <p>Estrategia integral de transformación digital · IUB — Inteligencia de Negocios</p>
+</header>
+<nav>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/">← Módulo</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/semana13/">Semana 13</a>
+  <a href="https://dfdomin.github.io/td-inteligencia-negocios/">Fin del módulo →</a>
+</nav>
+<main>
+  <section id="mision" class="card">
+    <h2>🎯 Propósito de la semana</h2>
+    <p>Formular la estrategia integral de transformación digital para el caso espejo LogisCaribe.</p>
+  </section>
+  <section id="teoria" class="method-card">
+    <h2>📚 Marco y contenido</h2>
+    <p>Resumen ejecutivo, diagnóstico, solución priorizada, roadmap, KPIs, gestión del cambio, riesgos y viabilidad.</p>
+  </section>
+  <section id="actividad" class="activity">
+    <h2>⚙️ Actividad práctica</h2>
+    <p>Integrar portafolio final y preparar presentación ejecutiva de 8 a 10 minutos.</p>
+    <div class="evidence"><strong>Evidencia:</strong> Portafolio final y sustentación con estrategia integral.</div>
+  </section>
+</main>
+  <script src="../js/td-week-boot.js"></script>
+</body>
+</html>
