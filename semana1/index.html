@@ -653,7 +653,7 @@
 <!-- ══ PROGRESS TRACKER SCRIPT ══ -->
 <script id="pt-js">
 function esc(s) { return String(s ?? "").replace(/[&<>"']/g, m => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[m])); }
-const PT = (function() {
+var PT = (function() {
   const SEMANA    = 1;
   const XP_MAX    = 50;
   const LS_KEY    = "td_s1";
@@ -992,5 +992,6 @@ else PT.init();
 })();
 </script>
 
+  <script src="../js/td-week-boot.js"></script>
 </body>
 </html>
