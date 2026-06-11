@@ -57,7 +57,7 @@ Esta sesion es doble: Exposiciones de estudiantes (que cubren tecnologias amplia
 ### Bloque 2 — Actividad practica (30 minutos)
 **Objetivo:** Que cada estudiante aplique una tecnologia a un problema especifico de Mercado360.
 
-1. Cada estudiante elige la tecnologia que mejor resuelve uno de los dores priorizados en semana 1.
+1. Cada estudiante elige la tecnología que mejor resuelve uno de los dolores priorizados en semana 1.
 2. Completar la ficha de tecnologia (plantilla).
 3. Presentacion rapida: 3 tecnologias diferentes en 5 minutos (los primeros 3 voluntarios).
 
@@ -77,7 +77,7 @@ Esta sesion es doble: Exposiciones de estudiantes (que cubren tecnologias amplia
 
 2. Introduccion al parcial 1 (10 min):
    - La proxima semana: Parcial 1. Caso: RetailNova.
-   - El estudiante debe aplicar todo lo aprendido: diagnostico de madurez, mapa de dores, journey map, oportunidad priorizada.
+   - El estudiante debe aplicar todo lo aprendido: diagnóstico de madurez, mapa de dolores, mapa del recorrido del cliente (journey map), oportunidad priorizada.
    - ?Que le falta a Mercado360 para estar donde esta RetailNova?
 
 ---

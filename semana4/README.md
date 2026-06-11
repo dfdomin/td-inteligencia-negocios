@@ -177,7 +177,7 @@ Las tecnologias se mueven en un ciclo de expectativa:
 **Que es:** Uso de software para ejecutar tareas repetitivas que antes hacia una persona, sin necesidad de intervencion manual.
 
 **Tipos:**
-- **RPA (Robotic Process Automation):** Robots de software que imitan clicks y打字 de humanos en sistemas existentes.
+- **RPA (Robotic Process Automation):** Robots de software que imitan clics y pulsaciones de teclado de humanos en sistemas existentes.
 - **BPM (Business Process Management):** Plataformas que permiten disenar, ejecutar y monitorear procesos automaticamente.
 - **API Integrations:** Conexion entre sistemas para que los datos fluyan sin transcripcion manual.
 
@@ -245,7 +245,7 @@ Las tecnologias se mueven en un ciclo de expectativa:
 **Duracion:** 30 minutos (durante o despues de las exposiciones).
 
 **Instrucciones:**
-1. Elegir la tecnologia que mas se adapte a los problemas priorizados de Mercado360 (del mapa de dores de semana 1).
+1. Elegir la tecnologia que mas se adapte a los problemas priorizados de Mercado360 (del mapa de dolores de semana 1).
 2. Completar la ficha de tecnologia (plantilla en carpeta semana4/).
 3. Presentar la ficha en 3 minutos al grupo.
 
@@ -257,7 +257,7 @@ Las tecnologias se mueven en un ciclo de expectativa:
 
 **Debe incluir:**
 1. Tecnologia seleccionada.
-2. Problema de Mercado360 que resuelve (con link a los dores de semana 1).
+2. Problema de Mercado360 que resuelve (con enlace a los dolores de semana 1).
 3. Como se aplicaria en Mercado360 (descripcion del uso).
 4. Beneficio esperado (en terminos de cliente, proceso y datos).
 5. Costo estimado (rango: bajo/medio/alto) y tiempo de implementacion.
@@ -298,7 +298,7 @@ Las tecnologias se mueven en un ciclo de expectativa:
 
 | Criterio | Peso | Destacado | Satisfactorio | En desarrollo | Insuficiente |
 |---|---|---|---|---|---|
-| Tecnologia vinculada a problema real | 20% | Tecnologia resuelve un dolor especifico de Mercado360 (citado de semana 1). | Tecnologia vinculada a un problema pero sin citation. | Tecnologia sin connection clara a problema. | No entrega. |
+| Tecnologia vinculada a problema real | 20% | Tecnologia resuelve un dolor especifico de Mercado360 (citado de semana 1). | Tecnologia vinculada a un problema pero sin cita. | Tecnologia sin conexión clara al problema. | No entrega. |
 | Descripcion de aplicacion | 20% | Aplicacion clara y detallada, con pasos de implementacion. | Aplicacion descrita pero incompleta. | Aplicacion vaga. | No entrega. |
 | Beneficios (cliente, proceso, datos) | 20% | Beneficios bien explicados en las 3 dimensiones, con metricas. | Beneficios en 2 dimensiones. | Beneficios en 1 dimensi | No entrega. |
 | Costo y tiempo estimado | 15% | Costo estimado en rango (bajo/medio/alto) + tiempo de implementacion realista. | Costo sin tiempo o viceversa. | Sin estimacion. | No entrega. |

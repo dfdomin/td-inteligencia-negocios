@@ -25,8 +25,8 @@ Digitalizacion es el proceso de convertir informacion analogica (papel, procesos
 **Ejemplo:** Pasar el registro de inventario de un cuaderno a una hoja de calculo Excel. El proceso sigue igual; solo cambia el medio.
 
 **Fuentes:**
-- Vial, V. (2019). *Transformacion digital: De这么简单o al negocio digital*. Routledge.
-- Kane, G.C. et al. (2015). "Digital preguntas y transformacion del negocio." MIT Sloan Management Review.
+- Vial, V. (2019). *Transformación digital: De lo simple al negocio digital*. Routledge.
+- Kane, G.C. et al. (2015). "Digital maturity and business transformation." MIT Sloan Management Review.
 
 ---
 
@@ -179,10 +179,10 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 
 | Criterio | Peso | Destacado | Satisfactorio | En desarrollo | Insuficiente |
 |---|---|---|---|---|---|
-| Ubicacion en madurez digital | 20% | Ubica a Mercado360 en un nivel con modelo citado y evidencia del caso. | Ubica con modelo citado pero justification parcial. | Sin modelo o sin evidencia. | No entrega. |
+| Ubicacion en madurez digital | 20% | Ubica a Mercado360 en un nivel con modelo citado y evidencia del caso. | Ubica con modelo citado pero justificación parcial. | Sin modelo o sin evidencia. | No entrega. |
 | Mapa de dolores (9+) | 30% | 9+ dolores bien estructurados, organizados por categoria, con causa e impacto. | 7-8 dolores bien estructurados. | 5-6 dolores incompletos. | Menos de 5. |
-| Priorizacion de 3 problemas | 30% | 3 problemas priorizados con justificacion clara (urgencia + impacto). | 3 problemas priorizados pero justification incompleta. | 1-2 problemas sin justification. | No prioriza. |
-| Reflexion final | 20% | Reflexion personal bien argumentada sobre por donde empezar, conecta con dolores. | Reflexion presente pero sin connection clara. | Reflexion superficial. | No entrega reflexion. |
+| Priorizacion de 3 problemas | 30% | 3 problemas priorizados con justificacion clara (urgencia + impacto). | 3 problemas priorizados pero justificación incompleta. | 1-2 problemas sin justificación. | No prioriza. |
+| Reflexion final | 20% | Reflexion personal bien argumentada sobre por donde empezar, conecta con dolores. | Reflexion presente pero sin conexión clara. | Reflexion superficial. | No entrega reflexion. |
 
 ---
 
@@ -190,7 +190,7 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 
 | Semana | Tema | Conexion con semana 1 |
 |---|---|---|
-| Semana 2 | Consumidor digital | Los dolores del cliente de Mercado360 se convierten en journey map. |
+| Semana 2 | Consumidor digital | Los dolores del cliente de Mercado360 se convierten en mapa del recorrido del cliente (journey map). |
 | Semana 3 | Procesos y automatizacion | Los dolores de proceso se convierten en AS-IS / TO-BE. |
 | Semana 4 | Tecnologias habilitadoras | ?Que tecnologia resuelve los dolores priorizados? |
 | Semana 5 | Parcial 1 | Se aplica el metodo a RetailNova. |

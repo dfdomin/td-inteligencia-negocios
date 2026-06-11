@@ -5,11 +5,11 @@
 
 ## 1. Enfoque de la sesion
 
-**Regla central:** El journey map no es decorativo. Cada punto del mapa debe responder a la pregunta: "?que decision permite tomar esto?"
+**Regla central:** El mapa del recorrido del cliente (journey map) no es decorativo. Cada punto del mapa debe responder a la pregunta: "¿qué decisión permite tomar esto?"
 
-El objetivo de la sesion es que el estudiante pase de "identificar dores" (semana 1) a "mapear la experiencia del cliente" (semana 2) y pueda proponer una mejora digital viable.
+El objetivo de la sesión es que el estudiante pase de "identificar dolores" (semana 1) a "mapear la experiencia del cliente" (semana 2) y pueda proponer una mejora digital viable.
 
-**Advertencia:** No dejar que el journey map se vuelva una lista de etapas sin fricciones. Si no hay friccion, no hay oportunidad de mejora.
+**Advertencia:** No dejar que el mapa del recorrido del cliente (journey map) se vuelva una lista de etapas sin fricciones. Si no hay fricción, no hay oportunidad de mejora.
 
 ---
 
@@ -26,11 +26,11 @@ El objetivo de la sesion es que el estudiante pase de "identificar dores" (seman
    - Comportamientos clave: omnicanalidad, impaciencia, comparacion instantanea.
    - No necesita memorizar datos, pero si debe entender que las expectativas cambiaron.
 
-3. Concepto de journey map (5 min):
+3. Concepto de mapa del recorrido del cliente (journey map) (5 min):
    - Mostrar ejemplo visual (puede ser caso de estudio de otra empresa).
    - Explicar que es una herramienta para encontrar fricciones, no solo para describir.
 
-**Nota:** Si tiene acceso a proyector, puede mostrar un ejemplo de journey map de una empresa conocida (Ej: Amazon, Falabella). Si no, usar un ejemplo en tablero.
+**Nota:** Si tiene acceso a proyector, puede mostrar un ejemplo de mapa del recorrido del cliente (journey map) de una empresa conocida (Ej: Amazon, Falabella). Si no, usar un ejemplo en tablero.
 
 ---
 
@@ -40,9 +40,9 @@ El objetivo de la sesion es que el estudiante pase de "identificar dores" (seman
 1. Presentar el escenario (5 min):
    "Cliente que ve algo en Instagram, pregunta por WhatsApp, va a la tienda y el producto no esta disponible."
    - Es el escenario mas comun en Mercado360 segun el caso.
-   - Es el que mas friccion tiene segun los dores de la semana 1.
+   - Es el que más fricción tiene según los dolores de la semana 1.
 
-2. Construir journey en grupo (20 min):
+2. Construir mapa del recorrido del cliente (journey) en grupo (20 min):
    - En tablero o papelografo, escribir las 6 etapas.
    - Pedir a los estudiantes que digan que hace el cliente en cada etapa, que siente, por donde interactua.
    - Anotar las fricciones y datos faltantes en cada etapa.
@@ -61,7 +61,7 @@ El objetivo de la sesion es que el estudiante pase de "identificar dores" (seman
 
 1. Trabajo en equipos (35 min):
    - Equipos de 3-4 personas.
-   - Construir journey map del escenario propuesto.
+   - Construir mapa del recorrido del cliente (journey map) del escenario propuesto.
    - Identificar etapa de mayor friccion.
    - Proponer UNA mejora digital viable.
 
@@ -82,7 +82,7 @@ El objetivo de la sesion es que el estudiante pase de "identificar dores" (seman
 
 2. Introduccion a semana 3 (10 min):
    - La semana que viene: Procesos y automatizacion.
-   - Vamos a tomar la etapa de mayor friccion del journey y redisenar el proceso de pedido por WhatsApp.
+   - Vamos a tomar la etapa de mayor fricción del recorrido del cliente (journey) y rediseñar el proceso de pedido por WhatsApp.
    - "?Cual es el proceso actual de un pedido en Mercado360?"
 
 ---
@@ -92,7 +92,7 @@ El objetivo de la sesion es que el estudiante pase de "identificar dores" (seman
 | Material | Cantidad | Uso |
 |---|---|---|
 | Caso Mercado360 | 1 por estudiante | Referencia |
-| Plantilla de journey map | 1 por estudiante | Actividad |
+| Plantilla de mapa del recorrido del cliente (journey map) | 1 por estudiante | Actividad |
 | Tablero o papelografo | 1 | Construccion grupal |
 | Marcadores | 4 | Tablero |
 
@@ -100,13 +100,13 @@ El objetivo de la sesion es que el estudiante pase de "identificar dores" (seman
 
 ## 4. Errores tipicos de los estudiantes
 
-1. **Hacer un journey sin fricciones.** Resolver: Preguntar "?y si no hay respuesta de WhatsApp en 30 minutos? ?Y si el producto no esta?"
+1. **Hacer un mapa del recorrido del cliente (journey) sin fricciones.** Resolver: Preguntar "¿y si no hay respuesta de WhatsApp en 30 minutos? ¿Y si el producto no está?"
 
 2. **Proponer una mejora que no resuelve la friccion identificada.** Resolver: "?Esa mejora le devuelve la confianza al cliente que se fue sin comprar?"
 
 3. **Proponer una mejora de costo alto sinjustificacion.** Resolver: "?Tiene Mercado360 presupuesto para eso? ?Cuanto tiempo tomaria implementarla?"
 
-4. **Confundir journey map con mapa de procesos.** Resolver: Journey map es desde la perspectiva del CLIENTE, no de la empresa. Si dice "el vendedor hace..." eso es proceso. Si dice "el cliente siente..." eso es journey.
+4. **Confundir mapa del recorrido del cliente (journey map) con mapa de procesos.** Resolver: El mapa del recorrido del cliente (journey map) es desde la perspectiva del CLIENTE, no de la empresa. Si dice "el vendedor hace..." eso es proceso. Si dice "el cliente siente..." eso es recorrido del cliente (journey).
 
 ---
 
@@ -136,21 +136,21 @@ No necesita memorizar numeros exactos, pero si debe entender que hay estudios qu
 ## 7. Notas sobre la evidencia (semana 2)
 
 **Criterios clave:**
-- Journey map con 6 etapas completas (emocion, accion, touchpoint, dolor, dato).
+- Mapa del recorrido del cliente (journey map) con 6 etapas completas (emoción, acción, punto de contacto (touchpoint), dolor, dato).
 - Identificacion clara de la etapa de mayor friccion.
 - Propuesta de mejora digital: descripcion, tecnologia, impacto, costo.
 
 **Zona de riesgo:** Los estudiantes suelen propose mejoras genericas como "hacer una app". El docente debe cuestionar: "?Que resuelve especificamente? ?Para quien? ?Cuanto cuesta? ?En cuanto tiempo se implementa?"
 
-**Calificacion rapida:** Si el journey tiene las 6 etapas con datos faltantes en cada una, y la propuesta de mejora tiene tecnologia + impacto + costo estimado, el estudiante tiene al menos 70%.
+**Calificación rápida:** Si el mapa del recorrido del cliente (journey) tiene las 6 etapas con datos faltantes en cada una, y la propuesta de mejora tiene tecnología + impacto + costo estimado, el estudiante tiene al menos 70%.
 
 ---
 
 ## 8. Seguimiento para semana 3
 
 La evidencia de semana 2 se conecta con semana 3:
-- La etapa de mayor friccion del journey map (generalmente: producto no disponible al ir a la tienda) se convierte en el problema central para el proceso AS-IS / TO-BE.
-- Los datos faltantes del journey se convierten en los datos que necesita Mercado360 para tomar decisiones.
+- La etapa de mayor fricción del mapa del recorrido del cliente (journey map) (generalmente: producto no disponible al ir a la tienda) se convierte en el problema central para el proceso AS-IS / TO-BE.
+- Los datos faltantes del recorrido del cliente (journey) se convierten en los datos que necesita Mercado360 para tomar decisiones.
 
 **Pregunta de apertura para semana 3:**
 "?Cual es el proceso actual de un pedido por WhatsApp en Mercado360 desde que el cliente escribe hasta que recibe el producto? ?Cuantas personas involucra? ?Cuantos pasos tiene? ?Donde se pierde informacion?"

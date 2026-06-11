@@ -19,7 +19,7 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 **Objetivo:** Que el estudiante distinga digitalizacion de transformacion digital.
 
 1. Pregunta inicial para el grupo (5 min):
-   "?Cuantos de ustedes han escuchado que una empresa 'se digitalizo' pero al final solo买了一套 software nuevo sin cambiar nada?"
+   "?Cuántos de ustedes han escuchado que una empresa 'se digitalizó' pero al final solo compró un software nuevo sin cambiar nada?"
 
 2. Concepto de digitalizacion (5 min):
    - Explicar con ejemplo: pasar inventario de cuaderno a Excel.
@@ -48,12 +48,12 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
    - No dar mas contexto que el que esta en el documento.
 
 2. Identificar dolores (15 min):
-   - En grupos de 3-4, identificar al menos 3 dolres por categoria.
+   - En grupos de 3-4, identificar al menos 3 dolores por categoría.
    - Usar la plantilla de mapa de dolores.
    - Circular por los grupos, hacer preguntas: "?Por que ocurre esto?", "?Desde cuando?", "?Quien se entera primero?"
 
 3. Socializacion rapida (5 min):
-   - Cada grupo comparte sus 3 dores mas urgentes.
+   - Cada grupo comparte sus 3 dolores más urgentes.
    - El docente anota en tablero o papelografo.
 
 **Errores comunes a evitar:**
@@ -68,7 +68,7 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 
 1. Entregar plantilla de mapa de dolores (5 min).
 2. Trabajo en equipos (20 min).
-3. Cada equipo presenta 3 dores en 3 minutos (15 min).
+3. Cada equipo presenta 3 dolores en 3 minutos (15 min).
 
 **Nota sobre la evidencia:**
 - La evidencia es individual, no grupal. El mapa de groupes una guia; el documento individual es lo que se califica.
@@ -146,10 +146,10 @@ Respuestas debles:
 **Criterios de evaluacion de la evidencia:**
 1. Ubica a Mercado360 en nivel de madurez con justificacion (no necesita ser Gartner perfecto, lo importante es que justifique con evidencia del caso).
 2. Mapa de 9+ dolores (3 por categoria minima).
-3. 3 problemas priorizados con justification (urgencia + impacto).
+3. 3 problemas priorizados con justificación (urgencia + impacto).
 4. Reflexion final sobre por donde empezar.
 
-**Calificacion rapida:** Si un estudiante entrega los 3 problemas priorizados con justification clara, ya tiene al menos 60% de la calificacion. El resto es calidad de justificacion y mapa de dolores.
+**Calificación rápida:** Si un estudiante entrega los 3 problemas priorizados con justificación clara, ya tiene al menos 60% de la calificación. El resto es calidad de justificación y mapa de dolores.
 
 **Zona de riesgo:** El error mas comun es identificar sintomas sin causas raiz. Revisar que cada dolor tenga causa e impacto, no solo descripcion.
 
@@ -158,11 +158,11 @@ Respuestas debles:
 ## 8. Seguimiento para semana 2
 
 La evidencia de la semana 1 se usa como insumo para la semana 2:
-- Los 3 problemas priorizados se convierten en entrada para el journey map.
+- Los 3 problemas priorizados se convierten en entrada para el mapa del recorrido del cliente (journey map).
 - El nivel de madurez de Mercado360 se confirma en el parcial 1 con RetailNova.
 
 **Pregunta de apertura para semana 2:**
-"?Si los problemas priorizados son de cliente, proceso y datos, ?como es la experiencia del cliente de Mercado360 en cada touchpoint?"
+"?Si los problemas priorizados son de cliente, proceso y datos, ¿cómo es la experiencia del cliente de Mercado360 en cada punto de contacto (touchpoint)?"
 
 ---
 

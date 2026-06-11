@@ -5,7 +5,7 @@
 
 ## Proposito de la semana
 
-Comprender como cambia el comportamiento del cliente en un entorno digital y como eso exige redisenar experiencias. El estudiante aplicara el concepto construyendo un journey map de Mercado360.
+Comprender como cambia el comportamiento del cliente en un entorno digital y como eso exige rediseñar experiencias. El estudiante aplicará el concepto construyendo un mapa del recorrido del cliente (journey map) de Mercado360.
 
 **Preguntas clave:**
 - ?Como se comporta un consumidor digital en Colombia?
@@ -57,9 +57,9 @@ La propuesta de valor es la promesa que una empresa hace a su cliente: lo que le
 
 ### 1.3 Journey map del cliente
 
-El journey map es una representacion visual de la experiencia de un cliente con la empresa, paso a paso, incluyendo emociones, touchpoints, canales y oportunidades de mejora.
+El mapa del recorrido del cliente (journey map) es una representación visual de la experiencia de un cliente con la empresa, paso a paso, incluyendo emociones, puntos de contacto (touchpoints), canales y oportunidades de mejora.
 
-**Etapas tipicas de un journey de compra:**
+**Etapas típicas de un recorrido del cliente (journey) de compra:**
 1. **Descubrimiento:** El cliente se entera de la empresa.
 2. **Consideracion:** Evalua opciones y compara.
 3. **Decision:** Decide comprar.
@@ -67,7 +67,7 @@ El journey map es una representacion visual de la experiencia de un cliente con 
 5. **Entrega/Servicio:** Recibe el producto o servicio.
 6. **Posventa:** Necesita soporte o quiere volver a comprar.
 
-**En transformacion digital:** Cada etapa del journey puede tener fricciones o momentos de verdad. El objetivo es identificar donde pierde el cliente y por que.
+**En transformación digital:** Cada etapa del recorrido del cliente (journey) puede tener fricciones o momentos de verdad. El objetivo es identificar dónde pierde el cliente y por qué.
 
 **Enfoque de tres capas:**
 - **Emocion:** ?Que siente el cliente en cada etapa? (frustracion, confusion, satisfaccion).
@@ -124,7 +124,7 @@ El journey map es una representacion visual de la experiencia de un cliente con 
 
 ## 3. Oportunidades de mejora para Mercado360
 
-| Oportunidad | Etapa del journey | Dolor que resuelve | Impacto estimado |
+| Oportunidad | Etapa del recorrido del cliente (journey) | Dolor que resuelve | Impacto estimado |
 |---|---|---|---|
 | Inventario en tiempo real consultable por WhatsApp | Consideracion/Contacto | Cliente no sabe si hay producto | +15% conversion |
 | Confirmacion automatica de disponibilidad | Contacto/Decision | Incertidumbre, perdida de venta | +10% conversion |
@@ -136,15 +136,15 @@ El journey map es una representacion visual de la experiencia de un cliente con 
 
 ## 4. Actividad practica
 
-### Taller: Journey Map del Cliente de Mercado360
+### Taller: Mapa del recorrido del cliente (journey map) de Mercado360
 
 **Duracion:** 40 minutos.
 
 **Instrucciones:**
 1. En equipos de 3-4 personas.
-2. Construyan un journey map de UN escenario especifico:
-   - "Cliente que ve algo en Instagram, pregunta por WhatsApp, va a la tienda y el producto no esta disponible."
-3. Para cada etapa del journey, identificar:
+2. Construyan un mapa del recorrido del cliente (journey map) de UN escenario específico:
+   - "Cliente que ve algo en Instagram, pregunta por WhatsApp, va a la tienda y el producto no está disponible."
+3. Para cada etapa del recorrido del cliente (journey), identificar:
    - Emocion del cliente.
    - Accion del cliente.
    - Touchpoint.
@@ -163,7 +163,7 @@ El journey map es una representacion visual de la experiencia de un cliente con 
 
 **Debe incluir:**
 1. Journey map completo con las 6 etapas (Descubrimiento a Posventa).
-2. Para cada etapa: emocion, accion, touchpoint, dolor, dato faltante.
+2. Para cada etapa: emoción, acción, punto de contacto (touchpoint), dolor, dato faltante.
 3. Identificacion de la etapa con mayor friccion (con justificacion).
 4. Propuesta de UNA mejora digital para esa etapa con:
    - Descripcion de la mejora.
@@ -205,8 +205,8 @@ El journey map es una representacion visual de la experiencia de un cliente con 
 
 | Criterio | Peso | Destacado | Satisfactorio | En desarrollo | Insuficiente |
 |---|---|---|---|---|---|
-| Journey map completo (6 etapas) | 30% | Las 6 etapas con los 5 elementos cada una (emocion, accion, touchpoint, dolor, dato). | 5 etapas completas. | 3-4 etapas completas. | Menos de 3 etapas. |
-| Identificacion de etapa de mayor friccion | 20% | Identifica etapa con justification basada en evidencia del caso. | Identifica etapa sin justification clara. | No identifica o justification insuficiente. | No entrega. |
+| Mapa del recorrido del cliente (journey map) completo (6 etapas) | 30% | Las 6 etapas con los 5 elementos cada una (emoción, acción, punto de contacto (touchpoint), dolor, dato). | 5 etapas completas. | 3-4 etapas completas. | Menos de 3 etapas. |
+| Identificacion de etapa de mayor friccion | 20% | Identifica etapa con justificación basada en evidencia del caso. | Identifica etapa sin justificación clara. | No identifica o justificación insuficiente. | No entrega. |
 | Propuesta de mejora digital | 30% | Mejora bien descrita, tecnologia identificada, impacto justificado, costo estimado. | Mejora descrita con algunos elementos faltantes. | Mejora vaga sin especificacion. | No entrega. |
 | Estructura y claridad | 20% | Documento claro, bien estructurado, maximo 4 paginas. | Documento claro con maximo 4 paginas. | Documento desorganizado o > 4 paginas. | No entrega. |
 
@@ -216,7 +216,7 @@ El journey map es una representacion visual de la experiencia de un cliente con 
 
 | Semana | Tema | Conexion con semana 2 |
 |---|---|---|
-| Semana 1 | Diagnostico de madurez digital | Los dolores del cliente del mapa se convierten en entrada para el journey. |
-| Semana 3 | Procesos y automatizacion | Los touchpoints con friccion se convierten en oportunidades de automatizacion. |
-| Semana 7 | Datos y analitica | Los datos faltantes del journey se convierten en KPIs. |
-| Semana 5 | Parcial 1 | Se aplica el metodo del journey a RetailNova. |
+| Semana 1 | Diagnostico de madurez digital | Los dolores del cliente del mapa se convierten en entrada para el recorrido del cliente (journey). |
+| Semana 3 | Procesos y automatizacion | Los puntos de contacto (touchpoints) con friccion se convierten en oportunidades de automatizacion. |
+| Semana 7 | Datos y analitica | Los datos faltantes del recorrido del cliente (journey) se convierten en KPIs. |
+| Semana 5 | Parcial 1 | Se aplica el metodo del recorrido del cliente (journey) a RetailNova. |

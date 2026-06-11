@@ -12,7 +12,7 @@
 1. Identificar AL MENOS 3 dolores por cada categoria.
 2. Para cada dolor, especificar: descripcion, causa raiz, impacto.
 3. Usar evidencia del dossier o caso para soportar cada dolor.
-4. Marcar con (*) los 3 dores que considera mas urgentes.
+4. Marcar con (*) los 3 dolores que considera más urgentes.
 
 ---
 
