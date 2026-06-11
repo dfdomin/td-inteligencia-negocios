@@ -15,7 +15,7 @@ Debe incluir:
 - descripcion breve del negocio;
 - mapa de dolores;
 - diagnostico de madurez digital;
-- journey map inicial;
+- mapa del recorrido del cliente (journey map) inicial;
 - problema priorizado;
 - justificacion con impacto en cliente, proceso o datos.
 
@@ -56,7 +56,7 @@ Debe incluir:
 
 | Criterio | Peso |
 |---|---:|
-| Conexion problema-proceso-tecnologia | 25% |
+| Conexión problema-proceso-tecnología | 25% |
 | Aplicacion al caso asignado | 25% |
 | Viabilidad con recursos limitados | 20% |
 | Uso de datos, metricas y riesgos | 20% |
