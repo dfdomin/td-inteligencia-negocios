@@ -12,7 +12,7 @@ Diagnostico de transformacion digital.
 
 - Diagnostico de madurez.
 - Mapa de dolores.
-- Journey map.
+- Mapa del recorrido del cliente (journey map).
 - Problema priorizado.
 - Justificacion del impacto.
 

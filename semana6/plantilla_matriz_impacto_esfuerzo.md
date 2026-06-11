@@ -38,7 +38,7 @@ Para cada oportunidad, asigna:
   - 2 = Esfuerzo medio: requiere 1-4 semanas, puede necesitar alguien externo o una inversion moderada.
   - 3 = Alto esfuerzo: mas de 1 mes, requiere inversion significativa, cambios organizacionales o desarrollo tecnico complejo.
 
-- **Justificacion:** Por que asignaste ese nivel de impacto y ese nivel de esfuerzo.的理由要具体，基于案例中的证据。
+- **Justificación:** Por qué asignaste ese nivel de impacto y ese nivel de esfuerzo. La justificación debe ser concreta y basada en evidencia del caso.
 
 ---
 

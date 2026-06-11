@@ -9,7 +9,7 @@
 
 Esta semana cierra el ciclo de diagnostico que empezo en la semana 1. Los estudiantes tienen dolores, han mappeado procesos, conocen tecnologias. Ahora el trabajo es transformar esa informacion en una solucion candidate con criterio de seleccion.
 
-**Advertencia critica:** No dejar que los estudiantes propongan soluciones antes de revisar los dolores. La tentacion es сказать " Mercado360 necesita una app". Eso no es innovacion, es copy-paste de lo que otro hizo. La inovacion empieza en el dolor, no en la tecnologia.
+**Advertencia crítica:** No dejar que los estudiantes propongan soluciones antes de revisar los dolores. La tentación es decir "Mercado360 necesita una app". Eso no es innovación, es copiar lo que otro hizo. La innovación empieza en el dolor, no en la tecnología.
 
 ---
 
@@ -139,7 +139,7 @@ Circular por los grupos. Preguntas recomendadas:
 - Hacer preguntas que obliguen a conectar la solucion con el dolor especifico.
 - Celebrar cuando un equipo descart una oportunidad con criterio. Eso es mas valioso que agregar ideas.
 - Recordar que el objetivo no es la solucion perfecta, sino la solucion verificable.
-- Preguntar siempre: "?Como se testeа esto con 20 clientes en 2 semanas sin codigo?"
+- Preguntar siempre: "¿Cómo se prueba esto con 20 clientes en 2 semanas sin código?"
 
 ### Que NO hacer:
 
@@ -294,7 +294,7 @@ La evidencia de la semana 6 se convierte en insumo para la semana 7 (Datos y met
 - La semana 7 definira: ?Como se mide el exito del quick win? ?Que datos se necesitan? ?Con que frecuencia se revisan?
 
 **Pregunta de apertura para semana 7:**
-"Si la solucion candidate es un WhatsApp que consulta inventario, ?como sabriamos en 2 semanas si esta funcionando o no? ?Que metricas deberiamos追踪?"
+"Si la solución candidata es un WhatsApp que consulta inventario, ¿cómo sabríamos en 2 semanas si está funcionando o no? ¿Qué métricas deberíamos rastrear?"
 
 ---
 

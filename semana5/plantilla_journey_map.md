@@ -1,4 +1,4 @@
-# Plantilla: Journey Map — Experiencia de Frustración del Cliente
+# Plantilla: Mapa del recorrido del cliente (journey map) — Experiencia de Frustración del Cliente
 
 ## Nombre del estudiante: _______________________________________
 
@@ -34,16 +34,16 @@ Esta plantilla te ayuda a mapear la experiencia de un cliente de RetailNova que 
 
 | Campo | Respuesta |
 |---|---|
-| **Problema principal del journey** | _ |
+| **Problema principal del recorrido del cliente (journey)** | _ |
 | **Expectativa del cliente antes de la experiencia** | _ |
 | **Qué esperaba encontrar vs. qué encontró** | _ |
 | **Evidencia del dossier que respalda este problema** | _ |
 
 ---
 
-## Paso 3: Mapea las etapas del journey
+## Paso 3: Mapea las etapas del recorrido del cliente (journey)
 
-Completa la tabla con cada etapa del journey. Un journey de frustración debe tener mínimo 4 etapas y máximo 8. Cada etapa debe incluir acción, dolor, emoción, punto de contacto (touchpoint) y dato faltante.
+Completa la tabla con cada etapa del recorrido del cliente (journey). Un recorrido de frustración debe tener mínimo 4 etapas y máximo 8. Cada etapa debe incluir acción, dolor, emoción, punto de contacto (touchpoint) y dato faltante.
 
 ---
 
@@ -168,7 +168,7 @@ Completa la tabla con cada etapa del journey. Un journey de frustración debe te
 
 ---
 
-## Paso 4: Visualización del Journey (gráfico de emociones)
+## Paso 4: Visualización del recorrido del cliente (journey) (gráfico de emociones)
 
 Basado en las emociones que asignaste a cada etapa, indica el nivel emocional en el gráfico:
 
@@ -206,7 +206,7 @@ Emoción
 
 ## Paso 5: Datos faltantes identificados
 
-Enumera los datos que no estaban disponibles durante el journey y que causaron o agravaron la frustración:
+Enumera los datos que no estaban disponibles durante el recorrido del cliente (journey) y que causaron o agravaron la frustración:
 
 | # | Dato faltante | Etapa donde ocurre | Impacto en la experiencia | ¿Cómo se resuelve? |
 |---|---|---|---|---|
@@ -232,7 +232,7 @@ Enumera los datos que no estaban disponibles durante el journey y que causaron o
 
 ## Paso 7: Oportunidades de mejora priorizadas
 
-Con base en el journey map, enumera las oportunidades de mejora más urgentes:
+Con base en el mapa del recorrido del cliente (journey map), enumera las oportunidades de mejora más urgentes:
 
 | Prioridad | Oportunidad | Etapa(s) afectada(s) | ¿Por qué es urgente? |
 |---|---|---|---|
@@ -244,7 +244,7 @@ Con base en el journey map, enumera las oportunidades de mejora más urgentes:
 
 ## Nota para el estudiante
 
-El mapa del recorrido del cliente (journey map) debe ser una herramienta accionable, no un ejercicio decorativo. Cada etapa debe ayudarte a identificar qué dato falta, qué punto de contacto (touchpoint) falla, y dónde puedes intervenir. Si tu journey no te lleva a ninguna recomendación concreta, revisa si estás siendo lo suficientemente específico.
+El mapa del recorrido del cliente (journey map) debe ser una herramienta accionable, no un ejercicio decorativo. Cada etapa debe ayudarte a identificar qué dato falta, qué punto de contacto (touchpoint) falla, y dónde puedes intervenir. Si tu recorrido del cliente (journey) no te lleva a ninguna recomendación concreta, revisa si estás siendo lo suficientemente específico.
 
 El caso de Laura Mosquera es el más completo del dossier y tiene casi todas las etapas que necesitas. Puedes usarlo como base pero adaptar los detalles si lo consideras necesario. Lo que no puedes hacer es inventar etapas que no tengan soporte en el dossier.
 
@@ -340,4 +340,4 @@ El caso de Laura Mosquera es el más completo del dossier y tiene casi todas las
 
 ---
 
-*Fin de la plantilla de Journey Map*
+*Fin de la plantilla de mapa del recorrido del cliente (journey map)*

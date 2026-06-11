@@ -84,7 +84,7 @@
 |---|---|
 | Dossier de RetailNova (DOSSIER.md) | Versión impresa o digital,sin annotaciones externas agregadas por el docente |
 | Notas de clase semanas 1-4 | Produccidas por el propio estudiante |
-| Plantillas proporcionadas | Plantilla de mapa de dolores y journey map (estas notas del profesor) |
+| Plantillas proporcionadas | Plantilla de mapa de dolores y mapa del recorrido del cliente (journey map) (estas notas del profesor) |
 | Calculadora | Sin conexión a internet |
 | Lápiz, lapicero, resaltador | Libre |
 | Cuaderno de apuntes personal | Solo si fue producido durante el curso |
@@ -95,8 +95,8 @@
 |---|---|
 | Internet (navegadores, WhatsApp Web) | Se invalida la evaluación como trabajo individual |
 | Chat con compañeros | Cuaderno de apuntes personal; no comparte información |
-| Dossier con notas externas agregadas por el docente |公平竞争 |
-| Plantillas que ya traen respuestas completas |perjudicial para el aprendizaje |
+| Dossier con notas externas agregadas por el docente | Competencia desleal |
+| Plantillas que ya traen respuestas completas | Perjudicial para el aprendizaje |
 | Inteligencia artificial generativa | viola el principio de evaluación individual |
 
 ### 2.3 Consecuencias de infringe las reglas
@@ -118,7 +118,7 @@
 |---|---|---|---|
 | A — Madurez digital | 20 | 20 min | Modelo citado, nivel justificado, 5+ dimensiones, evidencia del dossier |
 | B — Mapa de dolores | 20 | 20 min | 9 dolores mínimo, organizados por categoría, causa raíz + impacto |
-| C — Journey map | 15 | 15 min | 6 etapas, emociones, touchpoints, datos faltantes, conexión a Laura Mosquera |
+| C — Mapa del recorrido del cliente (journey map) | 15 | 15 min | 6 etapas, emociones, puntos de contacto (touchpoints), datos faltantes, conexión a Laura Mosquera |
 | D — Oportunidad priorizada | 35 | 25 min | 1 oportunidad seleccionada, 4 criterios de justificación, 2+ alternativas descartadas, recomendación viable |
 | E — Datos faltantes | 10 | 10 min | 5+ datos no triviales, con explicación de para qué servirían |
 | **Total** | **100** | **90 min** | |
@@ -168,38 +168,38 @@ Evidencia: no existe sistema centralizado; datos de clientes en celulares person
 4. Inconsistencia entre lo que se confirma por WhatsApp y lo que hay físicamente — causa: sin consulta en tiempo real entre sucursales — impacto: pérdida de confianza.
 
 **Proceso (minimo 3):**
-1. Inventario desactualizado (difierе en 15-20% de SKUs) genera ventas perdidas y sobreestimación de stock — causa: Excel no sincronizado entre tiendas — impacto: pérdida directa de ventas.
+1. Inventario desactualizado (difiere en 15-20% de SKU (referencia de producto / Stock Keeping Unit)) genera ventas perdidas y sobreestimación de stock — causa: Excel no sincronizado entre tiendas — impacto: pérdida directa de ventas.
 2. Devoluciones sin política clara generan conflicto en punto de venta — causa: no hay documento de política — impacto: tensión con cliente, decisión arbitraria.
-3. Promociones sin código de seguimiento ni medición de conversión — causa: no hay métrica niUTM — impacto: inversión a ciegas.
-4. Datos de clientes en celulares personales — causa: sin CRM ni sistema compartido — impacto: riesgo de pérdida de información si el vendedor se va.
+3. Promociones sin código de seguimiento ni medición de conversión — causa: no hay métrica ni UTM (parámetros de seguimiento en enlaces web / Urchin Tracking Module) — impacto: inversión a ciegas.
+4. Datos de clientes en celulares personales — causa: sin CRM (gestión de relaciones con clientes / Customer Relationship Management) ni sistema compartido — impacto: riesgo de pérdida de información si el vendedor se va.
 5. Pedidos de reabastecimiento por WhatsApp sin sistema de reorderpoint — causa: sin proceso estandarizado — impacto: excesos o faltantes de inventario.
 
 **Gerencia (mínimo 3):**
 1. Decisiones basadas en intuición no en datos — causa: sin datos centralizados — impacto: estrategia reactiva.
-2. Sin visibilidad de inventario en tiempo real entre sucursales — causa: Excel no sincronizado — impacto:无法resolver consultas de clientes entre tiendas.
+2. Sin visibilidad de inventario en tiempo real entre sucursales — causa: Excel no sincronizado — impacto: imposibilidad de resolver consultas de clientes entre tiendas.
 3. Inversión en promociones sin metricas de retorno — causa: no hay KPIs definidos — impacto: presupuesto desperdiciado.
 4. Dependencia de Microsoft Excel/ cuadernos — causa: sin sistema — impacto: datos descoordinados, alto error manual.
 5. Sin equipo de TI ni capacidad interna de implementación — causa: empresa pequena sin área de sistemas — impacto: cualquier solución debe ser low-code o externalizada.
 
 **Señales de alerta:**
-- ❌ Lista 9 Dolan sin因果关系 (causa raíz).
-- ❌ Los Dolan no tienen nada que ver con el dossier (ejemplo: habla de problemas de供应链global).
-- ❌ Los Dolan son genéricos ("mala comunicación", "falta de tecnología") sin especificidad al caso RetailNova.
+- ❌ Lista 9 dolores sin causa raíz.
+- ❌ Los dolores no tienen nada que ver con el dossier (ejemplo: habla de problemas de cadena de suministro global).
+- ❌ Los dolores son genéricos ("mala comunicación", "falta de tecnología") sin especificidad al caso RetailNova.
 
 ---
 
-#### Sección C — Journey Map (15 pts)
+#### Sección C — Mapa del recorrido del cliente (journey map) (15 pts)
 
 **Escala rápida:**
 
 | Puntuación | Indicador | Qué escribir |
 |---|---|---|
-| 13-15 | 6 etapas completas, emociones, touchpoints, datos faltantes claramente linkados al caso de Laura Mosquera | "Destacado: journey completo y bien estructurado." |
-| 9-12 | 4-5 etapas, la mayoria de elementos presentes, conexión parcial a Laura Mosquera | "Satisfactorio: journey correcto, pocos elementos faltantes." |
-| 4-8 | Journey incompleto, sin estructura clara, sin conexión clara a Laura | "En desarrollo: journey incompleto o sin estructura." |
-| 0-3 | No entrega journey o no tiene relación con Laura Mosquera | "Insuficiente." |
+| 13-15 | 6 etapas completas, emociones, puntos de contacto (touchpoints), datos faltantes claramente vinculados al caso de Laura Mosquera | "Destacado: recorrido del cliente (journey) completo y bien estructurado." |
+| 9-12 | 4-5 etapas, la mayoría de elementos presentes, conexión parcial a Laura Mosquera | "Satisfactorio: recorrido del cliente (journey) correcto, pocos elementos faltantes." |
+| 4-8 | Recorrido del cliente (journey) incompleto, sin estructura clara, sin conexión clara a Laura | "En desarrollo: recorrido incompleto o sin estructura." |
+| 0-3 | No entrega mapa del recorrido del cliente (journey map) o no tiene relación con Laura Mosquera | "Insuficiente." |
 
-**Journey esperado basado en Laura Mosquera:**
+**Recorrido del cliente (journey) esperado basado en Laura Mosquera:**
 
 | Etapa | Acción del cliente | Dolor | Emoción | Touchpoint | Dato que falta |
 |---|---|---|---|---|---|
@@ -211,8 +211,8 @@ Evidencia: no existe sistema centralizado; datos de clientes en celulares person
 | 6. Compra alternativa | Compra en Zara del centro comercial | Ninguno (satisfacción en competencia) | Alivio, gratificación | Tienda Zara | Ninguno |
 
 **Señales de alerta:**
-- ❌ Journey que empieza en la tienda sin incluir el descubrimiento por Instagram.
-- ❌ Journey con emociones genéricas ("estuvo bien", "estuvo mal") sin matiz.
+- ❌ Recorrido del cliente (journey) que empieza en la tienda sin incluir el descubrimiento por Instagram.
+- ❌ Recorrido del cliente (journey) con emociones genéricas ("estuvo bien", "estuvo mal") sin matiz.
 - ❌ Sin hacer referencia a Laura Mosquera o sin usar los datos del dossier.
 - ❌ Touchpoint incorrecto: asignar datos faltantes a WhatsApp cuando el problema fue en tienda física.
 
@@ -433,13 +433,13 @@ Para mantener consistencia:
 Antes de iniciar el parcial, verificar:
 
 - [ ] Dossier distribuidos a todos los estudiantes.
-- [ ] Plantillas (mapa de dolores, journey map) disponibles.
+- [ ] Plantillas (mapa de dolores, mapa del recorrido del cliente (journey map)) disponibles.
 - [ ] Tablero o proyección con tiempos visibles.
 - [ ] Lista de asistencia actualizada.
 - [ ] Adaptaciones diferenciadas aplicadas (si hay).
 - [ ] Reglas del parcial comunicadas.
 - [ ] Celulares apartados o en modo avión.
-- [ ] Hojas de respuesta準備 (si es en papel).
+- [ ] Hojas de respuesta preparadas (si es en papel).
 - [ ] Puntos de recogida identificados.
 - [ ] Cronómetro o alarma configurado para minutos 5, 85 y 90.
 
@@ -463,4 +463,4 @@ Este parcial busca evaluar si el estudiante:
 - Justificación estructurada de decisiones.
 - Conexión entre los datos del dossier y las propuestas.
 
-El parcial está diseñado para que un estudiante que haya leído el dossier y participado en las semanas 1-4 tenga todo lo necesario para entregar un producto sólido en 90 minutos. La clave está en que no pueden护肤 soluciones genéricas; deben evidenciar que entendieron el negocio antes de proponer tecnología. Penalizar accordingly.
+El parcial está diseñado para que un estudiante que haya leído el dossier y participado en las semanas 1-4 tenga todo lo necesario para entregar un producto sólido en 90 minutos. La clave está en que no pueden presentar soluciones genéricas; deben evidenciar que entendieron el negocio antes de proponer tecnología. Penalizar en consecuencia.

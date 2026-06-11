@@ -50,7 +50,7 @@ El Doble Diamante es el modelo de proceso publicado por el Design Council de Rei
 Se explora el problema sin asumir, se investiga, se observa, se entrevista. El objetivo es entender, no resolver.
 
 **Fase 2 — Definir el problema:**
-Se sintetiza lo descubierto y se формулиа un problema claro y enfocable. Aqui se descarta la mayoria de oportunidades.
+Se sintetiza lo descubierto y se formula un problema claro y enfocable. Aquí se descarta la mayoría de oportunidades.
 
 **Fase 3 — Desarrollar soluciones:**
 Se generan muchas posibles soluciones. Sin filtrar todavia. La ideas locas son bienvenidas.
@@ -202,7 +202,7 @@ A partir de estos dolores, se puede idear las siguientes oportunidades:
 2. Revisen los 3 dolores priorizados de Mercado360 que ya tienen del trabajo de semanas anteriores.
 3. Por cada dolor, generen AL MENOS 3 soluciones potenciales (no se filtran todavia).
    - Usar la logica JTBD: ?Que trabajo quiere hacer el cliente?
-   - No ограничивать la imaginacion: cualquier idea es valida en esta fase.
+   - No limitar la imaginación: cualquier idea es válida en esta fase.
 4. Escriban cada oportunidad en una tarjeta o post-it.
 
 **Bloque 2 — Priorizacion (30 minutos):**
@@ -273,7 +273,7 @@ A partir de estos dolores, se puede idear las siguientes oportunidades:
 |---|---|---|---|---|---|
 | Matriz completada con 5+ oportunidades | 25% | 5+ oportunidades con impacto y esfuerzo justificados con evidencia del caso. | 5+ oportunidades con justificacion parcial. | 4 oportunidades sin justificacion. | Menos de 4. |
 | Posicionamiento en cuadrantes | 25% | Oportunidades posicionadas consistentemente con la justificacion. Quadrantes coherentes. | Posicionamiento mayormente coherente. | Inconsistencias entre justificacion y posicion. | Sin matriz o random. |
-| Quick win identificado y justificado | 20% | Quick win identificado con justification que conecta dolor-solution-impacto. | Quick win presente con justification parcial. | Sin justification clara. | No identifica quick win. |
+| Quick win identificado y justificado | 20% | Quick win identificado con justificación que conecta dolor-solución-impacto. | Quick win presente con justificación parcial. | Sin justificación clara. | No identifica quick win. |
 | Descripcion de solucion candidata | 20% | Solucion clara, especifica, con logica JTBD aplicada. Describe para quien es y como funciona. | Solucion presente pero incompleta. | Solucion vaga o gen?rica. | No entrega. |
 | Propuesta de MVP | 10% | MVP realista para testear en 2 semanas sin desarrollo tecnologico. Incluye 20 clientes objetivo. | MVP presente pero sin concrecion. | Idea de testeo sin estructura. | No entrega. |
 
