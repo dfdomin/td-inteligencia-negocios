@@ -12,6 +12,7 @@
   <script src="../js/import-students-browser.js"></script>
   <script src="../js/teacher-auth.js"></script>
   <script src="../js/teacher-week-validator.js"></script>
+  <script src="../js/teacher-purge-test-data.js"></script>
   <script src="../js/academic-rules.js"></script>
   <script src="../js/student-dashboard.js"></script>
   <script src="../js/celebration.js"></script>
@@ -291,6 +292,7 @@
             </div>
           </div>
         </div>
+        <div id="purgeTestDataRoot"></div>
       </div>
     </section>
   </main>
@@ -505,7 +507,10 @@
         if (window.IUBStudentDashboard) IUBStudentDashboard.renderGroupProgress("groupProgressPanel");
         if (window.IUBAcademicRules) IUBAcademicRules.renderTeacherAttendanceReport("teacherAttendancePanel");
       }
-      if (name === "config") renderConfig();
+      if (name === "config") {
+        renderConfig();
+        if (window.IUBTeacherPurgeTestData) IUBTeacherPurgeTestData.mount("purgeTestDataRoot");
+      }
     }
 
     function tabFromHash() {
