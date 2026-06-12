@@ -6,17 +6,17 @@ RetailNova S.A.S.
 
 ## Producto
 
-Diagnostico de transformacion digital.
+Diagnóstico de transformación digital.
 
 ## Entrega
 
-- Diagnostico de madurez.
+- Diagnóstico de madurez.
 - Mapa de dolores.
 - Mapa del recorrido del cliente (journey map).
 - Problema priorizado.
-- Justificacion del impacto.
+- Justificación del impacto.
 
-## Sustentacion
+## Sustentación
 
 5 minutos por equipo, centrados en la pregunta: que problema digital debe resolver RetailNova primero?
 

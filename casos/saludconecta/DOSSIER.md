@@ -12,15 +12,15 @@ COMISIÓN DE REGULACIÓN EN SALUD - CRES
 Ministerio de Salud y Protección Social
 Ciudad
 
-**Asunto:** Solicitud de acompañamiento y regulacion frente a demoras en autorizaciones previas en IPS de mediana complejidad
+**Asunto:** Solicitud de acompañamiento y regulación frente a demoras en autorizaciones previas en IPS de mediana complejidad
 
 Respetados señores:
 
-El presente documento sirve como formalización de la solicitud de intervención y acompañamiento por parte de esta entidad frente a las dificultades sistemáticas que enfrenta la empresa **SaludConecta IPS S.A.S.** (NIT — Numero de Identificacion Tributaria: 901.234.567-8), habilitada mediante Resolución No. 2023012456 del 15 de marzo de 2023, en relación con los procesos de autorización previa de servicios de salud.
+El presente documento sirve cómo formalización de la solicitud de intervención y acompañamiento por parte de esta entidad frente a las dificultades sistemáticas que enfrenta la empresa **SaludConecta IPS S.A.S.** (NIT — Numero de Identificación Tributaria: 901.234.567-8), habilitada mediante Resolución No. 2023012456 del 15 de marzo de 2023, en relación con los procesos de autorización previa de servicios de salud.
 
-Luego de un analisis detallado de las quejas recibi das por parte de nuestros usuarios en los ultimos doce (12) meses, se ha identificado que el **78% de las solicitudes de autorizaciones previas presentan demoras superiores a los terminos establecidos en el Decreto 4747 de 2007**, lo cual compromete la atencion oportuna de pacientes con patologias de mediana y alta complejidad.
+Luego de un análisis detallado de las quejas recibi das por parte de nuestros usuarios en los últimos doce (12) meses, se ha identificado que el **78% de las solicitudes de autorizaciones previas presentan demoras superiores a los terminos establecidos en el Decreto 4747 de 2007**, lo cual compromete la atención oportuna de pacientes con patologias de mediana y alta complejidad.
 
-Solicitamos su intervencion para verificar el cumplimiento de las norme establecidas y generar los correctivos necesarios que garanticen el derecho fundamental a la salud de nuestros afiliados.
+Solicitamos su intervención para verificar el cumplimiento de las norme establecidas y generar los correctivos necesarios que garanticen el derecho fundamental a la salud de nuestros afiliados.
 
 Atentamente,
 
@@ -230,7 +230,7 @@ Columnas actuales:
 > *"Paciente: María Elena Pérez Vargas, CC 52.345.678. Solicité autorización para resonancia magnética de rodilla el 20 de enero. A la fecha (12 de febrero) no he recibido respuesta. Mi médico dice que necesito el estudio urgentemente porque puede tener un problema en el menisco. Ya llamé 4 veces y siempre me dicen que está en tramite. Tengo 67 años y diabates. No se a quién más recurrir."*
 
 **PQRS-2025-0147** (08/03/2025)
-> *"Mi hijo de 8 años necesita una consulta con el neurólogo porque tiene convulsiones. La IPS dice que primero tiene que esperar la autorizacion de la EPS. Ya llevamos 20 días esperando. Mi hijo está en tratamiento con carbamazepina y no podemos cambiarlo de EPS porque no hay otra en el municipio. Necesito ayuda."*
+> *"Mi hijo de 8 años necesita una consulta con el neurólogo porque tiene convulsiones. La IPS dice que primero tiene que esperar la autorización de la EPS. Ya llevamos 20 días esperando. Mi hijo está en tratamiento con carbamazepina y no podemos cambiarlo de EPS porque no hay otra en el municipio. Necesito ayuda."*
 
 **PQRS-2025-0234** (25/04/2025)
 > *"Me negaron la autorización para el examen de PET TAC que ordenó mi oncólogo. Dicen que no es prioritaria mi condición. Tengo diagnóstico de cáncer de mama en tratamiento con quimioterapia. No se qué hacer. Pagué la cita con mi propio dinero porque no podía esperar más."*
@@ -247,7 +247,7 @@ Columnas actuales:
 2. **Proceso manual:** Documentos físicos se extravían, digitalizaciones duplicadas
 3. **Comunicación deficiente:** No existen canales de notificación al paciente
 4. **Saturación del personal:** 7 personas procesan 1.620 solicitudes/mes
-5. **Sin integracion con EPS:** Cada EPS tiene canales diferentes (correo, fax, portal)
+5. **Sin integración con EPS:** Cada EPS tiene canales diferentes (correo, fax, portal)
 6. **Ausencia de indicadores:** No hay dashboard en tiempo real
 
 ---
@@ -360,7 +360,7 @@ Define el uso del Registro Único de Afiliados para verificación de cobertura.
 
 #### 7.1.4 Circular Externa 0005 de 2013 — Supersalud
 
-Instrucciones sobre proteccion de datos sensibles en el sector salud.
+Instrucciones sobre protección de datos sensibles en el sector salud.
 
 **Puntos clave:**
 - Consentimiento informado para tratamiento de datos de salud
@@ -410,9 +410,9 @@ La **Superintendencia Nacional de Salud** tiene competencia de vigilancia y cont
 RE-01: NO almacenar datos de salud en servidores sin certificación ISO 27001
 RE-02: NO compartir datos de pacientes con terceros sin autorización explícita
 RE-03: NO procesar datos sin anonimizacion en ambientes de prueba
-RE-04: Cifrado requerido para datos en transito (TLS 1.2 minimo)
-RE-05: Retencion maxima de datos de autorizaciones: 5 anos despues del cierre del caso
-RE-06: Registros de auditoria deben conservarse por 10 anos
+RE-04: Cifrado requerido para datos en transito (TLS 1.2 mínimo)
+RE-05: Retención maxima de datos de autorizaciones: 5 años después del cierre del caso
+RE-06: Registros de auditoria deben conservarse por 10 años
 RE-07: Derecho al olvido: pacientes pueden solicitar eliminación de datos no obligatorios
 ```
 
@@ -421,7 +421,7 @@ RE-07: Derecho al olvido: pacientes pueden solicitar eliminación de datos no ob
 ```
 RE-08: NO procesar autorizaciones sin verificar vigencia de afiliación
 RE-09: NO cobrar copagos superiores a los establecidos por Ley 1393 de 2010
-RE-10: NO negar servicios de urgencia por falta de autorizacion previa
+RE-10: NO negar servicios de urgencia por falta de autorización previa
 RE-11: Tiempos de respuesta máximo: 72h para ambulatorio, 24h para hospitalario urgente
 RE-12: Toda negación debe emitirse por escrito con fundamentos legales
 RE-13: Mecanismo de doble verificación para autorizaciones >$5 millones
@@ -546,13 +546,13 @@ Sistema recibe (digital o OCR) ──► Validación automática ──► Verif
 
 | Término | Definición |
 |---------|------------|
-| **NIT** | Numero de Identificacion Tributaria |
+| **NIT** | Numero de Identificación Tributaria |
 | **EPS** | Entidad Promotora de Salud |
 | **PQRS** | Peticiones, Quejas, Reclamos y Sugerencias |
 | **OCR** | Reconocimiento optico de caracteres / Optical Character Recognition |
-| **API** | Interfaz de programacion de aplicaciones / Application Programming Interface |
-| **CRM** | Gestion de relaciones con clientes / Customer Relationship Management |
-| **CUP** | Clasificacion Uniforme de Procedimientos en salud |
+| **API** | Interfaz de programación de aplicaciones / Application Programming Interface |
+| **CRM** | Gestión de relaciones con clientes / Customer Relationship Management |
+| **CUP** | Clasificación Uniforme de Procedimientos en salud |
 | **HL7** | Health Level Seven — estándar de intercambio de información médica |
 | **IPS** | Institución Prestadora de Servicios de Salud |
 | **MAI** | Medicamentos e Insumos — autorización especial |

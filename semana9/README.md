@@ -1,8 +1,8 @@
 # Semana 9 - Riesgos digitales y seguridad
 
-## Proposito
+## Propósito
 
-Identificar riesgos de privacidad, seguridad, continuidad y dependencia tecnologica.
+Identificar riesgos de privacidad, seguridad, continuidad y dependencia tecnológica.
 
 ## En clase
 
@@ -12,5 +12,5 @@ Identificar riesgos de privacidad, seguridad, continuidad y dependencia tecnolog
 
 ## Evidencia
 
-Matriz de riesgos digitales para la solucion propuesta.
+Matriz de riesgos digitales para la solución propuesta.
 

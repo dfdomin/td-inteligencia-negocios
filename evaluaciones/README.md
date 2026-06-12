@@ -1,34 +1,34 @@
 # Evaluaciones - TD
 
-## Logica tomada de ProcesamientoInformacion
+## Lógica tomada de ProcesamientoInformacion
 
-El curso usara un caso formativo y casos espejo. `Mercado360` sera el caso de practica durante el semestre; `RetailNova`, `SaludConecta` y `LogisCaribe` serviran para evaluar transferencia en semanas 5, 10 y 14.
+El curso usara un caso formativo y casos espejo. `Mercado360` sera el caso de práctica durante el semestre; `RetailNova`, `SaludConecta` y `LogisCaribe` serviran para evaluar transferencia en semanas 5, 10 y 14.
 
 ## Semana 5 - Parcial 1
 
 **Caso espejo:** RetailNova.
 
-**Producto:** Diagnostico de transformacion digital.
+**Producto:** Diagnóstico de transformación digital.
 
 Debe incluir:
 
-- descripcion breve del negocio;
+- descripción breve del negocio;
 - mapa de dolores;
-- diagnostico de madurez digital;
+- diagnóstico de madurez digital;
 - mapa del recorrido del cliente (journey map) inicial;
 - problema priorizado;
-- justificacion con impacto en cliente, proceso o datos.
+- justificación con impacto en cliente, proceso o datos.
 
 ## Semana 10 - Parcial 2
 
 **Caso espejo:** SaludConecta.
 
-**Producto:** Propuesta de solucion digital.
+**Producto:** Propuesta de solución digital.
 
 Debe incluir:
 
 - proceso AS-IS y TO-BE;
-- tecnologia habilitadora seleccionada;
+- tecnología habilitadora seleccionada;
 - datos necesarios;
 - KPIs esperados;
 - riesgos digitales;
@@ -39,26 +39,26 @@ Debe incluir:
 
 **Caso espejo:** LogisCaribe.
 
-**Producto:** Estrategia integral de transformacion digital.
+**Producto:** Estrategia integral de transformación digital.
 
 Debe incluir:
 
 - resumen ejecutivo;
-- solucion priorizada;
+- solución priorizada;
 - hoja de ruta 30-60-90 días;
 - plan de adopcion por roles;
 - matriz de riesgos;
 - indicadores de exito;
 - caso de negocio ligero;
-- sustentacion final.
+- sustentación final.
 
 ## Rubrica comun
 
 | Criterio | Peso |
 |---|---:|
 | Conexión problema-proceso-tecnología | 25% |
-| Aplicacion al caso asignado | 25% |
+| Aplicación al caso asignado | 25% |
 | Viabilidad con recursos limitados | 20% |
-| Uso de datos, metricas y riesgos | 20% |
-| Claridad de comunicacion | 10% |
+| Uso de datos, métricas y riesgos | 20% |
+| Claridad de comunicación | 10% |
 

@@ -1,5 +1,5 @@
 # Parcial 2 — Semana 10
-## Evaluacion: Propuesta de Solucion Digital
+## Evaluación: Propuesta de Solución Digital
 **Caso espejo:** SaludConecta IPS S.A.S.
 **Ponderacion:** 25% de la nota final del modulo
 
@@ -7,9 +7,9 @@
 
 ## 1. Contexto del parcial
 
-SaludConecta IPS S.A.S. es una Institucion Prestadora de Servicios de Salud ubicada en Chia, Cundinamarca, con cobertura en Cundinamarca, Boyaca y Meta. La institucion enfrenta problemas criticos con la demora en autorizaciones previas (promedio 12 dias contra una meta de 3 dias), lo que genera insatisfaccion en pacientes, sobrecarga administrativa y riesgos normativos bajo Supersalud.
+SaludConecta IPS S.A.S. es una Institución Prestadora de Servicios de Salud ubicada en Chia, Cundinamarca, con cobertura en Cundinamarca, Boyaca y Meta. La institución enfrenta problemas criticos con la demora en autorizaciones previas (promedio 12 días contra una meta de 3 días), lo que genera insatisfacción en pacientes, sobrecarga administrativa y riesgos normativos bajo Supersalud.
 
-El estudiante actuara como **consultor de soluciones digitales** y debera entregar una propuesta viable que conecte problema, proceso, tecnologia, datos y metricas.
+El estudiante actuara como **consultor de soluciones digitales** y debera entregar una propuesta viable que conecte problema, proceso, tecnología, datos y métricas.
 
 ---
 
@@ -22,11 +22,11 @@ casos/saludconecta/DOSSIER.md
 
 Contiene:
 - Carta de solicitud de la CRES.
-- Descripcion completa de la IPS y servicios habilitados.
+- Descripción completa de la IPS y servicios habilitados.
 - Proceso actual de autorizaciones paso a paso.
 - Datos operativos 2025 (19.420 solicitudes, 7 EPS aseguradoras).
 - Registro PQRS 2025 (1.156 quejas, 78% por demoras).
-- Caso de ejemplo completo de autorizacion de rodilla (35 dias, $3.9M costo oculto).
+- Caso de ejemplo completo de autorización de rodilla (35 días, $3.9M costo oculto).
 - Marco legal: Ley 1581/2012, Decreto 4747/2007, Circular Supersalud.
 - Restricciones del proyecto.
 
@@ -34,65 +34,65 @@ Contiene:
 
 ## 3. Instrucciones para el estudiante
 
-### 3.1 Antes de la evaluacion
+### 3.1 Antes de la evaluación
 1. Leer el dossier de SaludConecta al menos dos veces.
-2. Identificar el problema central (demora en autorizaciones) y sus causas raiz.
-3. Revisar el caso de transformacion de Mercado360 para comparar contextos.
-4. Tener presente la normatividad de proteccion de datos aplicable (Ley 1581, datos sensibles de salud).
+2. Identificar el problema central (demora en autorizaciones) y sus causas raíz.
+3. Revisar el caso de transformación de Mercado360 para comparar contextos.
+4. Tener presente la normatividad de protección de datos aplicable (Ley 1581, datos sensibles de salud).
 
-### 3.2 Durante la evaluacion
-- Duracion: 90 minutos.
+### 3.2 Durante la evaluación
+- Duración: 90 minutos.
 - Modalidad: Escrita, con apoyo del dossier.
-- El estudiante debe entregar un documento unico en formato PDF o Word.
+- El estudiante debe entregar un documento único en formato PDF o Word.
 - No se permite internet durante el examen.
 
 ### 3.3 Producto esperado
 
-Un documento de maximo 10 paginas (sin contar anexos) que incluya:
+Un documento de máximo 10 páginas (sin contar anexos) que incluya:
 
-**Seccion A — Proceso AS-IS (1.5 paginas)**
+**Sección A — Proceso AS-IS (1.5 páginas)**
 - Diagrama o flujograma del proceso actual de autorizaciones.
-- Identificacion de puntos de friccion, esperas, reprocesos y errores.
+- Identificación de puntos de fricción, esperas, reprocesos y errores.
 - Tiempos estimados por etapa.
 
-**Seccion B — Proceso TO-BE (2 paginas)**
+**Sección B — Proceso TO-BE (2 páginas)**
 - Diagrama o flujograma del proceso mejorado.
-- Cambios propuestos y su justificacion (por que resuelven el problema).
+- Cambios propuestos y su justificación (por qué resuelven el problema).
 - Nuevo tiempos esperados.
 
-**Seccion C — Tecnologia habilitadora (2 paginas)**
-- Tecnologia seleccionada con justificacion (nombre de herramienta, categoria, razones).
+**Sección C — Tecnología habilitadora (2 páginas)**
+- Tecnología seleccionada con justificación (nombre de herramienta, categoria, razones).
 - Alternativas descartadas (al menos 2) con razon de descarte.
-- Consideraciones de implementacion (integracion, datos existentes, capacidad del equipo).
+- Consideraciones de implementación (integración, datos existentes, capacidad del equipo).
 - Cumplimiento normativo (proteger datos de salud bajo Ley 1581).
 
-**Seccion D — Datos necesarios y KPIs (indicadores clave de desempeno / Key Performance Indicators) (1.5 paginas)**
-- Datos que se requieren para operar la solucion.
+**Sección D — Datos necesarios y KPIs (indicadores clave de desempeno / Key Performance Indicators) (1.5 páginas)**
+- Datos que se requieren para operar la solución.
 - Fuentes de datos identificadas.
-- 5 KPIs con definicion operacional y metas.
-- Como se miden los KPIs en la practica.
+- 5 KPIs con definición operacional y metas.
+- Cómo se miden los KPIs en la práctica.
 
-**Seccion E — Matriz de riesgos digitales (1.5 paginas)**
-- Al menos 5 riesgos especificos.
-- Para cada riesgo: descripcion, probabilidad (Alta/Media/Baja), impacto (Alto/Medio/Bajo), estrategia de mitigacion.
-- Al menos 2 riesgos deben relacionarse con proteccion de datos de salud.
+**Sección E — Matriz de riesgos digitales (1.5 páginas)**
+- Al menos 5 riesgos específicos.
+- Para cada riesgo: descripción, probabilidad (Alta/Media/Baja), impacto (Alto/Medio/Bajo), estrategia de mitigacion.
+- Al menos 2 riesgos deben relacionarse con protección de datos de salud.
 
-**Seccion F — Prototipo conceptual (1 pagina)**
-- Mockup simple de la pantalla principal de la solucion propuesta (puede ser un wireframe a mano alzada descrito textualmente).
+**Sección F — Prototipo conceptual (1 página)**
+- Mockup simple de la pantalla principal de la solución propuesta (puede ser un wireframe a mano alzada descrito textualmente).
 - Funcionalidad clave que se observa en el prototipo.
 
 ---
 
 ## 4. Tiempo sugerido
 
-| Seccion | Tiempo | Puntos |
+| Sección | Tiempo | Puntos |
 |---|---|---:|
-| Seccion A — Proceso AS-IS | 10 min | 10 |
-| Seccion B — Proceso TO-BE | 20 min | 20 |
-| Seccion C — Tecnologia | 20 min | 25 |
-| Seccion D — Datos y KPIs | 15 min | 20 |
-| Seccion E — Matriz de riesgos | 10 min | 15 |
-| Seccion F — Prototipo | 15 min | 10 |
+| Sección A — Proceso AS-IS | 10 min | 10 |
+| Sección B — Proceso TO-BE | 20 min | 20 |
+| Sección C — Tecnología | 20 min | 25 |
+| Sección D — Datos y KPIs | 15 min | 20 |
+| Sección E — Matriz de riesgos | 10 min | 15 |
+| Sección F — Prototipo | 15 min | 10 |
 | **Total** | **90 min** | **100 pts** |
 
 ---
@@ -101,28 +101,28 @@ Un documento de maximo 10 paginas (sin contar anexos) que incluya:
 
 | Criterio | Peso | Destacado (90-100) | Satisfactorio (70-89) | En desarrollo (40-69) | Insuficiente (0-39) |
 |---|---|---|---|---|---|
-| **Proceso AS-IS** | 10% | Flujograma completo con todas las etapas, tiempos, puntos de friccion claramente marcados, causas raiz identificadas. | Flujograma con la mayoria de etapas y puntos de friccion. Faltan algunas causas raiz. | Flujograma incompleto o con pocas etapas. | No entrega o sin conexion al caso. |
-| **Proceso TO-BE** | 20% | TO-BE completo con cambios bien justificados (por cada cambio: que problema resuelve), nuevo flujo de tiempo razonable. | TO-BE con mayoria de cambios justificados, flujos claros. | TO-BE incompleto o con justificaciones superficiales. | No entrega o copia del AS-IS sin cambios. |
-| **Tecnologia habilitadora** | 25% | Tecnologia bien justificada con 2+ alternativas descartadas, consideracion de integracion y capacidad del equipo, referencia a normatividad de datos de salud. | Tecnologia justificada con 1 alternativa descartada. | Tecnologia mencionada sin alternativas ni justificaciones. | No propone tecnologia o es inviable. |
-| **Datos y KPIs** | 20% | 5+ KPIs bien definidos (formula o metodo de calculo, meta, frecuencia de medicion), datos y fuentes identificados. | 3-4 KPIs bien definidos. | Menos de 3 KPIs o sin definicion operacional. | No entrega esta seccion. |
-| **Matriz de riesgos** | 15% | 5+ riesgos con probabilidad, impacto y mitigacion. Al menos 2 riesgos de datos de salud. Conexion clara con la solucion propuesta. | 4 riesgos bien estructurados, al menos 1 de datos. | Menos de 4 riesgos o sin estructura. | No entrega o sin relación al caso. |
-| **Prototipo conceptual** | 10% | Wireframe bien descrito con funcionalidad clave de la solucion y flujo de uso. | Wireframe basico con funcionalidad principal. | Wireframe vago o sin descripcion de funcionalidad. | No entrega. |
+| **Proceso AS-IS** | 10% | Flujograma completo con todas las etapas, tiempos, puntos de fricción claramente marcados, causas raíz identificadas. | Flujograma con la mayoría de etapas y puntos de fricción. Faltan algunas causas raíz. | Flujograma incompleto o con pocas etapas. | No entrega o sin conexión al caso. |
+| **Proceso TO-BE** | 20% | TO-BE completo con cambios bien justificados (por cada cambio: que problema resuelve), nuevo flujo de tiempo razonable. | TO-BE con mayoría de cambios justificados, flujos claros. | TO-BE incompleto o con justificaciones superficiales. | No entrega o copia del AS-IS sin cambios. |
+| **Tecnología habilitadora** | 25% | Tecnología bien justificada con 2+ alternativas descartadas, consideración de integración y capacidad del equipo, referencia a normatividad de datos de salud. | Tecnología justificada con 1 alternativa descartada. | Tecnología mencionada sin alternativas ni justificaciones. | No propone tecnología o es inviable. |
+| **Datos y KPIs** | 20% | 5+ KPIs bien definidos (formula o método de calculo, meta, frecuencia de medición), datos y fuentes identificados. | 3-4 KPIs bien definidos. | Menos de 3 KPIs o sin definición operacional. | No entrega esta sección. |
+| **Matriz de riesgos** | 15% | 5+ riesgos con probabilidad, impacto y mitigacion. Al menos 2 riesgos de datos de salud. Conexion clara con la solución propuesta. | 4 riesgos bien estructurados, al menos 1 de datos. | Menos de 4 riesgos o sin estructura. | No entrega o sin relación al caso. |
+| **Prototipo conceptual** | 10% | Wireframe bien descrito con funcionalidad clave de la solución y flujo de uso. | Wireframe básico con funcionalidad principal. | Wireframe vago o sin descripción de funcionalidad. | No entrega. |
 
 ---
 
 ## 6. Criterios asociados a Resultados de Aprendizaje
 
-| RA | Criterio de evaluacion | Ponderacion en el parcial |
+| RA | Criterio de evaluación | Ponderacion en el parcial |
 |---|---|---:|
-| **RA1** | Distingue las particularidades de las nuevas tecnologias y su aplicacion en procesos organizacionales. | 25% (Seccion C) |
-| **RA2** | Identifica informacion estrategica para la adopcion de soluciones digitales (datos, metricas, riesgos). | 40% (Secciones D, E) |
-| **RA3** | Propone estrategias de transformacion digital (procesos, tecnologia, cambio). | 35% (Secciones A, B, F) |
+| **RA1** | Distingue las particularidades de las nuevas tecnologías y su aplicación en procesos organizacionales. | 25% (Sección C) |
+| **RA2** | Identifica información estratégica para la adopcion de soluciones digitales (datos, métricas, riesgos). | 40% (Secciones D, E) |
+| **RA3** | Propone estrategias de transformación digital (procesos, tecnología, cambio). | 35% (Secciones A, B, F) |
 
 ---
 
 ## 7. Respuestas esperadas — Guia para el docente
 
-### Seccion A — Proceso AS-IS
+### Sección A — Proceso AS-IS
 
 Flujo esperado de autorizaciones (resumen):
 1. Medico genera solicitud (dia 1).
@@ -130,11 +130,11 @@ Flujo esperado de autorizaciones (resumen):
 3. Auxiliar transcribe a Excel (dia 2-3).
 4. Auxiliar escanea doc y envia por email a EPS (dia 3-4).
 5. EPS recibe, valida y deriva (dia 4-10, variable).
-6. autorizacion regresa por email o llamada (dia 5-12).
+6. autorización regresa por email o llamada (dia 5-12).
 7. Auxiliar notifica al paciente por WhatsApp o llamada (dia 6-12).
-8. Paciente debe llamar a confirmar si no recibe notificacion (frustracion).
+8. Paciente debe llamar a confirmar si no recibe notificación (frustración).
 
-**Puntos de friccion esperados:**
+**Puntos de fricción esperados:**
 - Transcripcion manual a Excel (error humano).
 - Sin seguimiento: nadie sabe en que estado esta una solicitud.
 - Notificacion pasiva: paciente espera sin saber.
@@ -142,48 +142,48 @@ Flujo esperado de autorizaciones (resumen):
 
 ---
 
-### Seccion B — Proceso TO-BE
+### Sección B — Proceso TO-BE
 
 Cambios esperados:
-1. Solicitud electronica desde el sistema de informacion (no papel).
-2. Envio automatico a EPS por API (interfaz de programacion de aplicaciones / Application Programming Interface) o portal (si esta disponible).
+1. Solicitud electrónica desde el sistema de información (no papel).
+2. Envio automático a EPS por API (interfaz de programación de aplicaciones / Application Programming Interface) o portal (si esta disponible).
 3. Seguimiento en tiempo real con estado visible para auxiliar y paciente.
-4. Notificacion automatica por SMS/WhatsApp al paciente.
-5. Registro unico de autorizacion en base de datos.
+4. Notificacion automática por SMS/WhatsApp al paciente.
+5. Registro único de autorización en base de datos.
 
-**Tiempo esperado:** Reduccion de 12 dias a 3-5 dias.
-
----
-
-### Seccion C — Tecnologia
-
-Opciones fuertes para una IPS pequena:
-1. **Sistema de informacion hospitalario (SIH) o clinico** basico con modulo de autorizaciones. Ejemplos: Salvi, Sien, Sistema pryTEMIS (o desarrollo interno con Airtable como victoria rapida).
-2. **Airtable o similar** como solucion transicional rapida (bajo costo, sin desarrollo, permite seguimiento de solicitudes).
-3. **Excel mejorado con macros** (ultima opcion, solo si no hay otra).
-
-Se espera que el estudiante considere el costo, la capacidad del equipo y la proteccion de datos de salud (Ley 1581, datos sensibles).
+**Tiempo esperado:** Reduccion de 12 días a 3-5 días.
 
 ---
 
-### Seccion D — KPIs
+### Sección C — Tecnología
+
+Opciones fuertes para una IPS pequeña:
+1. **Sistema de información hospitalario (SIH) o clinico** básico con modulo de autorizaciones. Ejemplos: Salvi, Sien, Sistema pryTEMIS (o desarrollo interno con Airtable como victoria rápida).
+2. **Airtable o similar** cómo solución transicional rápida (bajo costo, sin desarrollo, permite seguimiento de solicitudes).
+3. **Excel mejorado con macros** (última opcion, solo si no hay otra).
+
+Se espera que el estudiante considere el costo, la capacidad del equipo y la protección de datos de salud (Ley 1581, datos sensibles).
+
+---
+
+### Sección D — KPIs
 
 KPIs esperados:
-1. **Tiempo promedio de autorizacion** (desde solicitud hasta autorizacion): meta < 3 dias.
+1. **Tiempo promedio de autorización** (desde solicitud hasta autorización): meta < 3 días.
 2. **Tasa de autorizaciones rechazadas** (motivos de rechazo): meta < 10%.
 3. **Tasa de resolucion en primera llamada** (paciente recibe respuesta en el primer contacto): meta > 80%.
-4. **Numero de PQRS por demora** (mensual): reduccion del 78% actual.
-5. **Costo por proceso de autorizacion** (costo administrativo / solicitudes): reduccion del 20%.
+4. **Numero de PQRS por demora** (mensual): reducción del 78% actual.
+5. **Costo por proceso de autorización** (costo administrativo / solicitudes): reducción del 20%.
 
 ---
 
-### Seccion E — Matriz de riesgos
+### Sección E — Matriz de riesgos
 
 Riesgos esperados:
-1. **Falla de integracion con EPS** — probabilidad media, impacto alto. Mitigacion: tener proceso alternativo en papel mientras tanto.
-2. **Filtracion de datos de salud** (Ley 1581) — probabilidad baja, impacto muy alto. Mitigacion: cifrado, politicas de acceso, minima informacion.
-3. **Resistencia del personal administrativo** — probabilidad alta, impacto medio. Mitigacion: formacion, involucramiento temprano.
-4. **Dependencia de proveedor tecnologico** — probabilidad media, impacto medio. Mitigacion: contratos con SLA (acuerdo de nivel de servicio / Service Level Agreement), propiedad de datos.
+1. **Falla de integración con EPS** — probabilidad media, impacto alto. Mitigacion: tener proceso alternativo en papel mientras tanto.
+2. **Filtracion de datos de salud** (Ley 1581) — probabilidad baja, impacto muy alto. Mitigacion: cifrado, politicas de acceso, minima información.
+3. **Resistencia del personal administrativo** — probabilidad alta, impacto medio. Mitigacion: formación, involucramiento temprano.
+4. **Dependencia de proveedor tecnológico** — probabilidad media, impacto medio. Mitigacion: contratos con SLA (acuerdo de nivel de servicio / Service Level Agreement), propiedad de datos.
 5. **Cambio de EPS sin API** — probabilidad alta, impacto bajo. Mitigacion: tener formatos PDF estandar como respaldo.
 
 ---
@@ -202,7 +202,7 @@ Riesgos esperados:
 
 ## 9. Notas para el docente
 
-- **Semana de aplicacion:** Semana 10 del calendario.
-- **Modalidad de entrega:** Individual, maxima 10 paginas.
+- **Semana de aplicación:** Semana 10 del calendario.
+- **Modalidad de entrega:** Individual, maxima 10 páginas.
 - **Ponderacion en la nota final del modulo:** 25%.
-- **Recuperacion:** Semana 14 (aplica solo si falta por inasistencia o rendimiento bajo en evaluacion final).
+- **Recuperación:** Semana 14 (aplica solo si falta por inasistencia o rendimiento bajo en evaluación final).

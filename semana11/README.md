@@ -1,8 +1,8 @@
 # Semana 11 - Modelos de negocio digitales
 
-## Proposito
+## Propósito
 
-Comprender como una solucion digital puede modificar canales, ingresos, costos y relacion con clientes.
+Comprender cómo una solución digital puede modificar canales, ingresos, costos y relación con clientes.
 
 ## En clase
 

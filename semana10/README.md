@@ -6,18 +6,18 @@ SaludConecta IPS.
 
 ## Producto
 
-Propuesta de solucion digital.
+Propuesta de solución digital.
 
 ## Entrega
 
 - Proceso AS-IS y TO-BE.
-- Tecnologia habilitadora.
+- Tecnología habilitadora.
 - Datos necesarios.
 - KPIs.
 - Matriz de riesgos.
 - Prototipo conceptual o mockup simple.
 
-## Sustentacion
+## Sustentación
 
-Pitch de 5 minutos: problema, solucion, valor, riesgo y proximo paso.
+Pitch de 5 minutos: problema, solución, valor, riesgo y próximo paso.
 

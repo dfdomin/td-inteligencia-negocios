@@ -36,7 +36,7 @@ Cultura digital no significa que todos usen herramientas digitales. Significa qu
 - **Experimentación y aprendizaje rápido**: probar en pequeño, medir, ajustar.
 - **Colaboración horizontal**: la información fluye entre áreas, no se acumula en silos.
 - **Orientación al cliente**: cada decisión se evalúa desde la experiencia del cliente.
-- **Transparencia y confianza**: los datos son visibles para quien los necesita.
+- **Transparencia y confianza**: los datos son visibles para quién los necesita.
 
 En Mercado360, la cultura actual es: el dueño decide todo, la información está en su cabeza o en un cuaderno, los vendedores no consultan inventario antes de prometer, y no hay tradición de medir resultados. Cambiar eso es más difícil que instalar cualquier software.
 

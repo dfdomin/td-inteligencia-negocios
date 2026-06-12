@@ -1,16 +1,16 @@
-# Semana 1 — Diagnostico de Transformacion Digital
-## TD — Transformacion Digital en la Empresa | IUB — Inteligencia de Negocios
+# Semana 1 — Diagnóstico de Transformación Digital
+## TD — Transformación Digital en la Empresa | IUB — Inteligencia de Negocios
 
 ---
 
-## Proposito de la semana
+## Propósito de la semana
 
-Distinguir transformacion digital de simple digitalizacion. Reconocer que la tecnologia no es el punto de partida: los problemas organizacionales lo son. Introducir el caso Mercado360 como caso formativo transversal del modulo.
+Distinguir transformación digital de simple digitalización. Reconocer que la tecnología no es el punto de partida: los problemas organizacionales lo son. Introducir el caso Mercado360 como caso formativo transversal del modulo.
 
 **Preguntas clave:**
 - ¿Qué significa "transformar" vs. "digitalizar"?
-- ¿Cuál es la diferencia entre adoptar tecnologia y transformar un negocio?
-- ¿Qué dolores tiene Mercado360 que justifiquen una transformacion?
+- ¿Cuál es la diferencia entre adoptar tecnología y transformar un negocio?
+- ¿Qué dolores tiene Mercado360 que justifiquen una transformación?
 
 ---
 
@@ -18,7 +18,7 @@ Distinguir transformacion digital de simple digitalizacion. Reconocer que la tec
 
 ### 1.1 Digitalizacion
 
-Digitalizacion es el proceso de convertir informacion analogica (papel, procesos manuales) a formato digital. Es un paso necesario pero no suficiente para la transformacion.
+Digitalizacion es el proceso de convertir información analogica (papel, procesos manuales) a formato digital. Es un paso necesario pero no suficiente para la transformación.
 
 **En lenguaje empresarial:** Adoptar herramientas digitales para hacer lo mismo de forma mas eficiente.
 
@@ -30,21 +30,21 @@ Digitalizacion es el proceso de convertir informacion analogica (papel, procesos
 
 ---
 
-### 1.2 Transformacion digital
+### 1.2 Transformación digital
 
-La transformacion digital es un cambio profundo en la forma en que una empresa opera, crea valor y se relaciona con sus usuarios, habilitado por tecnologias digitales.
+La transformación digital es un cambio profundo en la forma en que una empresa opera, crea valor y se relaciona con sus usuarios, habilitado por tecnologías digitales.
 
-**En lenguaje empresarial:** No es "comprar tecnologia". Es cambiar el modelo de negocio, los procesos y la cultura para aprovechar las posibilidades que la tecnologia habilita.
+**En lenguaje empresarial:** No es "comprar tecnología". Es cambiar el modelo de negocio, los procesos y la cultura para aprovechar las posibilidades que la tecnología habilita.
 
 **Diferencia clave:**
 
-| Aspecto | Digitalizacion | Transformacion digital |
+| Aspecto | Digitalizacion | Transformación digital |
 |---|---|---|
 | Foco | Procesos | Modelo de negocio |
 | Impulso | Eficiencia | Valor para el cliente |
 | Alcance | Puntual | Integral |
 | Resultado | Menos errores | Nuevas fuentes de ingresos |
-| Ejemplo | Facturar electronicamente | Vender por canal digital con datos del cliente |
+| Ejemplo | Facturar electrónicamente | Vender por canal digital con datos del cliente |
 
 **Fuente:**
 - Rogers, D.L. (2016). *The Digital Transformation Question*. Columbia Business School.
@@ -53,12 +53,12 @@ La transformacion digital es un cambio profundo en la forma en que una empresa o
 
 ### 1.3 Modelo de madurez digital
 
-Un modelo de madurez digital permite evaluar donde esta una empresa en su proceso de transformacion. Hay varios reconocidos:
+Un modelo de madurez digital permite evaluar donde esta una empresa en su proceso de transformación. Hay varios reconocidos:
 
 **Gartner Digital Maturity Model (5 niveles):**
 1. Digitalnovato: Sin sistemas digitales.
-2. Explorador: digitalizacion puntual, sin estrategia.
-3. Practicante: Tecnologias aisladas, datos no integrados.
+2. Explorador: digitalización puntual, sin estrategia.
+3. Practicante: Tecnologías aisladas, datos no integrados.
 4. Transformador: Estrategia digital articulada, datos compartidos.
 5. Disruptor: Modelo de negocio habilitado por digital.
 
@@ -66,7 +66,7 @@ Un modelo de madurez digital permite evaluar donde esta una empresa en su proces
 
 **McKinsey Digital Quotient:** Evalua 4 areas: Estrategia, Cultura, Capacidades, Habilitacion.
 
-**Nota para el estudiante:** Para este modulo usaremos un modelo hibrido simple que combina elementos de Gartner y MIT, adaptado a empresas pequenas y medianas colombianas.
+**Nota para el estudiante:** Para este modulo usaremos un modelo hibrido simple que combina elementos de Gartner y MIT, adaptado a empresas pequeñas y medianas colombianas.
 
 **Fuente:**
 - Gartner (2021). *Magic Quadrant for Global ITSM*. Gartner Research.
@@ -76,13 +76,13 @@ Un modelo de madurez digital permite evaluar donde esta una empresa en su proces
 
 ### 1.4 Dolores organizacionales
 
-Un dolor organizacional es un problema recurrente que genera ineficiencia, insatisfaccion o perdida de valor. En transformacion digital, NO se empieza por la tecnologia: se empieza por los dolores.
+Un dolor organizacional es un problema recurrente que genera ineficiencia, insatisfacción o perdida de valor. En transformación digital, NO se empieza por la tecnología: se empieza por los dolores.
 
 **Categorias de dolores:**
-- **Dolor del cliente:** Frustraciones, esperas, falta de informacion.
+- **Dolor del cliente:** Frustraciones, esperas, falta de información.
 - **Dolor del proceso:** Tareas manuales repetitivas, errores humanos, reprocesos.
-- **Dolor de datos:** Decisiones basadas en intuicion, no en informacion.
-- **Dolor de tecnologia:** Sistemas obsoletos, datos dispersos, falta de integracion.
+- **Dolor de datos:** Decisiones basadas en intuicion, no en información.
+- **Dolor de tecnología:** Sistemas obsoletos, datos dispersos, falta de integración.
 - **Dolor de cultura:** Resistencia al cambio, miedo a lo nuevo.
 
 **Fuente:**
@@ -90,41 +90,41 @@ Un dolor organizacional es un problema recurrente que genera ineficiencia, insat
 
 ---
 
-## 2. Aplicacion a Mercado360
+## 2. Aplicación a Mercado360
 
 Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar sus dolores para entender por donde empezar.
 
 **Modelo de negocio actual:**
-- Venta fisica en tienda.
+- Venta física en tienda.
 - Pedidos por WhatsApp e Instagram.
 - Inventario en cuaderno y memoria del vendedor.
-- Promociones sin medicion.
+- Promociones sin medición.
 
 ### Dolores identificados en Mercado360:
 
-| Categoria | Dolor | Causa raiz | Impacto |
+| Categoria | Dolor | Causa raíz | Impacto |
 |---|---|---|---|
 | Cliente | Comprador no puede apartar productos o consultar existencias reales | No hay sistema de inventario | Pierde ventas y clientes |
 | Proceso | Pedidos por WhatsApp se pierden o confunden | Registro manual | Errores de cumplimiento |
-| Datos | Gerencia decide con reportes tardios | Sin sistema de informacion | Oportunidades perdidas |
-| Tecnologia | Datos de clientes en celulares personales | Sin CRM | Riesgo de pérdida de informacion |
-| Cultura | Promociones sin medir | Sin metricas | Inversión sin ROI conocido |
+| Datos | Gerencia decide con reportes tardios | Sin sistema de información | Oportunidades perdidas |
+| Tecnología | Datos de clientes en celulares personales | Sin CRM | Riesgo de pérdida de información |
+| Cultura | Promociones sin medir | Sin métricas | Inversión sin ROI conocido |
 
 ---
 
-## 3. Actividad practica
+## 3. Actividad práctica
 
 ### Taller: Mapa de Dolores de Mercado360
 
-**Duracion:** 40 minutos.
+**Duración:** 40 minutos.
 
 **Instrucciones:**
 1. En equipos de 3-4 personas.
 2. Lean el caso Mercado360 (documento en carpeta casos/mercado360/).
-3. Identifiquen AL MENOS 3 dolores por cada categoria (cliente, proceso, datos, tecnologia, cultura).
+3. Identifiquen AL MENOS 3 dolores por cada categoria (cliente, proceso, datos, tecnología, cultura).
 4. Para cada dolor, escreban:
-   - Descripcion breve.
-   - Causa raiz (por que ocurre?).
+   - Descripción breve.
+   - Causa raíz (por qué ocurre?).
    - Impacto estimado (cliente, proceso, o negocio).
 5. Presenten sus hallazgos en 5 minutos al grupo.
 
@@ -134,15 +134,15 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 
 ## 4. Evidencia entregable
 
-**Diagnostico inicial de Mercado360** — documento individual.
+**Diagnóstico inicial de Mercado360** — documento individual.
 
 **Debe incluir:**
 1. Ubicacion de Mercado360 en un nivel de madurez digital (justificado con evidencia del caso).
 2. Mapa de AL MENOS 9 dolores organizacionales (al menos 3 por categoria).
-3. Los TRES problemas priorizados por urgencia e impacto (con justificacion).
+3. Los TRES problemas priorizados por urgencia e impacto (con justificación).
 4. Una reflexion: ?por donde empezaria usted si fuera el consultor de Mercado360?
 
-**Extencion maxima:** 3 paginas.
+**Extencion maxima:** 3 páginas.
 
 **Formato:** Word o PDF, subido a la plataforma.
 
@@ -151,10 +151,10 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 ## 5. Preguntas orientadoras
 
 1. ¿Cuál es la diferencia entre digitalizar un proceso y transformar un modelo de negocio?
-2. ¿Por que la transformacion digital no empieza por la tecnologia sino por los dolores?
+2. ¿Por qué la transformación digital no empieza por la tecnología sino por los dolores?
 3. ¿Cómo se evalua la madurez digital de una empresa?
-4. ¿Qué dolores identifica en Mercado360 que sean mas urgentes y por que?
-5. ¿Qué pasaria si Mercado360 siguiera operando como hasta ahora en 2 años?
+4. ¿Qué dolores identifica en Mercado360 que sean mas urgentes y por qué?
+5. ¿Qué pasaría si Mercado360 siguiera operando como hasta ahora en 2 años?
 
 ---
 
@@ -170,8 +170,8 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 - World Economic Forum (2018). *The Future of Jobs and Skills in the Fourth Industrial Revolution*. WEF.
 
 **Normatividad de referencia:**
-- MinTIC Colombia (2020). *Agenda de Transformacion Digital*. MinTIC.
-- Ley 1581 de 2012 — Proteccion de datos personales (Ley de Habeas Data).
+- MinTIC Colombia (2020). *Agenda de Transformación Digital*. MinTIC.
+- Ley 1581 de 2012 — Protección de datos personales (Ley de Habeas Data).
 
 ---
 
@@ -181,7 +181,7 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 |---|---|---|---|---|---|
 | Ubicacion en madurez digital | 20% | Ubica a Mercado360 en un nivel con modelo citado y evidencia del caso. | Ubica con modelo citado pero justificación parcial. | Sin modelo o sin evidencia. | No entrega. |
 | Mapa de dolores (9+) | 30% | 9+ dolores bien estructurados, organizados por categoria, con causa e impacto. | 7-8 dolores bien estructurados. | 5-6 dolores incompletos. | Menos de 5. |
-| Priorizacion de 3 problemas | 30% | 3 problemas priorizados con justificacion clara (urgencia + impacto). | 3 problemas priorizados pero justificación incompleta. | 1-2 problemas sin justificación. | No prioriza. |
+| Priorización de 3 problemas | 30% | 3 problemas priorizados con justificación clara (urgencia + impacto). | 3 problemas priorizados pero justificación incompleta. | 1-2 problemas sin justificación. | No prioriza. |
 | Reflexion final | 20% | Reflexion personal bien argumentada sobre por donde empezar, conecta con dolores. | Reflexion presente pero sin conexión clara. | Reflexion superficial. | No entrega reflexion. |
 
 ---
@@ -191,6 +191,6 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 | Semana | Tema | Conexion con semana 1 |
 |---|---|---|
 | Semana 2 | Consumidor digital | Los dolores del cliente de Mercado360 se convierten en mapa del recorrido del cliente (journey map). |
-| Semana 3 | Procesos y automatizacion | Los dolores de proceso se convierten en AS-IS / TO-BE. |
-| Semana 4 | Tecnologias habilitadoras | ¿Qué tecnologia resuelve los dolores priorizados? |
-| Semana 5 | Parcial 1 | Se aplica el metodo a RetailNova. |
+| Semana 3 | Procesos y automatización | Los dolores de proceso se convierten en AS-IS / TO-BE. |
+| Semana 4 | Tecnologías habilitadoras | ¿Qué tecnología resuelve los dolores priorizados? |
+| Semana 5 | Parcial 1 | Se aplica el método a RetailNova. |

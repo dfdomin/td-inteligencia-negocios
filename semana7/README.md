@@ -152,7 +152,7 @@ En equipos de 3-4 personas:
 1. Revisar la empresa asignada (Mercado360 o caso espejo).
 2. Listar las fuentes de datos que ya existen.
 3. Listar las fuentes de datos que faltan.
-4. Clasificar cada fuente como interna/externa y operacional/estratégica.
+4. Clasificar cada fuente cómo interna/externa y operacional/estratégica.
 
 **Bloque 2 — Formular KPIs (30 minutos)**
 

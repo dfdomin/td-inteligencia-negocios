@@ -1,4 +1,4 @@
-# Semana 14 - Evaluacion final
+# Semana 14 - Evaluación final
 
 ## Caso espejo
 
@@ -6,20 +6,20 @@ LogisCaribe Operador Logistico.
 
 ## Producto
 
-Estrategia integral de transformacion digital.
+Estrategia integral de transformación digital.
 
 ## Entrega
 
 - Resumen ejecutivo.
-- Diagnostico sintetico.
-- Solucion priorizada.
+- Diagnóstico sintetico.
+- Solución priorizada.
 - Hoja de ruta.
 - KPIs.
-- Gestion del cambio.
+- Gestión del cambio.
 - Riesgos.
 - Viabilidad.
 
-## Sustentacion
+## Sustentación
 
-Presentacion ejecutiva de 8 a 10 minutos.
+Presentación ejecutiva de 8 a 10 minutos.
 

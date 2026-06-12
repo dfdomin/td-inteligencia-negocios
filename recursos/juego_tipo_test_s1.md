@@ -18,7 +18,7 @@ Lee cada pregunta con atención y selecciona la única respuesta correcta. Luego
 
 A) Sí, porque cualquier uso de tecnología digital es transformación digital  
 B) No, porque solo mejoró la presentación de precios; no cambió su modelo de negocio ni su propuesta de valor  
-C) Sí, porque dejó de usar papel y eso siempre cuenta como transformación digital  
+C) Sí, porque dejó de usar papel y eso siempre cuenta cómo transformación digital  
 D) Depende del costo de las pantallas
 
 **Respuesta correcta: B**

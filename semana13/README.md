@@ -1,14 +1,14 @@
 # Semana 13 - Viabilidad y caso de negocio
 
-## Proposito
+## Propósito
 
-Evaluar costos, beneficios, riesgos y metricas de exito de la estrategia.
+Evaluar costos, beneficios, riesgos y métricas de exito de la estrategia.
 
 ## En clase
 
 - Identificar costos directos e indirectos.
 - Estimar beneficios cualitativos y cuantitativos.
-- Preparar argumentos para la sustentacion final.
+- Preparar argumentos para la sustentación final.
 
 ## Evidencia
 

@@ -161,13 +161,13 @@ Evidencia: no existe sistema centralizado; datos de clientes en celulares person
 
 **Dolores esperados por categoría:**
 
-**Cliente (minimo 3):**
+**Cliente (mínimo 3):**
 1. Frustración por producto no disponible tras ver promoción en Instagram — causa: inventario desactualizado y falta de sincronización entre canales — impacto: pérdida de cliente, deserción.
 2. Imposibilidad de apartar ropa o recibir notificaciones de disponibilidad — causa: no hay sistema de reserva — impacto: experiencia de compra inferior a competidores.
 3. Requisición de preferencias en cada visita sin historial accesible — causa: datos en celulares personales de vendedores — impacto: experiencia impersonal, pérdida de venta cross-sell.
 4. Inconsistencia entre lo que se confirma por WhatsApp y lo que hay físicamente — causa: sin consulta en tiempo real entre sucursales — impacto: pérdida de confianza.
 
-**Proceso (minimo 3):**
+**Proceso (mínimo 3):**
 1. Inventario desactualizado (difiere en 15-20% de SKU (referencia de producto / Stock Keeping Unit)) genera ventas perdidas y sobreestimación de stock — causa: Excel no sincronizado entre tiendas — impacto: pérdida directa de ventas.
 2. Devoluciones sin política clara generan conflicto en punto de venta — causa: no hay documento de política — impacto: tensión con cliente, decisión arbitraria.
 3. Promociones sin código de seguimiento ni medición de conversión — causa: no hay métrica ni UTM (parámetros de seguimiento en enlaces web / Urchin Tracking Module) — impacto: inversión a ciegas.
@@ -177,9 +177,9 @@ Evidencia: no existe sistema centralizado; datos de clientes en celulares person
 **Gerencia (mínimo 3):**
 1. Decisiones basadas en intuición no en datos — causa: sin datos centralizados — impacto: estrategia reactiva.
 2. Sin visibilidad de inventario en tiempo real entre sucursales — causa: Excel no sincronizado — impacto: imposibilidad de resolver consultas de clientes entre tiendas.
-3. Inversión en promociones sin metricas de retorno — causa: no hay KPIs definidos — impacto: presupuesto desperdiciado.
+3. Inversión en promociones sin métricas de retorno — causa: no hay KPIs definidos — impacto: presupuesto desperdiciado.
 4. Dependencia de Microsoft Excel/ cuadernos — causa: sin sistema — impacto: datos descoordinados, alto error manual.
-5. Sin equipo de TI ni capacidad interna de implementación — causa: empresa pequena sin área de sistemas — impacto: cualquier solución debe ser low-code o externalizada.
+5. Sin equipo de TI ni capacidad interna de implementación — causa: empresa pequeña sin área de sistemas — impacto: cualquier solución debe ser low-code o externalizada.
 
 **Señales de alerta:**
 - ❌ Lista 9 dolores sin causa raíz.

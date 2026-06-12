@@ -1,5 +1,5 @@
 # Plantilla — Mapa de Dolores
-## Semana 1 — Transformacion Digital
+## Semana 1 — Transformación Digital
 
 **Empresa:** _________________________
 **Fecha:** _________________________
@@ -10,7 +10,7 @@
 ## Instrucciones
 
 1. Identificar AL MENOS 3 dolores por cada categoria.
-2. Para cada dolor, especificar: descripcion, causa raiz, impacto.
+2. Para cada dolor, especificar: descripción, causa raíz, impacto.
 3. Usar evidencia del dossier o caso para soportar cada dolor.
 4. Marcar con (*) los 3 dolores que considera más urgentes.
 
@@ -18,7 +18,7 @@
 
 ## Categoria 1 — Dolor del Cliente
 
-| Dolor | Descripcion | Causa raiz | Impacto | Urgencia |
+| Dolor | Descripción | Causa raíz | Impacto | Urgencia |
 |---|---|---|---|---|
 | C1 | | | | |
 | C2 | | | | |
@@ -30,7 +30,7 @@
 
 ## Categoria 2 — Dolor del Proceso
 
-| Dolor | Descripcion | Causa raiz | Impacto | Urgencia |
+| Dolor | Descripción | Causa raíz | Impacto | Urgencia |
 |---|---|---|---|---|
 | P1 | | | | |
 | P2 | | | | |
@@ -42,7 +42,7 @@
 
 ## Categoria 3 — Dolor de Datos
 
-| Dolor | Descripcion | Causa raiz | Impacto | Urgencia |
+| Dolor | Descripción | Causa raíz | Impacto | Urgencia |
 |---|---|---|---|---|
 | D1 | | | | |
 | D2 | | | | |
@@ -52,9 +52,9 @@
 
 ---
 
-## Categoria 4 — Dolor de Tecnologia
+## Categoria 4 — Dolor de Tecnología
 
-| Dolor | Descripcion | Causa raiz | Impacto | Urgencia |
+| Dolor | Descripción | Causa raíz | Impacto | Urgencia |
 |---|---|---|---|---|
 | T1 | | | | |
 | T2 | | | | |
@@ -66,7 +66,7 @@
 
 ## Categoria 5 — Dolor de Cultura
 
-| Dolor | Descripcion | Causa raiz | Impacto | Urgencia |
+| Dolor | Descripción | Causa raíz | Impacto | Urgencia |
 |---|---|---|---|---|
 | CU1 | | | | |
 | CU2 | | | | |
@@ -98,11 +98,11 @@ _____________________________________________________________________
 |---|---|---|
 | Ofertas / Productos | | |
 | Procesos | | |
-| Datos e informacion | | |
+| Datos e información | | |
 | Clientes | | |
-| Tecnologia | | |
+| Tecnología | | |
 | Cultura | | |
 
 **Nivel estimado:** ______
-**Justificacion:**
+**Justificación:**
 _____________________________________________________________________

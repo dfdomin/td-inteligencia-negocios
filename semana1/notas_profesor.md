@@ -1,42 +1,42 @@
 # Notas del Profesor — Semana 1
-## Diagnostico de Transformacion Digital
+## Diagnóstico de Transformación Digital
 
 ---
 
-## 1. Enfoque de la sesion
+## 1. Enfoque de la sesión
 
-**Regla central:** La tecnologia no es el punto de partida. Esta sesion debe cerrar con problemas concretos, no con herramientas favoritas.
+**Regla central:** La tecnología no es el punto de partida. Esta sesión debe cerrar con problemas concretos, no con herramientas favoritas.
 
-La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "un sistema de inventario". Eso es pensar en soluciones antes de entender el problema. El trabajo del docente es redirigir siempre hacia los dolores organizacionales.
+La tentación del estudiante es decir "lo que necesita Mercado360 es un CRM" o "un sistema de inventario". Eso es pensar en soluciones antes de entender el problema. El trabajo del docente es redirigir siempre hacia los dolores organizacionales.
 
-**Advertencia:** No dejar que la sesion se vaya a debate sobre "que herramienta es mejor". Eso viene en la Semana 4.
+**Advertencia:** No dejar que la sesión se vaya a debate sobre "que herramienta es mejor". Eso viene en la Semana 4.
 
 ---
 
 ## 2. Secuencia sugerida
 
 ### Bloque 1 — Concepto (20 minutos)
-**Objetivo:** Que el estudiante distinga digitalizacion de transformacion digital.
+**Objetivo:** Que el estudiante distinga digitalización de transformación digital.
 
 1. Pregunta inicial para el grupo (5 min):
    "¿Cuántos de ustedes han escuchado que una empresa 'se digitalizó' pero al final solo compró un software nuevo sin cambiar nada?"
 
-2. Concepto de digitalizacion (5 min):
+2. Concepto de digitalización (5 min):
    - Explicar con ejemplo: pasar inventario de cuaderno a Excel.
    - Pregunta: "¿Eso transforma el negocio?"
 
-3. Concepto de transformacion digital (5 min):
-   - Explicar con ejemplo: una empresa que pasa de vender en tienda fisica a entender a su cliente digitalmente.
+3. Concepto de transformación digital (5 min):
+   - Explicar con ejemplo: una empresa que pasa de vender en tienda física a entender a su cliente digitalmente.
    - Mostrar la diferencia en una tabla simple.
 
 4. Modelo de madurez digital (5 min):
    - Presentar Gartner (5 niveles) de forma simple.
-   - No requiere memorizacion, solo comprension conceptual.
+   - No requiere memorización, solo comprensión conceptual.
 
 **Puntos clave a enfatizar:**
 - Digitalizacion es NECESARIO pero no SUFICIENTE.
-- La pregunta no es "?que tecnologia compramos?" sino "?que problema queremos resolver?"
-- El mapa de dolores es el punto de partida de cualquier transformacion.
+- La pregunta no es "?que tecnología compramos?" sino "¿qué problema queremos resolver?"
+- El mapa de dolores es el punto de partida de cualquier transformación.
 
 ---
 
@@ -45,21 +45,21 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 
 1. Leer el caso (10 min):
    - Distribuir o pedir que lean en sus dispositivos el caso Mercado360.
-   - No dar mas contexto que el que esta en el documento.
+   - No dar más contexto que el que está en el documento.
 
 2. Identificar dolores (15 min):
    - En grupos de 3-4, identificar al menos 3 dolores por categoría.
    - Usar la plantilla de mapa de dolores.
-   - Circular por los grupos, hacer preguntas: "¿Por que ocurre esto?", "¿Desde cuando?", "¿Quién se entera primero?"
+   - Circular por los grupos, hacer preguntas: "¿Por qué ocurre esto?", "¿Desde cuando?", "¿Quién se entera primero?"
 
-3. Socializacion rapida (5 min):
+3. Socializacion rápida (5 min):
    - Cada grupo comparte sus 3 dolores más urgentes.
-   - El docente anota en tablero o papelografo.
+   - El docente anota en tablero o papelógrafo.
 
 **Errores comunes a evitar:**
-- Que los grupos se salten el analisis de causa raiz y solo describan sintomas.
-- Que quiseren pasar directamente a soluciones ("necesitan un app").
-- Que los grupos confundan "dolor" con "necesidad de tecnologia".
+- Que los grupos se salten el análisis de causa raíz y solo describan síntomas.
+- Que quisieran pasar directamente a soluciones ("necesitan un app").
+- Que los grupos confundan "dolor" con "necesidad de tecnología".
 
 ---
 
@@ -72,7 +72,7 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 
 **Nota sobre la evidencia:**
 - La evidencia es individual, no grupal. El mapa de groupes una guia; el documento individual es lo que se califica.
-- La evidencia se sube a la plataforma antes de la proxima sesion.
+- La evidencia se sube a la plataforma antes de la próxima sesión.
 
 ---
 
@@ -80,23 +80,23 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 **Objetivo:** Consolidar aprendizaje y conectar con semana 2.
 
 1. Pregunta de cierre (10 min):
-   "Si usted fuera el consultor de Mercado360 y tuviera $5.000.000 COP para resolver UN problema, ?cual escolheria y por que?"
+   "Si usted fuera el consultor de Mercado360 y tuviera $5.000.000 COP para resolver UN problema, ?cual escolheria y por qué?"
 
-2. Introduccion a la semana 2 (10 min):
-   - Presentacion breve: Consumidor digital y propuesta de valor.
-   - La semana proxima empezamos a mapear la experiencia del cliente.
+2. Introducción a la semana 2 (10 min):
+   - Presentación breve: Consumidor digital y propuesta de valor.
+   - La semana próxima empezamos a mapear la experiencia del cliente.
 
 ---
 
-## 3. Errores tipicos de los estudiantes
+## 3. Errores típicos de los estudiantes
 
-1. **Confundir digitalizacion con transformacion.** Resolver: Hacer que expliquen la diferencia con sus propias palabras antes de avanzar.
+1. **Confundir digitalización con transformación.** Resolver: Hacer que expliquen la diferencia con sus propias palabras antes de avanzar.
 
-2. **Querer saltar a soluciones tecnologicas.** Resolver: Preguntar siempre "?que problema resuelve eso?" antes de validar cualquier propuesta.
+2. **Querer saltar a soluciones tecnologicas.** Resolver: Preguntar siempre "¿qué problema resuelve eso?" antes de validar cualquier propuesta.
 
-3. **Identificar sintomas en lugar de causas raiz.** Resolver: Preguntar "?por que ocurre?" al menos tres veces ("tecnica de los cinco porques").
+3. **Identificar síntomas en lugar de causas raíz.** Resolver: Preguntar "?por qué ocurre?" al menos tres veces ("tecnica de los cinco porques").
 
-4. **Ver la transformacion digital como proyecto de TI.** Resolver: Mostrar que los dolores de cultura y proceso son tan importantes como los de tecnologia.
+4. **Ver la transformación digital como proyecto de TI.** Resolver: Mostrar que los dolores de cultura y proceso son tan importantes como los de tecnología.
 
 ---
 
@@ -105,15 +105,15 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 | Material | Cantidad | Uso |
 |---|---|---|
 | Caso Mercado360 (impreso o digital) | 1 por estudiante | Lectura + taller |
-| Plantilla de mapa de dolores | 1 por estudiante | Actividad practica |
-| Tablero o papelografo | 1 | Socializacion |
+| Plantilla de mapa de dolores | 1 por estudiante | Actividad práctica |
+| Tablero o papelógrafo | 1 | Socializacion |
 | Marcadores | 4 | Tablero |
 
 ---
 
-## 5. Tiempo total de la sesion
+## 5. Tiempo total de la sesión
 
-| Bloque | Duracion | Acumulado |
+| Bloque | Duración | Acumulado |
 |---|---|---|
 | Concepto | 20 min | 20 min |
 | Caso | 30 min | 50 min |
@@ -127,15 +127,15 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 
 ## 6. Respuestas esperadas de los estudiantes
 
-**En la pregunta de cierre (?que problema resolver primero con $5.000.000?):**
+**En la pregunta de cierre (¿qué problema resolver primero con $5.000.000?):**
 
 Respuestas fuertes:
 - "Resolvemos el inventario para que no pierdan ventas por productos agotados." (dolor de proceso + dato).
 - "Ponemos un sistema simple para que los clientes puedan apartar por WhatsApp." (dolor de cliente).
 
 Respuestas debles:
-- "Le compramos un CRM." (sin saber que problema resuelve especificamente).
-- "Digitalizamos todo." (sin priorizacion).
+- "Le compramos un CRM." (sin saber que problema resuelve específicamente).
+- "Digitalizamos todo." (sin priorización).
 
 **Nota:** No buscar la respuesta "correcta", sino que el estudiante justifique con datos del caso.
 
@@ -143,15 +143,15 @@ Respuestas debles:
 
 ## 7. Notas sobre la evidencia
 
-**Criterios de evaluacion de la evidencia:**
-1. Ubica a Mercado360 en nivel de madurez con justificacion (no necesita ser Gartner perfecto, lo importante es que justifique con evidencia del caso).
+**Criterios de evaluación de la evidencia:**
+1. Ubica a Mercado360 en nivel de madurez con justificación (no necesita ser Gartner perfecto, lo importante es que justifique con evidencia del caso).
 2. Mapa de 9+ dolores (3 por categoria minima).
 3. 3 problemas priorizados con justificación (urgencia + impacto).
 4. Reflexion final sobre por donde empezar.
 
 **Calificación rápida:** Si un estudiante entrega los 3 problemas priorizados con justificación clara, ya tiene al menos 60% de la calificación. El resto es calidad de justificación y mapa de dolores.
 
-**Zona de riesgo:** El error mas comun es identificar sintomas sin causas raiz. Revisar que cada dolor tenga causa e impacto, no solo descripcion.
+**Zona de riesgo:** El error más común es identificar síntomas sin causas raíz. Revisar que cada dolor tenga causa e impacto, no solo descripción.
 
 ---
 
@@ -171,12 +171,12 @@ La evidencia de la semana 1 se usa como insumo para la semana 2:
 **Si es sesiOn virtual (Zoom o similar):**
 - Hacer breakout rooms de 4 personas para el taller de mapa de dolores.
 - Usar jam board o herramienta similar para que cada grupo pinte su mapa.
-- Compartir pantalla del docente para la presentacion de concepto.
+- Compartir pantalla del docente para la presentación de concepto.
 
 **Si es aula invertida (flipped classroom):**
-- Pedir que lean el material conceptual antes de la sesion.
-- La sesion se dedica solo al taller y socializacion.
-- La evidencia se entrega antes de la proxima clase.
+- Pedir que lean el material conceptual antes de la sesión.
+- La sesión se dedica solo al taller y socializacion.
+- La evidencia se entrega antes de la próxima clase.
 
 **Si hay estudiantes con necesidades de accesibilidad:**
 - Material en formato accesible (Word, no solo PDF escaneado).

@@ -1,8 +1,8 @@
 # Semana 12 - Hoja de ruta y POC
 
-## Proposito
+## Propósito
 
-Convertir la propuesta en una ruta de implementacion realista.
+Convertir la propuesta en una ruta de implementación realista.
 
 ## En clase
 

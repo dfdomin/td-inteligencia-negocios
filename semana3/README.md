@@ -1,15 +1,15 @@
-# Semana 3 — Procesos y Automatizacion
-## TD — Transformacion Digital en la Empresa | IUB — Inteligencia de Negocios
+# Semana 3 — Procesos y Automatización
+## TD — Transformación Digital en la Empresa | IUB — Inteligencia de Negocios
 
 ---
 
-## Proposito de la semana
+## Propósito de la semana
 
-Reconocer procesos manuales, errores recurrentes y oportunidades de automatizacion. El estudiante mapeara el proceso actual (AS-IS) y diseara un proceso mejorado (TO-BE) para el escenario de pedido por WhatsApp en Mercado360.
+Reconocer procesos manuales, errores recurrentes y oportunidades de automatización. El estudiante mapeara el proceso actual (AS-IS) y diseara un proceso mejorado (TO-BE) para el escenario de pedido por WhatsApp en Mercado360.
 
 **Preguntas clave:**
 - ¿Cuál es el proceso actual de un pedido por WhatsApp en Mercado360?
-- ¿Dónde se pierde informacion, donde hay reprocesos y donde hay errores?
+- ¿Dónde se pierde información, donde hay reprocesos y donde hay errores?
 - ¿Cuál es el proceso mejorado que reduce los dolores y las ineficiencias?
 - ¿Cuál es la diferencia entre automatizar y mejorar un proceso?
 
@@ -21,11 +21,11 @@ Reconocer procesos manuales, errores recurrentes y oportunidades de automatizaci
 
 Un proceso empresarial es una secuencia de actividades que transforma inputs en outputs, generando valor para el cliente interno o externo.
 
-**Caracteristicas de un buen proceso:**
+**Características de un buen proceso:**
 - Tiene un inicio y un fin claros.
 - Genera un resultado measurable.
 - Tiene un dueño del proceso (responsable).
-- Es repetible (no es unico).
+- Es repetible (no es único).
 - Se puede mejorar.
 
 **En lenguaje empresarial:** Un proceso es "lo que pasa cuando alguien pide algo" en la empresa. Si ese flujo tiene pasos claros, se puede mejorar. Si no lo tiene, es caos.
@@ -37,17 +37,17 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 
 ### 1.2 Mapeo de proceso AS-IS y TO-BE
 
-**AS-IS (como es hoy):** Descripcion del proceso actual, paso a paso, sin juicios. Muestra donde estan los problemas reales.
+**AS-IS (como es hoy):** Descripción del proceso actual, paso a paso, sin juicios. Muestra donde estan los problemas reales.
 
-**TO-BE (como deberia ser):** Descripcion del proceso mejorado. Muestra como se resuelven los problemas identificados.
+**TO-BE (como debería ser):** Descripción del proceso mejorado. Muestra cómo se resuelven los problemas identificados.
 
-**Regla de oro:** Nunca disenes el TO-BE sin entender primero el AS-IS. Si no sabes como funciona hoy, no puedes mejorarlo.
+**Regla de oro:** Nunca disenes el TO-BE sin entender primero el AS-IS. Si no sabes cómo funciona hoy, no puedes mejorarlo.
 
-**Regla de la automatizacion:** Primero mejora el proceso, luego automatizalo. Si automatizas un proceso malo, obtienes un proceso malo automatizado.
+**Regla de la automatización:** Primero mejora el proceso, luego automatizalo. Si automatizas un proceso malo, obtienes un proceso malo automatizado.
 
 **Diferencia entre automatizar y mejorar:**
 - **Mejorar:** Cambiar el flujo para eliminar pasos innecesarios, reducir esperas, eliminar errores.
-- **Automatizar:** Usar tecnologia para ejecutar pasos que antes hacian personas.
+- **Automatizar:** Usar tecnología para ejecutar pasos que antes hacian personas.
 
 **Importante:** Primero se mejora, luego se automatiza.
 
@@ -56,31 +56,31 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 
 ---
 
-### 1.3 Tipos de automatizacion
+### 1.3 Tipos de automatización
 
-| Tipo | Descripcion | Ejemplo en Mercado360 |
+| Tipo | Descripción | Ejemplo en Mercado360 |
 |---|---|---|
-| **Automatizacion de tareas (RPA)** | Robot que hace tareas repetitivas que antes hacia una persona. | Bot de WhatsApp que confirma disponibilidad. |
-| **Automatizacion de flujo** | Conectar sistemas para que la informacion fluya sin intervencion manual. | Inventario que se actualiza solo cuando llega producto. |
-| **Automatizacion de decision** | El sistema toma decisiones simples sin intervencion humana. | Descuentos automaticos por lealtad. |
-| **Automatizacion de comunicacion** | Notificaciones automaticas por canal. | Recordatorio de carrito abandonado por WhatsApp. |
+| **Automatización de tareas (RPA)** | Robot que hace tareas repetitivas que antes hacia una persona. | Bot de WhatsApp que confirma disponibilidad. |
+| **Automatización de flujo** | Conectar sistemas para que la información fluya sin intervención manual. | Inventario que se actualiza solo cuando llega producto. |
+| **Automatización de decisión** | El sistema toma decisiones simples sin intervención humana. | Descuentos automaticos por lealtad. |
+| **Automatización de comunicación** | Notificaciones automaticas por canal. | Recordatorio de carrito abandonado por WhatsApp. |
 
 ---
 
-### 1.4 Identificacion de puntos de friccion en el proceso
+### 1.4 Identificación de puntos de fricción en el proceso
 
-**Dolores tipicos en procesos:**
-- **Pasos manuales:** Alguien tiene que transcribir informacion de un medio a otro.
+**Dolores típicos en procesos:**
+- **Pasos manuales:** Alguien tiene que transcribir información de un medio a otro.
 - **Esperas:** El proceso se detiene esperando que alguien haga algo.
 - **Reprocesos:** Hay que hacer algo de nuevo porque se perdio o erro.
-- **Decisiones manuales en puntos de alto volumen:** Alguien decide en un paso que podria ser automatico.
-- **Falta de informacion:** Quien hace el siguiente paso no tiene la informacion que necesita.
+- **Decisiones manuales en puntos de alto volumen:** Alguien decide en un paso que podría ser automático.
+- **Falta de información:** Quien hace el siguiente paso no tiene la información que necesita.
 
 **En lenguaje empresarial:** "¿Cuánto cuesta cada hora de espera en un proceso? ¿Cuánto cuesta cada error que requiere reproceso? ¿Cuánto cuesta cada vez que alguien transcribe mal un dato?"
 
 ---
 
-## 2. Aplicacion a Mercado360
+## 2. Aplicación a Mercado360
 
 ### Proceso AS-IS — Pedido por WhatsApp
 
@@ -99,14 +99,14 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 **Problemas identificados:**
 | Paso | Problema | Tipo de dolor |
 |---|---|---|
-| 2 | Vendedor no responde rapido (puede estar atendiendo) | Espera |
-| 3 | Busqueda en memoria = informacion incompleta | Dato |
-| 4 | Respuesta sin confirmacion de inventario real | Dato |
+| 2 | Vendedor no responde rápido (puede estar atendiendo) | Espera |
+| 3 | Busqueda en memoria = información incompleta | Dato |
+| 4 | Respuesta sin confirmación de inventario real | Dato |
 | 7 | Inventario desactualizado | Proceso + Dato |
 
 **Costo estimado del problema:**
 - Tiempo del vendedor: 15-20 min por consulta.
-- Tasa de conversion: ~60% de consultas se convierten en ventas (estimado gerente).
+- Tasa de conversión: ~60% de consultas se convierten en ventas (estimado gerente).
 - Costo por venta perdida por faltante: $137.000 COP (ticket promedio) x 40% de perdu00f3.
 
 ---
@@ -117,7 +117,7 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 
 **Pasos del proceso mejorado:**
 1. Cliente escribe por WhatsApp preguntando por producto.
-2. Bot automatico recibe el mensaje, busca en inventario actualizado.
+2. Bot automático recibe el mensaje, busca en inventario actualizado.
 3. Bot responde con disponibilidad real (SKU, talla, cantidad).
 4. Si hay disponibilidad, bot ofrece apartar por 2 horas (reserva).
 5. Cliente confirma apartar.
@@ -130,21 +130,21 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 |---|---|---|
 | Vendedor busca en memoria | Bot consulta inventario en tiempo real | Dato + Eficiencia |
 | Respuesta con incertidumbre | Respuesta con disponibilidad real | Confianza del cliente |
-| No hay reserva | Reserva automatica de 2 horas | Conversion |
+| No hay reserva | Reserva automática de 2 horas | Conversion |
 | Inventario desactualizado | Inventario actualizado en tiempo real por venta entrada | Confiabilidad |
 
 **Resultado esperado:**
 - Tiempo de respuesta: de 20 min a 2 min.
-- Tasa de conversion: de 60% a 80%.
+- Tasa de conversión: de 60% a 80%.
 - Tasa de reserva cumplida: de N/A a 90%.
 
 ---
 
-## 3. Actividad practica
+## 3. Actividad práctica
 
 ### Taller: Mapa AS-IS / TO-BE del proceso de pedido
 
-**Duracion:** 45 minutos.
+**Duración:** 45 minutos.
 
 **Instrucciones:**
 1. En equipos de 3-4 personas.
@@ -159,11 +159,11 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
    - Problemas identificados en cada paso.
 4. Disear el proceso TO-BE con:
    - Cambios propuestos por paso.
-   - Tecnologia habilitadora (nombre general).
-   - Resultado esperado (metricas).
-5. Identificar el paso con mayor oportunidad de automatizacion.
+   - Tecnología habilitadora (nombre general).
+   - Resultado esperado (métricas).
+5. Identificar el paso con mayor oportunidad de automatización.
 
-**Entregable:** Mapa AS-IS / TO-BE en formato de flujograma o tabla. Presentacion de 5 minutos por grupo.
+**Entregable:** Mapa AS-IS / TO-BE en formato de flujograma o tabla. Presentación de 5 minutos por grupo.
 
 ---
 
@@ -172,22 +172,22 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 **Mapa AS-IS / TO-BE del proceso de pedido de Mercado360** — documento individual.
 
 **Debe incluir:**
-1. Descripcion del proceso AS-IS con al menos 5 pasos.
-2. Identificacion de puntos de friccion (al menos 3) con causa raiz y costo estimado.
-3. Descripcion del proceso TO-BE con cambios propuestos.
-4. Para cada cambio: que problema resuelve, que tecnologia lo habilita.
-5. Identificacion de la automatizacion de mayor impacto con justificacion.
+1. Descripción del proceso AS-IS con al menos 5 pasos.
+2. Identificación de puntos de fricción (al menos 3) con causa raíz y costo estimado.
+3. Descripción del proceso TO-BE con cambios propuestos.
+4. Para cada cambio: que problema resuelve, que tecnología lo habilita.
+5. Identificación de la automatización de mayor impacto con justificación.
 
-**Extencion maxima:** 5 paginas.
+**Extencion maxima:** 5 páginas.
 
 ---
 
 ## 5. Preguntas orientadoras
 
-1. ¿Por que es importante mapear el proceso AS-IS antes de disenar el TO-BE?
+1. ¿Por qué es importante mapear el proceso AS-IS antes de diseñar el TO-BE?
 2. ¿Cuál es la diferencia entre mejorar un proceso y automatizarlo?
-3. ¿Por que no se debe automatizar un proceso que no ha sido mejorado primero?
-4. ¿Cuál es el paso del proceso de pedido de Mercado360 con mayor oportunidad de automatizacion?
+3. ¿Por qué no se debe automatizar un proceso que no ha sido mejorado primero?
+4. ¿Cuál es el paso del proceso de pedido de Mercado360 con mayor oportunidad de automatización?
 5. ¿Cuánto le cuesta a Mercado360 cada proceso de pedido mal ejecutado?
 
 ---
@@ -208,11 +208,11 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 
 | Criterio | Peso | Destacado | Satisfactorio | En desarrollo | Insuficiente |
 |---|---|---|---|---|---|
-| Proceso AS-IS completo (5+ pasos) | 25% | 5+ pasos con responsable, tiempo y problemas identificados. Cada problema tiene causa raiz. | 5+ pasos pero algunos sin problemas identificados. | Menos de 5 pasos o sin estructura. | No entrega AS-IS. |
+| Proceso AS-IS completo (5+ pasos) | 25% | 5+ pasos con responsable, tiempo y problemas identificados. Cada problema tiene causa raíz. | 5+ pasos pero algunos sin problemas identificados. | Menos de 5 pasos o sin estructura. | No entrega AS-IS. |
 | Puntos de fricción (3+ dolores) | 20% | 3+ dolores con causa raíz y costo estimado por paso. | 3 dolores pero sin costo estimado. | 1-2 dolores sin causa raíz. | No identifica dolores. |
 | Proceso TO-BE con cambios | 25% | TO-BE completo con 3+ cambios. Cada cambio tiene justificación (problema que resuelve) y tecnología habilitadora. | TO-BE con cambios pero faltan justificaciones o tecnología. | TO-BE incompleto o sin justificación. | No entrega TO-BE o es copia del AS-IS. |
 | Automatización de mayor impacto | 20% | Identifica automatización con justificación clara (impacto, viabilidad, costo estimado). | Identifica automatización pero sin justificación completa. | Identifica automatización sin justificación. | No entrega. |
-| Estructura y calidad | 10% | Documento claro, maximo 5 paginas, sin errores. | Documento claro con maximo 5 paginas. | Documento desorganizado o > 5 paginas. | No entrega. |
+| Estructura y calidad | 10% | Documento claro, máximo 5 páginas, sin errores. | Documento claro con máximo 5 páginas. | Documento desorganizado o > 5 páginas. | No entrega. |
 
 ---
 
@@ -221,6 +221,6 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 | Semana | Tema | Conexion con semana 3 |
 |---|---|---|
 | Semana 2 | Mapa del recorrido del cliente (journey map) | La etapa de mayor fricción del recorrido del cliente (journey) se convierte en el proceso a rediseñar. |
-| Semana 4 | Tecnologias habilitadoras | Las tecnologias propuestas en el TO-BE se evaluaran en detalle. |
-| Semana 7 | Datos y analitica | Los datos que genera el proceso automatizado se convierten en KPIs. |
-| Semana 5 | Parcial 1 | Se aplica el metodo AS-IS/TO-BE a RetailNova. |
+| Semana 4 | Tecnologías habilitadoras | Las tecnologías propuestas en el TO-BE se evaluaran en detalle. |
+| Semana 7 | Datos y analítica | Los datos que genera el proceso automatizado se convierten en KPIs. |
+| Semana 5 | Parcial 1 | Se aplica el método AS-IS/TO-BE a RetailNova. |
