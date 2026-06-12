@@ -8,9 +8,9 @@
 Comprender como cambia el comportamiento del cliente en un entorno digital y como eso exige rediseñar experiencias. El estudiante aplicará el concepto construyendo un mapa del recorrido del cliente (journey map) de Mercado360.
 
 **Preguntas clave:**
-- ?Como se comporta un consumidor digital en Colombia?
-- ?Cuales son los momentos de friccion en la experiencia de Mercado360?
-- ?Como se diseña una propuesta de valor para un cliente que espera TODO digital?
+- ¿Cómo se comporta un consumidor digital en Colombia?
+- ¿Cuáles son los momentos de friccion en la experiencia de Mercado360?
+- ¿Cómo se diseña una propuesta de valor para un cliente que espera TODO digital?
 
 ---
 
@@ -39,16 +39,16 @@ El consumidor digital colombiano cambió su comportamiento en la última década
 
 La propuesta de valor es la promesa que una empresa hace a su cliente: lo que le ofrece a cambio de su dinero, su tiempo, su confianza.
 
-**Pregunta fundamental:** "?Por que un cliente deberia elegir a Mercado360 en lugar de la tienda de la esquina, el marketplace de Instagram o el local de al lado?"
+**Pregunta fundamental:** "¿Por que un cliente deberia elegir a Mercado360 en lugar de la tienda de la esquina, el marketplace de Instagram o el local de al lado?"
 
 **En transformacion digital:** La propuesta de valor debe responder a las expectativas del consumidor digital, no solo a las capacidades actuales de la empresa.
 
 **Componentes de una propuesta de valor:**
-1. **Que ofrecemos?** (producto/servicio).
-2. **Para quien?** (segmento de cliente).
-3. **Que problema resolvemos?** (dolor del cliente).
-4. **Como lo resolvemos?** (diferenciador).
-5. **Por que es mejor que la competencia?** (ventaja competitiva).
+1. **¿Qué ofrecemos?** (producto/servicio).
+2. **¿Para quién?** (segmento de cliente).
+3. **¿Qué problema resolvemos?** (dolor del cliente).
+4. **¿Cómo lo resolvemos?** (diferenciador).
+5. **¿Por qué es mejor que la competencia?** (ventaja competitiva).
 
 **Fuente:**
 - Osterwalder, A. et al. (2015). *Value Proposition Design*. Wiley.
@@ -70,10 +70,10 @@ El mapa del recorrido del cliente (journey map) es una representación visual de
 **En transformación digital:** Cada etapa del recorrido del cliente (journey) puede tener fricciones o momentos de verdad. El objetivo es identificar dónde pierde el cliente y por qué.
 
 **Enfoque de tres capas:**
-- **Emocion:** ?Que siente el cliente en cada etapa? (frustracion, confusion, satisfaccion).
-- **Accion:** ?Que hace el cliente en cada etapa?
+- **Emocion:** ¿Qué siente el cliente en cada etapa? (frustracion, confusion, satisfaccion).
+- **Accion:** ¿Qué hace el cliente en cada etapa?
 - **Punto de contacto (touchpoint):** ¿Por dónde interactúa? (WhatsApp, Instagram, tienda, llamada).
-- **Dato:** ?Que informacion hace falta en cada etapa para tomar una decision?
+- **Dato:** ¿Qué informacion hace falta en cada etapa para tomar una decision?
 
 **Fuente:**
 - Richardson, A. (2010). "Using customer journey maps to improve customer experience." *Harvard Business Review.*
@@ -88,11 +88,11 @@ El mapa del recorrido del cliente (journey map) es una representación visual de
 - El cliente ve una publicacion en Instagram o recibe una referencia de un amigo.
 - Emocion: curiosidad.
 - Punto de contacto (touchpoint): Instagram o boca a boca.
-- Dato faltante: ?Como se entera de las nuevas llegadas?
+- Dato faltante: ¿Cómo se entera de las nuevas llegadas?
 
 **Etapa 2 — Consideracion:**
 - El cliente abre Instagram, ve la foto del producto, duda si estara disponible.
-- Emocion: incertidumbre. ?Tendra la talla? ?Lo van a guardar?
+- Emocion: incertidumbre. ¿Tendra la talla? ¿Lo van a guardar?
 - Punto de contacto (touchpoint): Instagram (comenta o pregunta por DM).
 - Dato faltante: Inventario actualizado en tiempo real.
 
@@ -177,11 +177,11 @@ El mapa del recorrido del cliente (journey map) es una representación visual de
 
 ## 6. Preguntas orientadoras
 
-1. ?Por que el consumidor digital en Colombia espera respuestas en minutos y no en dias?
-2. ?Cual es la diferencia entre propuesta de valor y slogan publicitario?
-3. ?Cual es la etapa del journey con mayor friccion para Mercado360 y por que?
-4. ?Por que es importante identificar el dato que falta en cada etapa del journey?
-5. ?Como se relaciona el journey map con los dolores del mapa de la semana 1?
+1. ¿Por que el consumidor digital en Colombia espera respuestas en minutos y no en dias?
+2. ¿Cuál es la diferencia entre propuesta de valor y slogan publicitario?
+3. ¿Cuál es la etapa del journey con mayor friccion para Mercado360 y por que?
+4. ¿Por que es importante identificar el dato que falta en cada etapa del journey?
+5. ¿Cómo se relaciona el journey map con los dolores del mapa de la semana 1?
 
 ---
 

@@ -19,7 +19,7 @@ El objetivo de la sesión es que el estudiante pase de "identificar dolores" (se
 **Objetivo:** Comprender el comportamiento del consumidor digital colombiano y la propuesta de valor.
 
 1. Pregunta inicial (5 min):
-   "?Cuantos han comprado algo por WhatsApp en los ultimos 30 dias? ?Cuanto tiempo tardaron en recibir respuesta? ?Compraron o se fueron?"
+   "¿Cuántos han comprado algo por WhatsApp en los ultimos 30 dias? ¿Cuánto tiempo tardaron en recibir respuesta? ¿Compraron o se fueron?"
 
 2. Consumidor digital colombiano (10 min):
    - Datos clave: 70%+ usa WhatsApp para comunicarse con empresas, tiempo promedio de respuesta esperado < 30 minutos.
@@ -78,12 +78,12 @@ El objetivo de la sesión es que el estudiante pase de "identificar dolores" (se
 **Objetivo:** Consolidar aprendizaje y conectar con semana 3.
 
 1. Pregunta de cierre (10 min):
-   "?Si Mercado360 implementara solo UNA mejora digital este ano, cual deberia ser? ?Por que?"
+   "¿Si Mercado360 implementara solo UNA mejora digital este ano, cual deberia ser? ¿Por que?"
 
 2. Introduccion a semana 3 (10 min):
    - La semana que viene: Procesos y automatizacion.
    - Vamos a tomar la etapa de mayor fricción del recorrido del cliente (journey) y rediseñar el proceso de pedido por WhatsApp.
-   - "?Cual es el proceso actual de un pedido en Mercado360?"
+   - "¿Cuál es el proceso actual de un pedido en Mercado360?"
 
 ---
 
@@ -102,9 +102,9 @@ El objetivo de la sesión es que el estudiante pase de "identificar dolores" (se
 
 1. **Hacer un mapa del recorrido del cliente (journey) sin fricciones.** Resolver: Preguntar "¿y si no hay respuesta de WhatsApp en 30 minutos? ¿Y si el producto no está?"
 
-2. **Proponer una mejora que no resuelve la friccion identificada.** Resolver: "?Esa mejora le devuelve la confianza al cliente que se fue sin comprar?"
+2. **Proponer una mejora que no resuelve la friccion identificada.** Resolver: "¿Esa mejora le devuelve la confianza al cliente que se fue sin comprar?"
 
-3. **Proponer una mejora de costo alto sinjustificacion.** Resolver: "?Tiene Mercado360 presupuesto para eso? ?Cuanto tiempo tomaria implementarla?"
+3. **Proponer una mejora de costo alto sinjustificacion.** Resolver: "¿Tiene Mercado360 presupuesto para eso? ¿Cuánto tiempo tomaria implementarla?"
 
 4. **Confundir mapa del recorrido del cliente (journey map) con mapa de procesos.** Resolver: El mapa del recorrido del cliente (journey map) es desde la perspectiva del CLIENTE, no de la empresa. Si dice "el vendedor hace..." eso es proceso. Si dice "el cliente siente..." eso es recorrido del cliente (journey).
 
@@ -153,4 +153,4 @@ La evidencia de semana 2 se conecta con semana 3:
 - Los datos faltantes del recorrido del cliente (journey) se convierten en los datos que necesita Mercado360 para tomar decisiones.
 
 **Pregunta de apertura para semana 3:**
-"?Cual es el proceso actual de un pedido por WhatsApp en Mercado360 desde que el cliente escribe hasta que recibe el producto? ?Cuantas personas involucra? ?Cuantos pasos tiene? ?Donde se pierde informacion?"
+"¿Cuál es el proceso actual de un pedido por WhatsApp en Mercado360 desde que el cliente escribe hasta que recibe el producto? ¿Cuántas personas involucra? ¿Cuántos pasos tiene? ¿Dónde se pierde informacion?"

@@ -8,10 +8,10 @@
 Reconocer procesos manuales, errores recurrentes y oportunidades de automatizacion. El estudiante mapeara el proceso actual (AS-IS) y diseara un proceso mejorado (TO-BE) para el escenario de pedido por WhatsApp en Mercado360.
 
 **Preguntas clave:**
-- ?Cual es el proceso actual de un pedido por WhatsApp en Mercado360?
-- ?Donde se pierde informacion, donde hay reprocesos y donde hay errores?
+- ¿Cuál es el proceso actual de un pedido por WhatsApp en Mercado360?
+- ¿Dónde se pierde informacion, donde hay reprocesos y donde hay errores?
 - ¿Cuál es el proceso mejorado que reduce los dolores y las ineficiencias?
-- ?Cual es la diferencia entre automatizar y mejorar un proceso?
+- ¿Cuál es la diferencia entre automatizar y mejorar un proceso?
 
 ---
 
@@ -76,7 +76,7 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 - **Decisiones manuales en puntos de alto volumen:** Alguien decide en un paso que podria ser automatico.
 - **Falta de informacion:** Quien hace el siguiente paso no tiene la informacion que necesita.
 
-**En lenguaje empresarial:** "?Cuanto cuesta cada hora de espera en un proceso? ?Cuanto cuesta cada error que requiere reproceso? ?Cuanto cuesta cada vez que alguien transcribe mal un dato?"
+**En lenguaje empresarial:** "¿Cuánto cuesta cada hora de espera en un proceso? ¿Cuánto cuesta cada error que requiere reproceso? ¿Cuánto cuesta cada vez que alguien transcribe mal un dato?"
 
 ---
 
@@ -184,11 +184,11 @@ Un proceso empresarial es una secuencia de actividades que transforma inputs en 
 
 ## 5. Preguntas orientadoras
 
-1. ?Por que es importante mapear el proceso AS-IS antes de disenar el TO-BE?
-2. ?Cual es la diferencia entre mejorar un proceso y automatizarlo?
-3. ?Por que no se debe automatizar un proceso que no ha sido mejorado primero?
-4. ?Cual es el paso del proceso de pedido de Mercado360 con mayor oportunidad de automatizacion?
-5. ?Cuanto le cuesta a Mercado360 cada proceso de pedido mal ejecutado?
+1. ¿Por que es importante mapear el proceso AS-IS antes de disenar el TO-BE?
+2. ¿Cuál es la diferencia entre mejorar un proceso y automatizarlo?
+3. ¿Por que no se debe automatizar un proceso que no ha sido mejorado primero?
+4. ¿Cuál es el paso del proceso de pedido de Mercado360 con mayor oportunidad de automatizacion?
+5. ¿Cuánto le cuesta a Mercado360 cada proceso de pedido mal ejecutado?
 
 ---
 

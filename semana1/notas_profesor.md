@@ -19,11 +19,11 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 **Objetivo:** Que el estudiante distinga digitalizacion de transformacion digital.
 
 1. Pregunta inicial para el grupo (5 min):
-   "?Cuántos de ustedes han escuchado que una empresa 'se digitalizó' pero al final solo compró un software nuevo sin cambiar nada?"
+   "¿Cuántos de ustedes han escuchado que una empresa 'se digitalizó' pero al final solo compró un software nuevo sin cambiar nada?"
 
 2. Concepto de digitalizacion (5 min):
    - Explicar con ejemplo: pasar inventario de cuaderno a Excel.
-   - Pregunta: "?Eso transforma el negocio?"
+   - Pregunta: "¿Eso transforma el negocio?"
 
 3. Concepto de transformacion digital (5 min):
    - Explicar con ejemplo: una empresa que pasa de vender en tienda fisica a entender a su cliente digitalmente.
@@ -50,7 +50,7 @@ La tentacion del estudiante es decir "lo que necesita Mercado360 es un CRM" o "u
 2. Identificar dolores (15 min):
    - En grupos de 3-4, identificar al menos 3 dolores por categoría.
    - Usar la plantilla de mapa de dolores.
-   - Circular por los grupos, hacer preguntas: "?Por que ocurre esto?", "?Desde cuando?", "?Quien se entera primero?"
+   - Circular por los grupos, hacer preguntas: "¿Por que ocurre esto?", "¿Desde cuando?", "¿Quién se entera primero?"
 
 3. Socializacion rapida (5 min):
    - Cada grupo comparte sus 3 dolores más urgentes.
@@ -162,7 +162,7 @@ La evidencia de la semana 1 se usa como insumo para la semana 2:
 - El nivel de madurez de Mercado360 se confirma en el parcial 1 con RetailNova.
 
 **Pregunta de apertura para semana 2:**
-"?Si los problemas priorizados son de cliente, proceso y datos, ¿cómo es la experiencia del cliente de Mercado360 en cada punto de contacto (touchpoint)?"
+"¿Si los problemas priorizados son de cliente, proceso y datos, ¿cómo es la experiencia del cliente de Mercado360 en cada punto de contacto (touchpoint)?"
 
 ---
 

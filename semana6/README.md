@@ -8,9 +8,9 @@
 Aplicar herramientas de innovacion centrado en el ser humano para identificar, idear y priorizar soluciones a los dolores organizados en las semanas anteriores. El objetivo no es generar muchas ideas, sino aprender a filtrar con criterio.
 
 **Preguntas clave:**
-- ?Como se transforma un dolor organizacional en una oportunidad de innovacion?
-- ?Por que la mayoria de ideas no merecen ejecutarse y como filtrarlas?
-- ?Como decide Mercado360 cual solucion construir primero?
+- ¿Cómo se transforma un dolor organizacional en una oportunidad de innovacion?
+- ¿Por que la mayoria de ideas no merecen ejecutarse y como filtrarlas?
+- ¿Cómo decide Mercado360 cual solucion construir primero?
 
 ---
 
@@ -36,7 +36,7 @@ Design Thinking es una metodologia de solucion de problemas centrada en el ser h
 
 **Como se observa en una empresa real:** Una empresa que aplica Design Thinking observa a sus clientes en el punto de servicio, hace preguntas abiertas, prototype soluciones con materiales sencillos y las testa antes de desarrollo. No se confia en encuestas ni en reuniones de mente.
 
-**Como se aplica en Mercado360:** Antes de construir cualquier herramienta digital, el equipo debe ir al punto de venta y observar: ?Como pide el cliente? ?Que hace cuando no encuentra el producto? ¿Cómo decide entre comprar hoy o mañana? Esa observacion directa es el insumo para idear.
+**Como se aplica en Mercado360:** Antes de construir cualquier herramienta digital, el equipo debe ir al punto de venta y observar: ¿Cómo pide el cliente? ¿Qué hace cuando no encuentra el producto? ¿Cómo decide entre comprar hoy o mañana? Esa observacion directa es el insumo para idear.
 
 **Fuente:** Brown, T. (2009). *Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation*. Harper Business.
 
@@ -201,7 +201,7 @@ A partir de estos dolores, se puede idear las siguientes oportunidades:
 1. En equipos de 3-4 personas.
 2. Revisen los 3 dolores priorizados de Mercado360 que ya tienen del trabajo de semanas anteriores.
 3. Por cada dolor, generen AL MENOS 3 soluciones potenciales (no se filtran todavia).
-   - Usar la logica JTBD: ?Que trabajo quiere hacer el cliente?
+   - Usar la logica JTBD: ¿Qué trabajo quiere hacer el cliente?
    - No limitar la imaginación: cualquier idea es válida en esta fase.
 4. Escriban cada oportunidad en una tarjeta o post-it.
 
@@ -239,13 +239,13 @@ A partir de estos dolores, se puede idear las siguientes oportunidades:
 
 ## 5. Preguntas orientadoras
 
-1. ?Por que el primer paso de Design Thinking es empatizar y no idear?
-2. ?Que diferencia hay entre un dolor organizacional y una oportunidad de innovacion?
-3. ?Por que una oportunidad de alto impacto y alto esfuerzo no siempre es la mejor primera decision?
-4. ?Que significa que una solucion tenga score mayor a 1 en la matriz impacto/esfuerzo?
-5. ?Como se aplique la logica de Jobs-to-be-Done en Mercado360?
-6. ?Que ventajas tiene construir un MVP antes de desarrollar una solucion completa?
-7. ?En que se diferencia el enfoque de Lean Startup del enfoque tradicional de proyectos?
+1. ¿Por que el primer paso de Design Thinking es empatizar y no idear?
+2. ¿Qué diferencia hay entre un dolor organizacional y una oportunidad de innovacion?
+3. ¿Por que una oportunidad de alto impacto y alto esfuerzo no siempre es la mejor primera decision?
+4. ¿Qué significa que una solucion tenga score mayor a 1 en la matriz impacto/esfuerzo?
+5. ¿Cómo se aplique la logica de Jobs-to-be-Done en Mercado360?
+6. ¿Qué ventajas tiene construir un MVP antes de desarrollar una solucion completa?
+7. ¿En que se diferencia el enfoque de Lean Startup del enfoque tradicional de proyectos?
 
 ---
 
@@ -274,7 +274,7 @@ A partir de estos dolores, se puede idear las siguientes oportunidades:
 | Matriz completada con 5+ oportunidades | 25% | 5+ oportunidades con impacto y esfuerzo justificados con evidencia del caso. | 5+ oportunidades con justificacion parcial. | 4 oportunidades sin justificacion. | Menos de 4. |
 | Posicionamiento en cuadrantes | 25% | Oportunidades posicionadas consistentemente con la justificacion. Quadrantes coherentes. | Posicionamiento mayormente coherente. | Inconsistencias entre justificacion y posicion. | Sin matriz o random. |
 | Quick win identificado y justificado | 20% | Quick win identificado con justificación que conecta dolor-solución-impacto. | Quick win presente con justificación parcial. | Sin justificación clara. | No identifica quick win. |
-| Descripcion de solucion candidata | 20% | Solucion clara, especifica, con logica JTBD aplicada. Describe para quien es y como funciona. | Solucion presente pero incompleta. | Solucion vaga o gen?rica. | No entrega. |
+| Descripcion de solucion candidata | 20% | Solucion clara, especifica, con logica JTBD aplicada. Describe para quien es y como funciona. | Solucion presente pero incompleta. | Solucion vaga o genérica. | No entrega. |
 | Propuesta de MVP | 10% | MVP realista para testear en 2 semanas sin desarrollo tecnologico. Incluye 20 clientes objetivo. | MVP presente pero sin concrecion. | Idea de testeo sin estructura. | No entrega. |
 
 ---

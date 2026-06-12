@@ -25,30 +25,30 @@ Esta sesion es doble: Exposiciones de estudiantes (que cubren tecnologias amplia
 **Preguntas de profundizacion por tecnologia:**
 
 **Cloud:**
-- "?Cual es la diferencia entre guardar archivos en Google Drive y tener un sistema en la nube?"
-- "?Cual es el riesgo de depender de un proveedor de cloud?"
+- "¿Cuál es la diferencia entre guardar archivos en Google Drive y tener un sistema en la nube?"
+- "¿Cuál es el riesgo de depender de un proveedor de cloud?"
 
 **IA:**
-- "?Cual es la diferencia entre un chatbot rule-based y uno con IA?"
-- "?Cual es el riesgo de que la IA tome decisiones incorrectas?"
+- "¿Cuál es la diferencia entre un chatbot rule-based y uno con IA?"
+- "¿Cuál es el riesgo de que la IA tome decisiones incorrectas?"
 
 **IoT:**
-- "?Cual es el costo aproximado de equipar una tienda pequena con sensores IoT?"
-- "?Que pasa si se corta la conectividad?"
+- "¿Cuál es el costo aproximado de equipar una tienda pequena con sensores IoT?"
+- "¿Qué pasa si se corta la conectividad?"
 
 **Automatizacion:**
-- "?Cual es la diferencia entre automatizar y programar?"
-- "?Por que no se debe automatizar un proceso que no ha sido mejorado?"
+- "¿Cuál es la diferencia entre automatizar y programar?"
+- "¿Por que no se debe automatizar un proceso que no ha sido mejorado?"
 
 **Datos y Analitica:**
-- "?Cual es la diferencia entre datos y informacion?"
-- "?Por que los datos de baja calidad generan malas decisiones?"
+- "¿Cuál es la diferencia entre datos y informacion?"
+- "¿Por que los datos de baja calidad generan malas decisiones?"
 
 **Movilidad:**
-- "?Cual es el riesgo de manejar datos de clientes en celulares personales?"
+- "¿Cuál es el riesgo de manejar datos de clientes en celulares personales?"
 
 **Blockchain:**
-- "?Por que blockchain no es la solucion para todo? ?Cuando si es util?"
+- "¿Por que blockchain no es la solucion para todo? ¿Cuándo si es util?"
 
 **Nota sobre el docente:** No necesita ser experto en cada tecnologia. El objetivo es que el estudiante haga la presentacion y el docente facilite la discusion.
 
@@ -78,7 +78,7 @@ Esta sesion es doble: Exposiciones de estudiantes (que cubren tecnologias amplia
 2. Introduccion al parcial 1 (10 min):
    - La proxima semana: Parcial 1. Caso: RetailNova.
    - El estudiante debe aplicar todo lo aprendido: diagnóstico de madurez, mapa de dolores, mapa del recorrido del cliente (journey map), oportunidad priorizada.
-   - ?Que le falta a Mercado360 para estar donde esta RetailNova?
+   - ¿Qué le falta a Mercado360 para estar donde esta RetailNova?
 
 ---
 
@@ -119,13 +119,13 @@ Los equipos deben cites sources para los casos reales. Fuentes recomendadas:
 
 ## 6. Errores tipicos de los estudiantes en las exposiciones
 
-1. **Dar una clase de concepto sin aplicacion.** Resolver: Preguntar "?Y para Mercado360 eso como se aplica?".
+1. **Dar una clase de concepto sin aplicacion.** Resolver: Preguntar "¿Y para Mercado360 eso como se aplica?".
 
-2. **Proponer tecnologia sin considerar el costo.** Resolver: "?Cuanto cuesta eso al mes? ?Tiene Mercado360 ese presupuesto?".
+2. **Proponer tecnologia sin considerar el costo.** Resolver: "¿Cuánto cuesta eso al mes? ¿Tiene Mercado360 ese presupuesto?".
 
-3. **No mencionar riesgos.** Resolver: "?Cual es el riesgo de esta tecnologia? ?Para quien no funciona?".
+3. **No mencionar riesgos.** Resolver: "¿Cuál es el riesgo de esta tecnologia? ¿Para quien no funciona?".
 
-4. **Usar fuentes no confiables.** Resolver: "Eso suena interesante. ?De donde sale ese dato?".
+4. **Usar fuentes no confiables.** Resolver: "Eso suena interesante. ¿De donde sale ese dato?".
 
 5. **Repetir lo mismo que otro equipo.** Resolver: Asignar tecnologias distintas y pedir enfoque diferente.
 
@@ -136,7 +136,7 @@ Los equipos deben cites sources para los casos reales. Fuentes recomendadas:
 **Conexion directa:**
 - La ficha de tecnologia de la semana 4 es un ensayo para la seccion de oportunidad priorizada del parcial 1.
 - La diferencia: En el parcial, el estudiante aplica a RetailNova, no a Mercado360.
-- La pregunta clave: "?Como se selecciona la tecnologia correcta para un problema especifico?"
+- La pregunta clave: "¿Cómo se selecciona la tecnologia correcta para un problema especifico?"
 
 **Pregunta de apertura para semana 5:**
-"?Si Mercado360 y RetailNova tienen problemas similares, ?por que la prioridad de uno no es la misma que la del otro?"
+"¿Si Mercado360 y RetailNova tienen problemas similares, ?por que la prioridad de uno no es la misma que la del otro?"

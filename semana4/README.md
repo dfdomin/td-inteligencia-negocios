@@ -8,10 +8,10 @@
 Comprender las tecnologias habilitadoras de la transformacion digital (cloud, datos/analitica, inteligencia artificial, IoT, movilidad, blockchain, automatizacion) y evaluar cual aplica a un problema especifico de negocio. El estudiante aplicara el concepto mediante exposiciones grupales y una ficha de tecnologia para Mercado360.
 
 **Preguntas clave:**
-- ?Cual tecnologia resuelve cual problema en Mercado360?
-- ?Cual es la diferencia entre cloud, IA, IoT, blockchain y para que sirve cada una?
-- ?Que tecnologia puede implementar Mercado360 con recurso limitado?
-- ?Cuales son los riesgos de cada tecnologia?
+- ¿Cuál tecnologia resuelve cual problema en Mercado360?
+- ¿Cuál es la diferencia entre cloud, IA, IoT, blockchain y para que sirve cada una?
+- ¿Qué tecnologia puede implementar Mercado360 con recurso limitado?
+- ¿Cuáles son los riesgos de cada tecnologia?
 
 ---
 
@@ -61,10 +61,10 @@ Las tecnologias se mueven en un ciclo de expectativa:
 **Conceptos clave:**
 - **Datos estructurados:** Informacion en bases de datos (ventas, inventario).
 - **Datos no estructurados:** Informacion sin formato (fotos, comentarios de redes).
-- **Analytics descriptivo:** ?Que paso? (reportes).
-- **Analytics diagnostico:** ?Por que paso? (analisis).
-- **Analytics predictivo:** ?Que pasara? (modelos).
-- **Analytics prescriptivo:** ?Que debo hacer? (recomendaciones).
+- **Analytics descriptivo:** ¿Qué paso? (reportes).
+- **Analytics diagnostico:** ¿Por que paso? (analisis).
+- **Analytics predictivo:** ¿Qué pasara? (modelos).
+- **Analytics prescriptivo:** ¿Qué debo hacer? (recomendaciones).
 
 **En lenguaje empresarial:** "No decidir por intuicion, decidir por datos." Los datos permiten saber que esta pasando, por que y que pasara si no se actua.
 
@@ -221,8 +221,8 @@ Las tecnologias se mueven en un ciclo de expectativa:
 **Estructura obligatoria de la exposicion:**
 1. **Concepto (2 min):** Que es la tecnologia y para que sirve en una empresa.
 2. **Caso real (2 min):** Un ejemplo real de empresa que uso esta tecnologia (con fuente).
-3. **Aplicacion a Mercado360 (3 min):** ?Como aplicaria esta tecnologia? ?Cual problema resuelve? ?Que se necesitaria? ?Cuanto costaria aproximadamente?
-4. **Riesgo o limite (2 min):** ?Cual es el mayor riesgo de esta tecnologia? ?Para quien no funciona?
+3. **Aplicacion a Mercado360 (3 min):** ¿Cómo aplicaria esta tecnologia? ¿Cuál problema resuelve? ¿Qué se necesitaria? ¿Cuánto costaria aproximadamente?
+4. **Riesgo o limite (2 min):** ¿Cuál es el mayor riesgo de esta tecnologia? ¿Para quien no funciona?
 5. **Cierre (1 min):** Una recomendacion accionable para Mercado360.
 
 **Tecnologias a asignar:**
@@ -270,11 +270,11 @@ Las tecnologias se mueven en un ciclo de expectativa:
 
 ## 6. Preguntas orientadoras
 
-1. ?Por que cloud computing es accesible para empresas pequenas aunque no tengan equipo de TI?
-2. ?Cual es la diferencia entre automatizar un proceso y mejorar un proceso con datos?
-3. ?Por que no todas las empresas necesitan blockchain?
-4. ?Que diferencia hay entre IA y automatizacion?
-5. ?Cual tecnologia es mas viable para Mercado360 en los proximos 6 meses y por que?
+1. ¿Por que cloud computing es accesible para empresas pequenas aunque no tengan equipo de TI?
+2. ¿Cuál es la diferencia entre automatizar un proceso y mejorar un proceso con datos?
+3. ¿Por que no todas las empresas necesitan blockchain?
+4. ¿Qué diferencia hay entre IA y automatizacion?
+5. ¿Cuál tecnologia es mas viable para Mercado360 en los proximos 6 meses y por que?
 
 ---
 

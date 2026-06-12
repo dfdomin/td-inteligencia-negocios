@@ -8,9 +8,9 @@
 Distinguir transformacion digital de simple digitalizacion. Reconocer que la tecnologia no es el punto de partida: los problemas organizacionales lo son. Introducir el caso Mercado360 como caso formativo transversal del modulo.
 
 **Preguntas clave:**
-- ?Que significa "transformar" vs. "digitalizar"?
-- ?Cual es la diferencia entre adoptar tecnologia y transformar un negocio?
-- ?Que dolores tiene Mercado360 que justifiquen una transformacion?
+- ¿Qué significa "transformar" vs. "digitalizar"?
+- ¿Cuál es la diferencia entre adoptar tecnologia y transformar un negocio?
+- ¿Qué dolores tiene Mercado360 que justifiquen una transformacion?
 
 ---
 
@@ -150,11 +150,11 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 
 ## 5. Preguntas orientadoras
 
-1. ?Cual es la diferencia entre digitalizar un proceso y transformar un modelo de negocio?
-2. ?Por que la transformacion digital no empieza por la tecnologia sino por los dolores?
-3. ?Como se evalua la madurez digital de una empresa?
-4. ?Que dolores identifica en Mercado360 que sean mas urgentes y por que?
-5. ?Que pasaria si Mercado360 siguiera operando como hasta ahora en 2 años?
+1. ¿Cuál es la diferencia entre digitalizar un proceso y transformar un modelo de negocio?
+2. ¿Por que la transformacion digital no empieza por la tecnologia sino por los dolores?
+3. ¿Cómo se evalua la madurez digital de una empresa?
+4. ¿Qué dolores identifica en Mercado360 que sean mas urgentes y por que?
+5. ¿Qué pasaria si Mercado360 siguiera operando como hasta ahora en 2 años?
 
 ---
 
@@ -192,5 +192,5 @@ Mercado360 es una empresa comercial mediana en Barranquilla. Vamos a analizar su
 |---|---|---|
 | Semana 2 | Consumidor digital | Los dolores del cliente de Mercado360 se convierten en mapa del recorrido del cliente (journey map). |
 | Semana 3 | Procesos y automatizacion | Los dolores de proceso se convierten en AS-IS / TO-BE. |
-| Semana 4 | Tecnologias habilitadoras | ?Que tecnologia resuelve los dolores priorizados? |
+| Semana 4 | Tecnologias habilitadoras | ¿Qué tecnologia resuelve los dolores priorizados? |
 | Semana 5 | Parcial 1 | Se aplica el metodo a RetailNova. |

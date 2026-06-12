@@ -207,7 +207,7 @@
 - Videos de YouTube sin fuente verificable.
 - "Segun una empresa de tecnologia" sin nombre ni datos.
 
-**Verificacion:** En el parcial, si el estudiante cita una fuente, el docente puede preguntar: "?De donde sale ese dato?" Si no hay fuente, no cuenta.
+**Verificacion:** En el parcial, si el estudiante cita una fuente, el docente puede preguntar: "¿De donde sale ese dato?" Si no hay fuente, no cuenta.
 
 ---
 

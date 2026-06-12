@@ -20,7 +20,7 @@ Esta semana cierra el ciclo de diagnostico que empezo en la semana 1. Los estudi
 **Objetivo:** Conectar lo que se hizo en semanas anteriores con lo que se hace hoy.
 
 1. Pregunta de apertura (5 min):
-   "En la semana 1 identificamos dolores de Mercado360. En la semana 2 mapeamos la experiencia del cliente. En la semana 3 evaluamos procesos. ?Alguno de ustedes puede decirme cual fue el dolor mas urgente que encontramos?"
+   "En la semana 1 identificamos dolores de Mercado360. En la semana 2 mapeamos la experiencia del cliente. En la semana 3 evaluamos procesos. ¿Alguno de ustedes puede decirme cual fue el dolor mas urgente que encontramos?"
 
    Dejar que 2-3 estudiantes respondan. Anotar en tablero.
 
@@ -42,11 +42,11 @@ Explicar con un ejemplo concreto:
 
 "Imaginemos que el dolor de Mercado360 es: el cliente no sabe si un producto esta disponible antes de ir a la tienda."
 
-- Empatizar: ?Que hace el cliente cuando no encuentra? Va a otro lugar, llama por telefono, pregunta en Instagram.
+- Empatizar: ¿Qué hace el cliente cuando no encuentra? Va a otro lugar, llama por telefono, pregunta en Instagram.
 - Definir: El problema no es "no hay inventario digital". El problema es "el cliente pierde tiempo cuando el producto no esta".
 - Idear: Posibles soluciones: WhatsApp con consulta de inventario, sistema de apartados, notificacion cuando llega producto, catalogo actualizado, etc.
-- Prototipar: ?Cual seria el experimento mas rapido? Tal vez un WhatsApp Business donde alguien responde manualmente durante una semana.
-- Testear: ?Cuantos clientes harian queries en una semana? ?El ratio de consultas a compras mejora?
+- Prototipar: ¿Cuál seria el experimento mas rapido? Tal vez un WhatsApp Business donde alguien responde manualmente durante una semana.
+- Testear: ¿Cuántos clientes harian queries en una semana? ¿El ratio de consultas a compras mejora?
 
 "Verdad que no necesitamos una app para aprender eso? Eso es Design Thinking: verificar antes de construir."
 
@@ -97,17 +97,17 @@ IMPACTO  |  Si sobra tiempo    |  No hacer      |
 
 Circular por los grupos. Preguntas recomendadas:
 
-- "?Por que ese impacto es 3 y no 2?"
-- "?Que pasaria si el esfuerzo es mas alto de lo esperado?"
-- "?Como harian el testeo sin desarrollar tecnologia?"
-- "?Cuantos clientes necesitar para validar la hipotesis?"
+- "¿Por que ese impacto es 3 y no 2?"
+- "¿Qué pasaria si el esfuerzo es mas alto de lo esperado?"
+- "¿Cómo harian el testeo sin desarrollar tecnologia?"
+- "¿Cuántos clientes necesitar para validar la hipotesis?"
 
 **Errores a corregir en tiempo real:**
 
-- Si un equipo tiene mas de 10 oportunidades sin filtrar: "Necesitan tomar una decision. ?Cual es el dolor que mas les interesa resolver?"
+- Si un equipo tiene mas de 10 oportunidades sin filtrar: "Necesitan tomar una decision. ¿Cuál es el dolor que mas les interesa resolver?"
 - Si un equipo propone una app sin haber hecho el test manual: "Primero hagamos el experimento basico. Si funciona, despues automatizamos."
-- Si un equipo pone todo en "alto impacto y alto esfuerzo": "Eso es territorio de big bets. ?Cual seria su quick win entonces?"
-- Si un equipo pone todo en "bajo impacto y bajo esfuerzo": "?Realmente esas oportunidades resuelven los dolores priorizados?"
+- Si un equipo pone todo en "alto impacto y alto esfuerzo": "Eso es territorio de big bets. ¿Cuál seria su quick win entonces?"
+- Si un equipo pone todo en "bajo impacto y bajo esfuerzo": "¿Realmente esas oportunidades resuelven los dolores priorizados?"
 
 ---
 
@@ -122,9 +122,9 @@ Circular por los grupos. Preguntas recomendadas:
    - Como testearian el MVP.
 
 2. El docente resume los patrones:
-   - "?Cuantos equipos eligieron el mismo quick win?"
-   - "?Por que unas soluciones quedaron en diferente posicion entre equipos?"
-   - "?Que nos dice eso sobre la subjetividad de la matriz?"
+   - "¿Cuántos equipos eligieron el mismo quick win?"
+   - "¿Por que unas soluciones quedaron en diferente posicion entre equipos?"
+   - "¿Qué nos dice eso sobre la subjetividad de la matriz?"
 
 3. Cerrar con la reflexion central:
    "La matriz no les dice la respuesta correcta. Les dice donde vale la pena invertir tiempo para verificar. El experimento es el que valida."
@@ -155,19 +155,19 @@ Circular por los grupos. Preguntas recomendadas:
 
 **1. Idea sin dolor.**
 El estudiante propone "una app de pedidos" sin vincularla a un dolor especifico.
-Resolver: "?A que dolor responde esa solucion? ?Como lo sabes?"
+Resolver: "¿A que dolor responde esa solucion? ¿Cómo lo sabes?"
 
 **2. Todo es alto impacto.**
 El estudiante califica todas las oportunidades como nivel 3 de impacto.
-Resolver: "?Cual es la diferencia entre la oportunidad 1 y la oportunidad 5? Si todas son nivel 3, entonces ninguna es especial."
+Resolver: "¿Cuál es la diferencia entre la oportunidad 1 y la oportunidad 5? Si todas son nivel 3, entonces ninguna es especial."
 
 **3. Esfuerzo subestimado.**
 El estudiante pone todo en bajo esfuerzo porque "eso es facil".
-Resolver: "?Cuanto tiempo tomaria hacerlo bien? ?Necesitas a alguien mas? ?Cuanto cuesta?"
+Resolver: "¿Cuánto tiempo tomaria hacerlo bien? ¿Necesitas a alguien mas? ¿Cuánto cuesta?"
 
 **4. Solucion predefinida.**
 El estudiante llega con la idea de "lo que Mercado360 necesita es un CRM" sin haber hecho el proceso.
-Resolver: "?Como llegaste a esa conclusion? ?Qué datos del caso la respaldan?"
+Resolver: "¿Cómo llegaste a esa conclusion? ¿Qué datos del caso la respaldan?"
 
 **5. No testear.**
 El estudiante describe la solucion completa sin proponer como validarla.
@@ -179,20 +179,20 @@ Resolver: "¿Qué mínimo necesitas para saber si funciona? ¿Puedes hacerlo est
 
 Para usar en la socializacion o como actividad de cierre:
 
-1. "?Por que el primer paso de Design Thinking es empatizar y no idear?"
+1. "¿Por que el primer paso de Design Thinking es empatizar y no idear?"
    Respuesta esperada: Porque si no entiendes el problema real, construyes la solucion equivocada. Empatizar evita desperdiciar recursos en soluciones a problemas imaginados.
 
-2. "?Cual es la diferencia entre un dolor organizacional y una oportunidad de innovacion?"
+2. "¿Cuál es la diferencia entre un dolor organizacional y una oportunidad de innovacion?"
    Respuesta esperada: Un dolor es un problema que ya existe. Una oportunidad es la solucion potencial a ese dolor. La oportunidad se convierte en innovacion real solo si se valida con el usuario.
 
-3. "?Por que una oportunidad de alto impacto y alto esfuerzo no siempre es la mejor primera decision?"
+3. "¿Por que una oportunidad de alto impacto y alto esfuerzo no siempre es la mejor primera decision?"
    Respuesta esperada: Porque el esfuerzo alto consume recursos que podrian destinarse a verificar quick wins primero. Ademas, una solucion de alto esfuerzo sin validar tiene riesgo mayor si falla.
 
-4. "?Que significa score mayor a 1 en la matriz impacto/esfuerzo?"
+4. "¿Qué significa score mayor a 1 en la matriz impacto/esfuerzo?"
    Respuesta esperada: Que el impacto esperado es mayor que el esfuerzo requerido. Es una oportunidad que vale la pena explorar. Pero el score no reemplaza el juicio contextual.
 
-5. "?Como se aplica la logica de Jobs-to-be-Done en Mercado360?"
-   Respuesta esperada: Entender que trabajo esta "contratando" el cliente cuando compra frutas y verduras. ?Es solo "comprar producto"? ?O es "tener comida fresca para la familia sin perder tiempo"? Si es lo segundo, la solucion puede ser mas amplia que el catalogo de productos.
+5. "¿Cómo se aplica la logica de Jobs-to-be-Done en Mercado360?"
+   Respuesta esperada: Entender que trabajo esta "contratando" el cliente cuando compra frutas y verduras. ¿Es solo "comprar producto"? ¿O es "tener comida fresca para la familia sin perder tiempo"? Si es lo segundo, la solucion puede ser mas amplia que el catalogo de productos.
 
 ---
 
@@ -200,13 +200,13 @@ Para usar en la socializacion o como actividad de cierre:
 
 Al final de la sesion, hacer estas tres preguntas rapidas (respuesta en una oracion):
 
-**Pregunta 1:** "?Cual es el cuadrante donde Mercado360 deberia empezar?"
+**Pregunta 1:** "¿Cuál es el cuadrante donde Mercado360 deberia empezar?"
 Respuesta esperada: Quick wins (alta impacto, bajo esfuerzo).
 
-**Pregunta 2:** "?Que es un MVP y para que sirve?"
+**Pregunta 2:** "¿Qué es un MVP y para que sirve?"
 Respuesta esperada: La version mas pequena de un producto que permite aprender si la solucion funciona antes de invertir en desarrollo completo.
 
-**Pregunta 3:** "?Por que la matriz impacto/esfuerzo no les da la respuesta definitiva?"
+**Pregunta 3:** "¿Por que la matriz impacto/esfuerzo no les da la respuesta definitiva?"
 Respuesta esperada: Porque la posicion depende de estimacion subjetiva que debe validarse con datos reales.
 
 Si los estudiantes responden correctamente estas tres preguntas, la sesion cumplio su objetivo minimo.
@@ -291,7 +291,7 @@ La evidencia de esta semana tiene una diferencia importante respecto a las seman
 La evidencia de la semana 6 se convierte en insumo para la semana 7 (Datos y metricas):
 
 - El MVP que el estudiante propuso necesita metricas para saber si funciona o no.
-- La semana 7 definira: ?Como se mide el exito del quick win? ?Que datos se necesitan? ?Con que frecuencia se revisan?
+- La semana 7 definira: ¿Cómo se mide el exito del quick win? ¿Qué datos se necesitan? ¿Con que frecuencia se revisan?
 
 **Pregunta de apertura para semana 7:**
 "Si la solución candidata es un WhatsApp que consulta inventario, ¿cómo sabríamos en 2 semanas si está funcionando o no? ¿Qué métricas deberíamos rastrear?"

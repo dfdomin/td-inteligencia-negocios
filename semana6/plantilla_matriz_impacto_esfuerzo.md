@@ -122,25 +122,25 @@ El MVP es la version mas pequena de tu solucion que te permite aprender si vas p
 
 **Responde las siguientes preguntas:**
 
-**1. ?Cual es la pregunta mas importante que quieres responder con el MVP?**
-(Example: ?Los clientes consultarian inventario por WhatsApp si pudieran?)
+**1. ¿Cuál es la pregunta mas importante que quieres responder con el MVP?**
+(Example: ¿Los clientes consultarian inventario por WhatsApp si pudieran?)
 
-**2. ?Que necesitas para responder esa pregunta?**
+**2. ¿Qué necesitas para responder esa pregunta?**
 (Herramientas, personas, tiempo, dinero. Example: Un numero de WhatsApp Business, alguien que responda 8 horas al dia, 2 semanas.)
 
-**3. ?Como seria el experimento en la practica?**
+**3. ¿Cómo seria el experimento en la practica?**
 (Describe paso a paso lo que harian tu y los clientes. Example: Durante 2 semanas, un vendedor responde consultas de inventario por WhatsApp en horario de 8am a 6pm. Cada consulta se registra en una hoja de calculo.)
 
-**4. ?Cuantos clientes necesitas para el experimento?**
+**4. ¿Cuántos clientes necesitas para el experimento?**
 (Minimo 20 clientes para tener datos significativos.)
 
-**5. ?Como medirias el exito?**
+**5. ¿Cómo medirias el exito?**
 (Metricas concretas. Example: Si el 30% de las consultas resultan en una compra, el experimento fue exitoso.)
 
-**6. ?Que pasaria si el experimento funciona?**
+**6. ¿Qué pasaria si el experimento funciona?**
 (Example: Pasariamos a automatizar las respuestas con un chatbot.)
 
-**7. ?Que pasaria si el experimento no funciona?**
+**7. ¿Qué pasaria si el experimento no funciona?**
 (Example: Investigariamos por que no funciono y pivoteariamos a otra solucion.)
 
 ---
@@ -198,30 +198,30 @@ Este ejemplo muestra como se llena la plantilla con un caso inventado (no Mercad
 
 ### Propuesta de MVP (ejemplo)
 
-**1. ?Cual es la pregunta mas importante?**
-?Los clientes usarian WhatsApp para consultar inventario si el servicio existiera?
+**1. ¿Cuál es la pregunta mas importante?**
+¿Los clientes usarian WhatsApp para consultar inventario si el servicio existiera?
 
-**2. ?Que necesito?**
+**2. ¿Qué necesito?**
 - Un numero de WhatsApp Business (gratis).
 - Una persona asignada para responder consultas durante horario de oficina (8am a 6pm).
 - Una hoja de calculo para registrar cada consulta: fecha, producto consultado, disponibilidad, si resulto en compra.
 
-**3. ?Como seria el experimento?**
+**3. ¿Cómo seria el experimento?**
 Durante 2 semanas, publicar en Instagram y WhatsApp de Mercado360: "Ahora puedes consultar disponibilidad antes de venir. Escribe al 3001234567." Cada consulta se registra. Al final de las 2 semanas, contar: total de consultas, porcentaje que resultaron en compra, tiempo promedio de respuesta.
 
-**4. ?Cuantos clientes necesito?**
+**4. ¿Cuántos clientes necesito?**
 Minimo 20 consultas en 2 semanas. Si hay menos, el experimento no es concluyente.
 
-**5. ?Como medir el exito?**
+**5. ¿Cómo medir el exito?**
 - Meta: 30% de las consultas resultan en compra.
 - Si se cumple, se justifica invertir en automatizar el sistema.
 - Si no se cumple, se entrevista a los clientes para entender por que no funciono.
 
-**6. ?Si funciona?**
+**6. ¿Si funciona?**
 Se desarrolla un chatbot automatico o se integra con el sistema de inventario para responder automaticamente.
 
-**7. ?Si no funciona?**
-Se investiga: ?Los clientes no confiaban en la informacion? ?Prefieren ir directamente a la tienda? ?El precio era el problema y no la disponibilidad?
+**7. ¿Si no funciona?**
+Se investiga: ¿Los clientes no confiaban en la informacion? ¿Prefieren ir directamente a la tienda? ¿El precio era el problema y no la disponibilidad?
 
 ---
 

@@ -18,53 +18,53 @@ Las exposiciones no son "clases de los compañeros" para llenar tiempo. Son un m
 
 | Equipo | Tecnologia | Pregunta guia | Fuente minima |
 |---|---|---|---|
-| 1 | Cloud Computing | ?Como puede Mercado360 usar la nube para no depender de un computador especifico? | Marston et al. (2011), Gartner |
-| 2 | Inteligencia Artificial y Machine Learning | ?Como puede Mercado360 usar IA para atender mejor a sus clientes? | Russell (2020), McKinsey (2023) |
-| 3 | Internet de las Cosas (IoT) | ?Es viable instalar sensores en la tienda de Mercado360? ?Para que? | Zanella et al. (2014) |
-| 4 | Automatizacion y RPA | ?Como puede Mercado360 automatizar la respuesta por WhatsApp? | Dumas (2018), van der Aalst (2018) |
-| 5 | Datos y Analitica (BI) | ?Como puede Mercado360 medir sus ventas sin ser un experto en datos? | Davenport (2017), MIT |
-| 6 | Movilidad | ?Como puede Mercado360 dar acceso a su informacion desde cualquier lugar? | MinTIC (2023) |
-| 7 | Blockchain | ?Tiene Mercado360 un problema que blockchain pueda resolver? | Iansiti & Lakhani (2017) |
+| 1 | Cloud Computing | ¿Cómo puede Mercado360 usar la nube para no depender de un computador especifico? | Marston et al. (2011), Gartner |
+| 2 | Inteligencia Artificial y Machine Learning | ¿Cómo puede Mercado360 usar IA para atender mejor a sus clientes? | Russell (2020), McKinsey (2023) |
+| 3 | Internet de las Cosas (IoT) | ¿Es viable instalar sensores en la tienda de Mercado360? ¿Para que? | Zanella et al. (2014) |
+| 4 | Automatizacion y RPA | ¿Cómo puede Mercado360 automatizar la respuesta por WhatsApp? | Dumas (2018), van der Aalst (2018) |
+| 5 | Datos y Analitica (BI) | ¿Cómo puede Mercado360 medir sus ventas sin ser un experto en datos? | Davenport (2017), MIT |
+| 6 | Movilidad | ¿Cómo puede Mercado360 dar acceso a su informacion desde cualquier lugar? | MinTIC (2023) |
+| 7 | Blockchain | ¿Tiene Mercado360 un problema que blockchain pueda resolver? | Iansiti & Lakhani (2017) |
 
 ### Semana 6 — Innovacion y metodos de identificacion de oportunidades
 
 | Equipo | Tema | Pregunta guia | Fuente minima |
 |---|---|---|---|
-| 1 | Design Thinking | ?Como aplicar Design Thinking en el problema de inventario de Mercado360? | Ries (2011), Cagan (2018) |
-| 2 | Lean Startup | ?Como validar una idea de transformacion digital en Mercado360 antes de invertir? | Ries (2011) |
-| 3 | Vigilancia tecnologica | ?Como puede Mercado360 monitorear las tendencias de su sector? | Organismos de inteligencia competitiva |
+| 1 | Design Thinking | ¿Cómo aplicar Design Thinking en el problema de inventario de Mercado360? | Ries (2011), Cagan (2018) |
+| 2 | Lean Startup | ¿Cómo validar una idea de transformacion digital en Mercado360 antes de invertir? | Ries (2011) |
+| 3 | Vigilancia tecnologica | ¿Cómo puede Mercado360 monitorear las tendencias de su sector? | Organismos de inteligencia competitiva |
 
 ### Semana 7 — Datos y analitica en la empresa
 
 | Equipo | Tema | Pregunta guia | Fuente minima |
 |---|---|---|---|
-| 1 | Big Data | ?Cual es la diferencia entre muchos datos y datos utiles para Mercado360? | Davenport (2017), Provost (2013) |
-| 2 | Dashboards y metricas | ?Como construir un dashboard que la gerente de Mercado360 use todos los dias? | Davenport (2019) |
-| 3 | CRM y gestion de clientes | ?Que datos necesita Mercado360 de sus clientes y como los obtiene? | Osterwalder (2015), MinTIC |
+| 1 | Big Data | ¿Cuál es la diferencia entre muchos datos y datos utiles para Mercado360? | Davenport (2017), Provost (2013) |
+| 2 | Dashboards y metricas | ¿Cómo construir un dashboard que la gerente de Mercado360 use todos los dias? | Davenport (2019) |
+| 3 | CRM y gestion de clientes | ¿Qué datos necesita Mercado360 de sus clientes y como los obtiene? | Osterwalder (2015), MinTIC |
 
 ### Semana 8 — Cultura digital y gestion del cambio
 
 | Equipo | Tema | Pregunta guia | Fuente minima |
 |---|---|---|---|
-| 1 | Cultura digital | ?Por que la tecnologia sin cultura es insuficiente para transformar? | Kotter (2012), Hammer & Champy (1993) |
-| 2 | Talento y formacion | ?Como preparar a los vendedores de Mercado360 para usar nuevas herramientas? | Hiatt (2006), Kotter |
-| 3 | Gestion del cambio | ?Cual es el mayor riesgo de resistencia al cambio en Mercado360 y como manejarlo? | Kotter (2012), Hiatt (2006) |
+| 1 | Cultura digital | ¿Por que la tecnologia sin cultura es insuficiente para transformar? | Kotter (2012), Hammer & Champy (1993) |
+| 2 | Talento y formacion | ¿Cómo preparar a los vendedores de Mercado360 para usar nuevas herramientas? | Hiatt (2006), Kotter |
+| 3 | Gestion del cambio | ¿Cuál es el mayor riesgo de resistencia al cambio en Mercado360 y como manejarlo? | Kotter (2012), Hiatt (2006) |
 
 ### Semana 9 — Ciberseguridad, privacidad y continuidad
 
 | Equipo | Tema | Pregunta guia | Fuente minima |
 |---|---|---|---|
-| 1 | Ciberseguridad basica | ?Cuales son los riesgos de seguridad mas criticos para Mercado360? | OWASP, ISACA |
-| 2 | Proteccion de datos (Ley 1581) | ?Que significa la Ley 1581 para Mercado360 y como cumplirla? | Ley 1581 de 2012 |
-| 3 | Continuidad operativa | ?Que pasa si Mercado360 pierde sus datos? ?Como se protege? | ISACA, NIST |
+| 1 | Ciberseguridad basica | ¿Cuáles son los riesgos de seguridad mas criticos para Mercado360? | OWASP, ISACA |
+| 2 | Proteccion de datos (Ley 1581) | ¿Qué significa la Ley 1581 para Mercado360 y como cumplirla? | Ley 1581 de 2012 |
+| 3 | Continuidad operativa | ¿Qué pasa si Mercado360 pierde sus datos? ¿Cómo se protege? | ISACA, NIST |
 
 ### Semana 11 — Modelos de negocio digitales
 
 | Equipo | Tema | Pregunta guia | Fuente minima |
 |---|---|---|---|
-| 1 | Modelo canvas digital | ?Como seria el Business Model Canvas de Mercado360 si fuera 100% digital? | Osterwalder (2015) |
-| 2 | Monetizacion digital | ?Como puede Mercado360 generar ingresos adicionales por canales digitales? | Porter & Heppelmann (2014) |
-| 3 | Escalabilidad | ?Cual es el limite de crecimiento de Mercado360 sin tecnologia y con ella? | Rogers (2016), Kane (2015) |
+| 1 | Modelo canvas digital | ¿Cómo seria el Business Model Canvas de Mercado360 si fuera 100% digital? | Osterwalder (2015) |
+| 2 | Monetizacion digital | ¿Cómo puede Mercado360 generar ingresos adicionales por canales digitales? | Porter & Heppelmann (2014) |
+| 3 | Escalabilidad | ¿Cuál es el limite de crecimiento de Mercado360 sin tecnologia y con ella? | Rogers (2016), Kane (2015) |
 
 ---
 

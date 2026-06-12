@@ -5,7 +5,7 @@
 
 ## 1. Enfoque de la sesion
 
-**Regla central:** Primero se mejora el proceso, luego se automatiza. Si el estudiante propone automatizar sin haber mejorado primero, preguntar: "?Por que automatizar un proceso que tiene errores de diseno?"
+**Regla central:** Primero se mejora el proceso, luego se automatiza. Si el estudiante propone automatizar sin haber mejorado primero, preguntar: "¿Por que automatizar un proceso que tiene errores de diseno?"
 
 Esta sesion es la puente entre el mapa de experiencia (semana 2) y las tecnologias habilitadoras (semana 4). El estudiante pasa de "que le duele al cliente" a "como se resuelve ese dolor a nivel de proceso".
 
@@ -19,7 +19,7 @@ Esta sesion es la puente entre el mapa de experiencia (semana 2) y las tecnologi
 **Objetivo:** Comprender la diferencia entre mapear procesos, mejorarlos y automatizarlos.
 
 1. Pregunta inicial (5 min):
-   "?Cuantos pasos tiene un pedido de Mercado360 hoy desde que el cliente escribe hasta que recibe el producto?"
+   "¿Cuántos pasos tiene un pedido de Mercado360 hoy desde que el cliente escribe hasta que recibe el producto?"
 
 2. Concepto de proceso AS-IS (10 min):
    - Explicar que AS-IS es la foto del proceso hoy, sin juicios.
@@ -47,7 +47,7 @@ Esta sesion es la puente entre el mapa de experiencia (semana 2) y las tecnologi
    - En el tablero, marcar con (*) los pasos donde hay espera, reproceso o error.
    - Calcular aproximadamente cuanto tiempo se pierde en cada paso.
 
-3. Discutir: "?Se puede eliminar alguno de estos pasos? ?Se puede hacer en paralelo? ?Se puede automatizar?" (5 min).
+3. Discutir: "¿Se puede eliminar alguno de estos pasos? ¿Se puede hacer en paralelo? ¿Se puede automatizar?" (5 min).
 
 ---
 
@@ -75,26 +75,26 @@ Esta sesion es la puente entre el mapa de experiencia (semana 2) y las tecnologi
 **Objetivo:** Consolidar aprendizaje y preparar semana 4.
 
 1. Pregunta de cierre (5 min):
-   "?Cual de las mejoras propuestas en el TO-BE requiere tecnologia y cual no?"
+   "¿Cuál de las mejoras propuestas en el TO-BE requiere tecnologia y cual no?"
 
 2. Introduccion a semana 4 (10 min):
    - La semana que viene: Tecnologias habilitadoras.
    - Vamos a ver que tecnologias pueden habilitar las mejoras propuestas en el TO-BE de Mercado360.
-   - "?Cual tecnologia permite que el WhatsApp responda automaticamente con disponibilidad de inventario?"
+   - "¿Cuál tecnologia permite que el WhatsApp responda automaticamente con disponibilidad de inventario?"
 
 ---
 
 ## 3. Errores tipicos de los estudiantes
 
-1. **Proponer automatizacion sin haber mejorado el proceso.** Resolver: "?Cuantos pasos tiene el proceso actual? ?Todos son necesarios? ?Se puede eliminar alguno antes de automatizar?"
+1. **Proponer automatizacion sin haber mejorado el proceso.** Resolver: "¿Cuántos pasos tiene el proceso actual? ¿Todos son necesarios? ¿Se puede eliminar alguno antes de automatizar?"
 
-2. **Saltar a la solucion tecnologica antes del analisis del proceso.** Resolver: "?Cual es el paso con mayor problema? ?Se puede resolver sin tecnologia primero?"
+2. **Saltar a la solucion tecnologica antes del analisis del proceso.** Resolver: "¿Cuál es el paso con mayor problema? ¿Se puede resolver sin tecnologia primero?"
 
-3. **No justificar los cambios del TO-BE.** Resolver: "?Por que ese cambio? ?Que problema del AS-IS resuelve? ?Cuanto cuesta implementarlo?"
+3. **No justificar los cambios del TO-BE.** Resolver: "¿Por que ese cambio? ¿Qué problema del AS-IS resuelve? ¿Cuánto cuesta implementarlo?"
 
-4. **Mapear el proceso desde la perspectiva de la empresa, no del cliente.** Resolver: "?El cliente siente este paso? ?El cliente paga por este paso? Si no, por que existe?"
+4. **Mapear el proceso desde la perspectiva de la empresa, no del cliente.** Resolver: "¿El cliente siente este paso? ¿El cliente paga por este paso? Si no, por que existe?"
 
-5. **Subestimar el costo de la automatizacion.** Resolver: "?Tiene Mercado360 presupuesto para eso? ?Tiene talento para mantenerlo?"
+5. **Subestimar el costo de la automatizacion.** Resolver: "¿Tiene Mercado360 presupuesto para eso? ¿Tiene talento para mantenerlo?"
 
 ---
 
@@ -146,7 +146,7 @@ Si el estudiante pregunta que tipo de automatizacion usar en Mercado360, las opc
 
 **Conexion directa:**
 - Los cambios propuestos en el TO-BE de la semana 3 son los que se van a evaluar tecnologicamente en la semana 4.
-- Por ejemplo: Si el equipo propuso "bot que consulta inventario y responde por WhatsApp", la semana 4 se evaluara: "?Que tecnologia habilita eso? ?Cual es la diferencia entre un chatbot, una integracion con API, y un sistema de inventario?"
+- Por ejemplo: Si el equipo propuso "bot que consulta inventario y responde por WhatsApp", la semana 4 se evaluara: "¿Qué tecnologia habilita eso? ¿Cuál es la diferencia entre un chatbot, una integracion con API, y un sistema de inventario?"
 
 **Pregunta de apertura para semana 4:**
-"?Cual de las tecnologias habilitadoras (Cloud, IA, IoT, datos, automatizacion) es la mas relevante para resolver el dolor de inventario desactualizado en Mercado360? ?Por que?"
+"¿Cuál de las tecnologias habilitadoras (Cloud, IA, IoT, datos, automatizacion) es la mas relevante para resolver el dolor de inventario desactualizado en Mercado360? ¿Por que?"

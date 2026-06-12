@@ -78,13 +78,13 @@
 
 ## Resumen — Dolor prioritario
 
-?**Cual dolor considera el mas urgente y por que?
+**¿Cuál dolor considera el más urgente y por qué?**
 
 _____________________________________________________________________
 
 _____________________________________________________________________
 
-?**Que evidencia tiene del dossier o caso para soportar esta priorizacion?
+**¿Qué evidencia tiene del dossier o caso para soportar esta priorización?**
 
 _____________________________________________________________________
 
