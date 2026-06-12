@@ -26,7 +26,7 @@ Para evaluar transferencia, se adoptan casos espejo inspirados en el patron de `
 |---|---:|---|---|
 | Parcial 1 | 5 | RetailNova | Diagnosticar madurez y priorizar oportunidad. |
 | Parcial 2 | 10 | SaludConecta | Proponer solucion digital con datos, KPIs y riesgos. |
-| Final | 14 | LogisCaribe | Formular estrategia integral, roadmap y viabilidad. |
+| Final | 14 | LogisCaribe | Formular estrategia integral, hoja de ruta y viabilidad. |
 
 ## 4. Distribucion semanal
 
@@ -43,7 +43,7 @@ Para evaluar transferencia, se adoptan casos espejo inspirados en el patron de `
 | 9 | Riesgos | Ciberseguridad, privacidad y continuidad | Matriz de riesgos digitales | Registro de riesgos |
 | 10 | Parcial 2 | Propuesta de solucion digital | Aplicacion a SaludConecta | Informe parcial 2 |
 | 11 | Modelo de negocio | Modelos de negocio digitales | Business Model Canvas digital | Canvas ajustado |
-| 12 | Hoja de ruta | Priorizacion, POC y gestion de proyectos | Roadmap 30-60-90 dias | Hoja de ruta |
+| 12 | Hoja de ruta | Priorización, POC y gestión de proyectos | Hoja de ruta 30-60-90 días | Hoja de ruta |
 | 13 | Viabilidad | Costos, beneficios, ROI y metricas | Caso de negocio ligero | Ficha de viabilidad |
 | 14 | Final | Estrategia integral de transformacion digital | Aplicacion a LogisCaribe | Portafolio final |
 
@@ -57,7 +57,7 @@ Las exposiciones se concentraran en temas amplios que no caben completos en clas
 |---|---|---|---|
 | 5 | Parcial 1 | RetailNova | Diagnostico de madurez digital y oportunidad priorizada. |
 | 10 | Parcial 2 | SaludConecta | Propuesta de solucion digital con proceso TO-BE, tecnologia seleccionada, datos requeridos y riesgos. |
-| 14 | Final | LogisCaribe | Estrategia integral con roadmap, KPIs, gestion del cambio, viabilidad y sustentacion. |
+| 14 | Final | LogisCaribe | Estrategia integral con hoja de ruta, KPIs, gestión del cambio, viabilidad y sustentación. |
 
 ## 7. Criterio de diseno didactico
 

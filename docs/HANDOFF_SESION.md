@@ -100,7 +100,7 @@ TD/
 
 4. **El módulo trabaja con 2 horas presenciales** aunque el microcurrículo declara 4.
 
-5. **Bibliografía:** La нормативная base incluye Ley 1581/2012 (datos personales), Decreto 1079/2015 (comercio electrónico), Supersalud para el sector salud.
+5. **Bibliografía:** La base normativa incluye Ley 1581/2012 (datos personales), Decreto 1079/2015 (comercio electrónico), Supersalud para el sector salud.
 
 6. **Idioma:** Todo en español. Los casos usan contexto colombiano.
 

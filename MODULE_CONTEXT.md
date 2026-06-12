@@ -34,7 +34,7 @@
 |---|---:|---|---|
 | Parcial 1 | 5 | RetailNova | Diagnosticar madurez digital y priorizar oportunidad. |
 | Parcial 2 | 10 | SaludConecta | Proponer solucion digital, datos, KPIs y riesgos. |
-| Final | 14 | LogisCaribe | Formular estrategia integral con roadmap y viabilidad. |
+| Final | 14 | LogisCaribe | Formular estrategia integral con hoja de ruta y viabilidad. |
 
 ## Estructura del curso
 
@@ -42,7 +42,7 @@
 |---|---|---|
 | Diagnostico y cliente | 1-5 | Transformacion digital, cliente, procesos, tecnologias y primer parcial. |
 | Solucion y adopcion | 6-10 | Innovacion, datos, cultura, riesgos y segundo parcial. |
-| Estrategia integral | 11-14 | Modelo de negocio, roadmap, viabilidad y entrega final. |
+| Estrategia integral | 11-14 | Modelo de negocio, hoja de ruta, viabilidad y entrega final. |
 
 ## Estructura de carpetas
 
@@ -56,5 +56,5 @@ docs/           - observaciones, decisiones y documentacion de referencia.
 
 ## Regla pedagogica central
 
-Todo concepto debe aterrizarse en una decision o evidencia aplicable: diagnostico, mapa, matriz, ficha, canvas, roadmap, KPI, riesgo o caso de negocio.
+Todo concepto debe aterrizarse en una decisión o evidencia aplicable: diagnóstico, mapa, matriz, ficha, canvas, hoja de ruta, KPI, riesgo o caso de negocio.
 

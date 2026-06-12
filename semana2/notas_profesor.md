@@ -140,7 +140,7 @@ No necesita memorizar numeros exactos, pero si debe entender que hay estudios qu
 - Identificacion clara de la etapa de mayor friccion.
 - Propuesta de mejora digital: descripcion, tecnologia, impacto, costo.
 
-**Zona de riesgo:** Los estudiantes suelen propose mejoras genericas como "hacer una app". El docente debe cuestionar: "?Que resuelve especificamente? ?Para quien? ?Cuanto cuesta? ?En cuanto tiempo se implementa?"
+**Zona de riesgo:** Los estudiantes suelen proponer mejoras genéricas como "hacer una app". El docente debe cuestionar: "¿Qué resuelve específicamente? ¿Para quién? ¿Cuánto cuesta? ¿En cuánto tiempo se implementa?"
 
 **Calificación rápida:** Si el mapa del recorrido del cliente (journey) tiene las 6 etapas con datos faltantes en cada una, y la propuesta de mejora tiene tecnología + impacto + costo estimado, el estudiante tiene al menos 70%.
 

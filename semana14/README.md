@@ -13,7 +13,7 @@ Estrategia integral de transformacion digital.
 - Resumen ejecutivo.
 - Diagnostico sintetico.
 - Solucion priorizada.
-- Roadmap.
+- Hoja de ruta.
 - KPIs.
 - Gestion del cambio.
 - Riesgos.

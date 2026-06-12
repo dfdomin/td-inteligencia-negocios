@@ -7,10 +7,10 @@ Convertir la propuesta en una ruta de implementacion realista.
 ## En clase
 
 - Definir alcance de POC.
-- Construir roadmap 30-60-90 dias.
+- Construir hoja de ruta 30-60-90 días.
 - Estimar responsables y dependencias.
 
 ## Evidencia
 
-Roadmap 30-60-90 con entregables, responsables y metricas.
+Hoja de ruta 30-60-90 con entregables, responsables y métricas.
 

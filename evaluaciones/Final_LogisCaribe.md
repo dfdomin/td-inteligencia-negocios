@@ -127,7 +127,7 @@ Un documento de maximo 15 paginas (sin contar anexos) que incluya:
 | Seccion 2 — Diagnostico | 10 min | 10 |
 | Seccion 3 — Puntos criticos | 10 min | 10 |
 | Seccion 4 — Estrategia | 15 min | 15 |
-| Seccion 5 — Roadmap | 25 min | 20 |
+| Sección 5 — Hoja de ruta | 25 min | 20 |
 | Seccion 6 — Gestion del cambio | 10 min | 10 |
 | Seccion 7 — Matriz de riesgos | 10 min | 10 |
 | Seccion 8 — KPIs | 10 min | 10 |
@@ -145,7 +145,7 @@ Un documento de maximo 15 paginas (sin contar anexos) que incluya:
 | **Diagnostico de madurez** | 10% | Modelo reconocido con 4+ dimensiones, justificacion con evidencia del dossier, conclusiones claras. | Modelo con 3 dimensiones, justificacion parcial. | Modelo sin citacion o sin justificacion. | No entrega o copia de otra eval. |
 | **Analisis de puntos criticos** | 10% | 4 areas analizadas con evidencia del dossier, impacto cuantificado o cualitativo claro. | 3 areas analizadas, algunas sin evidencia. | 1-2 areas sin profundidad. | No entrega. |
 | **Estrategia priorizada** | 15% | 3 iniciativas bien priorizadas con justificacion de impacto vs. factibilidad, conexion con restricciones. | 2 iniciativas bien priorizadas. | 1 iniciativa sin justificacion. | No entrega. |
-| **Roadmap 30-60-90** | 20% | Hoja de ruta completa con 3 fases, acciones, responsables, entregables, costos, metricas. Presupuesto dentro de $40M. Progresion logica de rapido a complejo. | Hoja de ruta con 3 fases pero algunas falencias en acciones o metricas. | Hoja de ruta incompleta o sin costos. | Hoja de ruta irreal o faltante. |
+| **Hoja de ruta 30-60-90** | 20% | Hoja de ruta completa con 3 fases, acciones, responsables, entregables, costos, métricas. Presupuesto dentro de $40M. Progresión lógica de rápido a complejo. | Hoja de ruta con 3 fases pero algunas falencias en acciones o métricas. | Hoja de ruta incompleta o sin costos. | Hoja de ruta irreal o faltante. |
 | **Gestion del cambio** | 10% | 4 roles con acciones de formacion y comunicacion. 2+ estrategias de resistencia. Plan realista. | 3 roles con algunas acciones. | 1-2 roles sin acciones. | No entrega. |
 | **Matriz de riesgos** | 10% | 6+ riesgos bien estructurados (probabilidad, impacto, mitigacion). 2 riesgos de datos, 1 de continuidad operativa. | 5 riesgos bien estructurados. | Menos de 5 riesgos o sin estructura. | No entrega. |
 | **KPIs** | 10% | 5 KPIs bien definidos (nombre, formula, meta, frecuencia). Al menos 1 financiero. | 4 KPIs bien definidos. | 1-3 KPIs parciales. | No entrega. |
@@ -160,7 +160,7 @@ Un documento de maximo 15 paginas (sin contar anexos) que incluya:
 |---|---|---:|
 | **RA1** | Formular las caracteristicas de las nuevas tecnologias y distinguir como apoyan la transformacion digital. | 15% (Seccion 4) |
 | **RA2** | Identificar informacion estrategica para la adopcion de soluciones digitales. | 35% (Secciones 3, 7, 8, 9) |
-| **RA3** | Proponer estrategias integrales de transformacion digital con roadmap, gestion del cambio y viabilidad. | 50% (Secciones 1, 2, 5, 6) |
+| **RA3** | Proponer estrategias integrales de transformación digital con hoja de ruta, gestión del cambio y viabilidad. | 50% (Secciones 1, 2, 5, 6) |
 
 ---
 
@@ -208,7 +208,7 @@ Prioridades esperadas:
 
 ---
 
-### Seccion 5 — Roadmap
+### Sección 5 — Hoja de ruta
 
 **Fase 1 (30 dias, $3-5M):**
 - GPS con celular Android + aplicacion gratuita (Life360 o similar para version MVP).

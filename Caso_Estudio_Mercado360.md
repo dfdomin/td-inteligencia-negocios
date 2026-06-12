@@ -40,7 +40,7 @@ El estudiante actuara como **consultor junior de transformacion digital**. Su mi
 |---|---|---|
 | Parcial 1, semana 5 | Que problema digital vale la pena resolver primero? | Diagnostico, mapa de dolores y oportunidad priorizada. |
 | Parcial 2, semana 10 | Que solucion digital concreta se propone? | Proceso TO-BE, tecnologia, datos, riesgos y prototipo conceptual. |
-| Final, semana 14 | Como se implementa de forma realista? | Roadmap, KPIs, gestion del cambio, viabilidad y sustentacion. |
+| Final, semana 14 | ¿Cómo se implementa de forma realista? | Hoja de ruta, KPIs, gestión del cambio, viabilidad y sustentación. |
 
 ## 7. Regla de oro
 

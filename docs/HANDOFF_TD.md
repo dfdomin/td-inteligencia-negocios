@@ -159,7 +159,7 @@ Tomado de `FundamentosComputacion` — adoptado consistentemente:
 
 ### LogisCaribe (semana 14 — final)
 
-`casos/logiscaribe/DOSSIER.md` — Operador logístico. Problemas: trazabilidad de flota, optimización de rutas,最后一个milla.
+`casos/logiscaribe/DOSSIER.md` — Operador logístico. Problemas: trazabilidad de flota, optimización de rutas, última milla.
 
 ---
 

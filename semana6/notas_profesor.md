@@ -171,7 +171,7 @@ Resolver: "?Como llegaste a esa conclusion? ?Qué datos del caso la respaldan?"
 
 **5. No testear.**
 El estudiante describe la solucion completa sin proponer como validarla.
-Resolver: "?Que minimo necesitas para saver si funciona? ?Puedes hacerlo esta semana?"
+Resolver: "¿Qué mínimo necesitas para saber si funciona? ¿Puedes hacerlo esta semana?"
 
 ---
 

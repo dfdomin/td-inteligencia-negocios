@@ -36,7 +36,7 @@ Design Thinking es una metodologia de solucion de problemas centrada en el ser h
 
 **Como se observa en una empresa real:** Una empresa que aplica Design Thinking observa a sus clientes en el punto de servicio, hace preguntas abiertas, prototype soluciones con materiales sencillos y las testa antes de desarrollo. No se confia en encuestas ni en reuniones de mente.
 
-**Como se aplica en Mercado360:** Antes de construir cualquier herramienta digital, el equipo debe ir al punto de venta y observar: ?Como pide el cliente? ?Que hace cuando no encuentra el producto? ?Como decide entre comprar hoy o ma?ana? Esa observacion directa es el insumo para idear.
+**Como se aplica en Mercado360:** Antes de construir cualquier herramienta digital, el equipo debe ir al punto de venta y observar: ?Como pide el cliente? ?Que hace cuando no encuentra el producto? ¿Cómo decide entre comprar hoy o mañana? Esa observacion directa es el insumo para idear.
 
 **Fuente:** Brown, T. (2009). *Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation*. Harper Business.
 
@@ -115,7 +115,7 @@ La matriz impacto/esfuerzo es una herramienta de priorizacion. Clasifica las opo
 
 **Por que importa en transformacion digital:** Los equipos tienen recursos limitados. La matriz impacto/esfuerzo evita que se ejecuten proyectos de alto esfuerzo y bajo impacto (el peor lugar donde estar) y enfoca la energia en los cuadrantes de alta-impacto.
 
-**Como se observa en una empresa real:** Una empresa retail encontro que implementarClick & Collect (recoger en tienda) era alta impacto y bajo esfuerzo: solo requeria reorganizar el inventario y un sistema de reservas. Eso fue su quick win. La integracion de un sistema de CRM completo era alto impacto pero alto esfuerzo, y se planifico para el siguiente trimestre.
+**Como se observa en una empresa real:** Una empresa retail encontro que implementar Click & Collect (recoger en tienda) era alta impacto y bajo esfuerzo: solo requeria reorganizar el inventario y un sistema de reservas. Eso fue su quick win. La integracion de un sistema de CRM completo era alto impacto pero alto esfuerzo, y se planifico para el siguiente trimestre.
 
 **Como se aplica en Mercado360:** Partiendo de los dolores identificados en la semana 1, se generaron oportunidades en la semana 2-3. Ahora se priorizan usando esta matriz para decidir cual solucion construir primero.
 
@@ -227,7 +227,7 @@ A partir de estos dolores, se puede idear las siguientes oportunidades:
 **Debe incluir:**
 1. Tabla de matriz impacto/esfuerzo con AL MENOS 5 oportunidades.
 2. Para cada oportunidad: descripcion de la solucion, justificacion de impacto (por que nivel 1, 2 o 3), justificacion de esfuerzo (por que nivel 1, 2 o 3).
-3. Identificacion del quick win ganador con explanation detallada.
+3. Identificación del quick win ganador con explicación detallada.
 4. Una descripcion de la solucion candidata seleccionada (que resuelve, para quien, como funciona).
 5. Propuesta de MVP: como se testearia esta solucion con 20 clientes reales en 2 semanas sin desarrollar tecnologia.
 

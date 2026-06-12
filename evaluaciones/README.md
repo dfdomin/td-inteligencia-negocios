@@ -45,7 +45,7 @@ Debe incluir:
 
 - resumen ejecutivo;
 - solucion priorizada;
-- roadmap 30-60-90 dias;
+- hoja de ruta 30-60-90 días;
 - plan de adopcion por roles;
 - matriz de riesgos;
 - indicadores de exito;

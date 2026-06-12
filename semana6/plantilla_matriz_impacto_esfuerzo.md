@@ -231,7 +231,7 @@ Usa este formato para llenar la plantilla con los datos de tu equipo y la soluci
 
 **Recuerda:**
 - La matriz no es un ejercicio teorico. Cada posicion debe poder justificarse con evidencia del caso.
-- El Quick Win no es la respuesta definitiva: es la primera hipotesis que vas a testar.
+- El Quick Win no es la respuesta definitiva: es la primera hipótesis que vas a probar.
 - El experimento (MVP) es lo que valida si vas por el camino correcto.
 
 ---

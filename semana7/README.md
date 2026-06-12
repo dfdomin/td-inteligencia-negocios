@@ -27,7 +27,7 @@ La semana 6 propuso el MVP de consulta de inventario por WhatsApp como quick win
 
 La transformación digital no empieza con una herramienta — empieza con información. Una empresa que no sabe cuánto vende por producto, por cliente o por día no puede mejorar lo que no mide.
 
-El error más común es comprar software esperando que genere insights. El software genera datos; los insights los produce el análisis de esos datos.
+El error más común es comprar software esperando que genere hallazgos (insights). El software genera datos; los hallazgos (insights) los produce el análisis de esos datos.
 
 ### 2. Fuentes de datos en una empresa
 

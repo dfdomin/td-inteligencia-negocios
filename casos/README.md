@@ -56,7 +56,7 @@ LogisCaribe es un operador logistico regional con sede en Barranquilla, 12 vehic
 
 **Dossier:** `logiscaribe/DOSSIER.md`
 **Evaluacion:** Final (semana 14).
-**Producto:** Estrategia integral con diagnostico, roadmap 30-60-90, plan de gestion del cambio, matriz de riesgos, KPIs, caso de negocio, sustentacion.
+**Producto:** Estrategia integral con diagnóstico, hoja de ruta 30-60-90, plan de gestión del cambio, matriz de riesgos, KPIs, caso de negocio, sustentación.
 
 **Normativa relevante:** Decreto 1079/2015 (transporte), Ley 1581/2012 (proteccion de datos), regulacion Dian.
 
@@ -66,7 +66,7 @@ LogisCaribe es un operador logistico regional con sede en Barranquilla, 12 vehic
 |---|---|---|
 | Parcial 1, semana 5 | RetailNova | Diagnostico de madurez, mapa de dolores, journey map, oportunidad priorizada. |
 | Parcial 2, semana 10 | SaludConecta | Proceso TO-BE, solucion digital, datos, KPIs, riesgos, prototipo conceptual. |
-| Final, semana 14 | LogisCaribe | Estrategia integral con roadmap, gestion del cambio, riesgos, KPIs, viabilidad. |
+| Final, semana 14 | LogisCaribe | Estrategia integral con hoja de ruta, gestión del cambio, riesgos, KPIs, viabilidad. |
 
 ## Regla didactica
 

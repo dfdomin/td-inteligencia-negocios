@@ -151,7 +151,7 @@ La exposicion se califica como actividad de semana correspondiente, no como parc
 - Manejo de preguntas: 15%.
 - Tiempo y estructura: 15%.
 
-**Recuperacion:** Si un equipo no expone, debe entregar un video de 8 minutos con la exposicion completa antes de la proxima sesion, con justification de ausencia al docente.
+**Recuperación:** Si un equipo no expone, debe entregar un video de 8 minutos con la exposición completa antes de la próxima sesión, con justificación de ausencia al docente.
 
 ---
 

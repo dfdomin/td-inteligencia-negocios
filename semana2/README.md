@@ -18,16 +18,16 @@ Comprender como cambia el comportamiento del cliente en un entorno digital y com
 
 ### 1.1 El consumidor digital en Colombia
 
-El consumidor digital colombiano mudou su comportamiento en la ultima decada. Mas del 70% de los colombianos usa WhatsApp para comunicarse con empresas (Estudio Digital Consumer 2023, MinTIC). El comercio electronico grewcio un 54% en 2020-2023 (ecommerce foundation). Y el promedio de tiempo en pantalla supero las 8 horas diarias.
+El consumidor digital colombiano cambió su comportamiento en la última década. Más del 70% de los colombianos usa WhatsApp para comunicarse con empresas (Estudio Digital Consumer 2023, MinTIC). El comercio electrónico creció un 54% en 2020-2023 (ecommerce foundation). Y el promedio de tiempo en pantalla superó las 8 horas diarias.
 
 **Caracteristicas del consumidor digital hoy:**
 - **Impaciencia:** Espera respuestas en minutos, no en dias.
 - **Comparacion instantanea:** Puede buscar y comparar precios en segundos desde su celular.
 - **Omnicanalidad:** Usa varios canales para la misma compra (ve algo en Instagram, pregunta por WhatsApp, compra en tienda).
-- ** transparency:** Compara reseñas, testimonios y precios antes de decidir.
+- **Transparencia:** Compara reseñas, testimonios y precios antes de decidir.
 - **Expectativa de lo personalizado:** Espera que la empresa sepa quien es, que le ha comprado, que le puede interesar.
 
-**En lenguaje empresarial:** El cliente que entra a Mercado360 puede tener las mismas expectativas que cuando compra en Amazon o Falabella: saber si hay stock, apartar, recibir notificaciones, tracked de su pedido. Si Mercado360 no puede ofrecer eso, el cliente se va a otro lugar que si pueda.
+**En lenguaje empresarial:** El cliente que entra a Mercado360 puede tener las mismas expectativas que cuando compra en Amazon o Falabella: saber si hay stock, apartar, recibir notificaciones, seguimiento de su pedido. Si Mercado360 no puede ofrecer eso, el cliente se va a otro lugar que sí pueda.
 
 **Fuente:**
 - MinTIC Colombia (2023). *Estudio sobre Comercio Electronico y Consumidores Digitales en Colombia.*
@@ -72,7 +72,7 @@ El mapa del recorrido del cliente (journey map) es una representación visual de
 **Enfoque de tres capas:**
 - **Emocion:** ?Que siente el cliente en cada etapa? (frustracion, confusion, satisfaccion).
 - **Accion:** ?Que hace el cliente en cada etapa?
-- **Touchpoint:** ?Por donde interactua? (WhatsApp, Instagram, tienda, llamada).
+- **Punto de contacto (touchpoint):** ¿Por dónde interactúa? (WhatsApp, Instagram, tienda, llamada).
 - **Dato:** ?Que informacion hace falta en cada etapa para tomar una decision?
 
 **Fuente:**
@@ -87,37 +87,37 @@ El mapa del recorrido del cliente (journey map) es una representación visual de
 **Etapa 1 — Descubrimiento:**
 - El cliente ve una publicacion en Instagram o recibe una referencia de un amigo.
 - Emocion: curiosidad.
-- Touchpoint: Instagram o boca a boca.
+- Punto de contacto (touchpoint): Instagram o boca a boca.
 - Dato faltante: ?Como se entera de las nuevas llegadas?
 
 **Etapa 2 — Consideracion:**
 - El cliente abre Instagram, ve la foto del producto, duda si estara disponible.
 - Emocion: incertidumbre. ?Tendra la talla? ?Lo van a guardar?
-- Touchpoint: Instagram (comenta o pregunta por DM).
+- Punto de contacto (touchpoint): Instagram (comenta o pregunta por DM).
 - Dato faltante: Inventario actualizado en tiempo real.
 
 **Etapa 3 — Contacto:**
 - Escribe por WhatsApp preguntando disponibilidad.
 - Emocion: esperanza de respuesta rapida.
-- Touchpoint: WhatsApp.
+- Punto de contacto (touchpoint): WhatsApp.
 - Problema: Puede que el vendedor no responda rapido o no tenga la info.
 
 **Etapa 4 — Decision:**
 - Si le confirman, decide ir a la tienda. Si no hay respuesta, puede que se vaya a otro lugar.
 - Emocion: frustracion si no le confirman a tiempo.
-- Touchpoint: WhatsApp.
+- Punto de contacto (touchpoint): WhatsApp.
 - Dato faltante: Confirmacion automatica.
 
 **Etapa 5 — Compra:**
 - Llega a la tienda. Pero a veces el producto no esta.
 - Emocion: frustracion y desconfianza.
-- Touchpoint: Tienda fisica.
+- Punto de contacto (touchpoint): Tienda física.
 - Problema: Inventario desactualizado.
 
 **Etapa 6 — Posventa:**
 - No hay seguimiento. No le avisan cuando llega lo que le gusto.
 - Emocion: olvido. El cliente se convierte en visitante ocasional.
-- Touchpoint: Ninguno.
+- Punto de contacto (touchpoint): Ninguno.
 - Oportunidad: Notificacion de nuevos productos.
 
 ---
@@ -129,7 +129,7 @@ El mapa del recorrido del cliente (journey map) es una representación visual de
 | Inventario en tiempo real consultable por WhatsApp | Consideracion/Contacto | Cliente no sabe si hay producto | +15% conversion |
 | Confirmacion automatica de disponibilidad | Contacto/Decision | Incertidumbre, perdida de venta | +10% conversion |
 | Opcion de apartar o guardar producto | Consideracion | Cliente se va si no hay garantia | +20% retencion |
-| Notificacion cuando llega producto nuevo | Descubrimiento | Cliente no se entera | +25% engagement |
+| Notificación cuando llega producto nuevo | Descubrimiento | Cliente no se entera | +25% de participación |
 | Seguimiento post-venta | Posventa | Cliente no retorna | +15% retencion |
 
 ---
@@ -147,13 +147,13 @@ El mapa del recorrido del cliente (journey map) es una representación visual de
 3. Para cada etapa del recorrido del cliente (journey), identificar:
    - Emocion del cliente.
    - Accion del cliente.
-   - Touchpoint.
+   - Punto de contacto (touchpoint).
    - Dolor o friccion.
    - Dato que hace falta.
 4. Identifiquen la etapa con mayor friccion.
 5. Propongan UNA mejora digital de alto impacto y bajo costo para esa etapa.
 
-**Entregable:** Journey map visual (puede ser dibujo en papel, en herramienta digital, o en tabla estructurada). Presentacion de 5 minutos por grupo.
+**Entregable:** Mapa del recorrido del cliente (journey map) visual (puede ser dibujo en papel, en herramienta digital, o en tabla estructurada). Presentación de 5 minutos por grupo.
 
 ---
 

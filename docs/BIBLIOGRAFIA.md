@@ -72,7 +72,7 @@
 
 17. **MinTIC Colombia.** (2023). *Estudio de Comercio Electronico y Consumidores Digitales en Colombia*.
     - Link: https://www.mintic.gov.co
-    - Uso: Datos de consumidor digital colombiano, penetrracion de comercio electronico.
+    - Uso: Datos de consumidor digital colombiano, penetración de comercio electrónico.
 
 18. **MinTIC Colombia.** (2020). *Agenda de Transformacion Digital*.
     - Link: https://www.mintic.gov.co/transformacion
