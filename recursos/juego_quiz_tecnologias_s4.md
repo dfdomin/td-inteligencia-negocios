@@ -38,7 +38,7 @@ D) Automatización robótica de procesos (RPA)
 **Don Gustavo quiere saber exactamente cuántos kilos de mango hay disponibles en cada puesto del mercado, sin tener que enviar a alguien a contar manualmente. Quiere que la información se actualice sola, sin que los vendedores tengan que hacer nada. ¿Qué tecnología permite esto?**
 
 A) Machine Learning para predecir demanda  
-B) Internet de las Cosas (IoT) con balanzas connectedas  
+B) Internet de las Cosas (IoT) con balanzas conectadas  
 C) Cloud Computing para almacenamiento de datos  
 D) Blockchain para trazabilidad de productos
 
@@ -65,7 +65,7 @@ D) Machine Learning para predicción de precios
 
 ## Pregunta 4
 
-**Mercado360 quiere reducir las mermas de frutas y verduras. Actualmente, los vendedores compran inventario basándose en corazonada, y muchos productos se pudren antes de venderse. ¿Qué tecnología可以帮助les a predecir cuánta mercancía deben comprar cada día?**
+**Mercado360 quiere reducir las mermas de frutas y verduras. Actualmente, los vendedores compran inventario basándose en corazonada, y muchos productos se pudren antes de venderse. ¿Qué tecnología les puede ayudar a predecir cuánta mercancía deben comprar cada día?**
 
 A) Internet de las Cosas (IoT)  
 B) Blockchain para trazabilidad  
@@ -80,7 +80,7 @@ D) Computación en la nube (Cloud)
 
 ## Pregunta 5
 
-**Un proveedor de naranja de los Llanos quiere garantizar a sus clientes que sus naranjas fueron cultivadas de manera sostenible y que pasaron por controles de calidad. Quiere un registro inmutable que任何 empresa pueda consultar y que no pueda ser adulterado. ¿Qué tecnología es más adecuada?**
+**Un proveedor de naranja de los Llanos quiere garantizar a sus clientes que sus naranjas fueron cultivadas de manera sostenible y que pasaron por controles de calidad. Quiere un registro inmutable que cualquier empresa pueda consultar y que no pueda ser adulterado. ¿Qué tecnología es más adecuada?**
 
 A) Computación en la nube (Cloud)  
 B) Internet de las Cosas (IoT)  
@@ -89,7 +89,7 @@ D) Automatización robótica de procesos (RPA)
 
 **Respuesta correcta: C**
 
-**Explicación:** Blockchain es un libro de registros distribuido e inmutable. Cada transacción o evento (cultivo, cosecha, transporte, контроль de calidad) se registra como un "bloque" que no puede ser modificado después. Esto crea una cadena de trazabilidad transparente y a prueba de fraudes. Es ideal para industrias donde la provenance y la calidad son críticas (alimentos, pharmaceuticals, lujo). Cloud almacenaría datos pero no garantiza inmutabilidad. IoT captura datos pero no crea registro inmutable. RPA automatiza procesos existentes, no crea trazabilidad.
+**Explicación:** Blockchain es un libro de registros distribuido e inmutable. Cada transacción o evento (cultivo, cosecha, transporte, control de calidad) se registra como un "bloque" que no puede ser modificado después. Esto crea una cadena de trazabilidad transparente y a prueba de fraudes. Es ideal para industrias donde la procedencia y la calidad son críticas (alimentos, productos farmacéuticos, lujo). Cloud almacenaría datos pero no garantiza inmutabilidad. IoT captura datos pero no crea registro inmutable. RPA automatiza procesos existentes, no crea trazabilidad.
 
 ---
 
@@ -119,13 +119,13 @@ D) Machine Learning para detección de fraudes
 
 **Respuesta correcta: A**
 
-**Explicación:** Cloud Computing permite crear una plataforma centralizada de pagos que se integra con múltiples métodos de pago (Nequi, Daviplata, tarjetas, transferencias) sin que cada vendedor tenga que configurar individualmente cada intégración. Un sistema cloud de pagos conecta todos los medios a través de APIs y permite que el comprador pague como prefée y el vendedor reciba todo en una cuenta unificada. Blockchain podría usarse para pagos pero es más complejo y lento. IoT no tiene que ver con pagos. ML detecta fraudes pero no unifica métodos de pago.
+**Explicación:** Cloud Computing permite crear una plataforma centralizada de pagos que se integra con múltiples métodos de pago (Nequi, Daviplata, tarjetas, transferencias) sin que cada vendedor tenga que configurar individualmente cada integración. Un sistema cloud de pagos conecta todos los medios a través de APIs y permite que el comprador pague como prefiera y el vendedor reciba todo en una cuenta unificada. Blockchain podría usarse para pagos pero es más complejo y lento. IoT no tiene que ver con pagos. ML detecta fraudes pero no unifica métodos de pago.
 
 ---
 
 ## Pregunta 8
 
-**Un investigador de la Universidad Nacional quiere hacer un estudio sobre patrones de consumo de frutas y verduras en Corferias durante los últimos 3 años. Necesita acceso a datos históricos de ventas, climáticos y de precios, que están en sistemas diferentes. ¿Qué tecnología permite consolidar y analizar datos de múltiples fuentes para extraer insights?**
+**Un investigador de la Universidad Nacional quiere hacer un estudio sobre patrones de consumo de frutas y verduras en Corferias durante los últimos 3 años. Necesita acceso a datos históricos de ventas, climáticos y de precios, que están en sistemas diferentes. ¿Qué tecnología permite consolidar y analizar datos de múltiples fuentes para extraer hallazgos (insights)?**
 
 A) Internet de las Cosas (IoT)  
 B) Machine Learning para análisis predictivo  
@@ -134,7 +134,7 @@ D) Blockchain para registro histórico
 
 **Respuesta correcta: C**
 
-**Explicación:** Business Intelligence (BI) y las herramientas analíticas permiten consolidar datos de múltiples fuentes (sistemas de ventas, datos climáticas, hojas de cálculo de precios), analizar patrones y generar reportes e insights. Cloud Computing facilita el almacenamiento y procesamiento de grandes volúmenes de datos históricos. IoT genera datos pero no los analiza. ML hace predicciones pero necesita una base de BI para el análisis histórico. Blockchain registra transacciones pero no es una herramienta de análisis.
+**Explicación:** Business Intelligence (BI) y las herramientas analíticas permiten consolidar datos de múltiples fuentes (sistemas de ventas, datos climáticos, hojas de cálculo de precios), analizar patrones y generar reportes y hallazgos (insights). Cloud Computing facilita el almacenamiento y procesamiento de grandes volúmenes de datos históricos. IoT genera datos pero no los analiza. ML hace predicciones pero necesita una base de BI para el análisis histórico. Blockchain registra transacciones pero no es una herramienta de análisis.
 
 ---
 
@@ -149,13 +149,13 @@ D) IoT con sensores de movimiento
 
 **Respuesta correcta: C**
 
-**Explicación:** Los sistemas de recomendación personalizados usan algoritmos de Machine Learning que analizan el comportamiento histórico de compra de todos los usuarios para identificar patrones y sugerir productos relevantes para cada cliente específico. Ejemplos famous: Netflix, Amazon, Spotify. RPA automatiza tareas repetitivas, no genera recomendaciones. Blockchain registra transacciones pero no sugiere productos complementarios. IoT mide datos físicos, no compra patterns.
+**Explicación:** Los sistemas de recomendación personalizados usan algoritmos de Machine Learning que analizan el comportamiento histórico de compra de todos los usuarios para identificar patrones y sugerir productos relevantes para cada cliente específico. Ejemplos famosos: Netflix, Amazon, Spotify. RPA automatiza tareas repetitivas, no genera recomendaciones. Blockchain registra transacciones pero no sugiere productos complementarios. IoT mide datos físicos, no patrones de compra.
 
 ---
 
 ## Pregunta 10
 
-**Don Gustavo quiere que cuando un cliente pague con Nequi, el确认 llegue instantáneamente al vendedor sin depender de la cobertura de internet del celular. ¿Qué tecnología permite pagos desconectados con confirmación posterior?**
+**Don Gustavo quiere que cuando un cliente pague con Nequi, la confirmación llegue instantáneamente al vendedor sin depender de la cobertura de internet del celular. ¿Qué tecnología permite pagos desconectados con confirmación posterior?**
 
 A) Blockchain con consenso instantáneo  
 B) Machine Learning para validación de transacciones  
@@ -164,7 +164,7 @@ D) IoT para seguimiento de transacciones
 
 **Respuesta correcta: C**
 
-**Explicación:** Las apps de movilidad empresarial con funcionalidad offline-first permiten que las transacciones se registren localmente en el dispositivo aunque no haya conectividad, y se sincronicen con el servidor central cuando la conexión se restores. Esto es común en apps de punto de venta en mercados, restaurantes y zonas con conectividad limitada. El pago con Nequi requiere confirmación instantánea en el punto de venta; con modo offline, el vendedor puede hacer la venta y cuando recupere internet, todo se reconcilia. Blockchain requiere conectividad para validar. ML no tiene que ver con modo offline. IoT es de sensores, no de apps.
+**Explicación:** Las apps de movilidad empresarial con funcionalidad offline-first permiten que las transacciones se registren localmente en el dispositivo aunque no haya conectividad, y se sincronicen con el servidor central cuando la conexión se restablece. Esto es común en apps de punto de venta en mercados, restaurantes y zonas con conectividad limitada. El pago con Nequi requiere confirmación instantánea en el punto de venta; con modo offline, el vendedor puede hacer la venta y cuando recupere internet, todo se reconcilia. Blockchain requiere conectividad para validar. ML no tiene que ver con modo offline. IoT es de sensores, no de apps.
 
 ---
 
@@ -179,7 +179,7 @@ D) Automatización robótica de procesos (RPA) local
 
 **Respuesta correcta: B**
 
-**Explicación:** Cloud Computing permite que una aplicación (sistema de inventario, pedidos, facturación) funcione de forma centralizada pero sea accessible desde cualquier ubicación con internet. No se necesitan servidores locales; todo está en la nube. Esto reduce costos de infraestructura, facilita la escalabilidad y permite gestión centralizada. IoT no tiene que ver con sistemas de gestión centralizados. Blockchain es descentralizado por diseño pero más complejo y costoso. RPA opera localmente, no en la nube.
+**Explicación:** Cloud Computing permite que una aplicación (sistema de inventario, pedidos, facturación) funcione de forma centralizada pero sea accesible desde cualquier ubicación con internet. No se necesitan servidores locales; todo está en la nube. Esto reduce costos de infraestructura, facilita la escalabilidad y permite gestión centralizada. IoT no tiene que ver con sistemas de gestión centralizados. Blockchain es descentralizado por diseño pero más complejo y costoso. RPA opera localmente, no en la nube.
 
 ---
 
@@ -203,13 +203,13 @@ D) Machine Learning para predicción de demanda
 **Mercado360 quiere que los productores agrícolas (los que venden la cosecha) puedan acceder desde sus fincas a la plataforma de Mercado360 para ver cuándo van a recibir sus pagos, cuáles son los pedidos pendientes, y cuánto se proyecta que van a vender la próxima semana. ¿Qué tecnología hace esto posible sin que los productores tengan que ir físicamente al mercado?**
 
 A) Internet de las Cosas (IoT) en las fincas  
-B) Plataforma web/cloud accessible desde cualquier lugar con internet  
+B) Plataforma web/cloud accesible desde cualquier lugar con internet  
 C) Blockchain para contratos inteligentes  
 D) Automatización de procesos robóticos (RPA)
 
 **Respuesta correcta: B**
 
-**Explicación:** Una plataforma accessible via web o app (basada en Cloud Computing) permite que cualquier actor con conexión a internet acceda desde cualquier lugar a información relevante para su negocio: estado de pedidos, cronograma de pagos, proyecciones de demanda. Los productores no necesitan estar físicamente en Corferias para gestionar su relación con Mercado360. IoT en fincas sería para medir condiciones de cultivo, no para acceder a plataformas. Blockchain tiene funcionalidades de contratos inteligentes pero no es la tecnología principal para acceso a información. RPA automatiza procesos internos, no acceso externo de productores.
+**Explicación:** Una plataforma accesible vía web o app (basada en Cloud Computing) permite que cualquier actor con conexión a internet acceda desde cualquier lugar a información relevante para su negocio: estado de pedidos, cronograma de pagos, proyecciones de demanda. Los productores no necesitan estar físicamente en Corferias para gestionar su relación con Mercado360. IoT en fincas sería para medir condiciones de cultivo, no para acceder a plataformas. Blockchain tiene funcionalidades de contratos inteligentes pero no es la tecnología principal para acceso a información. RPA automatiza procesos internos, no acceso externo de productores.
 
 ---
 
@@ -224,13 +224,13 @@ D) Computación en la nube (Cloud) básica
 
 **Respuesta correcta: C**
 
-**Explicación:** Los contratos inteligentes (Smart Contracts) son programas registrados en blockchain que se ejecutan automáticamente cuando se cumplen condiciones predefinidas. En este caso, si el contrato dice "cuando el productor entregue 100 kilos de mango con certificación de calidad, pag automatically", el sistema ejecuta el pago sin necesidad de que don Gustavo intervenga manualmente. Esto elimina retrasos en pagos, disputas y procesos manuales. ML predice, no ejecuta pagos automáticos. IoT registra eventos pero no ejecuta pagos. Cloud es el infraestructura pero el contrato inteligente vive en blockchain.
+**Explicación:** Los contratos inteligentes (Smart Contracts) son programas registrados en blockchain que se ejecutan automáticamente cuando se cumplen condiciones predefinidas. En este caso, si el contrato dice "cuando el productor entregue 100 kilos de mango con certificación de calidad, paga automáticamente", el sistema ejecuta el pago sin necesidad de que don Gustavo intervenga manualmente. Esto elimina retrasos en pagos, disputas y procesos manuales. ML predice, no ejecuta pagos automáticos. IoT registra eventos pero no ejecuta pagos. Cloud es la infraestructura pero el contrato inteligente vive en blockchain.
 
 ---
 
 ## Pregunta 15
 
-**Mercado360 recibe muchos pagos en efectivo y quiere reducir el riesgo de errores humanos en el manejo de caja (contar mal, dar cambio wrong). ¿Qué tecnología permite automatizar el proceso de cobro y cierre de caja?**
+**Mercado360 recibe muchos pagos en efectivo y quiere reducir el riesgo de errores humanos en el manejo de caja (contar mal, dar cambio incorrecto). ¿Qué tecnología permite automatizar el proceso de cobro y cierre de caja?**
 
 A) Blockchain para registro de transacciones  
 B) Sistema de punto de venta (POS) digital con cierre automático de caja  
@@ -239,7 +239,7 @@ D) Machine Learning para predicción de ventas
 
 **Respuesta correcta: B**
 
-**Explicación:** Un sistema de POS digital registra cada venta electrónicamente, calcula automáticamente el total del día, el dinero recibido, y genera un reporte de cierre de caja sin necesidad de contar manualmente. Elimina errores humanos en el conteo de efectivo y proporciona un registro digital exacto de todas las transacciones. Blockchain registraría las transacciones pero no automatizaría el cierre de caja. IoTweighs productos pero no gestiona caja. ML predeciría ventas pero no automatizaría el cierre.
+**Explicación:** Un sistema de POS digital registra cada venta electrónicamente, calcula automáticamente el total del día, el dinero recibido, y genera un reporte de cierre de caja sin necesidad de contar manualmente. Elimina errores humanos en el conteo de efectivo y proporciona un registro digital exacto de todas las transacciones. Blockchain registraría las transacciones pero no automatizaría el cierre de caja. IoT pesa productos pero no gestiona caja. ML predeciría ventas pero no automatizaría el cierre.
 
 ---
 
@@ -247,7 +247,7 @@ D) Machine Learning para predicción de ventas
 
 | Tecnología | Para qué sirve en Mercado360 | Ejemplo de aplicación |
 |------------|-----------------------------|----------------------|
-| Cloud Computing | Almacenar y acceder a datos desde cualquier lugar | Catálogo digital de productos accessible desde celular |
+| Cloud Computing | Almacenar y acceder a datos desde cualquier lugar | Catálogo digital de productos accesible desde celular |
 | IoT (Internet de las Cosas) | Capturar datos físicos automáticamente | Balanzas conectadas que miden inventario en tiempo real |
 | Machine Learning | Predecir patrones y personalizar experiencias | Sistema de recomendación de productos complementarios |
 | Blockchain | Crear registros inmutables y trazables | Trazabilidad de origen de productos / pagos automáticos con smart contracts |
@@ -262,7 +262,7 @@ D) Machine Learning para predicción de ventas
 | Pregunta | Respuesta correcta | Tecnología |
 |----------|-------------------|------------|
 | 1 | B | Cloud Computing |
-| 2 | B | IoT (balanzas connectadas) |
+| 2 | B | IoT (balanzas conectadas) |
 | 3 | A | Movilidad empresarial (app de pedidos) |
 | 4 | C | Machine Learning (análisis predictivo) |
 | 5 | C | Blockchain (trazabilidad) |

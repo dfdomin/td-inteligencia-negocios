@@ -64,17 +64,17 @@ D) 6 niveles
 A) Contratar un director de tecnología  
 B) Optimizar procesos existentes con herramientas digitales (RPA, analítica, conectividad) sin cambiar el modelo de negocio  
 C) Crear un aplicativo móvil aunque no tenga claro el modelo de monetización  
-D) Despedir a los empleados que no sepan usar computers
+D) Despedir a los empleados que no sepan usar computadores
 
 **Respuesta correcta: B**
 
-**Explicación:** El modelo MIT Sloan (Westerman et al.) tiene 3 niveles: (1) Digitalmente habilitado (tecnología点缀 pero no estratégica), (2) Digitalmente potenciado (procesos optimizados con herramientas digitales), y (3) Digitalmente transformado (tecnología integrada en la estrategia del negocio). Pasar de nivel 1 a nivel 3 requiere optimizar procesos con tecnología - por ejemplo, usar análisis de datos para predecir demanda, automatizar pedidos con proveedores, etc. - sin necesariamente redefinir el modelo de negocio todavía.
+**Explicación:** El modelo MIT Sloan (Westerman et al.) tiene 3 niveles: (1) Digitalmente habilitado (tecnología presente pero no estratégica), (2) Digitalmente potenciado (procesos optimizados con herramientas digitales), y (3) Digitalmente transformado (tecnología integrada en la estrategia del negocio). Pasar de nivel 1 a nivel 3 requiere optimizar procesos con tecnología - por ejemplo, usar análisis de datos para predecir demanda, automatizar pedidos con proveedores, etc. - sin necesariamente redefinir el modelo de negocio todavía.
 
 ---
 
 ## Pregunta 5
 
-**¿Qué representa un "mapa de dolores" (pain points map) en el contexto de transformación digital?**
+**¿Qué representa un "mapa de dolores" en el contexto de transformación digital?**
 
 A) Un inventario de todas las herramientas tecnológicas que fallaron en la empresa  
 B) Un documento donde se identifican y priorizan los problemas o frustraciones de clientes, empleados y procesos  
@@ -83,7 +83,7 @@ D) Una lista de quejas de los proveedores
 
 **Respuesta correcta: B**
 
-**Explicación:** El mapa de dolores (pain points map) es una herramienta de diagnóstico que permite identificar qué problemas tienen los diferentes actores del ecosistema de la empresa: clientes que no encuentran lo que buscan, empleados que pierden tiempo en tareas manuales, proveedores que no tienen visibilidad de pedidos, etc. Es el punto de partida para definir dónde aplicar tecnología con mayor impacto. Sin un mapa de dolores bien construido, la transformación digital se convierte en tecnología por tecnología, sin foco estratégico.
+**Explicación:** El mapa de dolores es una herramienta de diagnóstico que permite identificar qué problemas tienen los diferentes actores del ecosistema de la empresa: clientes que no encuentran lo que buscan, empleados que pierden tiempo en tareas manuales, proveedores que no tienen visibilidad de pedidos, etc. Es el punto de partida para definir dónde aplicar tecnología con mayor impacto. Sin un mapa de dolores bien construido, la transformación digital se convierte en tecnología por tecnología, sin foco estratégico.
 
 ---
 
@@ -108,21 +108,21 @@ D) Dolor del proveedor
 
 A) Crear un grupo de WhatsApp para avisar a los clientes de ofertas  
 B) Usar inteligencia artificial para predecir la demanda de frutas y ajustar precios dinámicamente en tiempo real  
-C) Instalar computers en la oficina para que los empleados send correos electrónicos  
+C) Instalar computadores en la oficina para que los empleados envíen correos electrónicos  
 D) Escanear las facturas de venta para guardarlas en formato PDF
 
 **Respuesta correcta: B**
 
-**Explicación:** El nivel 3 del modelo MIT implica que la tecnología no solo optimiza procesos, sino que redefine el modelo de negocio. Usar IA para predecir demanda y ajustar precios dinámicamente cambia fundamentalmente cómo opera el negocio y cómo genera ingresos. Esto es radicalmente diferente de tener computers o usar WhatsApp para comunicarse. La empresa pasa de reaccionar a anticipar, y de fijo a dinámico, gracias a la tecnología integrada en su estrategia.
+**Explicación:** El nivel 3 del modelo MIT implica que la tecnología no solo optimiza procesos, sino que redefine el modelo de negocio. Usar IA para predecir demanda y ajustar precios dinámicamente cambia fundamentalmente cómo opera el negocio y cómo genera ingresos. Esto es radicalmente diferente de tener computadores o usar WhatsApp para comunicarse. La empresa pasa de reaccionar a anticipar, y de fijo a dinámico, gracias a la tecnología integrada en su estrategia.
 
 ---
 
 ## Pregunta 8
 
-**Una empresa colombian que solo tiene página web informativa (sin ventas en línea, sin integraciones) y redes sociales básico está clasificada en el nivel de madurez:**
+**Una empresa colombiana que solo tiene página web informativa (sin ventas en línea, sin integraciones) y redes sociales básicas está clasificada en el nivel de madurez:**
 
-A) Nivel 1 — Digitalmente enabled  
-B) Nivel 2 — Digitalmente enhanced  
+A) Nivel 1 — Digitalmente habilitado  
+B) Nivel 2 — Digitalmente potenciado  
 C) Nivel 3 — Digitalmente transformed  
 D) Nivel 0 — No tiene presencia digital
 
@@ -166,7 +166,7 @@ D) Eso es imposible, WhatsApp no sirve para vender frutas
 
 | Nivel | Gartner | MIT Sloan | Características |
 |-------|---------|-----------|----------------|
-| 1 | Digitalizado | Digitalmente enabled | Presencia digital básica, no integrada |
+| 1 | Digitalizado | Digitalmente habilitado | Presencia digital básica, no integrada |
 | 2 | Digitalmente mejorado | Digitalmente potenciado | Optimización de procesos con herramientas digitales |
 | 3 | Digitalmente optimizado | Digitalmente transformado | Tecnología integrada en la estrategia |
 | 4 | Digitalmente transformado | — | Redefinición del modelo de negocio |

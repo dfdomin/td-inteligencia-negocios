@@ -14,7 +14,7 @@ El "quejómetro" es una actividad práctica de empatía y priorización. Los est
 Esta actividad desarrolla la capacidad de:
 - Escuchar y empatizar con diferentes actores
 - Clasificar problemas según su naturaleza
-- Priorizar initiatives de transformación digital basado en impacto real
+- Priorizar iniciativas de transformación digital basado en impacto real
 - Argumentar decisiones usando datos, no intuición
 
 ---
@@ -33,7 +33,7 @@ La semana pasada, el equipo de Mercado360 hizo una encuesta informal y recogió 
 
 ### Queja 1 — Doña María (Compradora frecuente, consume finales)
 
-> "Llevo tres viernes buscando mango Tommy y ningún puesto lo tiene el mismo precio. En uno cuesta $4.500, en otro $5.200, en otro $5.800. ¿Cómo hago para comparar? Me toca caminar todo el mercado preguntando, y cuando encuentro uno con precio decente, a veces no tiene la calidad que busco. Pierdo easily una hora comparando. Yo quiero poder ver desde mi casa qué hay, a qué precio, y reservar. ¿Es tan difícil?"
+> "Llevo tres viernes buscando mango Tommy y ningún puesto lo tiene el mismo precio. En uno cuesta $4.500, en otro $5.200, en otro $5.800. ¿Cómo hago para comparar? Me toca caminar todo el mercado preguntando, y cuando encuentro uno con precio decente, a veces no tiene la calidad que busco. Pierdo fácilmente una hora comparando. Yo quiero poder ver desde mi casa qué hay, a qué precio, y reservar. ¿Es tan difícil?"
 
 **Clasificación sugerida:** Dolor del cliente  
 **Razón:** El cliente no tiene información transparente ni centralizada para tomar decisiones de compra informadas.
@@ -42,7 +42,7 @@ La semana pasada, el equipo de Mercado360 hizo una encuesta informal y recogió 
 
 ### Queja 2 — Chef Rodríguez (Restaurante "El Fogón", cliente institucional)
 
-> "Necesito comprar 50 kilos de tomate chonto para el menú del fin de semana. El viernes pasado mandé a mi ayudante y le dijo que no había suficiente. Tuve que ir yo personally, y cuando llegué solo había 30 kilos de calidad media. Para un restaurante, la consistencia importa. Necesito poder hacer pedidos con anticipación, saber exactamente qué hay disponible y garantizar que me lo guarden. Hoy eso es imposible."
+> "Necesito comprar 50 kilos de tomate chonto para el menú del fin de semana. El viernes pasado mandé a mi ayudante y le dijo que no había suficiente. Tuve que ir yo personalmente, y cuando llegué solo había 30 kilos de calidad media. Para un restaurante, la consistencia importa. Necesito poder hacer pedidos con anticipación, saber exactamente qué hay disponible y garantizar que me lo guarden. Hoy eso es imposible."
 
 **Clasificación sugerida:** Dolor del cliente  
 **Razón:** El cliente institucional necesita predictibilidad y capacidad de reserva que hoy no existe, lo que genera frustración y pérdida de confianza.
@@ -60,10 +60,10 @@ La semana pasada, el equipo de Mercado360 hizo una encuesta informal y recogió 
 
 ### Queja 4 — Ana (Empleada del puesto de don Gustavo)
 
-> "Yo me canso de escribir los precios a mano en cartelitos. Cada vez que cambia el precio del tomate (que es todos los días), tengo que borrar y volver a escribir. Los clientes preguntan "¿es nuevo o viejo?" y yo no sé si el precio que escribí esta mañana todavía aplica. A veces me confundo y le cobro un precio antiguo a un cliente, y don Gustavo se enoja conmigo. Un letrero digital o una tablet con los precios actualizados me would save mucho problema."
+> "Yo me canso de escribir los precios a mano en cartelitos. Cada vez que cambia el precio del tomate (que es todos los días), tengo que borrar y volver a escribir. Los clientes preguntan "¿es nuevo o viejo?" y yo no sé si el precio que escribí esta mañana todavía aplica. A veces me confundo y le cobro un precio antiguo a un cliente, y don Gustavo se enoja conmigo. Un letrero digital o una tablet con los precios actualizados me ahorraría muchos problemas."
 
 **Clasificación sugerida:** Dolor del proceso  
-**Razón:** El proceso de actualización de precios es manual, error-prone y consume tiempo innecesario. Hay una oportunidad clara de digitalizar.
+**Razón:** El proceso de actualización de precios es manual, propenso a errores y consume tiempo innecesario. Hay una oportunidad clara de digitalizar.
 
 ---
 
@@ -105,7 +105,7 @@ La semana pasada, el equipo de Mercado360 hizo una encuesta informal y recogió 
 
 ### Queja 9 — Carlos (Empleado de logística, ayudante de varios puestos)
 
-> "Yo hago pedidos para tres puestos diferentes y cada uno me dice las cosas diferente. Uno me manda un audio por WhatsApp, otro me escribe en un papel, otro me dicta por teléfono. Yo a veces no entiendo bien qué producto necesita cada uno, y cuando llego al proveedor, me falta algo o me confundo. Si hubiera una forma统一的 de hacer pedidos, donde yo vea todos los pedidos pendientes en un solo lugar, sería mucho más fácil."
+> "Yo hago pedidos para tres puestos diferentes y cada uno me dice las cosas diferente. Uno me manda un audio por WhatsApp, otro me escribe en un papel, otro me dicta por teléfono. Yo a veces no entiendo bien qué producto necesita cada uno, y cuando llego al proveedor, me falta algo o me confundo. Si hubiera una forma unificada de hacer pedidos, donde yo vea todos los pedidos pendientes en un solo lugar, sería mucho más fácil."
 
 **Clasificación sugerida:** Dolor del proceso  
 **Razón:** El proceso de gestión de pedidos a proveedores es fragmentado, sin estándares, lo que genera errores y ineficiencias.
@@ -142,7 +142,7 @@ La semana pasada, el equipo de Mercado360 hizo una encuesta informal y recogió 
 
 ### Paso 1 — Clasificar (10 minutos)
 
-Cada grupo recibe una copia de las 10 quejas. Usando post-its o el formato de tablaprovided, clasifique cada queja en una de las tres categorías:
+Cada grupo recibe una copia de las 10 quejas. Usando post-its o el formato de tabla provisto, clasifique cada queja en una de las tres categorías:
 
 - **Dolor del cliente:** Problemas que experimentan quienes compran en Mercado360. Afectan la experiencia de compra, la satisfacción y la retención.
 - **Dolor del proceso:** Problemas en los flujos operativos internos. Afectan la eficiencia, los costos y la calidad del servicio.
@@ -202,7 +202,7 @@ Después de las presentaciones, el docente facilita una discusión sobre:
 
 ## Conexión con transformación digital
 
-Las quejas clasificadas como "dolor del cliente" generalmente requieren cambios en la capa de interacción con el cliente (app, web, notificaciones, catálogo digital). Esto frecuentemente involucra tecnologías como plataformas web, aplicaciones móviles, y sistemas de gestión de relaciones con clientes (CRM).
+Las quejas clasificadas como "dolor del cliente" generalmente requieren cambios en la capa de interacción con el cliente (app, web, notificaciones, catálogo digital). Esto frecuentemente involucra tecnologías como plataformas web, aplicaciones móviles, y sistemas de gestión de relaciones con clientes (CRM (gestión de relaciones con clientes / Customer Relationship Management)).
 
 Las quejas clasificadas como "dolor del proceso" frecuentemente se resuelven con automatización de tareas manuales, sistemas de gestión de inventario, y herramientas de optimización logística.
 

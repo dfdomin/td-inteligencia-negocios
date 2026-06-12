@@ -42,7 +42,7 @@ Este ejercicio puede usarse de tres formas:
 **Sector:** Delivery / Plataformas  
 **Descripción de la situación:**
 
-Rappi es una startup colombiana fundada en 2015 que se convirtió en unicornio en 2019. Su modelo de negocio es puramente digital: conecta usuarios que necesitan algo delivered con " Rappitenderos" que hacen los pedidos. No tiene inventario propio. La empresa opera con algoritmos de enrutamiento, geolocalización en tiempo real, y gestión dinámica de la demanda. Recientemente incorporó "Rappi，钱包" y servicios financieros. Su desafío actual es la rentabilidad: los márgenes de delivery son muy bajos.
+Rappi es una startup colombiana fundada en 2015 que se convirtió en unicornio en 2019. Su modelo de negocio es puramente digital: conecta usuarios que necesitan algo entregado con "Rappitenderos" que hacen los pedidos. No tiene inventario propio. La empresa opera con algoritmos de enrutamiento, geolocalización en tiempo real, y gestión dinámica de la demanda. Recientemente incorporó "RappiPay" y servicios financieros. Su desafío actual es la rentabilidad: los márgenes de delivery son muy bajos.
 
 **Nivel de madurez estimado:** Nivel 5 — Digitalmente disruptivo (Gartner) / Digitalmente transformado (MIT)
 
@@ -56,7 +56,7 @@ Rappi es una startup colombiana fundada en 2015 que se convirtió en unicornio e
 **Sector:** Aviación / Transporte  
 **Descripción de la situación:**
 
-Avianca atraviesa un proceso de transformación digital obligado por la bancarrota del Grupo Viva Air y la fusión con United Airlines. Creó una unidade de negocio "Avianca Digital" que desarrolló una nueva app de autocheck-in, asientos digitales, y experiencia a bordo mejorada. Sin embargo, los sistemas legacy de reservas (basados en tecnología de los años 90) todavía generan fricción: cambios de vuelo tardan horas en procesarse, las conexiones entre agentes y sistemas son manuales. La empresa tiene presencia digital pero los procesos atrás del frontend son todavía analógicos.
+Avianca atraviesa un proceso de transformación digital obligado por la bancarrota del Grupo Viva Air y la fusión con United Airlines. Creó una unidad de negocio "Avianca Digital" que desarrolló una nueva app de autocheck-in, asientos digitales, y experiencia a bordo mejorada. Sin embargo, los sistemas legacy de reservas (basados en tecnología de los años 90) todavía generan fricción: cambios de vuelo tardan horas en procesarse, las conexiones entre agentes y sistemas son manuales. La empresa tiene presencia digital pero los procesos atrás del frontend son todavía analógicos.
 
 **Nivel de madurez estimado:** Nivel 2 — Digitalmente potenciado (MIT) / Digitalmente mejorado (Gartner)
 
@@ -70,7 +70,7 @@ Avianca atraviesa un proceso de transformación digital obligado por la bancarro
 **Sector:** Banca / Servicios financieros  
 **Descripción de la situación:**
 
-Bancolombia es el banco más grande de Colombia y líder en innovación financiera en la región. Tiene más de 15 millones de clientes digitales, app móvil con transacciones 24/7, plataforma de Nequi con más de 6 millones de usuarios, y pruebas con blockchain para transacciones interbancarias. Recientemente lanzó "Módulo", una propuesta de banca como servicio para fintechs. La transformación digital en Bancolombia es un caso de estudio en Latinoamérica. Sin embargo,仍有 segmentos de la población sin acceso a internet que requieren canales físicos.
+Bancolombia es el banco más grande de Colombia y líder en innovación financiera en la región. Tiene más de 15 millones de clientes digitales, app móvil con transacciones 24/7, plataforma de Nequi con más de 6 millones de usuarios, y pruebas con blockchain para transacciones interbancarias. Recientemente lanzó "Módulo", una propuesta de banca como servicio para fintechs. La transformación digital en Bancolombia es un caso de estudio en Latinoamérica. Sin embargo, aún hay segmentos de la población sin acceso a internet que requieren canales físicos.
 
 **Nivel de madurez estimado:** Nivel 4-5 — Entre digitalmente transformado y disruptivo (Gartner)
 
@@ -98,11 +98,11 @@ Crepes & Waffles es una cadena colombiana con más de 100 restaurantes en el pa�
 **Sector:** Manufactura / Textil  
 **Descripción de la situación:**
 
-Merino es una empresa colombiana líder en la fabricación de jeans y ropa industrial. Tiene más de 50 años de trayectoria. Su proceso de diseño todavía usa métodos tradicionales: patrones en papel, muestreo físico, cambios de diseño tardan semanas. Los pedidos de clientes empresariales (industrias, empresas con uniformes) se gestionan por电子邮件 y Excel. La empresa tiene página web informativa y usa redes sociales para marketing, pero no hay integración entre canales de venta, producción e inventario.
+Merino es una empresa colombiana líder en la fabricación de jeans y ropa industrial. Tiene más de 50 años de trayectoria. Su proceso de diseño todavía usa métodos tradicionales: patrones en papel, muestreo físico, cambios de diseño tardan semanas. Los pedidos de clientes empresariales (industrias, empresas con uniformes) se gestionan por correo electrónico y Excel. La empresa tiene página web informativa y usa redes sociales para marketing, pero no hay integración entre canales de venta, producción e inventario.
 
-**Nivel de madurez estimado:** Nivel 1 — Digitalmente enabled (MIT) / Digitalizado (Gartner)
+**Nivel de madurez estimado:** Nivel 1 — Digitalmente habilitado (MIT) / Digitalizado (Gartner)
 
-**Siguiente paso sugerido:** Digitalizar el proceso de diseño con herramientas CAD, implementar un sistema de gestión de órdenes que conecte clientes, producción e inventario. Esto permitiría reducir tiempos de muestreo y mejorar la experiencia del cliente empresarial con tracking de pedidos en tiempo real.
+**Siguiente paso sugerido:** Digitalizar el proceso de diseño con herramientas CAD, implementar un sistema de gestión de órdenes que conecte clientes, producción e inventario. Esto permitiría reducir tiempos de muestreo y mejorar la experiencia del cliente empresarial con seguimiento de pedidos en tiempo real.
 
 ---
 
@@ -140,11 +140,11 @@ Postobón es la segunda empresa de bebidas más grande de Colombia. Ha implement
 **Sector:** Fitness / Servicios de salud  
 **Descripción de la situación:**
 
-Oxígeno es una cadena de gyms colombianos con más de 80 sedes. Durante la pandemia desarrollaron clases virtuales por Zoom y YouTube, lo que fue un cambio significativo para la empresa. Hoy tienen app de reservas para clases, sistema de pago automático de mensualidades, y usan CRM para gestionar la relación con socios. Sin embargo, los trainers todavía diseñan planes de entrenamiento en papel y los instructores de clases grupales no tienen datos de progreso de los asistentes. No hay personalización basada en datos.
+Oxígeno es una cadena de gimnasios colombianos con más de 80 sedes. Durante la pandemia desarrollaron clases virtuales por Zoom y YouTube, lo que fue un cambio significativo para la empresa. Hoy tienen app de reservas para clases, sistema de pago automático de mensualidades, y usan CRM (gestión de relaciones con clientes / Customer Relationship Management) para gestionar la relación con socios. Sin embargo, los entrenadores todavía diseñan planes de entrenamiento en papel y los instructores de clases grupales no tienen datos de progreso de los asistentes. No hay personalización basada en datos.
 
 **Nivel de madurez estimado:** Nivel 2 — Digitalmente potenciado (MIT) / Digitalmente mejorado (Gartner)
 
-**Siguiente paso sugerido:** Implementar un sistema de entrenamiento personalizado basado en datos de los socios (historial, objetivos, progreso). Usar wearables e IoT para tracking en tiempo real. Crear experiencia digital híbrida: presencial + virtual personalizada. La personalización basada en datos permite aumentar retención y reducir la churn rate.
+**Siguiente paso sugerido:** Implementar un sistema de entrenamiento personalizado basado en datos de los socios (historial, objetivos, progreso). Usar wearables e IoT para seguimiento en tiempo real. Crear experiencia digital híbrida: presencial + virtual personalizada. La personalización basada en datos permite aumentar retención y reducir la tasa de abandono (churn rate).
 
 ---
 
@@ -154,7 +154,7 @@ Oxígeno es una cadena de gyms colombianos con más de 80 sedes. Durante la pand
 **Sector:** Retail / Electrodomésticos y hogar  
 **Descripción de la situación:**
 
-Alkosto tiene tiendas físicas y presencia en línea. Su página web permite compras pero la experiencia no es fluida: los tiempos de carga son lentos, no hay integración con inventario en tiempo real y el checkout requiere muchas iteraciones. Los clientes frecuentemente电话咨询 para confirmar stock antes de comprar en línea. El proceso de devolución es completamente manual: hay que ir a tienda, esperar, completar formulario en papel. La empresa tiene la infraestructura (tiendas, distribución) pero la capa digital no acompaña.
+Alkosto tiene tiendas físicas y presencia en línea. Su página web permite compras pero la experiencia no es fluida: los tiempos de carga son lentos, no hay integración con inventario en tiempo real y el checkout requiere muchas iteraciones. Los clientes frecuentemente llaman por teléfono para confirmar stock antes de comprar en línea. El proceso de devolución es completamente manual: hay que ir a tienda, esperar, completar formulario en papel. La empresa tiene la infraestructura (tiendas, distribución) pero la capa digital no acompaña.
 
 **Nivel de madurez estimado:** Nivel 1-2 — Entre digitalizado y digitalmente potenciado (MIT) / Digitalmente mejorado (Gartner)
 
@@ -168,7 +168,7 @@ Alkosto tiene tiendas físicas y presencia en línea. Su página web permite com
 **Sector:** Salud / EPS / Administradora de beneficios  
 **Descripción de la situación:**
 
-Cafam es una EPS (Empresa Prestadora de Salud) colombiano con más de 1.5 millones de afiliados. Ha implementado agenda en línea para citas médicas, historia clínica electrónica en sus clínicas propias, y app móvil para consulta de resultados y autorizaciones. Sin embargo, el sistema de autorización de procedimientos todavía es lento: los usuarios esperan días para saber si un procedimiento fue aprobado. Los datos de salud no se comparten entre clínicas y外面的 laboratorios, generando redundancia de exámenes. La interoperabilidad de sistemas es el desafío central.
+Cafam es una EPS (Empresa Prestadora de Salud) colombiana con más de 1.5 millones de afiliados. Ha implementado agenda en línea para citas médicas, historia clínica electrónica en sus clínicas propias, y app móvil para consulta de resultados y autorizaciones. Sin embargo, el sistema de autorización de procedimientos todavía es lento: los usuarios esperan días para saber si un procedimiento fue aprobado. Los datos de salud no se comparten entre clínicas y laboratorios externos, generando redundancia de exámenes. La interoperabilidad de sistemas es el desafío central.
 
 **Nivel de madurez estimado:** Nivel 2 — Digitalmente potenciado (MIT) / Digitalmente mejorado (Gartner)
 
@@ -184,9 +184,9 @@ Cafam es una EPS (Empresa Prestadora de Salud) colombiano con más de 1.5 millon
 
 La Casa de los Carros tiene 5 sedes en Bogotá. Su proceso de venta todavía es muy tradicional: el cliente llega, habla con un vendedor, el vendedor consulta un sistema antiguo de inventario, negocia, pasa al financiero, el financiero consulta al banco, todo toma horas. Los datos de clientes potenciales se pierden cuando el vendedor no anota bien o no actualiza el CRM. Las pruebas de manejo se programan manualmente. No hay posibilidad de comprar completamente en línea. La empresa tiene página web informativa pero nada transaccional.
 
-**Nivel de madurez estimado:** Nivel 1 — Digitalmente enabled (MIT) / Digitalizado (Gartner)
+**Nivel de madurez estimado:** Nivel 1 — Digitalmente habilitado (MIT) / Digitalizado (Gartner)
 
-**Siguiente paso sugerido:** Digitalizar el proceso de venta con un configurador de vehículos en línea, integración con financieras para aprobación en tiempo real, y CRM unificado para no perder datos de prospectos. Permitir que el cliente haga todo el proceso de negociación en línea antes de ir a la dealership. Esto reduce ciclo de venta y mejora conversión.
+**Siguiente paso sugerido:** Digitalizar el proceso de venta con un configurador de vehículos en línea, integración con financieras para aprobación en tiempo real, y CRM (gestión de relaciones con clientes / Customer Relationship Management) unificado para no perder datos de prospectos. Permitir que el cliente haga todo el proceso de negociación en línea antes de ir al concesionario. Esto reduce ciclo de venta y mejora conversión.
 
 ---
 

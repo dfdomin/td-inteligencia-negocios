@@ -1,4 +1,4 @@
-# Actividad Práctica: Taller de Journey Map — Semana 2
+# Actividad Práctica: Taller de mapa del recorrido del cliente (journey map) — Semana 2
 
 **Módulo:** Transformación Digital en la Empresa — Semana 2  
 **Caso:** Mercado360 — marketplace de frutas y verduras en Corferias, Bogotá  
@@ -11,30 +11,30 @@
 
 Al finalizar esta actividad, los estudiantes serán capaces de:
 
-1. Comprender el concepto de journey map (mapa de viaje del cliente) y sus componentes
-2. Aplicar la metodología de journey map a un caso real (Mercado360)
-3. Identificar momentos de verdad, pain points y oportunidades de mejora
-4. Conectar los insights del journey map con propuestas de transformación digital
+1. Comprender el concepto de mapa del recorrido del cliente (journey map) y sus componentes
+2. Aplicar la metodología del mapa del recorrido del cliente (journey map) a un caso real (Mercado360)
+3. Identificar momentos de verdad, puntos de dolor y oportunidades de mejora
+4. Conectar los hallazgos del mapa del recorrido del cliente (journey map) con propuestas de transformación digital
 
 ---
 
 ## Fundamento teórico rápido
 
-### ¿Qué es un Journey Map?
+### ¿Qué es un mapa del recorrido del cliente (journey map)?
 
-Un journey map es una representación visual de las etapas que atraviesa un cliente cuando interactúa con un producto o servicio. Muestra qué hace, qué piensa y qué siente el cliente en cada etapa, incluyendo los puntos de contacto (touchpoints) con la empresa y los momentos donde se frustra o se delighted.
+Un mapa del recorrido del cliente (journey map) es una representación visual de las etapas que atraviesa un cliente cuando interactúa con un producto o servicio. Muestra qué hace, qué piensa y qué siente el cliente en cada etapa, incluyendo los puntos de contacto (touchpoints) con la empresa y los momentos donde se frustra o se deleita.
 
-A diferencia del mapa de dolores (que lista problemas), el journey map muestra la secuencia temporal y emocional del interacción completa, permitiendo identificar:
+A diferencia del mapa de dolores (que lista problemas), el mapa del recorrido del cliente (journey map) muestra la secuencia temporal y emocional de la interacción completa, permitiendo identificar:
 
-- **Touchpoints:** Todos los puntos de contacto entre el cliente y la empresa
-- **Canales:** Los medios por los cuales ocurre cada interaction
+- **Puntos de contacto (touchpoints):** Todos los puntos de contacto entre el cliente y la empresa
+- **Canales:** Los medios por los cuales ocurre cada interacción
 - **Emociones:** Cómo se siente el cliente en cada etapa
-- **Pain points:** Los momentos de frustración o friction
+- **Puntos de dolor:** Los momentos de frustración o fricción
 - **Oportunidades:** Lugares donde la empresa puede mejorar o innovar
 
 ### ¿Por qué es relevante para Mercado360?
 
-Mercado360 es un marketplace donde múltiples actores interactúan: compradores ocasionales, compradores institucionales, vendedores, productores y pessoal de logística. Cada actor tiene un journey diferente. Mapear estos journeys permite identificar dónde están los mayores puntos de fricción y, por tanto, dónde aplicar tecnología con mayor impacto.
+Mercado360 es un marketplace donde múltiples actores interactúan: compradores ocasionales, compradores institucionales, vendedores, productores y personal de logística. Cada actor tiene un recorrido del cliente (journey) diferente. Mapear estos recorridos permite identificar dónde están los mayores puntos de fricción y, por tanto, dónde aplicar tecnología con mayor impacto.
 
 ---
 
@@ -44,7 +44,7 @@ Mercado360 opera en Corferias, Bogotá, los miércoles, viernes, sábado y domin
 
 Don Gustavo Morales, el dueño, quiere entender mejor la experiencia de sus clientes para decidir dónde invertir en transformación digital. Hasta ahora, las decisiones se han tomado por corazonada. Necesita datos.
 
-Los estudiantes van a construir el journey map de dos tipos de clientes:
+Los estudiantes van a construir el mapa del recorrido del cliente (journey map) de dos tipos de clientes:
 
 1. **Cliente ocasional:** Consumidor final que compra frutas y verduras para su casa (ejemplo: doña María, 45 años, madre de familia)
 2. **Cliente institucional:** Restaurante o empresa que compra en volumen para sus operaciones (ejemplo: Chef Rodríguez, del restaurante "El Fogón")
@@ -82,25 +82,25 @@ Elijan uno de los dos perfiles de cliente para mapear:
 - Nombre: Chef Rodríguez
 - Contexto: Dueño del restaurante "El Fogón", 80 cubiertos, necesita provisiones frescas todos los viernes
 - Motivación: Garantizar calidad y consistencia en sus ingredientes para mantener la reputación del restaurante
-- Comportamiento: Compra en volumen, negocia precios, necesita reliability en entregas
-- Dolor actual: No puede garantizar disponibilidad, el proceso de compra es manual y lento, frecuentemente tiene que ir personally a verificar stock.
+- Comportamiento: Compra en volumen, negocia precios, necesita confiabilidad en entregas
+- Dolor actual: No puede garantizar disponibilidad, el proceso de compra es manual y lento, frecuentemente tiene que ir personalmente a verificar stock.
 
 Escriban el perfil elegido en la esquina superior derecha de la cartulina.
 
 ---
 
-### Paso 2 — Definir las etapas del journey (10 minutos)
+### Paso 2 — Definir las etapas del recorrido (10 minutos)
 
-Un journey map típico tiene entre 4 y 8 etapas, dependiendo de la complejidad del proceso. Para Mercado360, propongan un journey con 6 etapas:
+Un mapa del recorrido del cliente (journey map) típico tiene entre 4 y 8 etapas, dependiendo de la complejidad del proceso. Para Mercado360, propongan un recorrido con 6 etapas:
 
 1. **Descubrimiento:** El cliente se entera de que existe Mercado360 o decide ir al mercado
-2. **Llegada/Acceso:** El cliente llega al lugar, encuentra el mercado, se orient
+2. **Llegada/Acceso:** El cliente llega al lugar, encuentra el mercado, se orienta
 3. **Exploración/Búsqueda:** El cliente busca lo que necesita entre los puestos
 4. **Selección y negociación:** El cliente encuentra productos, compara, negocia precios
 5. **Transacción/Pago:** El cliente paga y recibe sus productos
 6. **Post-compra/Seguimiento:** El cliente evalúa su experiencia, vuelve a comprar (o no), comparte su opinión
 
-Escriban estas 6 etapas en una fila horizontal en el centro de la cartulina, dejando espacio arriba y abajo para annotaciones.
+Escriban estas 6 etapas en una fila horizontal en el centro de la cartulina, dejando espacio arriba y abajo para anotaciones.
 
 Ejemplo de layout:
 
@@ -111,7 +111,7 @@ SUPERIOR:    [Motivaciones / Qué piensa]
 ─────────── Etapa 1 ─── Etapa 2 ─── Etapa 3 ─── Etapa 4 ─── Etapa 5 ─── Etapa 6 ──────────
              Descubrimiento  Llegada   Exploración  Negociación  Transacción  Post-compra
 
-INFERIOR:    [Pain points / Frustraciones]
+INFERIOR:    [Puntos de dolor / Frustraciones]
 ```
 
 ---
@@ -127,7 +127,7 @@ En la fila superior (sobre cada etapa), escriban o peguen post-its con:
 Para doña María, por ejemplo:
 
 - Etapa 3 (Exploración): Piensa "espero encontrar mangoTommy a buen precio", motivación: encontrar producto específico a mejor precio que el supermercado, necesita saber qué puestos tienen mango y a qué precio.
-- Etapa 5 (Transacción): Piensa "espero que no me cobren de más por ser mujer sola", motivación: sentirse tratada con respeto y fairness, necesita transparencia en precios y métodos de pago claros.
+- Etapa 5 (Transacción): Piensa "espero que no me cobren de más por ser mujer sola", motivación: sentirse tratada con respeto y equidad, necesita transparencia en precios y métodos de pago claros.
 
 Para Chef Rodríguez:
 
@@ -140,66 +140,66 @@ Para Chef Rodríguez:
 
 En cada etapa, asignen un nivel de emoción:
 
-- 😊 **Happy:** El cliente está satisfecho, la experiencia superó expectativas
+- 😊 **Satisfecho:** El cliente está satisfecho, la experiencia superó expectativas
 - 😐 **Neutral:** La experiencia fue funcional, sin satisfacción ni frustración
 - 😟 **Frustrado:** El cliente está insatisfecho, hay fricción
 
 Usen colores de marcadores para señalar:
-- Verde: Happy
+- Verde: Satisfecho
 - Negro/Azul: Neutral
 - Rojo: Frustrado
 
-Si hay variación dentro de la etapa (algunos clientes frustrados, otros neutral), pueden标记 ambos. Lo importante es capturar la heterogeneity del comportamiento.
+Si hay variación dentro de la etapa (algunos clientes frustrados, otros neutral), pueden marcar ambos. Lo importante es capturar la heterogeneidad del comportamiento.
 
 ---
 
-### Paso 5 — Identificar pain points (10 minutos)
+### Paso 5 — Identificar puntos de dolor (10 minutos)
 
 En la fila inferior (bajo cada etapa), escriban o peguen post-its con:
 
-- **Pain points:** Momentos de frustración, confusión o friction
-- **Touchpoints:** Los puntos de contacto específicos (físico, digital, interpersonal)
+- **Puntos de dolor:** Momentos de frustración, confusión o fricción
+- **Puntos de contacto (touchpoints):** Los puntos de contacto específicos (físico, digital, interpersonal)
 - **Canales:** Los medios por los que ocurre la interacción
 
-Ejemplos de pain points para doña María:
+Ejemplos de puntos de dolor para doña María:
 
-- Etapa 3 (Exploración): Pain point = "No sabe qué puestos tienen el producto que busca", Touchpoint = preguntar直接的 a vendedores, Canal = comunicación verbal cara a cara.
-- Etapa 4 (Negociación): Pain point = "No sabe si el precio es justo o si le están cobrando de más", Touchpoint = regateo, Canal = interacción verbal.
+- Etapa 3 (Exploración): Punto de dolor = "No sabe qué puestos tienen el producto que busca", Punto de contacto = preguntar directamente a vendedores, Canal = comunicación verbal cara a cara.
+- Etapa 4 (Negociación): Punto de dolor = "No sabe si el precio es justo o si le están cobrando de más", Punto de contacto = regateo, Canal = interacción verbal.
 
-Ejemplos de pain points para Chef Rodríguez:
+Ejemplos de puntos de dolor para Chef Rodríguez:
 
-- Etapa 1 (Descubrimiento): Pain point = "No hay forma de saber disponibilidad antes de ir", Touchpoint = llamada telefónica o visita física, Canal = teléfono/redes.
-- Etapa 5 (Transacción): Pain point = "El pago a múltiples proveedores es lento (efectivo, transferencias separadas)", Touchpoint = pago, Canal = mixto.
+- Etapa 1 (Descubrimiento): Punto de dolor = "No hay forma de saber disponibilidad antes de ir", Punto de contacto = llamada telefónica o visita física, Canal = teléfono/redes.
+- Etapa 5 (Transacción): Punto de dolor = "El pago a múltiples proveedores es lento (efectivo, transferencias separadas)", Punto de contacto = pago, Canal = mixto.
 
 ---
 
 ### Paso 6 — Identificar oportunidades (10 minutos)
 
-En la esquina inferior derecha de la cartulina, escriban las **oportunidades de mejora** que identificaron. Estas son lugares donde la tecnología o un proceso mejor podría resolver un pain point o mejorar la experiencia.
+En la esquina inferior derecha de la cartulina, escriban las **oportunidades de mejora** que identificaron. Estas son lugares donde la tecnología o un proceso mejor podría resolver un punto de dolor o mejorar la experiencia.
 
 Ejemplos de oportunidades para doña María:
 
-- Crear un catálogo digital de productos disponibles por puesto, accessible desde el celular antes de ir al mercado o al momento de estar ahí
+- Crear un catálogo digital de productos disponibles por puesto, accesible desde el celular antes de ir al mercado o al momento de estar ahí
 - Implementar sistema de precios visibles y actualizados para reducir la incertidumbre en negociación
 - Habilitar pago digital (Nequi, transferencia) para no depender de efectivo
 
 Ejemplos de oportunidades para Chef Rodríguez:
 
-- Crear plataforma de pedidos anticipados donde pueda seleccionar productos, cantidades y reservado con anticipación
-- Implementar sistema de facturación consolidated para todos los puestos donde compra
+- Crear plataforma de pedidos anticipados donde pueda seleccionar productos, cantidades y reservar con anticipación
+- Implementar sistema de facturación consolidada para todos los puestos donde compra
 - Habilitar comunicación directa con proveedores para planificación de menú
 
 ---
 
 ### Paso 7 — Presentar y discutir (10 minutos)
 
-Cada grupo presenta su journey map al resto de la clase:
+Cada grupo presenta su mapa del recorrido del cliente (journey map) al resto de la clase:
 
 1. Describan el perfil del cliente que mapearon
 2. Muestren las 6 etapas con las emociones asociadas
-3. Identifiquen los 3 pain points más críticos
+3. Identifiquen los 3 puntos de dolor más críticos
 4. Presenten las 2-3 oportunidades de mejora más relevantes
-5. Propongan qué tecnología digital podría resolver el pain point #1
+5. Propongan qué tecnología digital podría resolver el punto de dolor #1
 
 ---
 
@@ -217,7 +217,7 @@ Cada grupo presenta su journey map al resto de la clase:
 ║  ──────────────┸──────────────┸────────────┸────────────┸        ║
 ║  ETAPA         ┃    1        ┃     2      ┃     3      │        ║
 ║  ──────────────┸──────────────┸────────────┸────────────┸        ║
-║  PAIN POINTS   ┃No sabe qué  ┃Difícil     ┃No encuentra ┃        ║
+║  PUNTOS DE DOLOR┃No sabe qué  ┃Difícil     ┃No encuentra ┃        ║
 ║  Y FRUSTRACIÓN ┃promociones  ┃parquear    ┃catálogo    ┃        ║
 ║                ┃hay esta     ┃Se pierde   ┃de productos┃        ║
 ║                ┃semana       │fácilmente  │por puesto   ┃        ║
@@ -243,7 +243,7 @@ Cada grupo presenta su journey map al resto de la clase:
 ║  ──────────────┸──────────────┸───────────┸─────────────┸        ║
 ║  EMOCIÓN       ┃  😊/😐/😟  ┃  😊/😐/😟  ┃  😊/😐/😟   │        ║
 ║  ──────────────┸──────────────┸───────────┸─────────────┸        ║
-║  PAIN POINTS   ┃            ┃           ┃             ┃        ║
+║  PUNTOS DE DOLOR┃            ┃           ┃             ┃        ║
 ║                ┃            ┃           ┃             ┃        ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║                                                                  ║
@@ -254,7 +254,7 @@ Cada grupo presenta su journey map al resto de la clase:
 ║  ──────────────┸──────────────┸───────────┸─────────────┸        ║
 ║  EMOCIÓN       ┃  😊/😐/😟  ┃  😊/😐/😟  ┃  😊/😐/😟   │        ║
 ║  ──────────────┸──────────────┸───────────┸─────────────┸        ║
-║  PAIN POINTS   ┃            ┃           ┃             ┃        ║
+║  PUNTOS DE DOLOR┃            ┃           ┃             ┃        ║
 ║                ┃            ┃           ┃             ┃        ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║ OPORTUNIDADES DE MEJORA:                                         ║
@@ -268,13 +268,13 @@ Cada grupo presenta su journey map al resto de la clase:
 
 ## Tips para facilitar el ejercicio
 
-1. **No hagan el journey de la empresa, háganlo del cliente.** Es fácil caer en la trampa de describir qué hace el negocio en cada etapa. El journey map es desde la perspectiva del cliente, no de la empresa.
+1. **No hagan el recorrido de la empresa, háganlo del cliente.** Es fácil caer en la trampa de describir qué hace el negocio en cada etapa. El mapa del recorrido del cliente (journey map) es desde la perspectiva del cliente, no de la empresa.
 
-2. **Usen datos reales del caso.** Vuelvan al documento de quejas (actividad del quejómetro) para extraer insights que enriquezcan el journey map. Por ejemplo, si en el quejómetro Chef Rodríguez se quejó de no poder hacer pedidos anticipados, eso debe aparecer como pain point en la etapa 1 (Descubrimiento) o etapa 4 (Negociación).
+2. **Usen datos reales del caso.** Vuelvan al documento de quejas (actividad del quejómetro) para extraer hallazgos que enriquezcan el mapa del recorrido del cliente (journey map). Por ejemplo, si en el quejómetro Chef Rodríguez se quejó de no poder hacer pedidos anticipados, eso debe aparecer como punto de dolor en la etapa 1 (Descubrimiento) o etapa 4 (Negociación).
 
-3. **Sean específicos con los pain points.** "Mala experiencia" no es un pain point. "No puede saber qué productos hay disponibles antes de ir al mercado" sí lo es. Cuanto más específico, más útil para diseñar soluciones.
+3. **Sean específicos con los puntos de dolor.** "Mala experiencia" no es un punto de dolor. "No puede saber qué productos hay disponibles antes de ir al mercado" sí lo es. Cuanto más específico, más útil para diseñar soluciones.
 
-4. **El journey map no es un proceso lineal.** Los clientes reales tienen loopbacks, saltan etapas, se saltan otras. Si el perfil que eligieron tiene comportamientos no lineales (por ejemplo, un cliente que va, se frustra, se va, y vuelve otro día), reflejar eso en el mapa.
+4. **El mapa del recorrido del cliente (journey map) no es un proceso lineal.** Los clientes reales tienen retrocesos, saltan etapas, se saltan otras. Si el perfil que eligieron tiene comportamientos no lineales (por ejemplo, un cliente que va, se frustra, se va, y vuelve otro día), reflejar eso en el mapa.
 
 5. **Conecten con tecnología al final.** La última parte del ejercicio es proponer tecnología, pero primero hay que construir el mapa sin pensar en soluciones. De lo contrario, se cae en el error de buscar tecnología para problemas inventados.
 
@@ -282,15 +282,15 @@ Cada grupo presenta su journey map al resto de la clase:
 
 ## Relación con la transformación digital
 
-El journey map es una herramienta fundamental en el kit del transformador digital por varias razones:
+El mapa del recorrido del cliente (journey map) es una herramienta fundamental en el kit del transformador digital por varias razones:
 
-1. **Priorización baseada em dados:** En lugar de asumir qué tecnología se necesita, el journey map muestra dónde están los mayores puntos de fricción para el cliente. Esto permite priorizar.
+1. **Priorización basada en datos:** En lugar de asumir qué tecnología se necesita, el mapa del recorrido del cliente (journey map) muestra dónde están los mayores puntos de fricción para el cliente. Esto permite priorizar.
 
-2. **Enfoque en experiencia:** La transformación digital no es solo tentang tecnología, sino tentang mejorar la experiencia del cliente. El journey map obliga a pensar desde el cliente.
+2. **Enfoque en experiencia:** La transformación digital no es solo sobre tecnología, sino sobre mejorar la experiencia del cliente. El mapa del recorrido del cliente (journey map) obliga a pensar desde el cliente.
 
-3. **Comunicación con stakeholders:** Un journey map visual es una herramienta poderosa para comunicar a directivos, inversores o equipos internos por qué se necesita invertir en ciertos proyectos.
+3. **Comunicación con partes interesadas (stakeholders):** Un mapa del recorrido del cliente (journey map) visual es una herramienta poderosa para comunicar a directivos, inversores o equipos internos por qué se necesita invertir en ciertos proyectos.
 
-4. **Conexión con soluciones:** Los pain points identificados en el journey map se convierten en los inputs para definir qué tecnologías habilitar (plataformas digitales, apps, sistemas de gestión, automatizaciones, etc.).
+4. **Conexión con soluciones:** Los puntos de dolor identificados en el mapa del recorrido del cliente (journey map) se convierten en los insumos para definir qué tecnologías habilitar (plataformas digitales, apps, sistemas de gestión, automatizaciones, etc.).
 
 ---
 
@@ -298,8 +298,8 @@ El journey map es una herramienta fundamental en el kit del transformador digita
 
 - Esta actividad funciona mejor en grupos de 4-5 estudiantes.
 - Si el tiempo es limitado, cada grupo puede hacer solo un perfil (A o B) y luego compartir con otro grupo que hizo el otro perfil.
-- Los journey maps resultantes pueden quedarse como material de referencia para las siguientes semanas, especialmente cuando se trabaje en la propuesta de valor y en tecnologías habilitadoras.
-- Para evaluación, se puede pedir que cada grupo entregue una foto del journey map físico y un párrafo de reflexión sobre qué aprendieron.
+- Los mapas del recorrido del cliente (journey maps) resultantes pueden quedarse como material de referencia para las siguientes semanas, especialmente cuando se trabaje en la propuesta de valor y en tecnologías habilitadoras.
+- Para evaluación, se puede pedir que cada grupo entregue una foto del mapa del recorrido del cliente (journey map) físico y un párrafo de reflexión sobre qué aprendieron.
 
 ---
 
