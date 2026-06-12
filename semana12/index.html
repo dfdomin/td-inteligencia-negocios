@@ -12,7 +12,7 @@
     :root {
       --primary: #1E2843; --accent: #2d3a5e; --gold: #FFDF2D; --green: #2e7d32;
       --light-bg: #FAFAFA; --card-bg: #fff; --text: #212121; --muted: #546e7a;
-      --border: #DEDFE4; --radius: 12px;
+      --border: #DEDFE4; --radius: 12px; --warn: #fff8e1; --info: #eef6ff;
     }
     body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; }
     header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 2.2rem 1.5rem; text-align: center; }
@@ -22,14 +22,21 @@
     nav { background: #fff; border-bottom: 2px solid var(--border); padding: .6rem 1rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; }
     nav a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: .85rem; padding: .3rem .7rem; border-radius: 8px; }
     nav a:hover { background: var(--border); }
-    main { max-width: 960px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
-    .card, .method-card, .activity { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    main { max-width: 1040px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
+    .card, .method-card, .activity, .note { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
     .method-card { border-left: 6px solid var(--gold); }
     .activity { border: 2px solid var(--border); }
+    .note { background: var(--info); border-left: 5px solid var(--accent); }
     h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .8rem; }
+    h3 { color: var(--accent); font-size: 1rem; margin: 1rem 0 .45rem; }
     p { margin-bottom: .7rem; }
     ul { padding-left: 1.3rem; margin-bottom: .7rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #fff; }
+    th, td { border: 1px solid var(--border); padding: .75rem; text-align: left; vertical-align: top; }
+    th { background: #f3f5f8; color: var(--primary); }
     .evidence { background: #e8f5e9; border-left: 4px solid var(--green); padding: 1rem 1.2rem; border-radius: 10px; }
+    .warning { background: var(--warn); border-left: 4px solid #f9a825; padding: 1rem 1.2rem; border-radius: 10px; margin: 1rem 0; }
+    .refs a { color: var(--accent); font-weight: 700; }
   </style>
   <script src="../js/supabase-config.js"></script>
   <script src="../js/gamification-sdk.js"></script>
@@ -54,16 +61,70 @@
 <main>
   <section id="mision" class="card">
     <h2>🎯 Propósito de la semana</h2>
-    <p>Convertir la propuesta en una ruta de implementación realista con alcance de POC.</p>
+    <p>Convertir la propuesta digital en una ruta de implementación realista, con alcance de prueba de concepto, responsables, dependencias y criterios de avance.</p>
+    <p>Una hoja de ruta evita que la transformación digital se vuelva una promesa abstracta. El estudiante debe demostrar qué se hará primero, con qué recursos, qué se medirá y qué condición permitiría escalar, ajustar o detener la solución.</p>
   </section>
+
   <section id="teoria" class="method-card">
     <h2>📚 Marco y contenido</h2>
-    <p>Hoja de ruta 30-60-90 días: entregables, responsables, dependencias y métricas de avance.</p>
+    <h3>1. Diferencia entre prototipo, MVP, POC y piloto</h3>
+    <table>
+      <thead><tr><th>Concepto</th><th>Pregunta que responde</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Prototipo</td><td>¿Cómo se vería o usaría la solución?</td><td>Mockup de agenda digital o tablero de ventas.</td></tr>
+        <tr><td>MVP</td><td>¿Cuál es la versión mínima que entrega valor?</td><td>Formulario y tablero simple para registrar pedidos reales.</td></tr>
+        <tr><td>POC</td><td>¿La solución es técnicamente y operativamente posible?</td><td>Integrar una sucursal o un proceso con datos reales limitados.</td></tr>
+        <tr><td>Piloto</td><td>¿Funciona en condiciones reales antes de escalar?</td><td>Usar el sistema durante 4 semanas con un equipo o sede.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2. Hoja de ruta 30-60-90</h3>
+    <table>
+      <thead><tr><th>Horizonte</th><th>Objetivo</th><th>Entregables esperados</th></tr></thead>
+      <tbody>
+        <tr><td>0-30 días</td><td>Preparar y validar alcance.</td><td>Proceso priorizado, datos mínimos, responsables, criterios de éxito, riesgos críticos.</td></tr>
+        <tr><td>31-60 días</td><td>Construir y probar la primera versión.</td><td>Prototipo o MVP, capacitación inicial, captura de datos, corrección de errores.</td></tr>
+        <tr><td>61-90 días</td><td>Evaluar adopción y decidir siguiente paso.</td><td>Resultados contra KPIs, lecciones aprendidas, ajustes y recomendación de escala.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Criterios go/no-go</h3>
+    <p>Un proyecto serio define desde el inicio qué evidencia permitirá avanzar. Estos criterios ayudan a evitar dos errores: abandonar una idea útil por una primera fricción o insistir en una solución que no genera valor.</p>
+    <table>
+      <thead><tr><th>Criterio</th><th>Indicador posible</th><th>Decisión</th></tr></thead>
+      <tbody>
+        <tr><td>Valor para el usuario</td><td>Reducción de tiempo, quejas, esfuerzo o errores.</td><td>Escalar si el dolor disminuye de forma observable.</td></tr>
+        <tr><td>Uso real</td><td>Porcentaje de usuarios que adoptan el proceso nuevo.</td><td>Ajustar si hay resistencia o abandono.</td></tr>
+        <tr><td>Calidad de datos</td><td>Registros completos, duplicados, consistencia.</td><td>Corregir captura antes de automatizar decisiones.</td></tr>
+        <tr><td>Viabilidad operativa</td><td>Carga de trabajo, soporte requerido, costo mensual.</td><td>Detener o rediseñar si supera la capacidad de la empresa.</td></tr>
+      </tbody>
+    </table>
+    <div class="warning"><strong>Principio de implementación:</strong> una hoja de ruta sin responsables, fechas, dependencias y métricas es solo una intención. Cada hito debe poder revisarse con evidencia.</div>
   </section>
+
   <section id="actividad" class="activity">
     <h2>⚙️ Actividad práctica</h2>
-    <p>Definir alcance del POC y construir la hoja de ruta con hitos medibles.</p>
-    <div class="evidence"><strong>Evidencia:</strong> Hoja de ruta 30-60-90 con entregables, responsables y métricas.</div>
+    <p>Definir el alcance del POC y construir una hoja de ruta 30-60-90 días con hitos medibles.</p>
+    <table>
+      <thead><tr><th>Sección</th><th>Contenido mínimo</th></tr></thead>
+      <tbody>
+        <tr><td>Alcance del POC</td><td>Proceso, usuarios, datos y sede o área incluida.</td></tr>
+        <tr><td>Supuestos críticos</td><td>Qué debe ser cierto para que la solución funcione.</td></tr>
+        <tr><td>Dependencias</td><td>Personas, datos, herramientas, permisos y presupuesto.</td></tr>
+        <tr><td>Cronograma</td><td>Hitos por 30, 60 y 90 días.</td></tr>
+        <tr><td>Criterios go/no-go</td><td>Métricas que justifican escalar, ajustar o detener.</td></tr>
+      </tbody>
+    </table>
+    <div class="evidence"><strong>Evidencia:</strong> Hoja de ruta 30-60-90 con entregables, responsables, dependencias, riesgos y métricas de avance.</div>
+  </section>
+
+  <section id="referencias" class="note refs">
+    <h2>🔎 Referencias base</h2>
+    <ul>
+      <li>Vial, G. (2019). <a href="https://doi.org/10.1016/j.jsis.2019.01.003">Understanding digital transformation: A review and a research agenda</a>.</li>
+      <li>Verhoef, P. C. et al. (2021). <a href="https://doi.org/10.1016/j.jbusres.2019.09.022">Digital transformation: A multidisciplinary reflection and research agenda</a>.</li>
+      <li>Ciampi, F. et al. (2021). <a href="https://arxiv.org/abs/2112.11822">Digital transformation and business model innovation in SMEs</a>.</li>
+    </ul>
   </section>
 </main>
   <script src="../js/td-week-boot.js"></script>

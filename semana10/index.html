@@ -12,7 +12,7 @@
     :root {
       --primary: #1E2843; --accent: #2d3a5e; --gold: #FFDF2D; --green: #2e7d32;
       --light-bg: #FAFAFA; --card-bg: #fff; --text: #212121; --muted: #546e7a;
-      --border: #DEDFE4; --radius: 12px;
+      --border: #DEDFE4; --radius: 12px; --warn: #fff8e1; --info: #eef6ff;
     }
     body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; }
     header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 2.2rem 1.5rem; text-align: center; }
@@ -22,14 +22,21 @@
     nav { background: #fff; border-bottom: 2px solid var(--border); padding: .6rem 1rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; }
     nav a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: .85rem; padding: .3rem .7rem; border-radius: 8px; }
     nav a:hover { background: var(--border); }
-    main { max-width: 960px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
-    .card, .method-card, .activity { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    main { max-width: 1040px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
+    .card, .method-card, .activity, .note { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
     .method-card { border-left: 6px solid var(--gold); }
     .activity { border: 2px solid var(--border); }
+    .note { background: var(--info); border-left: 5px solid var(--accent); }
     h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .8rem; }
+    h3 { color: var(--accent); font-size: 1rem; margin: 1rem 0 .45rem; }
     p { margin-bottom: .7rem; }
     ul { padding-left: 1.3rem; margin-bottom: .7rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #fff; }
+    th, td { border: 1px solid var(--border); padding: .75rem; text-align: left; vertical-align: top; }
+    th { background: #f3f5f8; color: var(--primary); }
     .evidence { background: #e8f5e9; border-left: 4px solid var(--green); padding: 1rem 1.2rem; border-radius: 10px; }
+    .warning { background: var(--warn); border-left: 4px solid #f9a825; padding: 1rem 1.2rem; border-radius: 10px; margin: 1rem 0; }
+    .refs a, .activity a { color: var(--accent); font-weight: 700; }
   </style>
   <script src="../js/supabase-config.js"></script>
   <script src="../js/gamification-sdk.js"></script>
@@ -54,20 +61,66 @@
 <main>
   <section id="mision" class="card">
     <h2>🎯 Propósito de la semana</h2>
-    <p>Formular una propuesta de solución digital coherente con el diagnóstico previo (caso espejo SaludConecta IPS).</p>
+    <p>Formular una propuesta de solución digital coherente con el diagnóstico previo para el caso espejo SaludConecta IPS.</p>
+    <p>El parcial evalúa transferencia: el estudiante no debe repetir mecánicamente Mercado360, sino demostrar que puede leer un contexto nuevo, encontrar dolores reales, priorizar una oportunidad y justificar una solución viable con datos, procesos, tecnología, riesgos y métricas.</p>
   </section>
+
   <section id="teoria" class="method-card">
-    <h2>📚 Marco y contenido</h2>
-    <p>Proceso AS-IS y TO-BE, tecnología habilitadora, datos necesarios, KPIs, riesgos y prototipo conceptual.</p>
+    <h2>📚 Marco de trabajo para el parcial</h2>
+    <h3>1. De diagnóstico a propuesta</h3>
+    <table>
+      <thead><tr><th>Pieza del informe</th><th>Pregunta que debe responder</th><th>Señal de calidad</th></tr></thead>
+      <tbody>
+        <tr><td>Proceso AS-IS</td><td>¿Cómo funciona hoy el proceso crítico?</td><td>Incluye actores, pasos, esperas, reprocesos y puntos de dolor.</td></tr>
+        <tr><td>Dolor priorizado</td><td>¿Qué problema vale la pena resolver primero?</td><td>Usa evidencia del dossier y no solo opiniones generales.</td></tr>
+        <tr><td>Proceso TO-BE</td><td>¿Cómo debería operar con la solución?</td><td>Muestra cambios concretos en roles, datos y tiempos.</td></tr>
+        <tr><td>Tecnología habilitadora</td><td>¿Qué solución digital se propone?</td><td>Es proporcional al tamaño y capacidad de la empresa.</td></tr>
+        <tr><td>Datos y KPIs</td><td>¿Cómo se medirá el resultado?</td><td>Define fuente, frecuencia, responsable y meta inicial.</td></tr>
+        <tr><td>Riesgos</td><td>¿Qué puede fallar y cómo se controla?</td><td>Incluye privacidad, continuidad, adopción y dependencia de proveedor.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2. Criterios para una solución viable</h3>
+    <p>Una buena propuesta digital no es la más sofisticada, sino la que resuelve el dolor prioritario con la menor complejidad posible y deja capacidad instalada. Debe articular valor para el usuario, eficiencia operativa y aprendizaje basado en datos.</p>
+    <table>
+      <thead><tr><th>Criterio</th><th>Cómo se evidencia</th></tr></thead>
+      <tbody>
+        <tr><td>Ajuste al problema</td><td>La solución ataca la causa del dolor, no solo el síntoma visible.</td></tr>
+        <tr><td>Experiencia del usuario</td><td>Reduce esfuerzo, espera, incertidumbre o fricción para pacientes y personal.</td></tr>
+        <tr><td>Datos accionables</td><td>Genera indicadores que antes no existían o estaban dispersos.</td></tr>
+        <tr><td>Seguridad y privacidad</td><td>Define roles, permisos, respaldo y uso responsable de datos.</td></tr>
+        <tr><td>Adopción</td><td>Incluye entrenamiento, responsables y manejo de resistencia.</td></tr>
+        <tr><td>Implementación gradual</td><td>Propone piloto o MVP antes de escalar.</td></tr>
+      </tbody>
+    </table>
+    <div class="warning"><strong>No se acepta:</strong> una lista de herramientas sin relación con el proceso. El parcial debe explicar por qué esa solución cambia la operación de SaludConecta y cómo se comprobará que funcionó.</div>
   </section>
+
   <section id="actividad" class="activity">
-    <h2>⚙️ Actividad práctica</h2>
-    <p>Desarrollar el informe parcial 2 y preparar pitch de 5 minutos: problema, solución, valor, riesgo y próximo paso.</p>
+    <h2>⚙️ Actividad evaluativa</h2>
+    <p>Desarrollar el informe parcial 2 y preparar un pitch de 5 minutos: problema, solución, valor, riesgos y próximo paso.</p>
+    <table>
+      <thead><tr><th>Entregable</th><th>Contenido mínimo</th></tr></thead>
+      <tbody>
+        <tr><td>Informe</td><td>AS-IS, TO-BE, solución propuesta, KPIs, matriz de riesgos y plan inicial de adopción.</td></tr>
+        <tr><td>Mockup o prototipo conceptual</td><td>Pantalla, flujo o esquema que permita entender cómo operaría la solución.</td></tr>
+        <tr><td>Pitch</td><td>Presentación ejecutiva breve, con una recomendación clara y sustentada.</td></tr>
+      </tbody>
+    </table>
     <div class="evidence"><strong>Evidencia:</strong> Informe con AS-IS/TO-BE, KPIs, matriz de riesgos y mockup o prototipo conceptual.</div>
     <p style="margin-top:1rem"><strong>Documentos de apoyo:</strong></p>
     <ul>
       <li><a href="https://dfdomin.github.io/td-inteligencia-negocios/casos/saludconecta/DOSSIER.md">Dossier SaludConecta</a></li>
       <li><a href="https://dfdomin.github.io/td-inteligencia-negocios/evaluaciones/Parcial2_SaludConecta.md">Guía del Parcial 2 (rúbrica y secciones)</a></li>
+    </ul>
+  </section>
+
+  <section id="referencias" class="note refs">
+    <h2>🔎 Referencias base</h2>
+    <ul>
+      <li>Vial, G. (2019). <a href="https://doi.org/10.1016/j.jsis.2019.01.003">Understanding digital transformation: A review and a research agenda</a>.</li>
+      <li>Lemon, K. N. y Verhoef, P. C. (2016). <a href="https://doi.org/10.1509/jm.15.0420">Understanding Customer Experience Throughout the Customer Journey</a>.</li>
+      <li>National Institute of Standards and Technology. <a href="https://www.nist.gov/cyberframework">Cybersecurity Framework</a>.</li>
     </ul>
   </section>
 </main>

@@ -12,7 +12,7 @@
     :root {
       --primary: #1E2843; --accent: #2d3a5e; --gold: #FFDF2D; --green: #2e7d32;
       --light-bg: #FAFAFA; --card-bg: #fff; --text: #212121; --muted: #546e7a;
-      --border: #DEDFE4; --radius: 12px;
+      --border: #DEDFE4; --radius: 12px; --warn: #fff8e1; --info: #eef6ff;
     }
     body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; }
     header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 2.2rem 1.5rem; text-align: center; }
@@ -22,14 +22,21 @@
     nav { background: #fff; border-bottom: 2px solid var(--border); padding: .6rem 1rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; }
     nav a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: .85rem; padding: .3rem .7rem; border-radius: 8px; }
     nav a:hover { background: var(--border); }
-    main { max-width: 960px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
-    .card, .method-card, .activity { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    main { max-width: 1040px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
+    .card, .method-card, .activity, .note { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
     .method-card { border-left: 6px solid var(--gold); }
     .activity { border: 2px solid var(--border); }
+    .note { background: var(--info); border-left: 5px solid var(--accent); }
     h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .8rem; }
+    h3 { color: var(--accent); font-size: 1rem; margin: 1rem 0 .45rem; }
     p { margin-bottom: .7rem; }
     ul { padding-left: 1.3rem; margin-bottom: .7rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #fff; }
+    th, td { border: 1px solid var(--border); padding: .75rem; text-align: left; vertical-align: top; }
+    th { background: #f3f5f8; color: var(--primary); }
     .evidence { background: #e8f5e9; border-left: 4px solid var(--green); padding: 1rem 1.2rem; border-radius: 10px; }
+    .warning { background: var(--warn); border-left: 4px solid #f9a825; padding: 1rem 1.2rem; border-radius: 10px; margin: 1rem 0; }
+    .refs a, .activity a { color: var(--accent); font-weight: 700; }
   </style>
   <script src="../js/supabase-config.js"></script>
   <script src="../js/gamification-sdk.js"></script>
@@ -54,20 +61,71 @@
 <main>
   <section id="mision" class="card">
     <h2>🎯 Propósito de la semana</h2>
-    <p>Formular la estrategia integral de transformación digital para el caso espejo LogisCaribe.</p>
+    <p>Formular y sustentar una estrategia integral de transformación digital para el caso espejo LogisCaribe.</p>
+    <p>La evaluación final exige integrar el semestre completo: diagnóstico, dolores, journey o proceso, oportunidad priorizada, tecnología, datos, cambio organizacional, riesgos, modelo de negocio, hoja de ruta y viabilidad.</p>
   </section>
+
   <section id="teoria" class="method-card">
-    <h2>📚 Marco y contenido</h2>
-    <p>Resumen ejecutivo, diagnóstico, solución priorizada, hoja de ruta, KPIs, gestión del cambio, riesgos y viabilidad.</p>
+    <h2>📚 Arquitectura de la estrategia final</h2>
+    <h3>1. Estructura recomendada del portafolio</h3>
+    <table>
+      <thead><tr><th>Sección</th><th>Qué debe demostrar</th><th>Preguntas de control</th></tr></thead>
+      <tbody>
+        <tr><td>Resumen ejecutivo</td><td>Decisión recomendada en máximo una página.</td><td>¿La gerencia entiende qué hacer, por qué y con qué prioridad?</td></tr>
+        <tr><td>Diagnóstico</td><td>Madurez, dolores y evidencia del caso.</td><td>¿El diagnóstico se basa en datos del dossier y no en suposiciones?</td></tr>
+        <tr><td>Proceso o experiencia actual</td><td>AS-IS, puntos de fricción, responsables y datos faltantes.</td><td>¿Se ve dónde se pierde tiempo, dinero, calidad o confianza?</td></tr>
+        <tr><td>Solución priorizada</td><td>Propuesta digital concreta y proporcionada.</td><td>¿La tecnología responde al dolor más importante?</td></tr>
+        <tr><td>Datos y KPIs</td><td>Indicadores, fuentes, frecuencia y responsables.</td><td>¿Se puede medir si la estrategia funcionó?</td></tr>
+        <tr><td>Cambio y adopción</td><td>Actores, resistencias, formación y comunicación.</td><td>¿El equipo tiene condiciones para usar la solución?</td></tr>
+        <tr><td>Riesgos</td><td>Seguridad, privacidad, continuidad, proveedor y operación.</td><td>¿Los riesgos críticos tienen controles y responsables?</td></tr>
+        <tr><td>Hoja de ruta y viabilidad</td><td>Hitos 30-60-90, costos, beneficios, supuestos y go/no-go.</td><td>¿La estrategia es implementable con recursos realistas?</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2. Criterios de una estrategia digital sólida</h3>
+    <table>
+      <thead><tr><th>Criterio</th><th>Descripción</th><th>Señal de alerta</th></tr></thead>
+      <tbody>
+        <tr><td>Coherencia</td><td>Cada propuesta se conecta con un dolor priorizado.</td><td>Se recomiendan herramientas sin relación con evidencia.</td></tr>
+        <tr><td>Foco</td><td>La empresa no intenta resolver todo al mismo tiempo.</td><td>La hoja de ruta incluye demasiadas iniciativas simultáneas.</td></tr>
+        <tr><td>Medición</td><td>Los KPIs permiten evaluar valor, uso y calidad de operación.</td><td>Solo hay metas vagas como “mejorar el servicio”.</td></tr>
+        <tr><td>Adopción</td><td>La estrategia reconoce personas, hábitos e incentivos.</td><td>Se asume que el equipo usará la herramienta por obligación.</td></tr>
+        <tr><td>Riesgo controlado</td><td>Privacidad, continuidad y dependencia tecnológica se gestionan.</td><td>No hay responsables ni controles mínimos.</td></tr>
+        <tr><td>Viabilidad</td><td>Costos y capacidades son proporcionales al tamaño de LogisCaribe.</td><td>La propuesta depende de presupuesto, talento o datos inexistentes.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Cómo sustentar ante gerencia</h3>
+    <p>La presentación debe contar una historia ejecutiva: problema crítico, impacto, alternativa recomendada, evidencia, plan de implementación y decisión solicitada. La sustentación no debe leer el portafolio; debe defender una decisión.</p>
+    <div class="warning"><strong>Regla de cierre:</strong> si la recomendación no se puede expresar como “implementar primero X porque resuelve Y, se medirá con Z y se probará durante N semanas”, todavía falta foco estratégico.</div>
   </section>
+
   <section id="actividad" class="activity">
-    <h2>⚙️ Actividad práctica</h2>
-    <p>Integrar portafolio final y preparar presentación ejecutiva de 8 a 10 minutos.</p>
-    <div class="evidence"><strong>Evidencia:</strong> Portafolio final y sustentación con estrategia integral.</div>
+    <h2>⚙️ Actividad evaluativa final</h2>
+    <p>Integrar el portafolio final y preparar una presentación ejecutiva de 8 a 10 minutos para LogisCaribe.</p>
+    <table>
+      <thead><tr><th>Entregable</th><th>Contenido mínimo</th></tr></thead>
+      <tbody>
+        <tr><td>Portafolio final</td><td>Estrategia integral con diagnóstico, solución, KPIs, riesgos, cambio, hoja de ruta y caso de negocio.</td></tr>
+        <tr><td>Presentación ejecutiva</td><td>8 a 10 minutos, orientada a decisión gerencial.</td></tr>
+        <tr><td>Anexo de evidencia</td><td>Tablas, matrices, supuestos y referencias usadas para sostener la recomendación.</td></tr>
+      </tbody>
+    </table>
+    <div class="evidence"><strong>Evidencia:</strong> Portafolio final y sustentación con estrategia integral para LogisCaribe.</div>
     <p style="margin-top:1rem"><strong>Documentos de apoyo:</strong></p>
     <ul>
       <li><a href="https://dfdomin.github.io/td-inteligencia-negocios/casos/logiscaribe/DOSSIER.md">Dossier LogisCaribe</a></li>
       <li><a href="https://dfdomin.github.io/td-inteligencia-negocios/evaluaciones/Final_LogisCaribe.md">Guía de la evaluación final (rúbrica y secciones)</a></li>
+    </ul>
+  </section>
+
+  <section id="referencias" class="note refs">
+    <h2>🔎 Referencias base</h2>
+    <ul>
+      <li>Vial, G. (2019). <a href="https://doi.org/10.1016/j.jsis.2019.01.003">Understanding digital transformation: A review and a research agenda</a>.</li>
+      <li>Verhoef, P. C. et al. (2021). <a href="https://doi.org/10.1016/j.jbusres.2019.09.022">Digital transformation: A multidisciplinary reflection and research agenda</a>.</li>
+      <li>Bharadwaj, A. et al. (2013). <a href="https://doi.org/10.25300/MISQ/2013/37:2.3">Digital Business Strategy: Toward a Next Generation of Insights</a>.</li>
+      <li>National Institute of Standards and Technology. <a href="https://www.nist.gov/cyberframework">Cybersecurity Framework</a>.</li>
     </ul>
   </section>
 </main>

@@ -12,7 +12,7 @@
     :root {
       --primary: #1E2843; --accent: #2d3a5e; --gold: #FFDF2D; --green: #2e7d32;
       --light-bg: #FAFAFA; --card-bg: #fff; --text: #212121; --muted: #546e7a;
-      --border: #DEDFE4; --radius: 12px;
+      --border: #DEDFE4; --radius: 12px; --warn: #fff8e1; --info: #eef6ff;
     }
     body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; }
     header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 2.2rem 1.5rem; text-align: center; }
@@ -22,14 +22,21 @@
     nav { background: #fff; border-bottom: 2px solid var(--border); padding: .6rem 1rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; }
     nav a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: .85rem; padding: .3rem .7rem; border-radius: 8px; }
     nav a:hover { background: var(--border); }
-    main { max-width: 960px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
-    .card, .method-card, .activity { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    main { max-width: 1040px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
+    .card, .method-card, .activity, .note { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
     .method-card { border-left: 6px solid var(--gold); }
     .activity { border: 2px solid var(--border); }
+    .note { background: var(--info); border-left: 5px solid var(--accent); }
     h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .8rem; }
+    h3 { color: var(--accent); font-size: 1rem; margin: 1rem 0 .45rem; }
     p { margin-bottom: .7rem; }
     ul { padding-left: 1.3rem; margin-bottom: .7rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #fff; }
+    th, td { border: 1px solid var(--border); padding: .75rem; text-align: left; vertical-align: top; }
+    th { background: #f3f5f8; color: var(--primary); }
     .evidence { background: #e8f5e9; border-left: 4px solid var(--green); padding: 1rem 1.2rem; border-radius: 10px; }
+    .warning { background: var(--warn); border-left: 4px solid #f9a825; padding: 1rem 1.2rem; border-radius: 10px; margin: 1rem 0; }
+    .refs a { color: var(--accent); font-weight: 700; }
   </style>
   <script src="../js/supabase-config.js"></script>
   <script src="../js/gamification-sdk.js"></script>
@@ -44,7 +51,7 @@
 <header>
   <span class="badge-module">TD — Transformación Digital</span>
   <h1>Semana 11 — Modelos de negocio digitales</h1>
-  <p>Canvas y propuesta de valor · IUB — Inteligencia de Negocios</p>
+  <p>Canvas, propuesta de valor y captura de valor · IUB — Inteligencia de Negocios</p>
 </header>
 <nav>
   <a href="https://dfdomin.github.io/td-inteligencia-negocios/">← Módulo</a>
@@ -54,16 +61,71 @@
 <main>
   <section id="mision" class="card">
     <h2>🎯 Propósito de la semana</h2>
-    <p>Comprender cómo una solución digital modifica canales, ingresos, costos y relación con clientes.</p>
+    <p>Comprender cómo una solución digital puede modificar la manera en que una organización crea, entrega y captura valor.</p>
+    <p>Digitalizar un proceso no siempre cambia el modelo de negocio. El cambio aparece cuando la empresa transforma su propuesta de valor, sus canales, su relación con clientes, sus fuentes de ingreso, su estructura de costos o el uso de datos para decidir.</p>
   </section>
+
   <section id="teoria" class="method-card">
     <h2>📚 Marco y contenido</h2>
-    <p>Revisar modelos digitales relevantes y ajustar el Business Model Canvas de Mercado360.</p>
+    <h3>1. Modelo de negocio: tres preguntas esenciales</h3>
+    <table>
+      <thead><tr><th>Pregunta</th><th>Qué analiza</th><th>Ejemplo digital</th></tr></thead>
+      <tbody>
+        <tr><td>¿Qué valor se crea?</td><td>Dolor que se resuelve y beneficio para el cliente.</td><td>Comprar por WhatsApp con inventario real y confirmación rápida.</td></tr>
+        <tr><td>¿Cómo se entrega?</td><td>Canales, procesos, aliados y recursos necesarios.</td><td>Catálogo digital conectado con inventario y pasarela de pagos.</td></tr>
+        <tr><td>¿Cómo se captura valor?</td><td>Ingresos, costos, retención, eficiencia y datos.</td><td>Más recompra, menor inventario muerto y campañas medibles.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2. Bloques del Canvas que más cambian con lo digital</h3>
+    <table>
+      <thead><tr><th>Bloque</th><th>Antes de digitalizar</th><th>Posible cambio digital</th></tr></thead>
+      <tbody>
+        <tr><td>Propuesta de valor</td><td>Producto o servicio principal.</td><td>Servicio más rápido, personalizado, trazable o disponible en más canales.</td></tr>
+        <tr><td>Segmentos</td><td>Clientes definidos por ubicación o compra presencial.</td><td>Segmentos por comportamiento, frecuencia, necesidad o canal preferido.</td></tr>
+        <tr><td>Canales</td><td>Tienda, teléfono, correo o visita física.</td><td>Autoservicio, marketplace, app, WhatsApp Business, CRM o portal.</td></tr>
+        <tr><td>Relación con clientes</td><td>Atención reactiva y manual.</td><td>Seguimiento automatizado, historial unificado y comunicación personalizada.</td></tr>
+        <tr><td>Recursos clave</td><td>Inventario, personal, local, conocimiento tácito.</td><td>Datos, integraciones, reputación digital, analítica y talento digital.</td></tr>
+        <tr><td>Costos e ingresos</td><td>Costos físicos y ventas transaccionales.</td><td>Automatización, suscripción, venta cruzada, reducción de reprocesos.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Patrones digitales frecuentes</h3>
+    <p>No todos aplican a todas las empresas. La elección debe salir del diagnóstico, no de la moda.</p>
+    <table>
+      <thead><tr><th>Patrón</th><th>Cuándo tiene sentido</th><th>Riesgo a vigilar</th></tr></thead>
+      <tbody>
+        <tr><td>Omnicanalidad</td><td>El cliente alterna entre tienda física, redes, WhatsApp y web.</td><td>Prometer disponibilidad que el inventario no confirma.</td></tr>
+        <tr><td>Autoservicio</td><td>El usuario quiere consultar, reservar o pagar sin esperar respuesta humana.</td><td>Exclusión de usuarios con baja alfabetización digital.</td></tr>
+        <tr><td>Modelo basado en datos</td><td>Las decisiones dependen de demanda, rotación, comportamiento o riesgo.</td><td>Recolectar datos sin calidad, consentimiento o propósito claro.</td></tr>
+        <tr><td>Plataforma o ecosistema</td><td>La empresa conecta varios actores: clientes, proveedores, aliados o repartidores.</td><td>Complejidad operativa superior a la capacidad de la organización.</td></tr>
+      </tbody>
+    </table>
+    <div class="warning"><strong>Regla de decisión:</strong> si el modelo digital no mejora una métrica de valor, eficiencia, retención, ingreso o aprendizaje, probablemente solo es una herramienta nueva encima de un proceso viejo.</div>
   </section>
+
   <section id="actividad" class="activity">
     <h2>⚙️ Actividad práctica</h2>
-    <p>Ajustar el Canvas digital identificando cambios en propuesta de valor, canales y fuentes de ingreso.</p>
-    <div class="evidence"><strong>Evidencia:</strong> Business Model Canvas digital ajustado con justificación de cambios.</div>
+    <p>Ajustar el Business Model Canvas digital de Mercado360 o del caso asignado, identificando qué bloques cambian, por qué cambian y qué evidencia del diagnóstico soporta el cambio.</p>
+    <table>
+      <thead><tr><th>Producto de clase</th><th>Condición mínima</th></tr></thead>
+      <tbody>
+        <tr><td>Canvas actual</td><td>Resume cómo opera hoy la empresa.</td></tr>
+        <tr><td>Canvas digital propuesto</td><td>Modifica al menos 5 bloques con justificación.</td></tr>
+        <tr><td>Hipótesis de valor</td><td>Explica qué mejora espera la empresa y en qué métrica.</td></tr>
+        <tr><td>Riesgo del modelo</td><td>Identifica una suposición crítica que puede invalidar la propuesta.</td></tr>
+      </tbody>
+    </table>
+    <div class="evidence"><strong>Evidencia:</strong> Business Model Canvas digital ajustado con justificación de cambios y una hipótesis medible de captura de valor.</div>
+  </section>
+
+  <section id="referencias" class="note refs">
+    <h2>🔎 Referencias base</h2>
+    <ul>
+      <li>Osterwalder, A., Pigneur, Y. y Tucci, C. L. (2005). <a href="https://doi.org/10.17705/1CAIS.01601">Clarifying Business Models: Origins, Present, and Future of the Concept</a>.</li>
+      <li>Chesbrough, H. (2010). <a href="https://doi.org/10.1016/j.lrp.2009.07.010">Business Model Innovation: Opportunities and Barriers</a>.</li>
+      <li>Zott, C., Amit, R. y Massa, L. (2011). <a href="https://doi.org/10.1177/0149206311406265">The Business Model: Recent Developments and Future Research</a>.</li>
+    </ul>
   </section>
 </main>
   <script src="../js/td-week-boot.js"></script>

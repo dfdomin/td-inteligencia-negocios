@@ -12,7 +12,7 @@
     :root {
       --primary: #1E2843; --accent: #2d3a5e; --gold: #FFDF2D; --green: #2e7d32;
       --light-bg: #FAFAFA; --card-bg: #fff; --text: #212121; --muted: #546e7a;
-      --border: #DEDFE4; --radius: 12px;
+      --border: #DEDFE4; --radius: 12px; --warn: #fff8e1; --info: #eef6ff;
     }
     body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; }
     header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 2.2rem 1.5rem; text-align: center; }
@@ -22,14 +22,21 @@
     nav { background: #fff; border-bottom: 2px solid var(--border); padding: .6rem 1rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; }
     nav a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: .85rem; padding: .3rem .7rem; border-radius: 8px; }
     nav a:hover { background: var(--border); }
-    main { max-width: 960px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
-    .card, .method-card, .activity { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    main { max-width: 1040px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
+    .card, .method-card, .activity, .note { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
     .method-card { border-left: 6px solid var(--gold); }
     .activity { border: 2px solid var(--border); }
+    .note { background: var(--info); border-left: 5px solid var(--accent); }
     h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .8rem; }
+    h3 { color: var(--accent); font-size: 1rem; margin: 1rem 0 .45rem; }
     p { margin-bottom: .7rem; }
     ul { padding-left: 1.3rem; margin-bottom: .7rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #fff; }
+    th, td { border: 1px solid var(--border); padding: .75rem; text-align: left; vertical-align: top; }
+    th { background: #f3f5f8; color: var(--primary); }
     .evidence { background: #e8f5e9; border-left: 4px solid var(--green); padding: 1rem 1.2rem; border-radius: 10px; }
+    .warning { background: var(--warn); border-left: 4px solid #f9a825; padding: 1rem 1.2rem; border-radius: 10px; margin: 1rem 0; }
+    .refs a { color: var(--accent); font-weight: 700; }
   </style>
   <script src="../js/supabase-config.js"></script>
   <script src="../js/gamification-sdk.js"></script>
@@ -44,7 +51,7 @@
 <header>
   <span class="badge-module">TD — Transformación Digital</span>
   <h1>Semana 13 — Viabilidad y caso de negocio</h1>
-  <p>Costos, beneficios y KPIs · IUB — Inteligencia de Negocios</p>
+  <p>Costos, beneficios, supuestos y KPIs · IUB — Inteligencia de Negocios</p>
 </header>
 <nav>
   <a href="https://dfdomin.github.io/td-inteligencia-negocios/">← Módulo</a>
@@ -54,16 +61,74 @@
 <main>
   <section id="mision" class="card">
     <h2>🎯 Propósito de la semana</h2>
-    <p>Evaluar costos, beneficios, riesgos y métricas de éxito de la estrategia digital.</p>
+    <p>Evaluar si la estrategia digital propuesta es conveniente, viable y defendible ante una gerencia con recursos limitados.</p>
+    <p>La viabilidad no es solo financiera. Una iniciativa puede tener retorno económico, pero fallar por falta de datos, talento, adopción, seguridad, soporte o claridad estratégica. Por eso el caso de negocio debe integrar beneficios, costos, riesgos y supuestos.</p>
   </section>
+
   <section id="teoria" class="method-card">
     <h2>📚 Marco y contenido</h2>
-    <p>Caso de negocio ligero: costos directos e indirectos, beneficios cualitativos y cuantitativos, supuestos.</p>
+    <h3>1. Caso de negocio ligero</h3>
+    <p>Para una pyme o unidad pequeña, el caso de negocio debe ser suficiente para tomar una decisión informada sin exigir un modelo financiero complejo. Debe mostrar qué se gana, qué se invierte, qué se arriesga y qué se aprenderá.</p>
+    <table>
+      <thead><tr><th>Componente</th><th>Contenido esperado</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Beneficios cuantitativos</td><td>Mejoras que pueden medirse en dinero, tiempo o volumen.</td><td>Reducción de devoluciones, mayor conversión, menos horas de reproceso.</td></tr>
+        <tr><td>Beneficios cualitativos</td><td>Mejoras relevantes pero menos directas de monetizar.</td><td>Confianza del cliente, trazabilidad, calidad de datos, reputación.</td></tr>
+        <tr><td>Costos directos</td><td>Licencias, desarrollo, equipos, consultoría, capacitación.</td><td>CRM mensual, dominio, computador, sesión de formación.</td></tr>
+        <tr><td>Costos ocultos</td><td>Tiempo del personal, migración de datos, soporte, resistencia.</td><td>Horas de limpieza de base de clientes o carga inicial de inventario.</td></tr>
+        <tr><td>Supuestos</td><td>Condiciones que deben cumplirse para lograr el beneficio.</td><td>Que el 70% del equipo registre datos completos en el primer mes.</td></tr>
+        <tr><td>Riesgos</td><td>Eventos que pueden reducir el valor esperado.</td><td>Baja adopción, proveedor inestable, datos incompletos, sobrecosto.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2. Métricas financieras simples</h3>
+    <table>
+      <thead><tr><th>Métrica</th><th>Fórmula simple</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td>Inversión total</td><td>Costos iniciales + costos recurrentes del periodo evaluado.</td><td>Define el tamaño real del compromiso.</td></tr>
+        <tr><td>Ahorro o beneficio anual</td><td>Valor monetario estimado de mejoras en ventas, costos o productividad.</td><td>Traduce la mejora operativa a impacto económico.</td></tr>
+        <tr><td>Retorno sobre inversión (ROI)</td><td>(Beneficio neto / inversión total) x 100.</td><td>Compara alternativas con una escala común.</td></tr>
+        <tr><td>Periodo de recuperación</td><td>Inversión total / beneficio mensual promedio.</td><td>Estima cuántos meses tarda en recuperarse la inversión.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Análisis de sensibilidad</h3>
+    <p>Como las propuestas se basan en supuestos, se debe revisar qué pasa si el beneficio es menor o el costo mayor al esperado. Un análisis básico puede presentar tres escenarios:</p>
+    <table>
+      <thead><tr><th>Escenario</th><th>Supuesto</th><th>Interpretación</th></tr></thead>
+      <tbody>
+        <tr><td>Conservador</td><td>Adopción baja, beneficios lentos, costos algo mayores.</td><td>Sirve para saber si el proyecto sobrevive a condiciones difíciles.</td></tr>
+        <tr><td>Base</td><td>Supuestos razonables según evidencia del diagnóstico.</td><td>Escenario principal para recomendar.</td></tr>
+        <tr><td>Optimista</td><td>Alta adopción, beneficios rápidos, costos controlados.</td><td>No debe ser el único argumento de decisión.</td></tr>
+      </tbody>
+    </table>
+    <div class="warning"><strong>Advertencia:</strong> no infles beneficios para que el proyecto “dé”. Es preferible una recomendación honesta: iniciar con POC, reducir alcance, cambiar tecnología o no implementar todavía.</div>
   </section>
+
   <section id="actividad" class="activity">
     <h2>⚙️ Actividad práctica</h2>
-    <p>Preparar ficha de viabilidad y argumentos para la sustentación final.</p>
-    <div class="evidence"><strong>Evidencia:</strong> Caso de negocio con beneficios, costos, supuestos y KPIs.</div>
+    <p>Preparar una ficha de viabilidad y los argumentos para la sustentación final.</p>
+    <table>
+      <thead><tr><th>Sección de la ficha</th><th>Contenido mínimo</th></tr></thead>
+      <tbody>
+        <tr><td>Alternativa recomendada</td><td>Solución priorizada y alcance inicial.</td></tr>
+        <tr><td>Costos</td><td>Iniciales, mensuales, capacitación y tiempo interno.</td></tr>
+        <tr><td>Beneficios</td><td>Cuantitativos y cualitativos, asociados a KPIs.</td></tr>
+        <tr><td>Supuestos</td><td>Condiciones necesarias para que el caso sea válido.</td></tr>
+        <tr><td>Riesgos y mitigación</td><td>Riesgos más relevantes y controles.</td></tr>
+        <tr><td>Recomendación ejecutiva</td><td>Implementar, pilotear, ajustar o descartar con justificación.</td></tr>
+      </tbody>
+    </table>
+    <div class="evidence"><strong>Evidencia:</strong> Caso de negocio con beneficios, costos, supuestos, KPIs, escenarios y recomendación ejecutiva.</div>
+  </section>
+
+  <section id="referencias" class="note refs">
+    <h2>🔎 Referencias base</h2>
+    <ul>
+      <li>Chesbrough, H. (2010). <a href="https://doi.org/10.1016/j.lrp.2009.07.010">Business Model Innovation: Opportunities and Barriers</a>.</li>
+      <li>Zhang, J. y Wang, X. (2024). <a href="https://arxiv.org/abs/2412.19817">Digital Transformation in Financial Services: A Review and Research Agenda</a>.</li>
+      <li>Bharadwaj, A. et al. (2013). <a href="https://doi.org/10.25300/MISQ/2013/37:2.3">Digital Business Strategy: Toward a Next Generation of Insights</a>.</li>
+    </ul>
   </section>
 </main>
   <script src="../js/td-week-boot.js"></script>

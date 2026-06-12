@@ -12,7 +12,7 @@
     :root {
       --primary: #1E2843; --accent: #2d3a5e; --gold: #FFDF2D; --green: #2e7d32;
       --light-bg: #FAFAFA; --card-bg: #fff; --text: #212121; --muted: #546e7a;
-      --border: #DEDFE4; --radius: 12px;
+      --border: #DEDFE4; --radius: 12px; --warn: #fff8e1; --info: #eef6ff;
     }
     body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; }
     header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; padding: 2.2rem 1.5rem; text-align: center; }
@@ -22,14 +22,21 @@
     nav { background: #fff; border-bottom: 2px solid var(--border); padding: .6rem 1rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; }
     nav a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: .85rem; padding: .3rem .7rem; border-radius: 8px; }
     nav a:hover { background: var(--border); }
-    main { max-width: 960px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
-    .card, .method-card, .activity { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    main { max-width: 1040px; margin: 1.5rem auto; padding: 0 1.2rem 4rem; }
+    .card, .method-card, .activity, .note { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
     .method-card { border-left: 6px solid var(--gold); }
     .activity { border: 2px solid var(--border); }
+    .note { background: var(--info); border-left: 5px solid var(--accent); }
     h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .8rem; }
+    h3 { color: var(--accent); font-size: 1rem; margin: 1rem 0 .45rem; }
     p { margin-bottom: .7rem; }
     ul { padding-left: 1.3rem; margin-bottom: .7rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #fff; }
+    th, td { border: 1px solid var(--border); padding: .75rem; text-align: left; vertical-align: top; }
+    th { background: #f3f5f8; color: var(--primary); }
     .evidence { background: #e8f5e9; border-left: 4px solid var(--green); padding: 1rem 1.2rem; border-radius: 10px; }
+    .warning { background: var(--warn); border-left: 4px solid #f9a825; padding: 1rem 1.2rem; border-radius: 10px; margin: 1rem 0; }
+    .refs a { color: var(--accent); font-weight: 700; }
   </style>
   <script src="../js/supabase-config.js"></script>
   <script src="../js/gamification-sdk.js"></script>
@@ -54,16 +61,74 @@
 <main>
   <section id="mision" class="card">
     <h2>🎯 Propósito de la semana</h2>
-    <p>Identificar riesgos de privacidad, seguridad, continuidad y dependencia tecnológica en la solución digital propuesta.</p>
+    <p>Identificar riesgos de privacidad, seguridad, continuidad y dependencia tecnológica en una solución digital, y convertirlos en controles concretos que una empresa pequeña pueda ejecutar.</p>
+    <p>La seguridad no se evalúa al final del proyecto: se diseña desde el diagnóstico. Una app, un CRM, una automatización o un tablero de BI pueden resolver dolores operativos y, al mismo tiempo, crear nuevos riesgos si no se controlan accesos, datos, respaldos, proveedores y responsabilidades.</p>
   </section>
+
   <section id="teoria" class="method-card">
     <h2>📚 Marco y contenido</h2>
-    <p>Clasificar riesgos por probabilidad e impacto. Definir controles básicos (acceso, respaldo, política de datos, continuidad).</p>
+    <h3>1. Riesgo digital en lenguaje de negocio</h3>
+    <p>Un riesgo digital es la posibilidad de que una falla tecnológica, humana, organizacional o externa afecte la operación, la confianza del cliente, la integridad de los datos o la continuidad del servicio. Para analizarlo se recomienda separar cuatro piezas:</p>
+    <table>
+      <thead><tr><th>Elemento</th><th>Pregunta guía</th><th>Ejemplo en una pyme</th></tr></thead>
+      <tbody>
+        <tr><td>Activo</td><td>¿Qué se debe proteger?</td><td>Base de clientes, inventario, agenda de citas, historial de ventas.</td></tr>
+        <tr><td>Amenaza</td><td>¿Qué podría ocurrir?</td><td>Pérdida de celular, acceso no autorizado, caída del proveedor, error en Excel.</td></tr>
+        <tr><td>Vulnerabilidad</td><td>¿Qué debilidad permite que ocurra?</td><td>Claves compartidas, ausencia de respaldo, permisos sin roles, datos en cuentas personales.</td></tr>
+        <tr><td>Control</td><td>¿Qué acción reduce probabilidad o impacto?</td><td>Roles por usuario, copia automática, doble factor, procedimiento de recuperación.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2. Funciones mínimas de ciberseguridad</h3>
+    <p>El marco NIST Cybersecurity Framework organiza la gestión de seguridad en funciones prácticas. Para este curso se usarán como lista de chequeo sencilla:</p>
+    <table>
+      <thead><tr><th>Función</th><th>Aplicación en el proyecto</th><th>Evidencia esperada</th></tr></thead>
+      <tbody>
+        <tr><td>Gobernar</td><td>Asignar responsables, reglas de uso y criterios de decisión.</td><td>Responsable de datos y política básica de acceso.</td></tr>
+        <tr><td>Identificar</td><td>Reconocer activos, procesos críticos, datos sensibles y proveedores.</td><td>Inventario de datos, sistemas y usuarios.</td></tr>
+        <tr><td>Proteger</td><td>Reducir exposición antes del incidente.</td><td>Contraseñas robustas, roles, respaldos, capacitación.</td></tr>
+        <tr><td>Detectar</td><td>Encontrar señales de falla o abuso.</td><td>Alertas, revisión de logs, control de cambios.</td></tr>
+        <tr><td>Responder</td><td>Actuar cuando ocurre el evento.</td><td>Procedimiento de contacto, contención y comunicación.</td></tr>
+        <tr><td>Recuperar</td><td>Volver a operar y aprender del incidente.</td><td>Plan de restauración, copia verificada, lección aprendida.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Matriz de probabilidad e impacto</h3>
+    <p>La matriz no debe quedarse en colores. Debe ayudar a decidir qué controlar primero. Un riesgo de alto impacto y alta probabilidad exige acción inmediata; uno de bajo impacto puede monitorearse si el costo del control supera el beneficio.</p>
+    <table>
+      <thead><tr><th>Nivel</th><th>Probabilidad</th><th>Impacto</th><th>Respuesta recomendada</th></tr></thead>
+      <tbody>
+        <tr><td>Alto</td><td>Ocurre con frecuencia o ya ocurrió.</td><td>Detiene ventas, expone datos o afecta reputación.</td><td>Control obligatorio antes del piloto.</td></tr>
+        <tr><td>Medio</td><td>Puede ocurrir bajo ciertas condiciones.</td><td>Genera retrasos, reprocesos o pérdida parcial.</td><td>Mitigar con controles de bajo costo y responsable claro.</td></tr>
+        <tr><td>Bajo</td><td>Poco probable o con exposición limitada.</td><td>Impacto menor o recuperable rápidamente.</td><td>Aceptar, monitorear o documentar.</td></tr>
+      </tbody>
+    </table>
+    <div class="warning"><strong>Error frecuente:</strong> escribir “riesgo de hackeo” sin explicar activo, amenaza, vulnerabilidad y control. Un buen riesgo se redacta así: “Si los vendedores usan la misma clave del CRM, una salida de personal puede permitir acceso no autorizado a datos de clientes; se mitiga con usuarios individuales, doble factor y desactivación al retiro”.</div>
   </section>
+
   <section id="actividad" class="activity">
     <h2>⚙️ Actividad práctica</h2>
-    <p>Construir una matriz de riesgos digitales para la solución de Mercado360 o el caso asignado.</p>
-    <div class="evidence"><strong>Evidencia:</strong> Matriz de riesgos digitales con al menos 6 riesgos, controles y responsable.</div>
+    <p>Construir una matriz de riesgos digitales para la solución de Mercado360 o el caso asignado. Debe incluir al menos 6 riesgos y cubrir datos, operación, usuarios, proveedores, continuidad y adopción.</p>
+    <table>
+      <thead><tr><th>Campo</th><th>Qué debe contener</th></tr></thead>
+      <tbody>
+        <tr><td>Riesgo</td><td>Redacción clara del evento no deseado.</td></tr>
+        <tr><td>Activo afectado</td><td>Dato, proceso, sistema, cliente o servicio impactado.</td></tr>
+        <tr><td>Causa</td><td>Vulnerabilidad o condición que aumenta la exposición.</td></tr>
+        <tr><td>Probabilidad e impacto</td><td>Alto, medio o bajo con justificación breve.</td></tr>
+        <tr><td>Control</td><td>Acción preventiva, detectiva o correctiva.</td></tr>
+        <tr><td>Responsable</td><td>Rol que debe implementar y revisar el control.</td></tr>
+      </tbody>
+    </table>
+    <div class="evidence"><strong>Evidencia:</strong> Matriz de riesgos digitales con al menos 6 riesgos, controles y responsable. Debe incluir una breve priorización de los 2 riesgos más urgentes.</div>
+  </section>
+
+  <section id="referencias" class="note refs">
+    <h2>🔎 Referencias base</h2>
+    <ul>
+      <li>National Institute of Standards and Technology. <a href="https://www.nist.gov/cyberframework">Cybersecurity Framework</a>.</li>
+      <li>Heidt, M., Gerlach, J. P. y Buxmann, P. <a href="https://arxiv.org/abs/2109.00733">Investigating the Security Divide between SME and Large Companies</a>.</li>
+    </ul>
   </section>
 </main>
   <script src="../js/td-week-boot.js"></script>
