@@ -39,6 +39,8 @@
   function ensureIdentifyBanner() {
     var p = getProfile();
     if (p.cc || p.id_estudiante) return;
+    // If the welcome modal system is present, skip the banner
+    if (document.getElementById("pt-overlay")) return;
     var id = "td-week-sync-banner";
     if (document.getElementById(id)) return;
     var bar = document.createElement("div");

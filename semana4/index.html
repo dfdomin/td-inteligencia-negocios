@@ -77,6 +77,25 @@
     .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
     .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
     .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
+
+    /* ── Welcome Modal ── */
+    #pt-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 10000; display: none; align-items: center; justify-content: center; animation: fadeIn .3s ease; }
+    #pt-modal-box { background: linear-gradient(160deg,#1E2843,#1E2843 70%,#2d3a5e); color: #fff; border-radius: 20px; padding: 2rem 2rem 1.5rem; width: min(94vw,420px); box-shadow: 0 20px 60px rgba(0,0,0,.5); animation: slideUp .35s cubic-bezier(.2,.8,.3,1); }
+    #pt-modal-box h2 { font-size: 1.25rem; font-weight: 900; margin-bottom: .3rem; }
+    #pt-modal-box .sub { opacity: .75; font-size: .85rem; margin-bottom: 1.3rem; }
+    #pt-modal-box .field { margin-bottom: .9rem; }
+    #pt-modal-box label { display: block; font-size: .78rem; font-weight: 700; opacity: .85; margin-bottom: .3rem; text-transform: uppercase; letter-spacing: .05em; }
+    #pt-modal-box input { width: 100%; background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.35); border-radius: 10px; padding: .6rem .9rem; color: #fff; font-size: .95rem; outline: none; }
+    #pt-modal-box input::placeholder { color: rgba(255,255,255,.45); }
+    #pt-modal-box input:focus { border-color: rgba(249,168,37,.9); }
+    #pt-modal-btn, #pt-modal-btn-search { border: none; border-radius: 10px; padding: .7rem 1rem; font-weight: 900; cursor: pointer; font-size: .9rem; }
+    #pt-modal-btn { width: 100%; background: #FFDF2D; color: #1E2843; margin-top: .35rem; }
+    #pt-modal-btn-search { background: rgba(255,255,255,.18); color: #fff; flex-shrink: 0; }
+    #pt-modal-error, #pt-modal-error2, #pt-modal-error3 { color: #ff8a80; font-size: .8rem; min-height: 1em; margin-top: .45rem; }
+    .pt-found-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,223,45,.4); border-radius: 12px; padding: 1rem; margin-bottom: .8rem; }
+    .pt-link-btn { background: none; border: none; color: rgba(255,255,255,.7); text-decoration: underline; display: block; margin: .5rem auto 0; cursor: pointer; font-family: inherit; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
     .info-box p     { margin: 0; font-size: .93rem; }
 
@@ -961,6 +980,53 @@
   Instituto de Universidad Barranquilla · 2026
 </footer>
 
+  <script src="../js/teacher-auth.js"></script>
+  <script src="../js/td-welcome-modal.js"></script>
   <script src="../js/td-week-boot.js"></script>
+
+<!-- ── Welcome Modal ── -->
+<div id="pt-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="pt-modal-title">
+  <div id="pt-modal-box">
+    <h2 id="pt-modal-title">👋 ¡Bienvenido a TD04!</h2>
+    <p class="sub">Mercado360 · Transformación Digital en la Empresa</p>
+    <div id="pt-step1" class="pt-step">
+      <div class="field">
+        <label for="pt-modal-cc">Número de cédula / documento *</label>
+        <div style="display:flex;gap:.5rem">
+          <input id="pt-modal-cc" type="tel" inputmode="numeric" pattern="[0-9]*" placeholder="Ej: 1043158867" autocomplete="off" onkeydown="if(event.key==='Enter')ptSearchCC()" />
+          <button id="pt-modal-btn-search" onclick="ptSearchCC()">Buscar →</button>
+        </div>
+      </div>
+      <div id="pt-modal-error"></div>
+      <p style="font-size:.82rem;opacity:.65">🔒 Tu cédula identifica tu progreso de forma segura — no se comparte.</p>
+    </div>
+    <div id="pt-step2a" class="pt-step" style="display:none">
+      <div class="pt-found-card">
+        <div class="pt-fc-name" id="pt-fc-name">—</div>
+        <div class="pt-fc-meta" id="pt-fc-meta">—</div>
+      </div>
+      <button id="pt-modal-btn" onclick="ptConfirmFound()">¡Empezar! 🚀</button>
+      <button class="pt-link-btn" onclick="ptBackToCC()">← No soy yo — volver a buscar</button>
+      <div id="pt-modal-error2"></div>
+    </div>
+    <div id="pt-step2b" class="pt-step" style="display:none">
+      <p style="font-size:.82rem;opacity:.75;margin-bottom:1rem;background:rgba(255,255,255,.08);border-radius:8px;padding:.6rem .8rem">
+        ⚠️ No encontramos tu cédula en la lista del grupo.<br>
+        Completa tus datos manualmente. El docente podrá importarte en la próxima clase.
+      </p>
+      <div class="field">
+        <label for="pt-modal-nombre">Tu nombre completo *</label>
+        <input id="pt-modal-nombre" type="text" placeholder="Ej: María García López" autocomplete="name" onkeydown="if(event.key==='Enter')ptModalSetupManual()" />
+      </div>
+      <div class="field">
+        <label for="pt-modal-grupo">Grupo / Paralelo</label>
+        <input id="pt-modal-grupo" type="text" placeholder="Ej: 11_INE_G1" />
+      </div>
+      <button id="pt-modal-btn" onclick="ptModalSetupManual()">Continuar →</button>
+      <button class="pt-link-btn" onclick="ptBackToCC()">← Volver a ingresar cédula</button>
+      <div id="pt-modal-error3"></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
