@@ -105,7 +105,16 @@
     .next-week { background: #e3f2fd; border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-top: 1.5rem; border-left: 4px solid #1976d2; }
     .next-week h4 { font-size: .92rem; color: var(--primary); margin-bottom: .5rem; }
     .next-week p { font-size: .88rem; margin: 0; }
-  </style>
+      /* Welcome Modal */
+    #pt-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10000;display:none;align-items:center;justify-content:center}
+    #pt-modal-box{background:linear-gradient(160deg,#1E2843,#1E2843 70%,#2d3a5e);color:#fff;border-radius:20px;padding:2rem;width:min(94vw,420px)}
+    #pt-modal-box input{width:100%;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.35);border-radius:10px;padding:.6rem .9rem;color:#fff}
+    #pt-modal-btn{width:100%;background:#FFDF2D;color:#1E2843;border:none;border-radius:10px;padding:.7rem;font-weight:900;cursor:pointer}
+    #pt-modal-btn-search{background:rgba(255,255,255,.18);color:#fff;border:none;border-radius:10px;padding:.7rem;font-weight:900;cursor:pointer}
+    #pt-modal-error,#pt-modal-error2,#pt-modal-error3{color:#ff8a80;font-size:.8rem}
+    .pt-found-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,223,45,.4);border-radius:12px;padding:1rem}
+    .pt-link-btn{background:none;border:none;color:rgba(255,255,255,.7);text-decoration:underline;cursor:pointer}
+</style>
   <script src="../js/supabase-config.js"></script>
   <script src="../js/gamification-sdk.js"></script>
   <script src="../js/academic-rules.js"></script>
@@ -696,6 +705,8 @@
   document.addEventListener('DOMContentLoaded', renderProgressWidget);
 </script>
 
+  <script src="../js/teacher-auth.js"></script>
+  <script src="../js/td-welcome-modal.js"></script>
   <script src="../js/td-week-boot.js"></script>
 </body>
 </html>
