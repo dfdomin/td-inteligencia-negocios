@@ -35,7 +35,7 @@
     header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       color: #fff;
-      padding: 2rem 1.5rem 1.8rem;
+      padding: 2rem 1.5rem 2.5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -46,6 +46,12 @@
       height: 40px;
       background: var(--light-bg);
       clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    header .badge-module,
+    header h1,
+    header .sub {
+      position: relative;
+      z-index: 1;
     }
     .badge-module {
       display: inline-block;
