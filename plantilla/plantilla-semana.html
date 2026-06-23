@@ -467,12 +467,13 @@
   // ═══════════════════════════════════════════════
   //  PT Widget (mínimo para que funcione el sync)
   // ═══════════════════════════════════════════════
+  var PREFIX = '{{PREFIX}}';
+  var GLOBAL = PREFIX + '_global';
   var PT = (function() {
     var SEMANA = {{SEMANA}};
     var XP_MAX = {{XP_MAX}};
-    var LS_KEY = '{{PREFIX}}_s' + SEMANA;
-    var VISITED = '{{PREFIX}}_visited_s' + SEMANA;
-    var GLOBAL = '{{PREFIX}}_global';
+    var LS_KEY = PREFIX + '_s' + SEMANA;
+    var VISITED = PREFIX + '_visited_s' + SEMANA;
     var s = { semana: SEMANA, xp: 0, quiz_respuestas: {}, quiz_puntaje: 0, nombre: '', cc: '', id_estudiante: '', grupo: '', horario: '', hti_entregado: false, actividad_completada: false };
 
     function msg(t) {
