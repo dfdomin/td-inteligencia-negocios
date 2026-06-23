@@ -302,7 +302,7 @@
     renderFloatingIdentity();
   }
 
-  /** Crea un badge flotante en el nav sticky que sigue al hacer scroll */
+  /** Crea un badge flotante + indicador en el nav sticky */
   function renderFloatingIdentity() {
     var profile = {};
     try { profile = JSON.parse(localStorage.getItem(global.GAMIF_PREFIX + "_global") || "{}"); } catch(e) {}
@@ -310,36 +310,60 @@
     if (!profile.cc || !profile.nombre) return;
     if (typeof makeIdenticon !== "function") return;
 
-    // Remove existing badge if any
-    var existing = document.getElementById("iub-float-id");
+    // ── 1. Nav badge (sticky top) ──────────────
+    var existing = document.getElementById("iub-nav-id");
     if (existing) existing.remove();
+
+    var nav = document.querySelector("nav.top-nav, nav") || document.getElementById("topNav");
+    if (nav) {
+      var navBadge = document.createElement("div");
+      navBadge.id = "iub-nav-id";
+      navBadge.style.cssText = "display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;"
+        + "background:rgba(255,255,255,.12);color:#fff;font-size:.7rem;font-weight:600;"
+        + "margin-left:auto;flex-shrink:0;white-space:nowrap;overflow:hidden;max-width:200px;"
+        + "border:1px solid rgba(255,255,255,.2);cursor:default;user-select:none";
+      navBadge.title = profile.nombre + " · CC: " + profile.cc;
+
+      var icon = makeIdenticon(profile.cc, "", false);
+      if (icon) { icon.style.cssText = "width:16px;height:16px;border-radius:50%;flex-shrink:0"; navBadge.appendChild(icon); }
+
+      var nameSpan = document.createElement("span");
+      nameSpan.textContent = profile.nombre;
+      nameSpan.style.cssText = "overflow:hidden;text-overflow:ellipsis;font-size:.68rem";
+
+      var code = window.getIdenticonCode ? window.getIdenticonCode(profile.cc) : "";
+      if (code) {
+        var codeSpan = document.createElement("span");
+        codeSpan.textContent = code;
+        codeSpan.style.cssText = "font-weight:800;font-family:monospace;background:rgba(255,255,255,.15);padding:0 4px;border-radius:3px;font-size:.62rem";
+        navBadge.appendChild(codeSpan);
+      }
+      navBadge.appendChild(nameSpan);
+
+      // Make nav use flex-end for the badge
+      nav.style.display = "flex";
+      nav.style.alignItems = "center";
+      nav.appendChild(navBadge);
+    }
+
+    // ── 2. Floating badge (bottom-right, SIEMPRE visible) ──
+    var floating = document.getElementById("iub-float-id");
+    if (floating) floating.remove();
 
     var badge = document.createElement("div");
     badge.id = "iub-float-id";
-    badge.style.cssText = "display:flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;"
+    badge.style.cssText = "display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;"
       + "background:rgba(30,40,67,.92);color:#fff;font-size:.72rem;font-weight:600;"
-      + "white-space:nowrap;overflow:hidden;max-width:240px;"
+      + "white-space:nowrap;overflow:hidden;max-width:260px;"
       + "position:fixed;bottom:12px;right:12px;z-index:99999;"
-      + "box-shadow:0 2px 12px rgba(0,0,0,.2);transition:opacity .3s;"
+      + "box-shadow:0 2px 12px rgba(0,0,0,.2);"
       + "backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.15);"
       + "cursor:pointer;user-select:none";
-    badge.title = "Identidad verificada — " + profile.nombre;
+    badge.title = profile.nombre + " · CC: " + profile.cc;
 
-    // Small identicon
     var icon = makeIdenticon(profile.cc, "", false);
-    if (icon) {
-      icon.style.width = "18px";
-      icon.style.height = "18px";
-      icon.style.flexShrink = "0";
-      badge.appendChild(icon);
-    }
+    if (icon) { icon.style.cssText = "width:18px;height:18px;border-radius:50%;flex-shrink:0"; badge.appendChild(icon); }
 
-    // Name
-    var nameSpan = document.createElement("span");
-    nameSpan.textContent = profile.nombre.split(" ").slice(0, 2).join(" ");
-    nameSpan.style.cssText = "overflow:hidden;text-overflow:ellipsis";
-
-    // Verification code
     var code = window.getIdenticonCode ? window.getIdenticonCode(profile.cc) : "";
     if (code) {
       var codeSpan = document.createElement("span");
@@ -348,48 +372,35 @@
       badge.appendChild(codeSpan);
     }
 
-    badge.appendChild(nameSpan);
+    var fullName = document.createElement("span");
+    fullName.textContent = profile.nombre;
+    fullName.style.cssText = "overflow:hidden;text-overflow:ellipsis;font-size:.72rem";
+    badge.appendChild(fullName);
 
-    // Toggle detail on click
-    badge.addEventListener("click", function() {
+    // Click → detail popup
+    badge.addEventListener("click", function(e) {
+      e.stopPropagation();
       var detail = document.getElementById("iub-float-detail");
       if (detail) { detail.remove(); return; }
       detail = document.createElement("div");
       detail.id = "iub-float-detail";
       detail.style.cssText = "position:fixed;bottom:54px;right:12px;z-index:99998;"
         + "background:#fff;color:#1E2843;border-radius:12px;padding:.8rem 1rem;"
-        + "box-shadow:0 4px 20px rgba(0,0,0,.15);font-size:.82rem;max-width:260px;"
-        + "border:1px solid #DEDFE4";
-      detail.innerHTML = "<strong style='display:block;margin-bottom:.3rem'>" + profile.nombre + "</strong>"
-        + "<span style='color:#546e7a'>CC: " + profile.cc + "</span><br>"
-        + (profile.grupo ? "<span style='color:#546e7a'>Grupo: " + profile.grupo + "</span>" : "");
+        + "box-shadow:0 4px 20px rgba(0,0,0,.15);font-size:.82rem;max-width:280px;"
+        + "border:1px solid #DEDFE4;line-height:1.6";
+      detail.innerHTML = "<strong style='display:block;font-size:.95rem'>" + profile.nombre + "</strong>"
+        + "<span style='color:#546e7a'>📄 CC: " + profile.cc + "</span><br>"
+        + (profile.grupo ? "<span style='color:#546e7a'>📚 Grupo: " + profile.grupo + "</span>" : "");
       document.body.appendChild(detail);
-      setTimeout(function() { detail.addEventListener("click", function(){ detail.remove(); }); }, 100);
     });
 
-    // Close detail when clicking outside
     document.addEventListener("click", function(e) {
       var detail = document.getElementById("iub-float-detail");
       if (detail && !badge.contains(e.target) && !detail.contains(e.target)) detail.remove();
     });
 
     document.body.appendChild(badge);
-
-    // Auto-hide after 8s on first show, then re-show on scroll
-    if (!badge.dataset.shown) {
-      badge.dataset.shown = "1";
-      setTimeout(function() {
-        badge.style.opacity = "0";
-        setTimeout(function() { badge.style.display = "none"; }, 400);
-      }, 8000);
-      var scrollHandler = function() {
-        if (badge.style.display === "none" || badge.style.opacity === "0") {
-          badge.style.display = "flex";
-          badge.style.opacity = "1";
-        }
-      };
-      global.addEventListener("scroll", scrollHandler, { passive: true });
-    }
+    // NO auto-hide — badge stays visible always
   }
 
   if (document.readyState === "loading") {
