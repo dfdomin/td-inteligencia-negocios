@@ -136,5 +136,214 @@
   <script src="../js/teacher-auth.js"></script>
   <script src="../js/td-welcome-modal.js"></script>
   <script src="../js/td-week-boot.js"></script>
+<!-- ══ WELCOME MODAL (CC lookup) ══ -->
+<div id="pt-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="pt-modal-title">
+  <div id="pt-modal-box">
+    <h2 id="pt-modal-title">👋 ¡Bienvenido a TD!</h2>
+    <p class="sub">Transformación Digital en la Empresa · Mercado360 · IUB 2026</p>
+
+    <!-- PASO 1: Cédula -->
+    <div id="pt-step1" class="pt-step">
+      <div class="field">
+        <label for="pt-modal-cc">Número de cédula / documento *</label>
+        <div style="display:flex;gap:.5rem">
+          <input id="pt-modal-cc" type="tel" inputmode="numeric" pattern="[0-9]*"
+            placeholder="Ej: 1043158867" autocomplete="off"
+            onkeydown="if(event.key==='Enter')ptSearchCC()" />
+          <button id="pt-modal-btn-search" onclick="ptSearchCC()">Buscar →</button>
+        </div>
+      </div>
+      <div id="pt-modal-error"></div>
+      <p id="pt-modal-xp">🔒 Tu cédula identifica tu progreso de forma segura — no se comparte.</p>
+    </div>
+
+    <!-- PASO 2A: Encontrado -->
+    <div id="pt-step2a" class="pt-step" style="display:none">
+      <div class="pt-found-card">
+        <div class="pt-fc-name" id="pt-fc-name">—</div>
+        <div class="pt-fc-meta" id="pt-fc-meta">—</div>
+      </div>
+      <button id="pt-modal-btn" onclick="ptConfirmFound()">¡Empezar! 🚀</button>
+      <button class="pt-link-btn" onclick="ptBackToCC()">← No soy yo — volver a buscar</button>
+      <div id="pt-modal-error2"></div>
+    </div>
+
+    <!-- PASO 2B: No encontrado -->
+    <div id="pt-step2b" class="pt-step" style="display:none">
+      <p style="font-size:.82rem;opacity:.75;margin-bottom:1rem;background:rgba(255,255,255,.08);border-radius:8px;padding:.6rem .8rem">
+        ⚠️ No encontramos tu cédula en la lista del grupo.<br>
+        Completa tus datos manualmente. El docente podrá importarte en la próxima clase.
+      </p>
+      <div class="field">
+        <label for="pt-modal-nombre">Tu nombre completo *</label>
+        <input id="pt-modal-nombre" type="text" placeholder="Ej: María García López"
+          autocomplete="name" onkeydown="if(event.key==='Enter')ptModalSetupManual()" />
+      </div>
+      <div class="field">
+        <label for="pt-modal-grupo">Grupo / Paralelo</label>
+        <input id="pt-modal-grupo" type="text" placeholder="Ej: GA_G1" />
+      </div>
+      <button id="pt-modal-btn" onclick="ptModalSetupManual()">Continuar →</button>
+      <button class="pt-link-btn" onclick="ptBackToCC()">← Volver a ingresar cédula</button>
+      <div id="pt-modal-error3"></div>
+    </div>
+  </div>
+</div>
+
+<script id="modal-js">
+(function() {
+  function shouldShowModal() {
+    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); return !g.cc || String(g.cc).trim().length < 3; }
+    catch(e) { return true; }
+  }
+  function showStep(name) {
+    ["pt-step1","pt-step2a","pt-step2b"].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.style.display = (id === name) ? "block" : "none";
+    });
+  }
+  function showModal() {
+    var overlay = document.getElementById("pt-overlay");
+    if (overlay) overlay.style.display = "flex";
+    showStep("pt-step1");
+    try {
+      var g = JSON.parse(localStorage.getItem("td_global") || "{}");
+      if (g.cc) { var i = document.getElementById("pt-modal-cc"); if (i) i.value = g.cc; }
+    } catch(e) {}
+    var inp = document.getElementById("pt-modal-cc");
+    if (inp) setTimeout(function(){ inp.focus(); }, 100);
+  }
+  function closeModal() {
+    var overlay = document.getElementById("pt-overlay");
+    if (overlay) {
+      overlay.style.opacity = "0"; overlay.style.transition = "opacity .2s";
+      setTimeout(function(){ overlay.style.display = "none"; overlay.style.opacity = ""; }, 200);
+    }
+  }
+  function getStudents() {
+    try { return JSON.parse(localStorage.getItem("td_students_v1") || "[]"); }
+    catch(e) { return []; }
+  }
+  function saveProfile(cc, nombre, grupo, horario) {
+    var profile = {};
+    try { profile = JSON.parse(localStorage.getItem("td_global") || "{}"); } catch(e) {}
+    profile.cc = cc; profile.nombre = nombre;
+    profile.grupo   = grupo   || profile.grupo   || "";
+    profile.horario = horario || profile.horario || "";
+    profile.id_estudiante = cc;
+    localStorage.setItem("td_global", JSON.stringify(profile));
+    if (typeof PT !== "undefined" && typeof PT.addXP === "function") {
+      setTimeout(function(){ PT.sync && PT.sync(); }, 800);
+    }
+    closeModal();
+  }
+
+  window.ptSearchCC = function() {
+    var ccInp = document.getElementById("pt-modal-cc");
+    var errEl = document.getElementById("pt-modal-error");
+    var cc    = ccInp ? ccInp.value.trim().replace(/\D/g,"") : "";
+    if (!cc || cc.length < 5) {
+      if (errEl) errEl.textContent = "Ingresa tu número de cédula (mínimo 5 dígitos).";
+      if (ccInp) ccInp.focus(); return;
+    }
+    if (errEl) errEl.textContent = "";
+
+    var students = getStudents();
+    var found = students.find(function(s){ return String(s.cc) === cc; });
+    if (found) {
+      var nameEl = document.getElementById("pt-fc-name");
+      var metaEl = document.getElementById("pt-fc-meta");
+      if (nameEl) nameEl.textContent = "✅ " + found.name;
+      if (metaEl) metaEl.innerHTML =
+        (found.grupo   ? "📚 Grupo: <strong>" + esc(found.grupo) + "</strong>" : "") +
+        (found.horario ? " &nbsp;·&nbsp; ⏰ " + esc(found.horario) : "");
+      nameEl.dataset.cc = cc; nameEl.dataset.nombre = found.name;
+      nameEl.dataset.grupo = found.grupo || ""; nameEl.dataset.horario = found.horario || "";
+      showStep("pt-step2a");
+      var btn = document.getElementById("pt-modal-btn");
+      if (btn) setTimeout(function(){ btn.focus(); }, 100);
+      return;
+    }
+
+    var sUrl = localStorage.getItem("td_supabase_url");
+    var sKey = localStorage.getItem("td_supabase_key");
+    if (sUrl && sKey) {
+      if (errEl) errEl.textContent = "⏳ Buscando…";
+      fetch(sUrl + "/rest/v1/students_td?cc=eq." + encodeURIComponent(cc) + "&limit=1", {
+        headers: { "apikey": sKey, "Authorization": "Bearer " + sKey }
+      }).then(function(r){ return r.json(); })
+        .then(function(rows){
+          if (errEl) errEl.textContent = "";
+          if (rows && rows.length) {
+            var r = rows[0];
+            var nameEl = document.getElementById("pt-fc-name");
+            var metaEl = document.getElementById("pt-fc-meta");
+            if (nameEl) nameEl.textContent = "✅ " + r.name;
+            if (metaEl) metaEl.innerHTML =
+              (r.grupo   ? "📚 Grupo: <strong>" + esc(r.grupo) + "</strong>" : "") +
+              (r.horario ? " &nbsp;·&nbsp; ⏰ " + esc(r.horario) : "");
+            nameEl.dataset.cc = cc; nameEl.dataset.nombre = r.name;
+            nameEl.dataset.grupo = r.grupo || ""; nameEl.dataset.horario = r.horario || "";
+            showStep("pt-step2a");
+          } else {
+            var ni = document.getElementById("pt-modal-nombre");
+            if (ni) ni.dataset.cc = cc;
+            showStep("pt-step2b");
+            if (ni) setTimeout(function(){ ni.focus(); }, 100);
+          }
+        }).catch(function(){
+          var ni = document.getElementById("pt-modal-nombre");
+          if (ni) ni.dataset.cc = cc;
+          showStep("pt-step2b");
+          if (ni) setTimeout(function(){ ni.focus(); }, 100);
+        });
+      return;
+    }
+
+    var ni = document.getElementById("pt-modal-nombre");
+    if (ni) ni.dataset.cc = cc;
+    showStep("pt-step2b");
+    if (ni) setTimeout(function(){ ni.focus(); }, 100);
+  };
+
+  window.ptConfirmFound = function() {
+    var nameEl  = document.getElementById("pt-fc-name");
+    var cc      = nameEl ? nameEl.dataset.cc      : "";
+    var nombre  = nameEl ? nameEl.dataset.nombre  : "";
+    var grupo   = nameEl ? nameEl.dataset.grupo   : "";
+    var horario = nameEl ? nameEl.dataset.horario : "";
+    if (!cc || !nombre) { var e2 = document.getElementById("pt-modal-error2"); if (e2) e2.textContent = "Error al leer datos. Intenta de nuevo."; return; }
+    saveProfile(cc, nombre, grupo, horario);
+  };
+
+  window.ptModalSetupManual = function() {
+    var ni    = document.getElementById("pt-modal-nombre");
+    var gi    = document.getElementById("pt-modal-grupo");
+    var ccInp = document.getElementById("pt-modal-cc");
+    var errEl = document.getElementById("pt-modal-error3");
+    var nombre = ni ? ni.value.trim() : "";
+    var grupo  = gi ? gi.value.trim() : "";
+    var cc     = ccInp ? ccInp.value.trim().replace(/\D/g,"") : "";
+    if (!nombre || nombre.length < 3) {
+      if (errEl) errEl.textContent = "Por favor escribe tu nombre completo (mínimo 3 caracteres).";
+      if (ni) ni.focus(); return;
+    }
+    if (!cc) cc = "MANUAL_" + Date.now();
+    saveProfile(cc, nombre, grupo, "");
+  };
+
+  window.ptBackToCC = function() {
+    showStep("pt-step1");
+    var inp = document.getElementById("pt-modal-cc");
+    if (inp) setTimeout(function(){ inp.focus(); }, 100);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function(){ if (shouldShowModal()) showModal(); });
+  } else {
+    if (shouldShowModal()) showModal();
+  }
+})();
+</script>
 </body>
 </html>
