@@ -1,0 +1,34 @@
+{
+  "semana": 1,
+  "modulo": "TD",
+  "titulo": "Título de la Semana",
+  "narrativa": "Mercado360",
+  "xp_sesion": 0,
+  "xp_max": 100,
+  "secciones": [
+    {
+      "id": "mision",
+      "titulo": "🎯 La Misión",
+      "tipo": "texto",
+      "contenido": "<p>Contenido de la misión de esta semana. <strong>Texto con formato HTML</strong> permitido.</p>"
+    },
+    {
+      "id": "teoria",
+      "titulo": "📚 Marco Teórico",
+      "tipo": "texto",
+      "contenido": "<h3>1. Título de Sección</h3><p>Contenido teórico aquí...</p>"
+    },
+    {
+      "id": "actividad",
+      "titulo": "⚙️ Actividad",
+      "tipo": "texto",
+      "contenido": "<p>Descripción de la actividad...</p>"
+    },
+    {
+      "id": "fuentes",
+      "titulo": "📖 Fuentes",
+      "tipo": "texto",
+      "contenido": "<ul><li>Autor, Título, Año</li></ul>"
+    }
+  ]
+}

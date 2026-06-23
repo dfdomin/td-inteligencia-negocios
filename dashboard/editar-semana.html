@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor de semanas — Dashboard docente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="../js/supabase-config.js"></script>
+  <script src="../js/gamification-sdk.js"></script>
+  <script src="../js/teacher-auth.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --primary:#1E2843; --accent:#2d3a5e; --green:#2e7d32; --red:#c62828; --light-bg:#FAFAFA; --card-bg:#fff; --text:#212121; --muted:#546e7a; --border:#DEDFE4; --radius:12px; }
+    body { font-family:'Open Sans', Arial, sans-serif; background:var(--light-bg); color:var(--text); line-height:1.55; }
+    header { background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; padding:1.4rem 1.2rem; }
+    .wrap { max-width:960px; margin:0 auto; }
+    .top { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+    h1 { font-size:clamp(1.3rem,3vw,1.8rem); }
+    .nav { display:flex; gap:.5rem; flex-wrap:wrap; }
+    .nav a, button, input, select, textarea { font-family:inherit; }
+    .nav a, button.sec { border:1px solid var(--border); border-radius:10px; padding:.45rem .75rem; background:#fff; color:var(--primary); font-weight:700; text-decoration:none; cursor:pointer; font-size:.82rem; }
+    main { padding:1.2rem; }
+    .login { max-width:420px; margin:2rem auto; background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+    .panel { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; margin-bottom:1rem; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+    .panel h3 { color:var(--primary); font-size:1rem; margin-bottom:.8rem; }
+    label { display:block; color:var(--muted); font-size:.78rem; font-weight:800; text-transform:uppercase; margin-bottom:.3rem; margin-top:.8rem; }
+    label:first-child { margin-top:0; }
+    input, select, textarea { width:100%; border:1px solid var(--border); border-radius:10px; padding:.6rem .8rem; font-size:.9rem; margin-bottom:.3rem; }
+    input:focus, select:focus, textarea:focus { outline:2px solid var(--primary); outline-offset:-1px; }
+    textarea { resize:vertical; min-height:80px; font-family:monospace; font-size:.85rem; }
+    .btn-primary { background:var(--primary); color:#fff; border:none; padding:.65rem 1.2rem; border-radius:10px; font-size:.9rem; font-weight:700; cursor:pointer; margin-top:.5rem; }
+    .btn-primary:hover { background:var(--accent); }
+    .btn-primary:disabled { opacity:.4; cursor:not-allowed; }
+    .btn-sm { padding:.4rem .7rem; font-size:.78rem; }
+    .btn-danger { background:var(--red); }
+    .btn-danger:hover { background:#b71c1c; }
+    .btn-outline { background:transparent; border:1px solid var(--border); color:var(--text); }
+    .msg { color:var(--muted); font-size:.85rem; margin:.5rem 0; min-height:1.2rem; }
+    .msg.ok { color:var(--green); font-weight:700; }
+    .msg.err { color:var(--red); font-weight:700; }
+
+    /* ── Secciones ──────────────────────── */
+    .seccion-card {
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      margin-bottom:.8rem;
+      overflow:hidden;
+    }
+    .seccion-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.6rem 1rem;
+      background:#f4f6fa;
+      border-bottom:1px solid var(--border);
+      cursor:pointer;
+      user-select:none;
+    }
+    .seccion-header .id-badge {
+      font-size:.72rem;
+      font-weight:700;
+      color:var(--muted);
+      font-family:monospace;
+    }
+    .seccion-body { padding:.8rem 1rem; display:none; }
+    .seccion-body.open { display:block; }
+    .seccion-body textarea { min-height:120px; }
+
+    /* ── Tabs ───────────────────────────── */
+    .tabs { display:flex; gap:0; margin-bottom:1rem; border-bottom:2px solid var(--border); }
+    .tab { padding:.6rem 1.2rem; cursor:pointer; font-weight:700; font-size:.85rem; color:var(--muted); border-bottom:2px solid transparent; margin-bottom:-2px; transition:all .15s; }
+    .tab.active { color:var(--primary); border-bottom-color:var(--primary); }
+
+    .tab-content { display:none; }
+    .tab-content.active { display:block; }
+
+    /* ── Import zone ────────────────────── */
+    .import-zone textarea { min-height:300px; font-family:monospace; font-size:.82rem; }
+    .import-hint { font-size:.78rem; color:var(--muted); margin:.3rem 0; background:#f8f9fb; padding:.8rem; border-radius:8px; border:1px solid var(--border); }
+    .import-hint code { background:#e8e8e8; padding:.1rem .3rem; border-radius:3px; font-size:.78rem; }
+
+    /* ── Preview ────────────────────────── */
+    .preview-frame {
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:1rem;
+      background:#fff;
+      min-height:200px;
+    }
+    .preview-frame h2 { color:var(--primary); font-size:1.1rem; margin-bottom:.5rem; }
+    .preview-frame p { margin-bottom:.5rem; }
+    .preview-frame img { max-width:100%; height:auto; border-radius:8px; }
+
+    /* ── Tag status ─────────────────────── */
+    .tag { display:inline-block; font-size:.72rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; }
+    .tag.new { background:#e8f5e9; color:#1b5e20; }
+    .tag.exists { background:#e3f2fd; color:#1565c0; }
+    .tag.plantilla { background:#fff8e1; color:#e65100; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap top">
+      <div>
+        <h1>✏️ Editor de semanas</h1>
+        <p style="font-size:.85rem;opacity:.8">Crea y edita el contenido de las semanas (plantilla dinámica)</p>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="profesor.html">Dashboard</a>
+        <a href="subir-imagen.html">📷 Imágenes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- LOGIN -->
+    <section class="login" id="login">
+      <h2 style="color:var(--primary);margin-bottom:.5rem">🔐 Acceso docente</h2>
+      <label for="teacherUser">Usuario</label>
+      <input id="teacherUser" type="text" autocomplete="username" placeholder="docente">
+      <label for="teacherPass">Contraseña</label>
+      <input id="teacherPass" type="password" autocomplete="current-password">
+      <button class="btn-primary" id="teacherLoginBtn" style="width:100%">Entrar</button>
+      <p class="msg" id="teacherLoginMsg"></p>
+    </section>
+
+    <!-- APP -->
+    <section id="app" hidden>
+      <!-- SELECTOR -->
+      <div class="panel" style="display:flex;gap:.8rem;align-items:end;flex-wrap:wrap">
+        <div style="flex:1;min-width:150px">
+          <label for="selModulo">Módulo</label>
+          <select id="selModulo">
+            <option value="td-inteligencia-negocios" data-prefix="td" data-narrativa="Mercado360">TD · Mercado360</option>
+            <option value="tga04-neurobiz" data-prefix="tga04" data-narrativa="NeuroBiz S.A.S.">TGA04 · NeuroBiz</option>
+            <option value="tga05-neurobiz" data-prefix="tga05" data-narrativa="NeuroBiz S.A.S.">TGA05 · NeuroBiz</option>
+            <option value="adm18-material" data-prefix="adm18" data-narrativa="LatamBox">ADM18 · LatamBox</option>
+          </select>
+        </div>
+        <div style="flex:0 0 100px">
+          <label for="selSemana">Semana</label>
+          <select id="selSemana"></select>
+        </div>
+        <div>
+          <button class="btn-primary" id="btnCargar" style="margin-top:1.3rem">📂 Cargar</button>
+          <button class="btn-primary" id="btnNuevo" style="margin-top:1.3rem;background:var(--green)">✨ Nueva</button>
+        </div>
+        <div style="margin-left:auto;text-align:right">
+          <span id="weekStatus" class="tag exists" style="font-size:.78rem">──</span>
+        </div>
+      </div>
+
+      <!-- TABS -->
+      <div class="tabs">
+        <div class="tab active" data-tab="editor">📝 Editor</div>
+        <div class="tab" data-tab="import">🤖 Importar desde IA</div>
+        <div class="tab" data-tab="preview">👁️ Vista previa</div>
+        <div class="tab" data-tab="images">🖼️ Imágenes</div>
+      </div>
+
+      <!-- TAB: EDITOR -->
+      <div class="tab-content active" id="tab-editor">
+        <div class="panel">
+          <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+            <div style="flex:2;min-width:200px">
+              <label for="semanaTitulo">Título de la semana</label>
+              <input id="semanaTitulo" placeholder="Ej: Machine Learning para Negocios">
+            </div>
+            <div style="flex:0 0 100px">
+              <label for="semanaXpMax">XP Máx</label>
+              <input id="semanaXpMax" type="number" value="100">
+            </div>
+          </div>
+        </div>
+
+        <!-- LISTA DE SECCIONES -->
+        <div id="seccionesContainer"></div>
+
+        <!-- BOTONES -->
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem">
+          <button class="btn-primary" id="btnAddSeccion">+ Agregar sección</button>
+          <button class="btn-primary" id="btnSave" style="background:var(--green)">💾 Guardar</button>
+          <button class="btn-primary btn-danger" id="btnDeleteSemana" style="display:none">🗑️ Eliminar semana</button>
+        </div>
+        <p class="msg" id="editorMsg"></p>
+      </div>
+
+      <!-- TAB: IMPORTAR IA -->
+      <div class="tab-content" id="tab-import">
+        <div class="panel">
+          <h3>🤖 Pegar contenido generado por IA</h3>
+          <div class="import-hint">
+            <strong>Formato esperado:</strong><br>
+            Pega el contenido que Claude te haya generado. Debe usar este formato:<br><br>
+            <code>[TITULO: Nombre de la semana]</code><br>
+            <code>[XP_MAX: 95]</code><br><br>
+            <code>## 🎯 Misión</code><br>
+            <code>Contenido de la misión en markdown...</code><br><br>
+            <code>## 📚 Marco Teórico</code><br>
+            <code>### 1. Título</code><br>
+            <code>Contenido...</code><br><br>
+            Las imágenes se insertan como <code>![descripción](url)</code>.<br>
+            El sistema convertirá markdown a HTML automáticamente.
+          </div>
+          <label for="aiInput">Pega aquí el contenido generado por Claude</label>
+          <div class="import-zone">
+            <textarea id="aiInput" placeholder="Pega el texto generado por Claude..."></textarea>
+          </div>
+          <button class="btn-primary" id="btnParseAI">🔍 Parsear e importar</button>
+          <p class="msg" id="aiMsg"></p>
+        </div>
+      </div>
+
+      <!-- TAB: PREVIEW -->
+      <div class="tab-content" id="tab-preview">
+        <div class="panel">
+          <h3>👁️ Vista previa</h3>
+          <div class="preview-frame" id="previewContent">
+            <p style="color:var(--muted);text-align:center;padding:2rem">Carga o edita una semana para ver la vista previa</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: IMÁGENES -->
+      <div class="tab-content" id="tab-images">
+        <div class="panel">
+          <h3>🖼️ Subir imágenes</h3>
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:.8rem">
+            Usa el <a href="subir-imagen.html" target="_blank" rel="noopener">subidor de imágenes</a> para subir imágenes a gh-pages.
+            Luego copia la URL y pégala en el editor con el formato: <code>![descripción](url)</code>
+          </p>
+          <iframe src="subir-imagen.html" style="width:100%;height:400px;border:1px solid var(--border);border-radius:var(--radius)"></iframe>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var REPO_OWNER = 'dfdomin';
+    var GITHUB_API = 'https://api.github.com';
+    var TOKEN_KEY = 'iub_github_token';
+    var BRANCH = 'gh-pages';
+    var currentData = null;
+    var currentRepo = '';
+    var currentSemana = 0;
+
+    // ── Token ──────────────────────────────
+    function getToken() { return localStorage.getItem(TOKEN_KEY) || ''; }
+
+    // ── Util ───────────────────────────────
+    function escHtml(s) {
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    // ── Semanas selector ───────────────────
+    function initSemanaSelector() {
+      var sel = document.getElementById('selSemana');
+      sel.innerHTML = '';
+      for (var i = 1; i <= 15; i++) {
+        var opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = 'Semana ' + i;
+        sel.appendChild(opt);
+      }
+    }
+
+    // ── Tabs ───────────────────────────────
+    document.querySelectorAll('.tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+        this.classList.add('active');
+        var id = 'tab-' + this.getAttribute('data-tab');
+        document.getElementById(id).classList.add('active');
+        if (this.getAttribute('data-tab') === 'preview') renderPreview();
+      });
+    });
+
+    // ── Secciones CRUD ─────────────────────
+    var SECCIONES_PREDEFINIDAS = [
+      { id: 'mision', titulo: '🎯 La Misión' },
+      { id: 'teoria', titulo: '📚 Marco Teórico' },
+      { id: 'actividad', titulo: '⚙️ Actividad' },
+      { id: 'evidencia', titulo: '📊 Evidencia' },
+      { id: 'fuentes', titulo: '📖 Fuentes' }
+    ];
+
+    function renderSecciones(data) {
+      var container = document.getElementById('seccionesContainer');
+      container.innerHTML = '';
+      if (!data || !data.secciones || data.secciones.length === 0) {
+        container.innerHTML = '<p style="color:var(--muted);text-align:center;padding:1rem">No hay secciones. Carga una semana existente, crea una nueva, o importa desde IA.</p>';
+        return;
+      }
+      data.secciones.forEach(function(sec, idx) {
+        var card = document.createElement('div');
+        card.className = 'seccion-card';
+        card.innerHTML =
+          '<div class="seccion-header" onclick="toggleSeccion(this)">' +
+            '<div><strong>' + escHtml(sec.titulo || '') + '</strong> <span class="id-badge">#' + escHtml(sec.id || '') + '</span></div>' +
+            '<div style="display:flex;gap:.3rem">' +
+              '<button class="btn-sm btn-outline" onclick="event.stopPropagation(); moverSeccion(' + idx + ',-1)">↑</button>' +
+              '<button class="btn-sm btn-outline" onclick="event.stopPropagation(); moverSeccion(' + idx + ',1)">↓</button>' +
+              '<button class="btn-sm btn-danger" onclick="event.stopPropagation(); eliminarSeccion(' + idx + ')">✕</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="seccion-body">' +
+            '<label>Título visible</label>' +
+            '<input class="sec-titulo" value="' + escHtml(sec.titulo || '') + '" onchange="actualizarSeccion(' + idx + ', this.value, null)">' +
+            '<label>ID (identificador interno)</label>' +
+            '<input class="sec-id" value="' + escHtml(sec.id || '') + '" onchange="actualizarSeccionId(' + idx + ', this.value)" placeholder="ej: mision, teoria">' +
+            '<label>Contenido (HTML)</label>' +
+            '<textarea class="sec-contenido" onchange="actualizarSeccion(' + idx + ', null, this.value)">' + escHtml(sec.contenido || '') + '</textarea>' +
+          '</div>';
+        container.appendChild(card);
+      });
+    }
+
+    window.toggleSeccion = function(header) {
+      var body = header.nextElementSibling;
+      if (body) body.classList.toggle('open');
+    };
+
+    window.actualizarSeccion = function(idx, titulo, contenido) {
+      if (!currentData || !currentData.secciones) return;
+      if (titulo !== null) currentData.secciones[idx].titulo = titulo;
+      if (contenido !== null) currentData.secciones[idx].contenido = contenido;
+      renderPreview();
+    };
+
+    window.actualizarSeccionId = function(idx, id) {
+      if (!currentData || !currentData.secciones) return;
+      currentData.secciones[idx].id = id.replace(/[^a-z0-9_-]/g, '');
+      renderPreview();
+    };
+
+    window.moverSeccion = function(idx, dir) {
+      if (!currentData || !currentData.secciones) return;
+      var newIdx = idx + dir;
+      if (newIdx < 0 || newIdx >= currentData.secciones.length) return;
+      var arr = currentData.secciones;
+      var tmp = arr[idx];
+      arr[idx] = arr[newIdx];
+      arr[newIdx] = tmp;
+      renderSecciones(currentData);
+      renderPreview();
+    };
+
+    window.eliminarSeccion = function(idx) {
+      if (!currentData || !currentData.secciones) return;
+      if (!confirm('¿Eliminar esta sección?')) return;
+      currentData.secciones.splice(idx, 1);
+      renderSecciones(currentData);
+      renderPreview();
+    };
+
+    document.getElementById('btnAddSeccion').addEventListener('click', function() {
+      if (!currentData) currentData = { secciones: [] };
+      if (!currentData.secciones) currentData.secciones = [];
+      currentData.secciones.push({
+        id: 'nueva' + (currentData.secciones.length + 1),
+        titulo: 'Nueva sección',
+        tipo: 'texto',
+        contenido: '<p>Escribe aquí el contenido...</p>'
+      });
+      renderSecciones(currentData);
+      renderPreview();
+    });
+
+    // ── Preview ────────────────────────────
+    function renderPreview() {
+      var el = document.getElementById('previewContent');
+      if (!currentData || !currentData.secciones) {
+        el.innerHTML = '<p style="color:var(--muted);text-align:center;padding:2rem">Carga o edita una semana para ver la vista previa</p>';
+        return;
+      }
+      var h = '';
+      currentData.secciones.forEach(function(sec) {
+        h += '<section class="card" id="' + escHtml(sec.id || '') + '" style="margin-bottom:1rem;padding:1rem;border:1px solid var(--border);border-radius:var(--radius);background:#fff">';
+        h += '<h2 style="color:var(--primary);font-size:1.1rem;margin-bottom:.5rem">' + escHtml(sec.titulo || '') + '</h2>';
+        h += '<div>' + (sec.contenido || '') + '</div>';
+        h += '</section>';
+      });
+      if (!h) h = '<p style="color:var(--muted);text-align:center;padding:2rem">Sin contenido</p>';
+      el.innerHTML = h;
+    }
+
+    // ── GitHub API ─────────────────────────
+    function repoPath(repo, semana) {
+      return 'semana' + semana + '/contenido.json';
+    }
+
+    async function loadFromGitHub(repo, semana) {
+      var path = repoPath(repo, semana);
+      var url = GITHUB_API + '/repos/' + REPO_OWNER + '/' + repo + '/contents/' + path + '?ref=' + BRANCH;
+      try {
+        var res = await fetch(url, {
+          headers: { 'Authorization': 'Bearer ' + getToken(), 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (!res.ok) {
+          if (res.status === 404) return null; // No existe
+          throw new Error('Error ' + res.status);
+        }
+        var data = await res.json();
+        var content = atob(data.content.replace(/\n/g, ''));
+        return JSON.parse(content);
+      } catch(e) {
+        if (e.message === 'Error 404') return null;
+        throw e;
+      }
+    }
+
+    async function saveToGitHub(repo, semana, contentJson) {
+      var token = getToken();
+      if (!token) throw new Error('No hay token de GitHub');
+
+      var path = repoPath(repo, semana);
+      var url = GITHUB_API + '/repos/' + REPO_OWNER + '/' + repo + '/contents/' + path;
+      var content = btoa(unescape(encodeURIComponent(JSON.stringify(contentJson, null, 2))));
+
+      // Check if exists
+      var existingSha = null;
+      try {
+        var check = await fetch(url + '?ref=' + BRANCH, {
+          headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (check.ok) {
+          var existing = await check.json();
+          existingSha = existing.sha;
+        }
+      } catch(e) {}
+
+      var body = {
+        message: 'Actualizar contenido semana ' + semana + ' (' + repo + ')',
+        content: content,
+        branch: BRANCH
+      };
+      if (existingSha) body.sha = existingSha;
+
+      var res = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+
+      if (!res.ok) {
+        var err = await res.json().catch(function() { return { message: res.statusText }; });
+        throw new Error(err.message || 'Error HTTP ' + res.status);
+      }
+
+      return await res.json();
+    }
+
+    // ── Markdown → HTML ────────────────────
+    function markdownToHtml(md) {
+      var h = md
+        // Headers
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        // Bold + italic
+        .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        // Inline code
+        .replace(/`(.+?)`/g, '<code>$1</code>')
+        // Images
+        .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure><img src="$2" alt="$1" loading="lazy" style="max-width:100%;height:auto;border-radius:8px">' +
+          ($1 ? '<figcaption>$1</figcaption>' : '') + '</figure>')
+        // Links
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        // Unordered lists
+        .replace(/^- (.+)$/gm, '<li>$1</li>')
+        // Ordered lists
+        .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+        // Paragraphs (double newline)
+        .replace(/\n\n/g, '</p><p>')
+        // Line breaks within paragraphs
+        .replace(/\n/g, '<br>')
+        // Wrap in <p> tags
+        .replace(/^(.+)$/, '<p>$1</p>')
+        // Fix consecutive <li> into <ul>
+        .replace(/(<li>.*?<\/li>(\s*<li>.*?<\/li>)*)/g, '<ul>$1</ul>');
+
+      // Clean empty paragraphs
+      h = h.replace(/<p>\s*<\/p>/g, '');
+      return h;
+    }
+
+    // ── Parse AI content ───────────────────
+    function parseAIContent(text) {
+      var data = {
+        titulo: '',
+        xp_max: 100,
+        secciones: []
+      };
+
+      var lines = text.split('\n');
+      var currentSection = null;
+      var currentContent = [];
+
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+
+        // Metadata: [TITULO: ...]
+        var tituloMatch = line.match(/^\[TITULO:\s*(.+?)\]$/i);
+        if (tituloMatch) { data.titulo = tituloMatch[1]; continue; }
+
+        // Metadata: [XP_MAX: ...]
+        var xpMatch = line.match(/^\[XP_MAX:\s*(\d+)\]$/i);
+        if (xpMatch) { data.xp_max = parseInt(xpMatch[1], 10); continue; }
+
+        // Section header: ## Title (también maneja SECCION:)
+        var secHeader = line.match(/^##\s+(.+)/);
+        var secDirect = line.match(/^\[SECCION:\s*(.+?)\]$/i);
+
+        if (secHeader || secDirect) {
+          // Save previous section
+          if (currentSection !== null) {
+            data.secciones.push({
+              id: slugify(currentSection),
+              titulo: currentSection,
+              contenido: markdownToHtml(currentContent.join('\n').trim())
+            });
+          }
+          var title = secHeader ? secHeader[1] : (secDirect ? secDirect[1] : '');
+          currentSection = title;
+          currentContent = [];
+          continue;
+        }
+
+        if (currentSection !== null) {
+          currentContent.push(line);
+        }
+      }
+
+      // Save last section
+      if (currentSection !== null) {
+        data.secciones.push({
+          id: slugify(currentSection),
+          titulo: currentSection,
+          contenido: markdownToHtml(currentContent.join('\n').trim())
+        });
+      }
+
+      return data;
+    }
+
+    function slugify(text) {
+      return text.toLowerCase()
+        .replace(/[áäâà]/g, 'a').replace(/[éëêè]/g, 'e').replace(/[íïîì]/g, 'i')
+        .replace(/[óöôò]/g, 'o').replace(/[úüûù]/g, 'u').replace(/ñ/g, 'n')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
+    // ── Events ─────────────────────────────
+    // Cargar semana
+    document.getElementById('btnCargar').addEventListener('click', async function() {
+      var repo = document.getElementById('selModulo').value;
+      var semana = parseInt(document.getElementById('selSemana').value);
+
+      if (!getToken()) {
+        document.getElementById('editorMsg').textContent = '❌ Configura el token de GitHub primero (ve a Imágenes)';
+        document.getElementById('editorMsg').className = 'msg err';
+        return;
+      }
+
+      var btn = document.getElementById('btnCargar');
+      var msg = document.getElementById('editorMsg');
+      btn.disabled = true;
+      msg.textContent = '⏳ Cargando...';
+      msg.className = 'msg';
+
+      try {
+        var data = await loadFromGitHub(repo, semana);
+        if (data) {
+          currentData = data;
+          currentRepo = repo;
+          currentSemana = semana;
+          document.getElementById('semanaTitulo').value = data.titulo || '';
+          document.getElementById('semanaXpMax').value = data.xp_max || 100;
+          renderSecciones(data);
+          renderPreview();
+          msg.textContent = '✅ Cargado: ' + repo + ' semana ' + semana;
+          msg.className = 'msg ok';
+          document.getElementById('weekStatus').textContent = '✅ Existente';
+          document.getElementById('weekStatus').className = 'tag exists';
+          document.getElementById('btnDeleteSemana').style.display = 'inline-block';
+        } else {
+          msg.textContent = '⚠️ Esta semana no tiene contenido.json. Crea una nueva o importa desde IA.';
+          msg.className = 'msg';
+          document.getElementById('weekStatus').textContent = '📄 Nueva';
+          document.getElementById('weekStatus').className = 'tag new';
+          document.getElementById('btnDeleteSemana').style.display = 'none';
+        }
+      } catch (e) {
+        msg.textContent = '❌ Error: ' + e.message;
+        msg.className = 'msg err';
+      }
+      btn.disabled = false;
+    });
+
+    // Nueva semana
+    document.getElementById('btnNuevo').addEventListener('click', function() {
+      var repo = document.getElementById('selModulo');
+      var opt = repo.options[repo.selectedIndex];
+      var prefix = opt.getAttribute('data-prefix') || 'td';
+      var narrativa = opt.getAttribute('data-narrativa') || '';
+      var semana = parseInt(document.getElementById('selSemana').value);
+
+      currentData = {
+        semana: semana,
+        modulo: prefix.toUpperCase(),
+        titulo: 'Semana ' + semana,
+        narrativa: narrativa,
+        xp_sesion: 0,
+        xp_max: 100,
+        secciones: SECCIONES_PREDEFINIDAS.map(function(s) {
+          return {
+            id: s.id,
+            titulo: s.titulo,
+            tipo: 'texto',
+            contenido: '<p>Contenido de ' + s.titulo + '</p>'
+          };
+        })
+      };
+      currentRepo = repo;
+      currentSemana = semana;
+
+      document.getElementById('semanaTitulo').value = currentData.titulo;
+      document.getElementById('semanaXpMax').value = currentData.xp_max;
+      renderSecciones(currentData);
+      renderPreview();
+      document.getElementById('editorMsg').textContent = '✅ Nueva semana creada. Edita y guarda.';
+      document.getElementById('editorMsg').className = 'msg ok';
+      document.getElementById('weekStatus').textContent = '📄 Nueva';
+      document.getElementById('weekStatus').className = 'tag new';
+      document.getElementById('btnDeleteSemana').style.display = 'none';
+    });
+
+    // Guardar
+    document.getElementById('btnSave').addEventListener('click', async function() {
+      if (!currentData) {
+        document.getElementById('editorMsg').textContent = '❌ No hay datos para guardar. Carga o crea una semana primero.';
+        document.getElementById('editorMsg').className = 'msg err';
+        return;
+      }
+      if (!getToken()) {
+        document.getElementById('editorMsg').textContent = '❌ Configura el token de GitHub primero.';
+        document.getElementById('editorMsg').className = 'msg err';
+        return;
+      }
+
+      // Update metadata from form
+      currentData.titulo = document.getElementById('semanaTitulo').value;
+      currentData.xp_max = parseInt(document.getElementById('semanaXpMax').value) || 100;
+
+      var btn = document.getElementById('btnSave');
+      var msg = document.getElementById('editorMsg');
+      btn.disabled = true;
+      msg.textContent = '⏳ Guardando...';
+      msg.className = 'msg';
+
+      try {
+        var repo = document.getElementById('selModulo').value;
+        var semana = parseInt(document.getElementById('selSemana').value);
+        await saveToGitHub(repo, semana, currentData);
+        msg.textContent = '✅ Guardado exitosamente en gh-pages (' + repo + '/semana' + semana + '/contenido.json)';
+        msg.className = 'msg ok';
+        currentRepo = repo;
+        currentSemana = semana;
+        document.getElementById('weekStatus').textContent = '✅ Existente';
+        document.getElementById('weekStatus').className = 'tag exists';
+        document.getElementById('btnDeleteSemana').style.display = 'inline-block';
+      } catch (e) {
+        msg.textContent = '❌ Error al guardar: ' + e.message;
+        msg.className = 'msg err';
+      }
+      btn.disabled = false;
+    });
+
+    // Parse AI
+    document.getElementById('btnParseAI').addEventListener('click', function() {
+      var input = document.getElementById('aiInput').value.trim();
+      var msg = document.getElementById('aiMsg');
+      if (!input) {
+        msg.textContent = '⚠️ Pega el contenido de Claude primero';
+        msg.className = 'msg err';
+        return;
+      }
+
+      try {
+        var parsed = parseAIContent(input);
+        if (parsed.secciones.length === 0) {
+          msg.textContent = '⚠️ No se encontraron secciones. Revisa el formato (## Título para cada sección)';
+          msg.className = 'msg err';
+          return;
+        }
+
+        currentData = {
+          semana: parseInt(document.getElementById('selSemana').value) || 1,
+          modulo: document.getElementById('selModulo').options[document.getElementById('selModulo').selectedIndex].getAttribute('data-prefix') || 'td',
+          titulo: parsed.titulo || 'Semana ' + document.getElementById('selSemana').value,
+          xp_max: parsed.xp_max || 100,
+          secciones: parsed.secciones
+        };
+
+        document.getElementById('semanaTitulo').value = currentData.titulo;
+        document.getElementById('semanaXpMax').value = currentData.xp_max;
+        renderSecciones(currentData);
+        renderPreview();
+
+        // Switch to editor tab
+        document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelector('[data-tab="editor"]').classList.add('active');
+        document.getElementById('tab-editor').classList.add('active');
+
+        msg.textContent = '✅ Parseadas ' + parsed.secciones.length + ' secciones. Revisa y guarda.';
+        msg.className = 'msg ok';
+      } catch (e) {
+        msg.textContent = '❌ Error al parsear: ' + e.message;
+        msg.className = 'msg err';
+      }
+    });
+
+    // ── Init ───────────────────────────────
+    function init() {
+      initSemanaSelector();
+
+      if (typeof TeacherAuth === 'undefined') {
+        document.getElementById('teacherLoginMsg').textContent = 'Error: teacher-auth.js no cargó';
+        document.getElementById('teacherLoginMsg').className = 'msg err';
+        return;
+      }
+
+      var session = TeacherAuth.getSession();
+      if (session && session.ok) {
+        document.getElementById('login').hidden = true;
+        document.getElementById('app').hidden = false;
+      }
+
+      TeacherAuth.bindLoginForm({
+        onSuccess: function() {
+          document.getElementById('login').hidden = true;
+          document.getElementById('app').hidden = false;
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>
