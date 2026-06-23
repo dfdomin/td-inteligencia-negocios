@@ -195,11 +195,41 @@
     document.getElementById('pt-toggle').textContent = w.classList.contains('collapsed') ? '▲' : '▼';
   }
 
-  function ptSyncCloud() {
-    document.getElementById('pt-msg').textContent = '✓ Progreso guardado localmente';
-    saveState();
-    setTimeout(() => { document.getElementById('pt-msg').textContent = ''; }, 2500);
+  async function ptSyncCloud() {
+    var msg = document.getElementById('pt-msg');
+    if (typeof GamifSDK !== "object" || !GamifSDK.sbUrl()) {
+      msg.textContent = '⚠️ Supabase no configurado'; return;
+    }
+    msg.textContent = '⏳ Sincronizando…';
+    try {
+      var cc = "";
+      try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); cc = g.cc || ""; } catch(e) {}
+      state.id_estudiante = cc; state.cc = cc;
+      saveState();
+      var result = await GamifSDK.syncWeekProgress(state, GamifSDK.getConfig(), 4);
+      if (result && result.ok) msg.textContent = '✅ Guardado en Supabase ☁️';
+      else msg.textContent = '❌ Error al guardar';
+    } catch(e) { msg.textContent = '❌ Sin conexión'; }
+    setTimeout(() => { if (msg) msg.textContent = ''; }, 2500);
   }
+
+  // PT wrapper for auto-sync
+  window.PT = {
+    state: function() {
+      var cc = ""; var nombre = "";
+      try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); cc = g.cc || ""; nombre = g.nombre || ""; } catch(e) {}
+      return { id_estudiante: cc, cc: cc, semana: 4, xp: state.xp, nombre: nombre };
+    },
+    save: function() { saveState(); renderPT(); },
+    addXP: function(pts, motivo) {
+      state.xp = Math.min(state.xp + pts, XP_MAX);
+      saveState(); renderPT();
+      var m = document.getElementById('pt-msg');
+      if (m) { m.textContent = "✨ +" + pts + " XP — " + motivo; setTimeout(function(){ m.textContent = ""; }, 3000); }
+    },
+    sync: ptSyncCloud, render: renderPT,
+    msg: function(txt, color) { var m = document.getElementById('pt-msg'); if (m) { m.textContent = txt; if (color) m.style.color = color; } }
+  };
 
   function ptExportCode() {
     const code = btoa(JSON.stringify(state));

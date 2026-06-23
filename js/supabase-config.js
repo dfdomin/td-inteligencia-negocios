@@ -1,5 +1,6 @@
 // ══════════════════════════════════════════════════════════════
-//  TD · Transformación Digital — Supabase compartido IUB (mismo que ADM18)
+//  TD · Mercado360 — Configuración Supabase (gamificación unificada)
+//  Mismo proyecto Supabase compartido entre módulos IUB.
 // ══════════════════════════════════════════════════════════════
 
 (function () {
@@ -30,20 +31,20 @@
   window.SUPABASE_KEY = SUPABASE_KEY;
   window.GAMIF_PREFIX = "td";
 
-
   window.IUB_DASHBOARD = {
     title: "TD",
     subtitle: NARRATIVE,
     totalWeeks: 14,
-    xpMaxPerWeek: 100,
+    xpMaxPerWeek: 50,
     hoursPerSession: 4,
     sessionsForAttendance: 13,
     maxAbsencePct: 0.2,
     formativeWeightPct: 40,
     evaluationWeightPct: 60,
-
-    availableWeeks: [1, 2, 3, 4, 5, 6, 7, 8],
-    weekUrl: function (n) { return "../semana" + n + "/index.html"; },
+    availableWeeks: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    weekUrl: function (n) {
+      return "../semana" + n + "/index.html";
+    },
   };
 
   console.info("[TD] Supabase gamificación ✅ →", SUPABASE_URL, "|", OFFERING_CODE);

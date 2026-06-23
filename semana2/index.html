@@ -768,16 +768,23 @@ function ptRefreshUI() {
   document.getElementById("xpBar").style.width = Math.min(100, (ptTotalXP / PT_XP_MAX) * 100) + "%";
 }
 
-function ptSyncCloud() {
+async function ptSyncCloud() {
   const msg = document.getElementById("pt-msg");
-  try {
-    const code = btoa(JSON.stringify({ xp: ptTotalXP, ts: Date.now() }));
-    localStorage.setItem(PT_LS_KEY + "_backup", code);
-    msg.textContent = "✅ Guardado local correctamente";
-    setTimeout(() => { msg.textContent = ""; }, 2500);
-  } catch(e) {
-    msg.textContent = "⚠️ No se pudo guardar";
+  if (typeof GamifSDK !== "object" || !GamifSDK.sbUrl()) {
+    msg.textContent = "⚠️ Supabase no configurado"; return;
   }
+  msg.textContent = "⏳ Sincronizando…";
+  try {
+    var cc = "";
+    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); cc = g.cc || ""; } catch(e) {}
+    var state = { id_estudiante: cc, cc: cc, xp: ptTotalXP, semana: 2 };
+    var result = await GamifSDK.syncWeekProgress(state, GamifSDK.getConfig(), 2);
+    if (result && result.ok) {
+      msg.textContent = "✅ Guardado en Supabase ☁️";
+      localStorage.setItem(PT_LS_KEY + "_backup", btoa(JSON.stringify({ xp: ptTotalXP, ts: Date.now() })));
+    } else msg.textContent = "❌ Error al guardar";
+    setTimeout(() => { msg.textContent = ""; }, 2500);
+  } catch(e) { msg.textContent = "❌ Sin conexión. Guardado local."; }
 }
 
 function ptExportCode() {
@@ -811,6 +818,26 @@ function ptImportCode() {
 window.onload = function() {
   ptTotalXP = ptSavedXP;
   ptRefreshUI();
+};
+
+// PT wrapper for auto-sync
+window.PT = {
+  state: function() {
+    var cc = ""; var nombre = "";
+    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); cc = g.cc || ""; nombre = g.nombre || ""; } catch(e) {}
+    return { id_estudiante: cc, cc: cc, semana: 2, xp: ptTotalXP, nombre: nombre };
+  },
+  save: function() { localStorage.setItem(PT_LS_KEY + "_xp", ptTotalXP); ptRefreshUI(); },
+  addXP: function(pts, motivo) {
+    ptTotalXP = Math.min(ptTotalXP + pts, PT_XP_MAX);
+    ptRefreshUI();
+    var m = document.getElementById("pt-msg");
+    if (m) { m.textContent = "✨ +" + pts + " XP — " + motivo; setTimeout(function(){ m.textContent = ""; }, 3000); }
+    this.save();
+  },
+  sync: ptSyncCloud,
+  render: ptRefreshUI,
+  msg: function(txt, color) { var m = document.getElementById("pt-msg"); if (m) { m.textContent = txt; if (color) m.style.color = color; } }
 };
 </script>
 
