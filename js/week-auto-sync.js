@@ -280,7 +280,7 @@
       if (!body) return;
       container = document.createElement("div");
       container.id = "pt-profile";
-      container.style.cssText = "padding:.3rem .5rem;border-top:1px solid #DEDFE4;margin-top:.3rem";
+      container.style.cssText = "padding:.3rem .5rem;border-top:1px solid rgba(255,255,255,.15);margin-top:.3rem;background:rgba(255,255,255,.08);border-radius:0 0 8px 8px;color:#fff";
       // Insertar justo DESPUÉS de la nota formativa (#pt-grade)
       var gradeEl = document.getElementById("pt-grade");
       if (gradeEl && gradeEl.parentNode) {
@@ -295,11 +295,18 @@
     if (!profile.cc || !profile.nombre) return;
     container.innerHTML = "";
     var el = makeIdenticon(profile.cc, profile.nombre, true);
-    if (el) container.appendChild(el);
+    if (el) {
+      // Override text color to white (PT widget has dark background)
+      var nameSpan = el.querySelector(".identicon-name");
+      if (nameSpan) nameSpan.style.color = "#fff";
+      var firmaSpan = el.querySelector(".identicon-firma");
+      if (firmaSpan) firmaSpan.style.color = "rgba(255,255,255,.5)";
+      container.appendChild(el);
+    }
     var code = window.getIdenticonCode ? window.getIdenticonCode(profile.cc) : "";
     if (code && container) {
       var codeSpan = document.createElement("span");
-      codeSpan.style.cssText = "display:inline-block;font-weight:800;font-family:monospace;background:#E9EAED;padding:.05rem .35rem;border-radius:4px;font-size:.72rem;color:#1E2843;margin-left:6px;vertical-align:middle";
+      codeSpan.style.cssText = "display:inline-block;font-weight:800;font-family:monospace;background:rgba(255,255,255,.15);padding:.05rem .35rem;border-radius:4px;font-size:.72rem;color:#fff;margin-left:6px;vertical-align:middle";
       codeSpan.textContent = code;
       codeSpan.title = "Código de verificación (comparte con tu docente para confirmar tu identidad)";
       container.appendChild(codeSpan);
