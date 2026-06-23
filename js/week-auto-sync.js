@@ -96,7 +96,7 @@
     var row = await GamifSDK.fetchWeekProgressFromCloud(null, sem, cc);
     if (row) {
       GamifSDK.applyCloudRowToState(pt.state(), row);
-      GamifSDK.clearLocalWeekProgress(null, sem);
+      saveStateLocal(pt.state(), sem);
       if (typeof pt.render === "function") pt.render();
     }
   }
@@ -117,15 +117,52 @@
     if (!st.grupo && GamifSDK.loadProfile().grupo) st.grupo = GamifSDK.loadProfile().grupo;
     var sem = getSemana() || st.semana;
     if (!sem) return { ok: false, reason: "no_semana" };
-    if (cloudMode()) GamifSDK.clearLocalWeekProgress(null, sem);
+
+    // ⚠️ Zero-guard: prevent overwriting cloud data with zeros on first load
+    // The modal's inline saveProfile() calls PT.sync() before hydrateFromCloud completes,
+    // which would wipe existing XP. Check cloud first if state is empty.
+    if (Number(st.xp || 0) === 0 && Object.keys(st.quiz_respuestas || {}).length === 0) {
+      var existing = await GamifSDK.fetchWeekProgressFromCloud(null, sem, cc);
+      if (existing && (Number(existing.xp) > 0 || Object.keys(existing.quiz_answers || {}).length > 0)) {
+        GamifSDK.applyCloudRowToState(st, existing);
+        saveStateLocal(st, sem);
+        if (typeof pt.render === "function") pt.render();
+        return { ok: true, note: "cloud-hydrated" };
+      }
+    }
+
+    saveStateLocal(st, sem);  // Save immediately so totalXP() has current data
     try {
       var result = await GamifSDK.syncWeekProgress(st, GamifSDK.getConfig(), sem);
-      if (result && result.ok && cloudMode()) GamifSDK.clearLocalWeekProgress(null, sem);
+      if (result && result.ok) saveStateLocal(st, sem);  // Re-save after confirmed sync
       return result;
     } catch (e) {
       console.warn("[IUB] cloud-progress:", e.message || e);
       return { ok: false, reason: e.message || "error" };
     }
+  }
+
+  /** Guarda el estado actual de PT en localStorage para que totalXP() y calcNotaSimple() tengan datos */
+  function saveStateLocal(st, sem) {
+    if (!st || !sem) return;
+    try {
+      var cfg = GamifSDK.getConfig();
+      var legacy = cfg.prefix + "_s" + sem;
+      var json = JSON.stringify({
+        semana: sem,
+        xp: Number(st.xp || 0),
+        quiz_respuestas: st.quiz_respuestas || {},
+        quiz_puntaje: Number(st.quiz_puntaje || st.quiz_score || 0),
+        nombre: st.nombre || "",
+        cc: st.cc || st.id_estudiante || "",
+        id_estudiante: st.id_estudiante || st.cc || "",
+        grupo: st.grupo || "",
+        horario: st.horario || "",
+        hti_entregado: !!(st.hti_entregado || st.hti_done),
+        activity_done: !!(st.actividad_completada || st.activity_done),
+      });
+      localStorage.setItem(legacy, json);
+    } catch (e) { /* ignore */ }
   }
 
   var debouncedPush = debounce(function () {

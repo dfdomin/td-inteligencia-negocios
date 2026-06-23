@@ -4,3 +4,4 @@ node_modules/
 *.log
 setup/backups/*
 !setup/backups/.gitkeep
+semana3/index.html.bak
