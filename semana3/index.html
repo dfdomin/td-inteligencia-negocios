@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 3 — Procesos, Automatización y Valor | TD04</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Semana 3 — Procesos, Automatización y Valor | TD04</title>
-  <style>
+  <style id="theme-style">
+    /* ── RESET & BASE ───────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --primary:   #1E2843;
@@ -20,1019 +21,623 @@
       --text:      #212121;
       --muted:     #546e7a;
       --border:    #DEDFE4;
+      --bloom1:    #e8f5e9;
+      --bloom2:    #fff9c4;
       --radius:    12px;
     }
-    body { font-family: 'Open Sans', Arial, sans-serif; background: var(--light-bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      background: var(--light-bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: #fff;
+      padding: 2rem 1.5rem 1.8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 40px;
+      background: var(--light-bg);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .badge-module {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 20px;
+      padding: .3rem 1rem;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    header h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); margin: .5rem 0; }
+    header .sub { font-size: .9rem; opacity: .85; margin-top: .3rem; }
 
-    header { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
-    header::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 40px; background: var(--light-bg); clip-path: ellipse(55% 100% at 50% 100%); }
-    .badge-module { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .3rem 1rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
-    header h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; }
-    header p  { font-size: 1rem; opacity: .85; margin-top: .5rem; }
-    .xp-bar-wrap { margin: 1.2rem auto 0; max-width: 400px; background: rgba(255,255,255,.2); border-radius: 20px; height: 14px; overflow: hidden; }
-    .xp-bar { height: 100%; width: 0%; background: var(--gold); border-radius: 20px; transition: width 1.5s ease; }
-    .xp-label { font-size: .78rem; opacity: .8; margin-top: .4rem; }
+    /* ── NAV ──────────────────────────────── */
+    nav.top-nav {
+      background: var(--primary);
+      display: flex;
+      justify-content: center;
+      gap: .2rem;
+      padding: .4rem 1rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 2px solid var(--accent);
+    }
+    nav.top-nav a {
+      color: rgba(255,255,255,.8);
+      text-decoration: none;
+      padding: .4rem .8rem;
+      border-radius: 10px;
+      font-size: .85rem;
+      font-weight: 600;
+      transition: background .15s;
+    }
+    nav.top-nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
 
-    nav { background: var(--card-bg); border-bottom: 2px solid var(--border); padding: .6rem 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-    nav a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 600; padding: .3rem .7rem; border-radius: 8px; transition: background .2s; }
-    nav a:hover { background: var(--border); }
+    /* ── LAYOUT ───────────────────────────── */
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
 
-    main { max-width: 960px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+    /* ── PT WIDGET (inyectado por JS) ─────── */
+    #pt-widget {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      border-radius: var(--radius);
+      margin: 1.2rem 0;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+    }
+    #pt-header {
+      padding: .7rem 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    #pt-body { padding: 0 1rem 1rem; }
+    #pt-xp-bar-wrap {
+      height: 8px;
+      background: rgba(255,255,255,.2);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: .5rem;
+    }
+    #pt-xp-bar {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 999px;
+      transition: width .3s;
+    }
+    #pt-xp-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .85rem;
+      margin-bottom: .5rem;
+    }
+    .pt-btn {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      padding: .5rem .8rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    .pt-btn:hover { background: rgba(255,255,255,.25); }
+    #pt-msg {
+      min-height: 1.3rem;
+      font-size: .8rem;
+      margin-top: .4rem;
+      text-align: center;
+      border-radius: 8px;
+      padding: .3rem .5rem;
+    }
+    #pt-advanced { display: none; margin-top: .4rem; }
+    #pt-toggle { transition: transform .2s; }
+    #pt-toggle.closed { transform: rotate(180deg); }
 
-    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
-    .card h2 { font-size: 1.3rem; color: var(--primary); border-left: 5px solid var(--gold); padding-left: .8rem; margin-bottom: 1.2rem; }
-    .card h3 { font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 .6rem; }
-    .card p  { margin-bottom: .8rem; }
-    .card ul, .card ol { padding-left: 1.4rem; margin-bottom: .8rem; }
-    .card li { margin-bottom: .4rem; }
+    /* ── CARDS (secciones de contenido) ───── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,.04);
+    }
+    .card h2 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .card h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin: 1.2rem 0 .6rem;
+    }
+    .card h3:first-child { margin-top: 0; }
+    .card p { margin-bottom: .8rem; }
+    .card ul, .card ol { margin: .5rem 0 .8rem 1.5rem; }
+    .card li { margin-bottom: .3rem; }
 
-    .bloom { display: inline-flex; align-items: center; gap: .4rem; background: #fff9c4; border: 1px solid #FFDF2D; border-radius: 20px; padding: .25rem .85rem; font-size: .8rem; font-weight: 700; color: #5d4037; margin-bottom: 1rem; }
+    /* ── UTILITY ──────────────────────────── */
+    .memo {
+      background: var(--bloom2);
+      border-left: 4px solid var(--gold);
+      padding: 1rem 1.2rem;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 1rem;
+    }
+    .bloom {
+      display: inline-block;
+      background: var(--bloom1);
+      padding: .3rem .7rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 700;
+      color: #1b5e20;
+      margin-bottom: .8rem;
+    }
+    .info-box {
+      display: flex;
+      gap: .8rem;
+      background: #e3f2fd;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .8rem 0;
+      font-size: .9rem;
+    }
+    .info-box .icon { font-size: 1.5rem; flex-shrink: 0; }
+    .key-questions {
+      background: #f3f0ff;
+      border: 1px solid #d0c8e8;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: .8rem 0;
+    }
+    .relevance-badge {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .15rem .5rem;
+      border-radius: 999px;
+      vertical-align: middle;
+    }
+    .relevance-badge.vig { background: #e8f5e9; color: #1b5e20; }
+    .relevance-badge.act { background: #fff3e0; color: #e65100; }
+    .relevance-badge.obs { background: #ffebee; color: #b71c1c; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: .9rem;
+    }
+    th { background: var(--primary); color: #fff; padding: .6rem .8rem; text-align: left; }
+    td { border-bottom: 1px solid var(--border); padding: .5rem .8rem; }
+    tr:nth-child(even) td { background: #f8f9fb; }
+    code {
+      background: #f0f0f0;
+      padding: .15rem .4rem;
+      border-radius: 4px;
+      font-size: .88em;
+    }
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 1rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: .85rem;
+      margin: .8rem 0;
+    }
+    strong { color: var(--primary); }
+    .card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: .8rem 0;
+      display: block;
+    }
+    figure {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    figure img { margin: 0 auto; }
+    figcaption {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-top: .3rem;
+      font-style: italic;
+    }
 
-    .memo { background: #fffde7; border-left: 5px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; font-style: italic; }
-    .memo strong { font-style: normal; display: block; margin-bottom: .4rem; color: var(--primary); }
+    /* ── FOOTER ───────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: .8rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
 
+    /* ── OVERLAY MODAL ────────────────────── */
+    #pt-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,.6);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(3px);
+    }
+    #pt-modal {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0,0,0,.3);
+    }
+    #pt-modal h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: .5rem; }
+    #pt-modal input {
+      width: 100%;
+      padding: .7rem .8rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      margin: .5rem 0;
+    }
+    #pt-modal input:focus { outline: none; border-color: var(--primary); }
+    #pt-modal button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: .7rem 1.2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+    }
+    #pt-modal button:hover { background: var(--accent); }
+    #pt-modal .msg { font-size: .9rem; margin: .5rem 0; }
+    #pt-step1, #pt-step2a, #pt-step2b { display: none; }
+    #pt-step1 { display: block; }
+
+    /* ── READING PROGRESS ─────────────────── */
+    .reading-table { width: 100%; font-size: .85rem; margin-top: 1rem; }
+    .reading-table th { font-size: .78rem; }
+    .reading-table .done { color: var(--green); font-weight: 700; }
+    .reading-table .pending { color: var(--muted); }
+
+    /* ── WEEK 3 CUSTOM ──────────────────── */
     .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 1rem; margin: 1rem 0; }
     .kpi-card { background: var(--light-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
     .kpi-card .kpi-icon { font-size: 1.8rem; }
     .kpi-card .kpi-name { font-size: .78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; margin: .4rem 0; }
     .kpi-card .kpi-val  { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
-
-    .info-box { border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: .8rem; align-items: flex-start; }
-    .info-box.tip   { background: #e8f5e9; border-left: 4px solid #43a047; }
-    .info-box.warn  { background: #fff8e1; border-left: 4px solid #e6c800; }
-    .info-box.brain { background: #f3e5f5; border-left: 4px solid #8e24aa; }
-    .info-box.cite  { background: #e3f2fd; border-left: 4px solid #1976d2; }
-    .info-box.hist  { background: #fce4ec; border-left: 4px solid #e91e63; }
-    .info-box .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
-    .info-box p     { margin: 0; font-size: .93rem; }
-
-    table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0; }
-    th { background: var(--primary); color: #fff; padding: .7rem 1rem; text-align: left; }
-    td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    tr:nth-child(even) td { background: var(--light-bg); }
-
-    .relevance-badge { display: inline-block; border-radius: 6px; padding: .15rem .55rem; font-size: .75rem; font-weight: 800; margin-left: .4rem; }
-    .vig  { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
-    .evo  { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
-    .hist-badge { background: #fce4ec; color: #880e4f; border: 1px solid #f48fb1; }
-
-    .activity { border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 1.2rem 0; }
     .activity-header { padding: .8rem 1.3rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1rem; }
     .activity-header.presencial { background: #E9EAED; color: var(--primary); }
-    .activity-header.hti-a      { background: #e8f5e9; color: var(--green); }
-    .activity-header.hti-b      { background: #fff8e1; color: #e65100; }
     .activity-body { padding: 1.2rem 1.5rem; }
     .activity-body ol, .activity-body ul { padding-left: 1.4rem; }
     .activity-body li { margin-bottom: .5rem; }
-
     .dojo-panel { background: linear-gradient(135deg, #1E2843 0%, #2d3a5e 100%); color: #fff; border-radius: var(--radius); padding: 1.5rem 2rem; margin: 1.5rem 0; }
     .dojo-panel h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.05rem; }
     .dojo-items { display: flex; flex-wrap: wrap; gap: .8rem; }
     .dojo-item { background: rgba(255,255,255,.12); border-radius: 8px; padding: .5rem 1rem; font-size: .85rem; display: flex; align-items: center; gap: .5rem; }
     .pts { color: var(--gold); font-weight: 800; font-size: 1.1rem; }
-
+    .flow-box { background: #fff3e0; border: 1px solid #ffe0b2; border-radius: var(--radius); padding: 1rem; margin: .8rem 0; }
+    .flow-step { display: flex; gap: .8rem; align-items: flex-start; }
+    .flow-num { background: #e65100; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .85rem; flex-shrink: 0; }
+    .flow-content { flex: 1; font-size: .88rem; }
+    .flow-content strong { display: block; }
+    .flow-arrow { text-align: center; font-size: 1.1rem; color: var(--muted); padding: .2rem 0; }
+    .flow-problem { font-size: .78rem; color: #e65100; font-weight: 700; margin-top: .2rem; }
     .rubric-table { font-size: .85rem; }
     .rubric-table th { background: var(--accent); font-size: .82rem; }
     .rubric-table td { vertical-align: middle; }
-    .rubric-table .weight { font-weight: 700; background: var(--gold); color: var(--primary); text-align: center; border-radius: 6px; padding: .2rem .5rem; display: inline-block; }
+    .weight { font-weight: 700; background: var(--gold); color: var(--primary); text-align: center; border-radius: 6px; padding: .2rem .5rem; display: inline-block; }
+    .bib { padding-left: 1.2rem; }
+    .bib li { margin-bottom: .5rem; font-size: .88rem; }
+    .info-box.tip { background: #fff8e1; }
+    .info-box.warn { background: #ffebee; }
+    .info-box.brain { background: #e3f2fd; }
+    .info-box.cite { background: #f3f0ff; }
 
-    .flow-box { background: var(--light-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin: 1rem 0; }
-    .flow-step { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: .8rem; }
-    .flow-num { background: var(--primary); color: #fff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .85rem; flex-shrink: 0; }
-    .flow-content { flex: 1; }
-    .flow-content strong { display: block; color: var(--primary); margin-bottom: .15rem; }
-    .flow-problem { color: var(--red); font-size: .85rem; font-weight: 600; }
-    .flow-arrow { text-align: center; color: var(--muted); font-size: 1.2rem; margin: .2rem 0 .2rem 40px; }
-
-    .bib { font-size: .88rem; line-height: 1.8; }
-    .bib li { margin-bottom: .6rem; padding-left: .5rem; }
-
-    footer { text-align: center; padding: 2rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
-
-    @media (max-width: 640px) {
-      header h1 { font-size: 1.4rem; }
-      .card { padding: 1.2rem; }
-      main { padding: 0 .8rem 3rem; }
-    }
   </style>
-
-  <style id="pt-css">
-  #pt-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: linear-gradient(135deg,#1E2843,#2d3a5e); color: #fff; border-radius: 16px; padding: 14px 18px; min-width: 240px; max-width: 280px; box-shadow: 0 8px 32px rgba(0,0,0,.35); font-family: 'Open Sans', Arial, sans-serif; font-size: .85rem; transition: transform .3s; }
-  #pt-widget.collapsed { transform: translateY(calc(100% - 42px)); }
-  #pt-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-  #pt-header strong { font-size: .92rem; }
-  #pt-toggle { background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; line-height: 1; }
-  #pt-body { margin-top: 10px; }
-  #pt-xp-bar-wrap { background: rgba(255,255,255,.2); border-radius: 20px; height: 10px; overflow: hidden; }
-  #pt-xp-bar { height: 100%; background: linear-gradient(90deg,#FFDF2D,#fff176); border-radius: 20px; transition: width .8s ease; }
-  #pt-xp-label { display: flex; justify-content: space-between; font-size: .75rem; opacity: .8; margin-top: 4px; }
-  #pt-btns { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
-  .pt-btn { flex: 1; padding: 5px 8px; border: none; border-radius: 8px; font-size: .75rem; font-weight: 700; cursor: pointer; transition: opacity .2s; }
-  .pt-btn:hover { opacity: .85; }
-  #pt-btn-save { background: #43a047; color: #fff; }
-  #pt-advanced { display: none; margin-top: 5px; }
-  #pt-msg { font-size: .72rem; margin-top: 6px; min-height: 16px; opacity: .85; text-align: center; }
-  </style>
-
-  <style id="modal-css">
-  #pt-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 10000; display: flex; align-items: center; justify-content: center; animation: fadeIn .3s ease; }
-  @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
-  #pt-modal-box { background: linear-gradient(160deg,#1E2843,#1E2843 70%,#2d3a5e); color: #fff; border-radius: 20px; padding: 2rem 2rem 1.5rem; width: min(94vw,420px); box-shadow: 0 20px 60px rgba(0,0,0,.5); animation: slideUp .35s cubic-bezier(.2,.8,.3,1); }
-  @keyframes slideUp { from { transform: translateY(30px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
-  #pt-modal-box h2 { font-size: 1.25rem; font-weight: 900; margin-bottom: .3rem; }
-  #pt-modal-box .sub { opacity: .75; font-size: .85rem; margin-bottom: 1.3rem; }
-  #pt-modal-box .field { margin-bottom: .9rem; }
-  #pt-modal-box label { display: block; font-size: .78rem; font-weight: 700; opacity: .85; margin-bottom: .3rem; text-transform: uppercase; letter-spacing: .05em; }
-  #pt-modal-box input { width: 100%; background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.35); border-radius: 10px; padding: .6rem .9rem; color: #fff; font-size: .95rem; outline: none; }
-  #pt-modal-box input::placeholder { color: rgba(255,255,255,.45); }
-  #pt-modal-box input:focus { border-color: rgba(249,168,37,.9); }
-  #pt-modal-btn { width: 100%; padding: .7rem; border: none; border-radius: 12px; background: linear-gradient(135deg,#FFDF2D,#FFDF2D); color: #1E2843; font-weight: 900; font-size: 1rem; cursor: pointer; margin-top: .4rem; transition: opacity .15s; }
-  #pt-modal-btn:hover { opacity: .9; }
-  #pt-modal-btn-search { padding: .65rem 1.2rem; border: none; border-radius: 10px; background: rgba(255,255,255,.18); color: #fff; font-weight: 700; font-size: .92rem; cursor: pointer; transition: background .15s; flex-shrink: 0; }
-  #pt-modal-btn-search:hover { background: rgba(255,255,255,.28); }
-  #pt-modal-error, #pt-modal-error2, #pt-modal-error3 { color: #ff8a80; font-size: .8rem; margin-top: .5rem; min-height: 1em; }
-  #pt-modal-xp { text-align: center; font-size: .78rem; opacity: .7; margin-top: .7rem; }
-  .pt-found-card { background: rgba(255,255,255,.1); border: 1.5px solid rgba(249,168,37,.6); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: .9rem; }
-  .pt-found-card .pt-fc-name { font-size: 1rem; font-weight: 800; margin-bottom: .25rem; }
-  .pt-found-card .pt-fc-meta { font-size: .8rem; opacity: .8; line-height: 1.6; }
-  .pt-step { transition: opacity .2s; }
-  .pt-link-btn { background: none; border: none; color: rgba(255,255,255,.6); font-size: .8rem; cursor: pointer; text-decoration: underline; padding: .3rem 0 0; display: block; text-align: center; width: 100%; }
-  .pt-link-btn:hover { color: #fff; }
-  </style>
-
+  <!-- SCRIPTS -->
   <script src="../js/supabase-config.js"></script>
-  <script src="../js/academic-rules.js"></script>
-  <script src="../js/academic-status-bar.js"></script>
   <script src="../js/gamification-sdk.js"></script>
-  <script src="../js/celebration.js"></script>
+  <script src="../js/student-identicon.js"></script>
   <script src="../js/week-auto-sync.js"></script>
   <script src="../js/reading-tracker.js"></script>
   <script src="../js/reading-xp-policy.js"></script>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="badge-module">TD04 · Transformación Digital en la Empresa · Semana 3 de 13</div>
-  <h1>⚙️ Procesos, Automatización y Valor</h1>
-  <p>Mercado360 · AS-IS / TO-BE · Regla de Oro: primero mejorar, luego automatizar</p>
-  <div class="xp-bar-wrap"><div class="xp-bar" id="xpBar"></div></div>
-  <p class="xp-label">XP de sesión: <span id="xpCount">0</span> / 65 pts</p>
-</header>
+  <!-- ══ HEADER ══ -->
+  <header>
+    <div class="badge-module" id="headerBadge">TD04 · Mercado360</div>
+    <h1 id="headerTitle">Procesos, Automatización y Valor</h1>
+    <p class="sub" id="headerSub">Semana 3 · AS-IS / TO-BE · Regla de Oro: primero mejorar, luego automatizar</p>
+  </header>
 
-<!-- NAV -->
-<nav>
-  <a href="#mision">🎯 Misión</a>
-  <a href="#teoria">📚 Teoría</a>
-  <a href="#actividad">⚙️ Actividad</a>
-  <a href="#evidencia">📋 Evidencia</a>
-  <a href="#bib">📖 Fuentes</a>
-</nav>
+  <!-- ══ NAV ══ -->
+  <nav class="top-nav" id="topNav"></nav>
 
-<main>
+  <div class="wrap">
 
-<!-- PROGRESS TRACKER WIDGET -->
-<div id="pt-widget">
-  <div id="pt-header" onclick="ptToggle()">
-    <strong>📊 Mi Progreso TD04</strong>
-    <button id="pt-toggle">▲</button>
-  </div>
-  <div id="pt-body">
-    <div id="pt-xp-bar-wrap"><div id="pt-xp-bar" style="width:0%"></div></div>
-    <div id="pt-xp-label"><span id="pt-semana-label">Semana 3</span><span id="pt-xp-count">0 XP</span></div>
-    <div id="pt-btns">
-      <button class="pt-btn" id="pt-btn-save" onclick="ptSyncCloud()" style="flex:1">☁️ Guardar</button>
-      <button class="pt-btn" onclick="(function(){var a=document.getElementById('pt-advanced');a.style.display=a.style.display==='block'?'none':'block'})()" style="width:32px;flex-shrink:0;padding:0;font-size:.8rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)">⚙️</button>
-    </div>
-    <div id="pt-advanced">
-      <button class="pt-btn" onclick="ptExportCode()" style="width:100%;margin-bottom:3px;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📋 Exportar respaldo</button>
-      <button class="pt-btn" onclick="ptImportCode()" style="width:100%;font-size:.72rem;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)">📥 Cargar desde código</button>
-    </div>
-    <div id="pt-msg"></div>
-  </div>
-</div>
-
-<!-- ══ MISIÓN / MEMORANDO ══ -->
-<section id="mision" class="card">
-  <h2>📋 El Memorando — Tu Misión de Esta Semana</h2>
-  <div class="memo">
-    <strong>Para: Consultores Junior de Transformación — Equipo TD04<br>
-    De: Gerencia General, Mercado360<br>
-    Asunto: El problema del pedido por WhatsApp que nos está costando ventas</strong>
-
-    Mercado360 recibe aproximadamente <strong>120 consultas semanales</strong> por WhatsApp sobre
-    disponibilidad de productos. El proceso actual funciona así: el cliente escribe, el vendedor
-    responde "creo que hay", el cliente va a la tienda, y a veces no hay producto. La tasa de
-    conversión está en el <strong>60%</strong> y el gerente estima que perdemos el <strong>40%</strong>
-    de esas consultas por información inexacta o respuesta lenta.<br><br>
-    Tu trabajo como Consultor Junior es mapear el proceso actual (AS-IS), identificar los puntos
-    de fricción, y diseñar el proceso mejorado (TO-BE). La regla de oro: <strong>primero mejora,
-    luego automatiza</strong>. No vamos a automatizar un proceso que tiene errores de diseño.
-  </div>
-
-  <div class="bloom">🧠 Nivel Bloom: Recordar → Aplicar</div>
-
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-icon">💬</div>
-      <div class="kpi-name">Consultas Semanales</div>
-      <div class="kpi-val">120</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon">📉</div>
-      <div class="kpi-name">Tasa Conversión Actual</div>
-      <div class="kpi-val">60%</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon">❌</div>
-      <div class="kpi-name">Ventas Perdidas Est.</div>
-      <div class="kpi-val">48</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon">💰</div>
-      <div class="kpi-name">Costo Venta Perdida</div>
-      <div class="kpi-val">$137K</div>
-    </div>
-  </div>
-  <p style="font-size:.85rem;color:var(--muted)">
-    <em>El ticket promedio de Mercado360 es $137.000 COP. Cada consulta que no se convierte
-    en venta tiene un costo real para el negocio.</em>
-  </p>
-</section>
-
-<!-- ══ TEORÍA ══ -->
-<section id="teoria" class="card">
-  <h2>📚 Marco Teórico</h2>
-
-  <h3>1. ¿Qué es un Proceso Empresarial? <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
-  <p>
-    Un <strong>proceso empresarial</strong> es una secuencia de actividades que transforma
-    insumos (inputs) en resultados (outputs), generando valor para el cliente interno o externo.
-    Es lo que pasa "cuando alguien pide algo" en la empresa. Si ese flujo tiene pasos claros,
-    se puede medir y mejorar. Si no lo tiene, es caos.
-  </p>
-  <div class="info-box tip">
-    <span class="icon">💡</span>
-    <p><strong>Analogía del restaurante:</strong> Pedir comida es un proceso. Input: tu hambre y preferencias. Output: la comida en tu mesa. Entre medio hay pasos (menú, orden, cocina, entrega). Si el mesero anota mal la orden → reproceso. Si la cocina está lenta → espera. Cada paso tiene un costo.</p>
-  </div>
-
-  <p><strong>Características de un buen proceso:</strong></p>
-  <ul>
-    <li>Tiene un <strong>inicio</strong> y un <strong>fin</strong> claros.</li>
-    <li>Genera un <strong>resultado medible</strong>.</li>
-    <li>Tiene un <strong>dueño</strong> (responsable del proceso).</li>
-    <li>Es <strong>repetible</strong> (no es único).</li>
-    <li>Se puede <strong>documentar, medir y mejorar</strong>.</li>
-  </ul>
-  <p style="font-size:.85rem;color:var(--muted)"><em>Fuente: Hammer & Champy (1993), Reengineering the Corporation.</em></p>
-
-  <h3>2. Mapeo AS-IS vs. TO-BE <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
-  <p>
-    Antes de proponer soluciones, hay que entender cómo funciona el proceso <em>hoy</em>.
-    Estas dos perspectivas lo permiten:
-  </p>
-  <table>
-    <thead><tr><th>Perspectiva</th><th>Descripción</th><th>Pregunta clave</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>AS-IS</strong><br><em>(como es hoy)</em></td>
-        <td>Descripción del proceso actual, paso a paso, sin juicios. Es la "fotografía" de la realidad.</td>
-        <td>¿Qué pasos existen hoy? ¿Dónde se pierde información, dónde hay esperas y errores?</td>
-      </tr>
-      <tr>
-        <td><strong>TO-BE</strong><br><em>(como debería ser)</em></td>
-        <td>Descripción del proceso mejorado. Muestra cómo se resuelven los problemas identificados.</td>
-        <td>¿Qué cambios eliminan los dolores? ¿Qué tecnología los habilita?</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="info-box warn">
-    <span class="icon">⚠️</span>
-    <p><strong>Regla de oro de esta semana:</strong> <em>Primero mejora el proceso, luego automatízalo.</em> Si automatizas un proceso con errores de diseño, obtienes un proceso malo automatizado. Mejoras antes de automatizar.</p>
-  </div>
-
-  <h3>2.1 Notación mínima para mapear procesos</h3>
-  <p>
-    No necesitas ser experto en BPMN para esta asignatura, pero sí debes evitar diagramas ambiguos.
-    Usa una notación simple y consistente para que otra persona pueda entender el flujo sin que tú
-    estés explicándolo.
-  </p>
-  <table>
-    <thead><tr><th>Símbolo simple</th><th>Uso</th><th>Ejemplo Mercado360</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Inicio / fin</strong></td><td>Marca dónde empieza y termina el proceso.</td><td>Cliente escribe por WhatsApp / Cliente compra o abandona.</td></tr>
-      <tr><td><strong>Actividad</strong></td><td>Acción realizada por una persona o sistema.</td><td>Vendedor revisa inventario.</td></tr>
-      <tr><td><strong>Decisión</strong></td><td>Punto con caminos alternativos.</td><td>¿Hay producto disponible?</td></tr>
-      <tr><td><strong>Dato</strong></td><td>Información necesaria para continuar.</td><td>Stock actualizado por referencia.</td></tr>
-      <tr><td><strong>Responsable</strong></td><td>Quién ejecuta o responde por el paso.</td><td>Vendedor, bodeguero, gerente.</td></tr>
-    </tbody>
-  </table>
-
-  <div class="info-box cite">
-    <span class="icon">🏛️</span>
-    <p><strong>Base científica:</strong> La literatura de Business Process Management destaca que modelar, ejecutar, monitorear y mejorar procesos es una capacidad organizacional, no solo una técnica de dibujo. Ver:
-      <a href="https://doi.org/10.1007/978-3-662-59432-2" target="_blank" rel="noopener">Dumas et al., Fundamentals of Business Process Management</a>.
-    </p>
-  </div>
-
-  <h3>3. Tipos de Dolor en un Proceso</h3>
-  <p>Cada paso del proceso puede tener uno o más tipos de fricción:</p>
-  <table>
-    <thead><tr><th>Tipo de dolor</th><th>Descripción</th><th>Pregunta para identificarlo</th></tr></thead>
-    <tbody>
-      <tr><td><strong>🔄 Pasos manuales</strong></td><td>Alguien transcribe información de un medio a otro manualmente.</td><td>¿Este paso lo hace una persona o una máquina?</td></tr>
-      <tr><td><strong>⏳ Esperas</strong></td><td>El proceso se detiene esperando que alguien haga algo.</td><td>¿Dónde se acumula el tiempo sin generar valor?</td></tr>
-      <tr><td><strong>🔁 Reprocesos</strong></td><td>Hay que hacer algo de nuevo porque se perdió o cometió un error.</td><td>¿Qué paso requiere rehacerse?</td></tr>
-      <tr><td><strong>🧠 Decisiones manuales en alto volumen</strong></td><td>Alguien decide en un paso que podría ser automático.</td><td>¿Este juicio puede codificarse?</td></tr>
-      <tr><td><strong>📉 Falta de información</strong></td><td>Quien hace el siguiente paso no tiene los datos que necesita.</td><td>¿Qué información le falta a quien continúa el proceso?</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Ejemplo guiado: cómo escribir la Sección B del Parcial 1</h3>
-  <p>
-    Un dolor bien escrito no es solo una queja. Debe incluir descripción, causa raíz, impacto
-    y evidencia. En el parcial necesitarás 3 dolores de cliente, 3 de proceso y 3 de gerencia.
-    Este ejemplo usa Mercado360 como entrenamiento.
-  </p>
-  <table>
-    <thead><tr><th>Categoría</th><th>Dolor</th><th>Causa raíz</th><th>Impacto</th><th>Evidencia del caso</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Cliente</strong></td><td>No puede confirmar disponibilidad antes de ir a la tienda.</td><td>Inventario no centralizado ni consultable.</td><td>Viajes perdidos, frustración y abandono.</td><td>Inventario en cuaderno y memoria del vendedor.</td></tr>
-      <tr><td><strong>Cliente</strong></td><td>Recibe respuestas tardías por WhatsApp.</td><td>El vendedor atiende chat y tienda al mismo tiempo.</td><td>El cliente compara y compra en otro lugar.</td><td>Pedidos por WhatsApp sin sistema de turnos o seguimiento.</td></tr>
-      <tr><td><strong>Cliente</strong></td><td>No hay seguimiento después de una experiencia fallida.</td><td>No existe historial de clientes ni registro de quejas.</td><td>Pérdida de recompra y confianza.</td><td>Datos de clientes en celulares personales.</td></tr>
-      <tr><td><strong>Proceso</strong></td><td>Pedidos se confunden o se pierden.</td><td>No hay trazabilidad del pedido desde consulta hasta entrega.</td><td>Reprocesos y errores de cumplimiento.</td><td>Mensajes dispersos en WhatsApp e Instagram.</td></tr>
-      <tr><td><strong>Proceso</strong></td><td>Reposición de inventario depende de memoria.</td><td>No hay mínimos, alertas ni registro de rotación.</td><td>Quiebres de stock y compra de producto equivocado.</td><td>Decisiones de compra por intuición del dueño.</td></tr>
-      <tr><td><strong>Proceso</strong></td><td>Promociones no se pueden evaluar.</td><td>No se mide conversión ni canal de origen.</td><td>Se invierte tiempo y dinero sin saber retorno.</td><td>Promociones lanzadas sin medición.</td></tr>
-      <tr><td><strong>Gerencia</strong></td><td>No sabe qué productos generan más margen o rotación.</td><td>Datos de ventas no consolidados.</td><td>Decisiones comerciales imprecisas.</td><td>Reportes tardíos o inexistentes.</td></tr>
-      <tr><td><strong>Gerencia</strong></td><td>No puede priorizar inversiones digitales.</td><td>No hay indicadores de dolor, valor ni esfuerzo.</td><td>Riesgo de comprar tecnología innecesaria.</td><td>No existe ruta digital definida.</td></tr>
-      <tr><td><strong>Gerencia</strong></td><td>Depende de información que está en personas o celulares.</td><td>Sin política de datos ni repositorio compartido.</td><td>Pérdida de conocimiento si alguien sale.</td><td>Clientes registrados en celulares personales.</td></tr>
-    </tbody>
-  </table>
-  <div class="info-box warn">
-    <span class="icon">⚠️</span>
-    <p><strong>Error a evitar:</strong> "mal servicio" no es un dolor suficiente. Debes decir qué ocurre, por qué ocurre, qué impacto tiene y en qué parte del caso se observa.</p>
-  </div>
-
-  <h3>4. Tipos de Automatización <span class="relevance-badge vig">🟢 VIGENTE</span></h3>
-  <p>No toda automatización es igual. El tipo correcto depende del dolor que se quiere resolver:</p>
-  <table>
-    <thead><tr><th>Tipo</th><th>Descripción</th><th>Ejemplo en Mercado360</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>RPA — Robotic Process Automation</strong></td>
-        <td>Robot que ejecuta tareas repetitivas que antes hacía una persona.</td>
-        <td>Bot que consulta inventario cuando el cliente pregunta por WhatsApp.</td>
-      </tr>
-      <tr>
-        <td><strong>Automatización de flujo</strong></td>
-        <td>Conectar sistemas para que la información fluya sin intervención manual.</td>
-        <td>Inventario que se actualiza solo cuando llega producto al almacén.</td>
-      </tr>
-      <tr>
-        <td><strong>Automatización de decisión</strong></td>
-        <td>El sistema toma decisiones simples sin intervención humana.</td>
-        <td>Descuentos automáticos por lealtad del cliente.</td>
-      </tr>
-      <tr>
-        <td><strong>Automatización de comunicación</strong></td>
-        <td>Notificaciones automáticas por canal (WhatsApp, email, SMS).</td>
-        <td>Recordatorio de carrito abandonado por WhatsApp.</td>
-      </tr>
-    </tbody>
-  </table>
-  <p style="font-size:.85rem;color:var(--muted)"><em>Fuente: Dumas et al. (2018), Fundamentals of Business Process Management. Springer.</em></p>
-
-  <h3>5. Caso Mercado360 — Proceso AS-IS (Pedido por WhatsApp)</h3>
-  <p>Este es el proceso actual de un cliente que ve un producto en Instagram y consulta por WhatsApp:</p>
-
-  <div class="flow-box">
-    <div class="flow-step">
-      <div class="flow-num">1</div>
-      <div class="flow-content">
-        <strong>Cliente escribe por WhatsApp</strong>
-        <span style="color:var(--muted);font-size:.85rem">Pregunta por producto, talla y cantidad</span>
+    <!-- ══ PT WIDGET ══ -->
+    <div id="pt-widget">
+      <div id="pt-header" onclick="ptToggle()">
+        <strong>📊 Mi Progreso TD04</strong>
+        <button id="pt-toggle">▲</button>
       </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num">2</div>
-      <div class="flow-content">
-        <strong>Vendedor recibe el mensaje</strong>
-        <span style="color:var(--muted);font-size:.85rem">Puede estar atendiendo en tienda o no estar disponible</span>
-        <div class="flow-problem">⏳ Espera — respuesta tardía</div>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num">3</div>
-      <div class="flow-content">
-        <strong>Vendedor busca disponibilidad</strong>
-        <span style="color:var(--muted);font-size:.85rem">En su memoria o en un cuaderno</span>
-        <div class="flow-problem">📉 Dato — información incompleta o imprecisa</div>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num">4</div>
-      <div class="flow-content">
-        <strong>Vendedor responde "sí hay" o "no hay"</strong>
-        <span style="color:var(--muted);font-size:.85rem">Si lo recuerda correctamente</span>
-        <div class="flow-problem">📉 Dato — sin confirmación de inventario real</div>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num">5</div>
-      <div class="flow-content">
-        <strong>Cliente decide ir a la tienda</strong>
-        <span style="color:var(--muted);font-size:.85rem">Confirma intención de compra</span>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num">6</div>
-      <div class="flow-content">
-        <strong>Cliente llega a la tienda y pregunta por el producto</strong>
-        <span style="color:var(--muted);font-size:.85rem">Vendedor busca en inventario</span>
-        <div class="flow-problem">🔁 Reproceso — a veces no está porque el cuaderno no está actualizado</div>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num">7</div>
-      <div class="flow-content">
-        <strong>Cliente se va sin comprar</strong>
-        <span style="color:var(--muted);font-size:.85rem">O llama a otro vendedor. O compra en la competencia.</span>
-        <div class="flow-problem">💸 Costo: ~$137K por venta perdida × 40% de las consultas</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-box warn">
-    <span class="icon">📊</span>
-    <p><strong>Impacto estimado:</strong><br>
-    • Tiempo del vendedor: <strong>15-20 min por consulta</strong> (entre esperar, buscar, responder).<br>
-    • Tasa de conversión actual: <strong>60%</strong> (48 de 120 consultas no convierten).<br>
-    • Costo por venta perdida: <strong>$137.000 COP</strong> × 48 = <strong>$6.576.000 COP/semana</strong> en potencial perdido.</p>
-  </div>
-
-  <h3>6. Caso Mercado360 — Proceso TO-BE (Mejorado)</h3>
-  <p>Ahora, el mismo proceso después de mejorar y luego automatizar:</p>
-
-  <div class="flow-box" style="background:#e8f5e9;">
-    <div class="flow-step">
-      <div class="flow-num" style="background:#43a047;">1</div>
-      <div class="flow-content">
-        <strong>Cliente escribe por WhatsApp preguntando por producto</strong>
-        <span style="color:var(--muted);font-size:.85rem">Mismo inicio, mismo canal</span>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num" style="background:#43a047;">2</div>
-      <div class="flow-content">
-        <strong>Bot automático recibe el mensaje, consulta inventario en tiempo real</strong>
-        <span style="color:var(--muted);font-size:.85rem">Sin intervención del vendedor</span>
-        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Automatización de comunicación + consulta de datos</div>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num" style="background:#43a047;">3</div>
-      <div class="flow-content">
-        <strong>Bot responde con disponibilidad real (SKU (referencia de producto / Stock Keeping Unit), talla, cantidad)</strong>
-        <span style="color:var(--muted);font-size:.85rem">Información precisa, instantánea</span>
-        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Elimina espera y dato incompleto</div>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num" style="background:#43a047;">4</div>
-      <div class="flow-content">
-        <strong>Si hay disponibilidad, bot ofrece apartar por 2 horas (reserva automática)</strong>
-        <span style="color:var(--muted);font-size:.85rem">Reduce incertidumbre del cliente</span>
-        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Automatización de decisión: apartar = decisión simple</div>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num" style="background:#43a047;">5</div>
-      <div class="flow-content">
-        <strong>Cliente confirma apartar</strong>
-        <span style="color:var(--muted);font-size:.85rem">Un click en WhatsApp</span>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num" style="background:#43a047;">6</div>
-      <div class="flow-content">
-        <strong>Sistema reserva el producto, notifica al vendedor</strong>
-        <span style="color:var(--muted);font-size:.85rem">Inventario actualizado en tiempo real</span>
-        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Automatización de flujo: inventario ↔ reserva</div>
-      </div>
-    </div>
-    <div class="flow-arrow">↓</div>
-    <div class="flow-step">
-      <div class="flow-num" style="background:#43a047;">7</div>
-      <div class="flow-content">
-        <strong>Cliente llega a la tienda, pide el producto, confirma que se lo tienen</strong>
-        <span style="color:var(--muted);font-size:.85rem">Proceso de entrega sin fricción</span>
-        <div style="font-size:.8rem;color:var(--green);font-weight:600;">✅ Conversión esperada: 60% → 80%</div>
-      </div>
-    </div>
-  </div>
-
-  <table>
-    <thead><tr><th>Métrica</th><th>AS-IS</th><th>TO-BE</th><th>Mejora</th></tr></thead>
-    <tbody>
-      <tr><td>Tiempo de respuesta</td><td>15-20 min</td><td>2 min</td><td>↓ 85%</td></tr>
-      <tr><td>Tasa de conversión</td><td>60%</td><td>80%</td><td>↑ 33%</td></tr>
-      <tr><td>Reserva cumplida</td><td>N/A</td><td>90%</td><td>Nuevo</td></tr>
-      <tr><td>Ventas perdidas/semana</td><td>48</td><td>~24</td><td>↓ 50%</td></tr>
-    </tbody>
-  </table>
-
-  <div class="info-box brain">
-    <span class="icon">🧠</span>
-    <p><strong>Reflexión clave:</strong> El paso 2 del TO-BE (bot consulta inventario) solo funciona
-    si el inventario está actualizado. Por eso primero se mejora el proceso de actualización de
-    inventario (que alguien lo haga cada vez que llega producto) y luego se automatiza la consulta.
-    Si automatizas sin ese paso previo, el bot responderá rápido pero con datos incorrectos.</p>
-  </div>
-
-  <h3>7. Mejorar vs. Automatizar — No es lo mismo</h3>
-  <table>
-    <thead><tr><th></th><th>Mejorar un proceso</th><th>Automatizar un proceso</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>Qué hace</strong></td>
-        <td>Cambia el flujo para eliminar pasos innecesarios, reducir esperas, eliminar errores.</td>
-        <td>Usa tecnología para ejecutar pasos que antes hacían personas.</td>
-      </tr>
-      <tr>
-        <td><strong>Cuándo</strong></td>
-        <td>Siempre primero. Antes de automatizar.</td>
-        <td>Después de mejorar. Cuando el proceso esté depurado.</td>
-      </tr>
-      <tr>
-        <td><strong>Ejemplo en Mercado360</strong></td>
-        <td>Eliminar el paso de "buscar en la memoria del vendedor" → el bot consulta el sistema.</td>
-        <td>El bot de WhatsApp responde automáticamente con disponibilidad real.</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ══ ACTIVIDAD PRESENCIAL ══ -->
-<section id="actividad" class="card">
-  <h2>⚙️ Actividad Presencial — Taller AS-IS / TO-BE</h2>
-
-  <div class="dojo-panel">
-    <h3>🏆 Puntos disponibles esta sesión</h3>
-    <div class="dojo-items">
-      <div class="dojo-item">📋 <span>Asistencia</span> <span class="pts">+10 XP</span></div>
-      <div class="dojo-item">🎯 <span>Participación en role-play</span> <span class="pts">+10 XP</span></div>
-      <div class="dojo-item">📝 <span>Mapa AS-IS/TO-BE en equipo</span> <span class="pts">+25 XP</span></div>
-      <div class="dojo-item">🎤 <span>Presentación rápida</span> <span class="pts">+10 XP</span></div>
-    </div>
-  </div>
-
-  <div class="activity">
-    <div class="activity-header presencial">⏱️ Bloque 1 — Concepto · <em style="font-weight:400;margin-left:.3rem">Bloom: Recordar → Comprender · 20 min</em></div>
-    <div class="activity-body">
-      <p><strong>Pregunta de apertura:</strong> "¿Cuántos pasos tiene un pedido de Mercado360 hoy desde que el cliente escribe hasta que recibe el producto?"</p>
-      <p style="margin-top:.8rem">El docente te guía paso a paso por el proceso AS-IS del pedido por WhatsApp. Se actuará el proceso en vivo: un estudiante será el cliente, otro el vendedor. El grupo identificará los pasos y los problemas en cada uno.</p>
-    </div>
-  </div>
-
-  <div class="activity">
-    <div class="activity-header presencial">⏱️ Bloque 2 — Taller AS-IS / TO-BE · <em style="font-weight:400;margin-left:.3rem">Bloom: Aplicar · 45 min</em></div>
-    <div class="activity-body">
-      <p><strong>🎯 Tu misión en equipo:</strong></p>
-      <ol>
-        <li><strong>Elige un proceso</strong> de Mercado360 para mapear (recomendado: pedido por WhatsApp).</li>
-        <li><strong>Mapea el proceso AS-IS</strong> con:
-          <ul>
-            <li>Pasos del proceso (inicio a fin).</li>
-            <li>Responsable de cada paso.</li>
-            <li>Tiempo estimado por paso.</li>
-            <li>Problemas identificados (tipo de dolor) en cada paso.</li>
-          </ul>
-        </li>
-        <li><strong>Diseño el proceso TO-BE</strong> con:
-          <ul>
-            <li>Cambios propuestos por paso (¿qué se elimina, qué se mejora?).</li>
-            <li>Tecnología habilitadora (nombre general: chatbot, base de datos, etc.).</li>
-            <li>Métricas esperadas (ej: tiempo de respuesta, tasa de conversión).</li>
-          </ul>
-        </li>
-        <li><strong>Identifica el paso con mayor oportunidad de automatización</strong> y justifica por qué.</li>
-      </ol>
-      <p style="margin-top:.8rem"><strong>Formato del entregable:</strong> Tabla AS-IS → TO-BE con 5+ pasos. Puede ser en tabular, bullet numerado con flechas, o flujograma simple. Lo importante es la justificación de cada cambio.</p>
-
-      <div class="info-box tip">
-        <span class="icon">💡</span>
-        <p><strong>Tip:</strong> No propongas tecnología antes de haber identificado los puntos de fricción.
-        Pregúntate primero: "¿Se puede resolver este dolor sin tecnología?" Si la respuesta es sí,
-        mejora primero. Si no, entonces sí: ¿qué tecnología lo resuelve?</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="activity">
-    <div class="activity-header presencial">⏱️ Bloque 3 — Cierre · <em style="font-weight:400;margin-left:.3rem">5 min</em></div>
-    <div class="activity-body">
-      <p>Pregunta de cierre: "¿Cuál de las mejoras propuestas en el TO-BE requiere tecnología y cuál no?"</p>
-      <p style="margin-top:.5rem;font-size:.9rem;color:var(--muted)"><em>Esto prepara el terreno para la Semana 4: Tecnologías Habilitadoras.</em></p>
-    </div>
-  </div>
-</section>
-
-<!-- ══ EVIDENCIA ══ -->
-<section id="evidencia" class="card">
-  <h2>📋 Evidencia de la Semana</h2>
-
-  <div class="info-box warn">
-    <span class="icon">📌</span>
-    <p><strong>Esta evidencia es individual.</strong> El mapa AS-IS / TO-BE se construye en equipo,
-    pero la entrega es personal. Tu documento debe reflejar tu análisis propio.</p>
-  </div>
-
-  <h3>Descripción de la evidencia</h3>
-  <p><strong>Mapa AS-IS / TO-BE del proceso de pedido de Mercado360</strong> — documento individual.</p>
-
-  <h3>Debe incluir:</h3>
-  <ol>
-    <li>Descripción del proceso <strong>AS-IS</strong> con al menos <strong>5 pasos</strong> (responsable, tiempo estimado, problemas identificados).</li>
-    <li>Identificación de al menos <strong>3 puntos de fricción</strong> con causa raíz y costo estimado por paso.</li>
-    <li>Descripción del proceso <strong>TO-BE</strong> con cambios propuestos (¿qué se elimina, qué se mejora?).</li>
-    <li>Para cada cambio: <strong>qué problema resuelve</strong> y <strong>qué tecnología lo habilita</strong>.</li>
-    <li>Identificación de la <strong>automatización de mayor impacto</strong> con justificación.</li>
-  </ol>
-
-  <p><strong>Extensión máxima:</strong> 5 páginas.</p>
-
-  <h3>Rúbrica de evaluación</h3>
-  <table class="rubric-table">
-    <thead>
-      <tr>
-        <th>Criterio</th>
-        <th>Peso</th>
-        <th>Destacado</th>
-        <th>Satisfactorio</th>
-        <th>En desarrollo</th>
-        <th>Insuficiente</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Proceso AS-IS completo</strong></td>
-        <td><span class="weight">25%</span></td>
-        <td>5+ pasos con responsable, tiempo y problemas identificados. Cada problema tiene causa raíz.</td>
-        <td>5+ pasos pero algunos sin problemas identificados.</td>
-        <td>Menos de 5 pasos o sin estructura clara.</td>
-        <td>No entrega AS-IS.</td>
-      </tr>
-      <tr>
-        <td><strong>Puntos de fricción</strong></td>
-        <td><span class="weight">20%</span></td>
-        <td>3+ dolores con causa raíz y costo estimado por paso.</td>
-        <td>3 dolores pero sin costo estimado.</td>
-        <td>1-2 dolores sin causa raíz.</td>
-        <td>No identifica dolores.</td>
-      </tr>
-      <tr>
-        <td><strong>Proceso TO-BE con cambios</strong></td>
-        <td><span class="weight">25%</span></td>
-        <td>TO-BE completo con 3+ cambios. Cada cambio tiene justificación (problema que resuelve) y tecnología habilitadora.</td>
-        <td>TO-BE con cambios pero faltan justificaciones o tecnología.</td>
-        <td>TO-BE incompleto o sin justificación.</td>
-        <td>No entrega TO-BE o es copia del AS-IS.</td>
-      </tr>
-      <tr>
-        <td><strong>Automatización de mayor impacto</strong></td>
-        <td><span class="weight">20%</span></td>
-        <td>Identifica automatización con justificación clara (impacto, viabilidad, costo estimado).</td>
-        <td>Identifica automatización pero sin justificación completa.</td>
-        <td>Identifica automatización sin justificación.</td>
-        <td>No entrega.</td>
-      </tr>
-      <tr>
-        <td><strong>Estructura y calidad</strong></td>
-        <td><span class="weight">10%</span></td>
-        <td>Documento claro, máximo 5 páginas, sin errores.</td>
-        <td>Documento claro con máximo 5 páginas.</td>
-        <td>Documento desorganizado o más de 5 páginas.</td>
-        <td>No entrega.</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ══ FUENTES ══ -->
-<section id="bib" class="card">
-  <h2>📖 Fuentes de la Semana</h2>
-  <ol class="bib">
-    <li>Hammer, M. & Champy, J. (1993). <em>Reengineering the Corporation: A Manifesto for Business Revolution</em>. Harper Business. <span style="color:var(--green);font-weight:700;">Obligatoria</span></li>
-    <li>Dumas, M., La Rosa, M., Mendling, J., & Reijers, H. A. (2018). <em>Fundamentals of Business Process Management</em>. Springer. <span style="color:var(--green);font-weight:700;">Obligatoria</span></li>
-    <li>van der Aalst, W. (2013). <em>Process Mining: Data Science in Action</em>. Springer. <span style="color:#e65100;font-weight:700;">Complementaria</span></li>
-    <li>Silver, B. (2018). <em>BPMS for Dummies</em>, Oracle Special Edition. <span style="color:#e65100;font-weight:700;">Complementaria</span></li>
-  </ol>
-
-  <h3>Conexión con el módulo</h3>
-  <table>
-    <thead><tr><th>Semana</th><th>Tema</th><th>Conexión con Semana 3</th></tr></thead>
-    <tbody>
-      <tr><td>Semana 2</td><td>Mapa del recorrido del cliente (journey map)</td><td>La etapa de mayor fricción del recorrido del cliente (journey) se convierte en el proceso a rediseñar.</td></tr>
-      <tr><td>Semana 4</td><td>Tecnologías Habilitadoras</td><td>Las tecnologías propuestas en el TO-BE se evaluarán en detalle (cloud, IA, IoT, datos, automatización).</td></tr>
-      <tr><td>Semana 7</td><td>Datos y Analítica</td><td>Los datos que genera el proceso automatizado se convierten en KPIs.</td></tr>
-      <tr><td>Semana 5</td><td>Parcial 1</td><td>Se aplica el método AS-IS / TO-BE a un caso de retail.</td></tr>
-    </tbody>
-  </table>
-</section>
-
-</main>
-
-<footer>
-  TD04 · Transformación Digital en la Empresa · Semana 3 de 13<br>
-  Mercado360 — Caso Formativo · <em>Primero mejora, luego automatiza</em>
-</footer>
-
-<script>
-var LS_KEY = 'td_s3';
-
-function ptToggle(){
-  var w=document.getElementById('pt-widget');
-  var t=document.getElementById('pt-toggle');
-  w.classList.toggle('collapsed');
-  t.textContent=w.classList.contains('collapsed')?'▲':'▼';
-}
-
-function ptGetXP(){return parseInt(localStorage.getItem(LS_KEY+'_xp')||'0');}
-function ptSetXP(v){localStorage.setItem(LS_KEY+'_xp',v);updateXP();}
-function updateXP(){
-  var xp=ptGetXP();
-  document.getElementById('xpCount').textContent=xp;
-  document.getElementById('pt-xp-count').textContent=xp+' XP';
-  var pct=Math.min(100,xp/65*100);
-  document.getElementById('xpBar').style.width=pct+'%';
-  document.getElementById('pt-xp-bar').style.width=pct+'%';
-}
-async function ptSyncCloud(){
-  var msg = document.getElementById('pt-msg');
-  if (typeof GamifSDK !== "object" || !GamifSDK.sbUrl()) {
-    msg.textContent = '⚠️ Supabase no configurado'; return;
-  }
-  msg.textContent = '⏳ Sincronizando…';
-  try {
-    var cc = "";
-    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); cc = g.cc || ""; } catch(e) {}
-    var state = { id_estudiante: cc, cc: cc, xp: ptGetXP(), semana: 3 };
-    var result = await GamifSDK.syncWeekProgress(state, GamifSDK.getConfig(), 3);
-    if (result && result.ok) msg.textContent = '✅ Guardado en Supabase ☁️';
-    else msg.textContent = '❌ Error al guardar';
-  } catch(e) { msg.textContent = '❌ Sin conexión'; }
-}
-
-// PT wrapper for auto-sync
-window.PT = {
-  state: function() {
-    var cc = ""; var nombre = "";
-    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); cc = g.cc || ""; nombre = g.nombre || ""; } catch(e) {}
-    return { id_estudiante: cc, cc: cc, semana: 3, xp: ptGetXP(), nombre: nombre };
-  },
-  save: function() { ptSetXP(ptGetXP()); },
-  addXP: function(pts, motivo) {
-    var xp = ptGetXP(); xp = Math.min(xp + pts, 65); ptSetXP(xp);
-    var m = document.getElementById('pt-msg');
-    if (m) { m.textContent = "✨ +" + pts + " XP"; setTimeout(function(){ m.textContent = ""; }, 3000); }
-  },
-  sync: ptSyncCloud, render: updateXP,
-  msg: function(txt, color) { var m = document.getElementById('pt-msg'); if (m) { m.textContent = txt; if (color) m.style.color = color; } }
-};
-function ptExportCode(){
-  var d={};
-  d.xp=ptGetXP();
-  var b=document.getElementById('pt-advanced');
-  if(b.style.display==='block')prompt('Copia este código:',b.style.display);
-}
-function ptImportCode(){}
-
-window.addEventListener('load',updateXP);
-</script>
-
-  <script src="../js/teacher-auth.js"></script>
-  <script src="../js/td-welcome-modal.js"></script>
-  <script src="../js/td-week-boot.js"></script>
-</body>
-<!-- ══ WELCOME MODAL (CC lookup) ══ -->
-<div id="pt-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="pt-modal-title">
-  <div id="pt-modal-box">
-    <h2 id="pt-modal-title">👋 ¡Bienvenido a TD!</h2>
-    <p class="sub">Transformación Digital en la Empresa · Mercado360 · IUB 2026</p>
-
-    <!-- PASO 1: Cédula -->
-    <div id="pt-step1" class="pt-step">
-      <div class="field">
-        <label for="pt-modal-cc">Número de cédula / documento *</label>
-        <div style="display:flex;gap:.5rem">
-          <input id="pt-modal-cc" type="tel" inputmode="numeric" pattern="[0-9]*"
-            placeholder="Ej: 1043158867" autocomplete="off"
-            onkeydown="if(event.key==='Enter')ptSearchCC()" />
-          <button id="pt-modal-btn-search" onclick="ptSearchCC()">Buscar →</button>
+      <div id="pt-body">
+        <div id="pt-xp-bar-wrap"><div id="pt-xp-bar" style="width:0%"></div></div>
+        <div id="pt-xp-label">
+          <span id="pt-semana-label">Semana 3</span>
+          <span id="pt-xp-count">0 XP</span>
         </div>
+        <div id="pt-grade"></div>
+        <div id="pt-msg"></div>
       </div>
-      <div id="pt-modal-error"></div>
-      <p id="pt-modal-xp">🔒 Tu cédula identifica tu progreso de forma segura — no se comparte.</p>
     </div>
 
-    <!-- PASO 2A: Encontrado -->
-    <div id="pt-step2a" class="pt-step" style="display:none">
-      <div class="pt-found-card">
-        <div class="pt-fc-name" id="pt-fc-name">—</div>
-        <div class="pt-fc-meta" id="pt-fc-meta">—</div>
-      </div>
-      <button id="pt-modal-btn" onclick="ptConfirmFound()">¡Empezar! 🚀</button>
-      <button class="pt-link-btn" onclick="ptBackToCC()">← No soy yo — volver a buscar</button>
-      <div id="pt-modal-error2"></div>
-    </div>
+    <!-- ══ CONTENIDO DINÁMICO (cargado desde contenido.json) ══ -->
+    <div id="contenido-semana"></div>
 
-    <!-- PASO 2B: No encontrado -->
-    <div id="pt-step2b" class="pt-step" style="display:none">
-      <p style="font-size:.82rem;opacity:.75;margin-bottom:1rem;background:rgba(255,255,255,.08);border-radius:8px;padding:.6rem .8rem">
-        ⚠️ No encontramos tu cédula en la lista del grupo.<br>
-        Completa tus datos manualmente. El docente podrá importarte en la próxima clase.
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <p>TD04 · Mercado360 · Universidad IUB · 2026</p>
+  </footer>
+
+  <!-- ══ WELCOME MODAL ══ -->
+  <div id="pt-overlay">
+    <div id="pt-modal">
+      <h2>🔐 Identificación</h2>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:.8rem">
+        Ingresa tu número de cédula para comenzar
       </p>
-      <div class="field">
-        <label for="pt-modal-nombre">Tu nombre completo *</label>
-        <input id="pt-modal-nombre" type="text" placeholder="Ej: María García López"
-          autocomplete="name" onkeydown="if(event.key==='Enter')ptModalSetupManual()" />
+      <div id="pt-step1">
+        <input id="pt-modal-cc" type="text" placeholder="Tu cédula..." autocomplete="off">
+        <button onclick="ptSearchCC()">Buscar →</button>
+        <p id="pt-modal-msg" class="msg"></p>
       </div>
-      <div class="field">
-        <label for="pt-modal-grupo">Grupo / Paralelo</label>
-        <input id="pt-modal-grupo" type="text" placeholder="Ej: GA_G1" />
+      <div id="pt-step2a" style="display:none">
+        <p id="pt-modal-nombre" style="font-weight:700;font-size:1.1rem;margin:.5rem 0"></p>
+        <p style="font-size:.82rem;color:var(--muted)" id="pt-modal-grupo"></p>
+        <button onclick="ptConfirmIdentity()" style="margin-top:.8rem">¡Empezar! 🚀</button>
+        <button onclick="showStep('pt-step1')" style="margin-top:.5rem;background:transparent;color:var(--muted);font-size:.82rem">← No soy yo</button>
       </div>
-      <button id="pt-modal-btn" onclick="ptModalSetupManual()">Continuar →</button>
-      <button class="pt-link-btn" onclick="ptBackToCC()">← Volver a ingresar cédula</button>
-      <div id="pt-modal-error3"></div>
+      <div id="pt-step2b" style="display:none">
+        <p style="color:var(--red);font-weight:700">No te encontramos.</p>
+        <p style="font-size:.85rem;color:var(--muted)">Verifica tu cédula o contacta al docente.</p>
+        <button onclick="showStep('pt-step1')" style="margin-top:.5rem">← Intentar de nuevo</button>
+      </div>
     </div>
   </div>
-</div>
 
-<script id="modal-js">
-(function() {
-  function shouldShowModal() {
-    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); return !g.cc || String(g.cc).trim().length < 3; }
-    catch(e) { return true; }
+  <script>
+  // ═══════════════════════════════════════════════
+  //  Cargar contenido desde contenido.json
+  // ═══════════════════════════════════════════════
+  (function() {
+    var SEMANA = 3;
+    var PREFIX = 'td';
+
+    function cargarContenido() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'contenido.json?' + Date.now(), true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          try {
+            var data = JSON.parse(xhr.responseText);
+            renderizarContenido(data);
+          } catch(e) {
+            console.warn('[TD04] Error parseando contenido.json:', e);
+          }
+        }
+      };
+      xhr.onerror = function() {
+        console.warn('[TD04] No se pudo cargar contenido.json — usando HTML inline');
+      };
+      xhr.send();
+    }
+
+    function renderizarContenido(data) {
+      var container = document.getElementById('contenido-semana');
+      if (!container || !data || !data.secciones) return;
+      container.innerHTML = '';
+      data.secciones.forEach(function(sec) {
+        var card = document.createElement('section');
+        card.className = 'card';
+        card.id = sec.id || '';
+        var h = document.createElement('h2');
+        h.textContent = sec.titulo || '';
+        card.appendChild(h);
+        var div = document.createElement('div');
+        div.innerHTML = sec.contenido || '';
+        card.appendChild(div);
+        container.appendChild(card);
+      });
+
+      // Generar nav
+      var nav = document.getElementById('topNav');
+      if (nav && data.secciones) {
+        nav.innerHTML = '';
+        data.secciones.forEach(function(sec) {
+          if (!sec.id) return;
+          var a = document.createElement('a');
+          a.href = '#' + sec.id;
+          a.textContent = (sec.titulo || '').replace(/[^\w\s]/g, '').trim();
+          nav.appendChild(a);
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', cargarContenido);
+    } else {
+      cargarContenido();
+    }
+  })();
+
+  // ═══════════════════════════════════════════════
+  //  PT Widget (mínimo para que funcione el sync)
+  // ═══════════════════════════════════════════════
+  var PT = (function() {
+    var SEMANA = 3;
+    var XP_MAX = 100;
+    var LS_KEY = 'td_s' + SEMANA;
+    var VISITED = 'td_visited_s' + SEMANA;
+    var GLOBAL = 'td_global';
+    var s = { semana: SEMANA, xp: 0, quiz_respuestas: {}, quiz_puntaje: 0, nombre: '', cc: '', id_estudiante: '', grupo: '', horario: '', hti_entregado: false, actividad_completada: false };
+
+    function msg(t) {
+      var e = document.getElementById('pt-msg');
+      if (e) { e.textContent = t; setTimeout(function(){ if(e.textContent===t) e.textContent=''; }, 3500); }
+    }
+
+    function save() {
+      try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch(e) {}
+      if (window.GamifSDK && GamifSDK.isCloudDirectMode()) {
+        var cb = function(r) { if (r && r.ok) msg('✅ Guardado'); };
+        if (typeof PT !== 'undefined' && PT.sync) PT.sync().then(cb);
+      } else {
+        msg('💾 Guardado local');
+      }
+    }
+
+    function addXP(n) { s.xp = Math.min((s.xp||0)+n, XP_MAX); updateUI(); }
+    function state() { return s; }
+    function render() { updateUI(); }
+
+    function updateUI() {
+      var bar = document.getElementById('pt-xp-bar');
+      var cnt = document.getElementById('pt-xp-count');
+      if (bar) bar.style.width = Math.min(100, (s.xp/XP_MAX)*100) + '%';
+      if (cnt) cnt.textContent = s.xp + ' XP';
+    }
+
+    // Cargar estado guardado
+    try { var saved = JSON.parse(localStorage.getItem(LS_KEY) || '{}'); Object.assign(s, saved); } catch(e) {}
+
+    return { save: save, addXP: addXP, state: state, render: render, msg: msg, sync: null };
+  })();
+
+  window.PT = PT;
+  PT.sync = PT.syncCloud = function() {
+    if (window.GamifSDK) {
+      return GamifSDK.syncWeekProgress(PT.state(), GamifSDK.getConfig(), 3);
+    }
+    return Promise.resolve({ok:false,reason:'no_sdk'});
+  };
+
+  function ptToggle() {
+    var b = document.getElementById('pt-body');
+    var t = document.getElementById('pt-toggle');
+    if (b) { var vis = b.style.display !== 'none'; b.style.display = vis ? 'none' : 'block'; if(t) t.className = vis ? 'closed' : ''; }
   }
+
+  // ══ MODAL ══
   function showStep(name) {
-    ["pt-step1","pt-step2a","pt-step2b"].forEach(function(id){
+    ['pt-step1','pt-step2a','pt-step2b'].forEach(function(id){
       var el = document.getElementById(id);
-      if (el) el.style.display = (id === name) ? "block" : "none";
+      if (el) el.style.display = (id === name) ? 'block' : 'none';
     });
   }
-  function showModal() {
-    var overlay = document.getElementById("pt-overlay");
-    if (overlay) overlay.style.display = "flex";
-    showStep("pt-step1");
-    try {
-      var g = JSON.parse(localStorage.getItem("td_global") || "{}");
-      if (g.cc) { var i = document.getElementById("pt-modal-cc"); if (i) i.value = g.cc; }
-    } catch(e) {}
-    var inp = document.getElementById("pt-modal-cc");
-    if (inp) setTimeout(function(){ inp.focus(); }, 100);
-  }
-  function closeModal() {
-    var overlay = document.getElementById("pt-overlay");
-    if (overlay) {
-      overlay.style.opacity = "0"; overlay.style.transition = "opacity .2s";
-      setTimeout(function(){ overlay.style.display = "none"; overlay.style.opacity = ""; }, 200);
-    }
-  }
+  window.showStep = showStep;
+
   function getStudents() {
-    try { return JSON.parse(localStorage.getItem("td_students_v1") || "[]"); }
-    catch(e) { return []; }
+    try { return JSON.parse(localStorage.getItem('td_students_v1') || '[]'); } catch(e) { return []; }
   }
+
+  function loadProfile() {
+    try { return JSON.parse(localStorage.getItem(GLOBAL) || '{}'); } catch(e) { return {}; }
+  }
+
   function saveProfile(cc, nombre, grupo, horario) {
-    var profile = {};
-    try { profile = JSON.parse(localStorage.getItem("td_global") || "{}"); } catch(e) {}
-    profile.cc = cc; profile.nombre = nombre;
-    profile.grupo   = grupo   || profile.grupo   || "";
-    profile.horario = horario || profile.horario || "";
-    profile.id_estudiante = cc;
-    localStorage.setItem("td_global", JSON.stringify(profile));
-    if (typeof PT !== "undefined" && typeof PT.addXP === "function") {
-      setTimeout(function(){ PT.sync && PT.sync(); }, 800);
-    }
+    var p = loadProfile();
+    p.cc = cc; p.nombre = nombre; p.grupo = grupo || p.grupo || ''; p.horario = horario || p.horario || ''; p.id_estudiante = cc;
+    localStorage.setItem(GLOBAL, JSON.stringify(p));
+    if (window.GamifSDK) GamifSDK.saveProfile(GamifSDK.getConfig(), p);
     closeModal();
   }
 
-  window.ptSearchCC = function() {
-    var ccInp = document.getElementById("pt-modal-cc");
-    var errEl = document.getElementById("pt-modal-error");
-    var cc    = ccInp ? ccInp.value.trim().replace(/\D/g,"") : "";
-    if (!cc || cc.length < 5) {
-      if (errEl) errEl.textContent = "Ingresa tu número de cédula (mínimo 5 dígitos).";
-      if (ccInp) ccInp.focus(); return;
-    }
-    if (errEl) errEl.textContent = "";
-
-    var students = getStudents();
-    var found = students.find(function(s){ return String(s.cc) === cc; });
-    if (found) {
-      var nameEl = document.getElementById("pt-fc-name");
-      var metaEl = document.getElementById("pt-fc-meta");
-      if (nameEl) nameEl.textContent = "✅ " + found.name;
-      if (metaEl) metaEl.innerHTML =
-        (found.grupo   ? "📚 Grupo: <strong>" + esc(found.grupo) + "</strong>" : "") +
-        (found.horario ? " &nbsp;·&nbsp; ⏰ " + esc(found.horario) : "");
-      nameEl.dataset.cc = cc; nameEl.dataset.nombre = found.name;
-      nameEl.dataset.grupo = found.grupo || ""; nameEl.dataset.horario = found.horario || "";
-      showStep("pt-step2a");
-      var btn = document.getElementById("pt-modal-btn");
-      if (btn) setTimeout(function(){ btn.focus(); }, 100);
-      return;
-    }
-
-    var sUrl = localStorage.getItem("td_supabase_url");
-    var sKey = localStorage.getItem("td_supabase_key");
-    if (sUrl && sKey) {
-      if (errEl) errEl.textContent = "⏳ Buscando…";
-      fetch(sUrl + "/rest/v1/students_td?cc=eq." + encodeURIComponent(cc) + "&limit=1", {
-        headers: { "apikey": sKey, "Authorization": "Bearer " + sKey }
-      }).then(function(r){ return r.json(); })
-        .then(function(rows){
-          if (errEl) errEl.textContent = "";
-          if (rows && rows.length) {
-            var r = rows[0];
-            var nameEl = document.getElementById("pt-fc-name");
-            var metaEl = document.getElementById("pt-fc-meta");
-            if (nameEl) nameEl.textContent = "✅ " + r.name;
-            if (metaEl) metaEl.innerHTML =
-              (r.grupo   ? "📚 Grupo: <strong>" + esc(r.grupo) + "</strong>" : "") +
-              (r.horario ? " &nbsp;·&nbsp; ⏰ " + esc(r.horario) : "");
-            nameEl.dataset.cc = cc; nameEl.dataset.nombre = r.name;
-            nameEl.dataset.grupo = r.grupo || ""; nameEl.dataset.horario = r.horario || "";
-            showStep("pt-step2a");
-          } else {
-            var ni = document.getElementById("pt-modal-nombre");
-            if (ni) ni.dataset.cc = cc;
-            showStep("pt-step2b");
-            if (ni) setTimeout(function(){ ni.focus(); }, 100);
-          }
-        }).catch(function(){
-          var ni = document.getElementById("pt-modal-nombre");
-          if (ni) ni.dataset.cc = cc;
-          showStep("pt-step2b");
-          if (ni) setTimeout(function(){ ni.focus(); }, 100);
-        });
-      return;
-    }
-
-    var ni = document.getElementById("pt-modal-nombre");
-    if (ni) ni.dataset.cc = cc;
-    showStep("pt-step2b");
-    if (ni) setTimeout(function(){ ni.focus(); }, 100);
-  };
-
-  window.ptConfirmFound = function() {
-    var nameEl  = document.getElementById("pt-fc-name");
-    var cc      = nameEl ? nameEl.dataset.cc      : "";
-    var nombre  = nameEl ? nameEl.dataset.nombre  : "";
-    var grupo   = nameEl ? nameEl.dataset.grupo   : "";
-    var horario = nameEl ? nameEl.dataset.horario : "";
-    if (!cc || !nombre) { var e2 = document.getElementById("pt-modal-error2"); if (e2) e2.textContent = "Error al leer datos. Intenta de nuevo."; return; }
-    saveProfile(cc, nombre, grupo, horario);
-  };
-
-  window.ptModalSetupManual = function() {
-    var ni    = document.getElementById("pt-modal-nombre");
-    var gi    = document.getElementById("pt-modal-grupo");
-    var ccInp = document.getElementById("pt-modal-cc");
-    var errEl = document.getElementById("pt-modal-error3");
-    var nombre = ni ? ni.value.trim() : "";
-    var grupo  = gi ? gi.value.trim() : "";
-    var cc     = ccInp ? ccInp.value.trim().replace(/\D/g,"") : "";
-    if (!nombre || nombre.length < 3) {
-      if (errEl) errEl.textContent = "Por favor escribe tu nombre completo (mínimo 3 caracteres).";
-      if (ni) ni.focus(); return;
-    }
-    if (!cc) cc = "MANUAL_" + Date.now();
-    saveProfile(cc, nombre, grupo, "");
-  };
-
-  window.ptBackToCC = function() {
-    showStep("pt-step1");
-    var inp = document.getElementById("pt-modal-cc");
-    if (inp) setTimeout(function(){ inp.focus(); }, 100);
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function(){ if (shouldShowModal()) showModal(); });
-  } else {
-    if (shouldShowModal()) showModal();
+  function closeModal() {
+    var overlay = document.getElementById('pt-overlay');
+    if (overlay) { overlay.style.opacity = '0'; overlay.style.transition = 'opacity .2s'; setTimeout(function(){ overlay.style.display = 'none'; overlay.style.opacity = ''; }, 200); }
   }
-})();
-</script>
+
+  window.ptSearchCC = function() {
+    var cc = document.getElementById('pt-modal-cc').value.trim();
+    var msg = document.getElementById('pt-modal-msg');
+    if (!cc || cc.length < 5) { if(msg) msg.textContent = '⚠️ Ingresa una cédula válida'; return; }
+    var students = getStudents();
+    var found = students.find(function(st) { return String(st.cc || st.id || '').trim() === cc; }) || students.find(function(st) { return String(st.cedula || '').trim() === cc; });
+    if (found) {
+      var nom = found.nombre || found.name || found.Nombre || '';
+      var grupo = found.grupo || found.group || found.Grupo || '';
+      var horario = found.horario || found.Horario || '';
+      document.getElementById('pt-modal-nombre').textContent = '✅ ' + nom;
+      document.getElementById('pt-modal-grupo').textContent = (grupo ? '📚 Grupo: ' + grupo : '') + (horario ? '  ·  ⏰ ' + horario : '');
+      showStep('pt-step2a');
+      window._ptIdentidad = { cc: cc, nombre: nom, grupo: grupo, horario: horario };
+    } else {
+      showStep('pt-step2b');
+    }
+    if(msg) msg.textContent = '';
+  };
+
+  window.ptConfirmIdentity = function() {
+    var id = window._ptIdentidad;
+    if (!id) return;
+    saveProfile(id.cc, id.nombre, id.grupo, id.horario);
+  };
+
+  // Mostrar modal si no hay perfil
+  (function() {
+    var p = loadProfile();
+    if (!p || !p.cc || String(p.cc).trim().length < 3) {
+      var overlay = document.getElementById('pt-overlay');
+      if (overlay) { overlay.style.display = 'flex'; showStep('pt-step1'); }
+    }
+  })();
+
+  // ══ INLINE SYNC (hook para week-auto-sync) ══
+  PT.sync = PT.syncCloud = async function() {
+    var st = PT.state();
+    st.nombre = st.nombre || loadProfile().nombre || '';
+    st.cc = st.cc || loadProfile().cc || '';
+    st.id_estudiante = st.id_estudiante || st.cc || '';
+    if (window.GamifSDK) {
+      var result = await GamifSDK.syncWeekProgress(st, GamifSDK.getConfig(), 3);
+      if (result && result.ok) msg('✅ Guardado en la nube');
+      return result;
+    }
+    return { ok: false, reason: 'no_sdk' };
+  };
+
+  // ══ INIT ══
+  PT.render();
+  </script>
+</body>
 </html>
