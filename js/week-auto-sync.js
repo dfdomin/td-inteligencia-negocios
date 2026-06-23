@@ -278,9 +278,9 @@
       if (!widget) return;
       container = document.createElement("div");
       container.id = "pt-profile";
-      container.style.cssText = "display:flex;align-items:center;gap:8px;padding:.45rem .7rem;margin:-.8rem 0 1.2rem 0;"
+      container.style.cssText = "display:flex;align-items:center;gap:10px;padding:.6rem .9rem;margin-top:0;margin-bottom:1.2rem;"
         + "background:#fff;border:1px solid #DEDFE4;border-radius:10px;"
-        + "font-size:.82rem;color:#1E2843;box-shadow:0 1px 6px rgba(0,0,0,.04)";
+        + "font-size:.95rem;color:#1E2843;box-shadow:0 1px 6px rgba(0,0,0,.04)";
       // Insertar justo DESPUÉS del widget PT, fuera de él
       if (widget.parentNode) {
         widget.parentNode.insertBefore(container, widget.nextSibling);
