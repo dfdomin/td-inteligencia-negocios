@@ -149,6 +149,10 @@
   .pt-link-btn { background: none; border: none; color: rgba(255,255,255,.6); font-size: .8rem; cursor: pointer; text-decoration: underline; padding: .3rem 0 0; display: block; text-align: center; width: 100%; }
   .pt-link-btn:hover { color: #fff; }
   </style>
+  <script src="../js/supabase-config.js"></script>
+  <script src="../js/gamification-sdk.js"></script>
+  <script src="../js/student-identicon.js"></script>
+  <script src="../js/week-auto-sync.js"></script>
 </head>
 <body>
 
@@ -698,26 +702,15 @@ const PT = (function() {
 
   async function syncCloud() {
     save();
-    const sbUrl = localStorage.getItem("td_supabase_url") || "";
-    const sbKey = localStorage.getItem("td_supabase_key") || "";
-    if (!sbUrl || !sbKey) { msg("⚠️ Supabase no configurado", "orange"); return; }
+    if (typeof GamifSDK !== "object" || !GamifSDK.sbUrl()) {
+      msg("⚠️ Supabase no configurado", "orange"); return;
+    }
     msg("⏳ Sincronizando…", "#fff9c4");
     try {
-      const res = await fetch(sbUrl + "/rest/v1/student_progress_td", {
-        method: "POST",
-        headers: { "apikey": sbKey, "Authorization": "Bearer " + sbKey, "Content-Type": "application/json", "Prefer": "resolution=merge-duplicates" },
-        body: JSON.stringify({
-          student_name: state.nombre || "Anónimo",
-          student_id: state.id_estudiante || state.cc || "desconocido",
-          semana: state.semana, xp: state.xp || 0,
-          mapa_deliverable: !!state.mapa_entregado,
-          participacion: !!state.participacion,
-          grupo: state.grupo || "", horario: state.horario || "",
-          updated_at: new Date().toISOString()
-        })
-      });
-      if (res.ok || res.status === 201) msg("✅ Guardado en Supabase ☁️", "lightgreen");
-      else msg("❌ Error " + res.status, "salmon");
+      if (!state.id_estudiante) state.id_estudiante = state.cc || "";
+      var result = await GamifSDK.syncWeekProgress(state, GamifSDK.getConfig(), SEMANA);
+      if (result && result.ok) msg("✅ Guardado en Supabase ☁️", "lightgreen");
+      else msg("❌ Error al guardar", "salmon");
     } catch(e) { msg("❌ Sin conexión. Guardado local.", "salmon"); }
   }
 
@@ -764,6 +757,7 @@ const PT = (function() {
 
   return { init, addXP, save, sync: syncCloud, export: exportCode, import: importCode, toggle, state: () => state };
 })();
+window.PT = PT;
 
 function ptSyncCloud()  { PT.sync(); }
 function ptExportCode() { PT.export(); }

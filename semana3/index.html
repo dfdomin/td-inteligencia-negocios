@@ -159,8 +159,10 @@
   .pt-link-btn { background: none; border: none; color: rgba(255,255,255,.6); font-size: .8rem; cursor: pointer; text-decoration: underline; padding: .3rem 0 0; display: block; text-align: center; width: 100%; }
   .pt-link-btn:hover { color: #fff; }
   </style>
-
   <script src="../js/supabase-config.js"></script>
+  <script src="../js/gamification-sdk.js"></script>
+  <script src="../js/student-identicon.js"></script>
+  <script src="../js/week-auto-sync.js"></script>
 </head>
 <body>
 
@@ -723,11 +725,20 @@ function updateXP(){
   document.getElementById('xpBar').style.width=pct+'%';
   document.getElementById('pt-xp-bar').style.width=pct+'%';
 }
-function ptSyncCloud(){
-  document.getElementById('pt-msg').textContent='Sincronizando...';
-  setTimeout(function(){
-    document.getElementById('pt-msg').textContent='✔ Guardado local';
-  },800);
+async function ptSyncCloud(){
+  var msg = document.getElementById('pt-msg');
+  if (typeof GamifSDK !== "object" || !GamifSDK.sbUrl()) {
+    msg.textContent = '⚠️ Supabase no configurado'; return;
+  }
+  msg.textContent = '⏳ Sincronizando…';
+  try {
+    var cc = "";
+    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); cc = g.cc || ""; } catch(e) {}
+    var state = { id_estudiante: cc, cc: cc, xp: ptGetXP(), semana: 3 };
+    var result = await GamifSDK.syncWeekProgress(state, GamifSDK.getConfig(), 3);
+    if (result && result.ok) msg.textContent = '✅ Guardado en Supabase ☁️';
+    else msg.textContent = '❌ Error al guardar';
+  } catch(e) { msg.textContent = '❌ Sin conexión'; }
 }
 function ptExportCode(){
   var d={};
@@ -738,6 +749,29 @@ function ptExportCode(){
 function ptImportCode(){}
 
 window.addEventListener('load',updateXP);
+
+// PT wrapper for auto-sync compatibility
+window.PT = {
+  state: function() {
+    var cc = ""; var nombre = "";
+    try { var g = JSON.parse(localStorage.getItem("td_global") || "{}"); cc = g.cc || ""; nombre = g.nombre || ""; } catch(e) {}
+    return { id_estudiante: cc, cc: cc, semana: 3, xp: ptGetXP(), nombre: nombre };
+  },
+  save: function() { ptSetXP(ptGetXP()); },
+  addXP: function(pts, motivo) {
+    var xp = ptGetXP();
+    xp = Math.min(xp + pts, 65);
+    ptSetXP(xp);
+    var m = document.getElementById('pt-msg');
+    if (m) { m.textContent = "✨ +" + pts + " XP"; setTimeout(function(){ m.textContent = ""; }, 3000); }
+  },
+  sync: ptSyncCloud,
+  render: updateXP,
+  msg: function(txt, color) {
+    var m = document.getElementById('pt-msg');
+    if (m) { m.textContent = txt; if (color) m.style.color = color; }
+  }
+};
 </script>
 
 </body>
