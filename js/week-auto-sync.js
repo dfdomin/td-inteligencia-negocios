@@ -275,18 +275,15 @@
     var container = document.getElementById("pt-profile");
     if (!container) {
       var widget = document.getElementById("pt-widget") || document.querySelector(".pt-widget");
-      var body = widget ? widget.querySelector(".pt-body, .pt-content, [class*='body']") : null;
-      if (!body && widget) body = widget;
-      if (!body) return;
+      if (!widget) return;
       container = document.createElement("div");
       container.id = "pt-profile";
-      container.style.cssText = "padding:.3rem .5rem;border-top:1px solid rgba(255,255,255,.15);margin-top:.3rem;background:rgba(255,255,255,.08);border-radius:0 0 8px 8px;color:#fff";
-      // Insertar justo DESPUÉS de la nota formativa (#pt-grade)
-      var gradeEl = document.getElementById("pt-grade");
-      if (gradeEl && gradeEl.parentNode) {
-        gradeEl.parentNode.insertBefore(container, gradeEl.nextSibling);
-      } else {
-        body.appendChild(container);
+      container.style.cssText = "display:flex;align-items:center;gap:8px;padding:.45rem .7rem;margin:-.8rem 0 1.2rem 0;"
+        + "background:#fff;border:1px solid #DEDFE4;border-radius:10px;"
+        + "font-size:.82rem;color:#1E2843;box-shadow:0 1px 6px rgba(0,0,0,.04)";
+      // Insertar justo DESPUÉS del widget PT, fuera de él
+      if (widget.parentNode) {
+        widget.parentNode.insertBefore(container, widget.nextSibling);
       }
     }
     var profile = {};
@@ -296,17 +293,12 @@
     container.innerHTML = "";
     var el = makeIdenticon(profile.cc, profile.nombre, true);
     if (el) {
-      // Override text color to white (PT widget has dark background)
-      var nameSpan = el.querySelector(".identicon-name");
-      if (nameSpan) nameSpan.style.color = "#fff";
-      var firmaSpan = el.querySelector(".identicon-firma");
-      if (firmaSpan) firmaSpan.style.color = "rgba(255,255,255,.5)";
       container.appendChild(el);
     }
     var code = window.getIdenticonCode ? window.getIdenticonCode(profile.cc) : "";
     if (code && container) {
       var codeSpan = document.createElement("span");
-      codeSpan.style.cssText = "display:inline-block;font-weight:800;font-family:monospace;background:rgba(255,255,255,.15);padding:.05rem .35rem;border-radius:4px;font-size:.72rem;color:#fff;margin-left:6px;vertical-align:middle";
+      codeSpan.style.cssText = "display:inline-block;font-weight:800;font-family:monospace;background:#E9EAED;padding:.05rem .35rem;border-radius:4px;font-size:.72rem;color:#1E2843;margin-left:6px;vertical-align:middle";
       codeSpan.textContent = code;
       codeSpan.title = "Código de verificación (comparte con tu docente para confirmar tu identidad)";
       container.appendChild(codeSpan);
