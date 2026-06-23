@@ -315,7 +315,7 @@
     renderFloatingIdentity();
   }
 
-  /** Crea un badge flotante + indicador en el nav sticky */
+  /** Crea un badge flotante siempre visible (esquina inferior derecha) */
   function renderFloatingIdentity() {
     var profile = {};
     try { profile = JSON.parse(localStorage.getItem(global.GAMIF_PREFIX + "_global") || "{}"); } catch(e) {}
@@ -323,43 +323,7 @@
     if (!profile.cc || !profile.nombre) return;
     if (typeof makeIdenticon !== "function") return;
 
-    // ── 1. Nav badge (sticky top) ──────────────
-    var existing = document.getElementById("iub-nav-id");
-    if (existing) existing.remove();
-
-    var nav = document.querySelector("nav.top-nav, nav") || document.getElementById("topNav");
-    if (nav) {
-      var navBadge = document.createElement("div");
-      navBadge.id = "iub-nav-id";
-      navBadge.style.cssText = "display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;"
-        + "background:rgba(255,255,255,.12);color:#fff;font-size:.7rem;font-weight:600;"
-        + "margin-left:auto;flex-shrink:0;white-space:nowrap;overflow:hidden;max-width:200px;"
-        + "border:1px solid rgba(255,255,255,.2);cursor:default;user-select:none";
-      navBadge.title = profile.nombre + " · CC: " + profile.cc;
-
-      var icon = makeIdenticon(profile.cc, "", false);
-      if (icon) { icon.style.cssText = "width:16px;height:16px;border-radius:50%;flex-shrink:0"; navBadge.appendChild(icon); }
-
-      var nameSpan = document.createElement("span");
-      nameSpan.textContent = profile.nombre;
-      nameSpan.style.cssText = "overflow:hidden;text-overflow:ellipsis;font-size:.68rem";
-
-      var code = window.getIdenticonCode ? window.getIdenticonCode(profile.cc) : "";
-      if (code) {
-        var codeSpan = document.createElement("span");
-        codeSpan.textContent = code;
-        codeSpan.style.cssText = "font-weight:800;font-family:monospace;background:rgba(255,255,255,.15);padding:0 4px;border-radius:3px;font-size:.62rem";
-        navBadge.appendChild(codeSpan);
-      }
-      navBadge.appendChild(nameSpan);
-
-      // Make nav use flex-end for the badge
-      nav.style.display = "flex";
-      nav.style.alignItems = "center";
-      nav.appendChild(navBadge);
-    }
-
-    // ── 2. Floating badge (bottom-right, SIEMPRE visible) ──
+    // ── Floating badge (bottom-right, SIEMPRE visible) ──
     var floating = document.getElementById("iub-float-id");
     if (floating) floating.remove();
 
