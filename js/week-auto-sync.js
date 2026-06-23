@@ -281,7 +281,13 @@
       container = document.createElement("div");
       container.id = "pt-profile";
       container.style.cssText = "padding:.3rem .5rem;border-top:1px solid #DEDFE4;margin-top:.3rem";
-      body.appendChild(container);
+      // Insertar justo DESPUÉS de la nota formativa (#pt-grade)
+      var gradeEl = document.getElementById("pt-grade");
+      if (gradeEl && gradeEl.parentNode) {
+        gradeEl.parentNode.insertBefore(container, gradeEl.nextSibling);
+      } else {
+        body.appendChild(container);
+      }
     }
     var profile = {};
     try { profile = JSON.parse(localStorage.getItem(global.GAMIF_PREFIX + "_global") || "{}"); } catch(e) {}
