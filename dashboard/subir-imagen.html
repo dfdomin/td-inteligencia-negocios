@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subir imágenes — Dashboard docente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="../js/supabase-config.js"></script>
+  <script src="../js/gamification-sdk.js"></script>
+  <script src="../js/teacher-auth.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --primary:#1E2843; --accent:#2d3a5e; --green:#2e7d32; --red:#c62828; --light-bg:#FAFAFA; --card-bg:#fff; --text:#212121; --muted:#546e7a; --border:#DEDFE4; --radius:12px; }
+    body { font-family:'Open Sans', Arial, sans-serif; background:var(--light-bg); color:var(--text); line-height:1.55; }
+    header { background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; padding:1.4rem 1.2rem; }
+    .wrap { max-width:900px; margin:0 auto; }
+    .top { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+    h1 { font-size:clamp(1.3rem,3vw,1.8rem); }
+    .nav { display:flex; gap:.5rem; flex-wrap:wrap; }
+    .nav a, button, input, select { font-family:inherit; }
+    .nav a, button { border:1px solid var(--border); border-radius:10px; padding:.45rem .75rem; background:#fff; color:var(--primary); font-weight:700; text-decoration:none; cursor:pointer; font-size:.85rem; }
+    main { padding:1.2rem; }
+    .login { max-width:420px; margin:2rem auto; background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+    .panel { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; margin-bottom:1rem; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+    label { display:block; color:var(--muted); font-size:.78rem; font-weight:800; text-transform:uppercase; margin-bottom:.3rem; margin-top:.8rem; }
+    label:first-child { margin-top:0; }
+    input, select { width:100%; border:1px solid var(--border); border-radius:10px; padding:.6rem .8rem; font-size:.9rem; margin-bottom:.3rem; }
+    input:focus, select:focus { outline:2px solid var(--primary); outline-offset:-1px; }
+    .btn-primary { background:var(--primary); color:#fff; border:none; padding:.65rem 1.2rem; border-radius:10px; font-size:.9rem; font-weight:700; cursor:pointer; margin-top:.5rem; }
+    .btn-primary:hover { background:var(--accent); }
+    .btn-primary:disabled { opacity:.4; cursor:not-allowed; }
+    .msg { color:var(--muted); font-size:.85rem; margin:.5rem 0; min-height:1.2rem; }
+    .msg.ok { color:var(--green); font-weight:700; }
+    .msg.err { color:var(--red); font-weight:700; }
+    .drop-zone { border:2px dashed var(--border); border-radius:var(--radius); padding:2rem; text-align:center; cursor:pointer; transition:all .2s; margin:.5rem 0; }
+    .drop-zone:hover, .drop-zone.drag-over { border-color:var(--primary); background:#f0f2f8; }
+    .drop-zone.has-file { border-color:var(--green); background:#f1faf1; }
+    .drop-zone img { max-width:200px; max-height:120px; display:block; margin:.5rem auto; border-radius:8px; }
+    .url-box { display:flex; gap:.5rem; align-items:center; }
+    .url-box input { flex:1; font-size:.8rem; font-family:monospace; }
+    .url-box button { white-space:nowrap; padding:.6rem .8rem; }
+    .copied-msg { font-size:.78rem; color:var(--green); font-weight:700; display:none; }
+    .badge { display:inline-block; background:#e8f5e9; color:#1b5e20; border-radius:999px; padding:.15rem .5rem; font-size:.72rem; font-weight:700; }
+    .badge.warn { background:#fff8e1; color:#e65100; }
+    .help { font-size:.78rem; color:var(--muted); margin:.3rem 0; }
+    .token-status { font-size:.78rem; margin-top:.3rem; }
+    .token-status.ok { color:var(--green); }
+    .token-status.err { color:var(--red); }
+    .history { margin-top:1rem; }
+    .history-item { display:flex; align-items:center; gap:.75rem; padding:.5rem .75rem; border-bottom:1px solid var(--border); font-size:.85rem; }
+    .history-item img { width:40px; height:30px; object-fit:cover; border-radius:4px; }
+    .history-item a { color:var(--primary); text-decoration:none; }
+    .history-item a:hover { text-decoration:underline; }
+    .history-item .date { color:var(--muted); font-size:.75rem; margin-left:auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap top">
+      <div>
+        <h1>📷 Subir imágenes</h1>
+        <p style="font-size:.85rem;opacity:.8">Sube imágenes a gh-pages para usar en las semanas</p>
+      </div>
+      <nav class="nav" id="topNav">
+        <a href="index.html">Inicio</a>
+        <a href="profesor.html">Dashboard</a>
+        <a href="revision.html">Revisión</a>
+        <a href="notas.html">Notas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- LOGIN -->
+    <section class="login" id="login">
+      <h2 style="color:var(--primary);margin-bottom:.5rem">🔐 Acceso docente</h2>
+      <label for="teacherUser">Usuario</label>
+      <input id="teacherUser" type="text" autocomplete="username" placeholder="docente">
+      <label for="teacherPass">Contraseña</label>
+      <input id="teacherPass" type="password" autocomplete="current-password">
+      <button class="btn-primary" id="teacherLoginBtn" style="width:100%">Entrar</button>
+      <p class="msg" id="teacherLoginMsg"></p>
+    </section>
+
+    <!-- APP -->
+    <section id="app" hidden>
+      <!-- Configuración del token -->
+      <div class="panel">
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">🔑 Token de GitHub</h3>
+        <p class="help">Crea un token en <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> con permiso <code>repo</code>. Guárdalo aquí una sola vez (se guarda en tu navegador).</p>
+        <label for="githubToken">Personal Access Token</label>
+        <div style="display:flex;gap:.5rem">
+          <input id="githubToken" type="password" placeholder="ghp_..." style="flex:1;font-family:monospace" autocomplete="off">
+          <button id="btnSaveToken" class="btn-primary" style="margin-top:0">Guardar</button>
+        </div>
+        <div id="tokenStatus" class="token-status"></div>
+      </div>
+
+      <!-- Subida -->
+      <div class="panel">
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">📤 Subir imagen</h3>
+
+        <label for="repoSelect">Módulo (repositorio)</label>
+        <select id="repoSelect">
+          <option value="td-inteligencia-negocios">TD · Mercado360</option>
+          <option value="tga04-neurobiz">TGA04 · NeuroBiz</option>
+          <option value="tga05-neurobiz">TGA05 · NeuroBiz</option>
+          <option value="adm18-material">ADM18 · LatamBox</option>
+        </select>
+
+        <label>Imagen</label>
+        <div class="drop-zone" id="dropZone">
+          <p style="font-size:2rem;margin-bottom:.3rem">📁</p>
+          <p style="color:var(--muted)">Arrastra una imagen aquí o haz clic para seleccionar</p>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:.3rem">PNG, JPG, GIF, WebP — máx 5 MB</p>
+          <img id="preview" style="display:none" alt="preview">
+          <input type="file" id="fileInput" accept="image/png,image/jpeg,image/gif,image/webp" style="display:none">
+        </div>
+
+        <div style="display:flex;gap:.5rem;align-items:center;margin-top:.5rem">
+          <button class="btn-primary" id="btnUpload" disabled>⬆️ Subir</button>
+          <span id="uploadStatus" class="msg" style="margin:0"></span>
+        </div>
+      </div>
+
+      <!-- Resultado -->
+      <div class="panel" id="resultPanel" hidden>
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">✅ Imagen subida</h3>
+        <div style="margin-bottom:.5rem">
+          <img id="resultPreview" style="max-width:300px;max-height:200px;border-radius:8px;border:1px solid var(--border)" alt="resultado">
+        </div>
+        <label>URL pública</label>
+        <div class="url-box">
+          <input id="resultUrl" type="text" readonly onclick="this.select()">
+          <button id="btnCopyUrl">📋 Copiar</button>
+        </div>
+        <span id="copiedMsg" class="copied-msg">✅ ¡Copiado!</span>
+        <p class="help">Pega esta URL en el HTML de la semana donde quieras mostrar la imagen.</p>
+      </div>
+
+      <!-- Historial -->
+      <div class="panel" id="historyPanel" hidden>
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">📜 Historial de subidas</h3>
+        <div id="historyList"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var REPO_OWNER = 'dfdomin';
+    var GITHUB_API = 'https://api.github.com';
+    var STORAGE_KEY = 'iub_github_token';
+    var HISTORY_KEY = 'iub_upload_history';
+    var BRANCH = 'gh-pages';
+
+    // ── Token management ─────────────────────────
+    function getToken() {
+      return localStorage.getItem(STORAGE_KEY) || '';
+    }
+    function saveToken(token) {
+      localStorage.setItem(STORAGE_KEY, token);
+    }
+    function updateTokenUI() {
+      var tok = getToken();
+      var el = document.getElementById('tokenStatus');
+      if (tok && tok.length > 10) {
+        el.textContent = '✅ Token configurado (' + tok.substr(0, 8) + '...' + tok.substr(-4) + ')';
+        el.className = 'token-status ok';
+        document.getElementById('githubToken').value = tok;
+      } else {
+        el.textContent = '⚠️ Sin token — ingresa uno para poder subir';
+        el.className = 'token-status err';
+      }
+    }
+
+    // ── Upload history ──────────────────────────
+    function getHistory() {
+      try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); } catch(e) { return []; }
+    }
+    function addHistory(repo, filename, url) {
+      var h = getHistory();
+      h.unshift({ repo: repo, filename: filename, url: url, date: new Date().toISOString() });
+      if (h.length > 50) h = h.slice(0, 50);
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(h));
+      renderHistory();
+    }
+    function renderHistory() {
+      var h = getHistory();
+      var el = document.getElementById('historyList');
+      var panel = document.getElementById('historyPanel');
+      if (h.length === 0) { panel.hidden = true; return; }
+      panel.hidden = false;
+      el.innerHTML = h.map(function(item) {
+        var displayName = item.filename;
+        var d = new Date(item.date);
+        var dateStr = d.toLocaleDateString('es-CO', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+        var imgTag = item.url.match(/\.(png|jpg|jpeg|gif|webp)(\?.*)?$/i)
+          ? '<img src="' + item.url + '" alt="" loading="lazy">'
+          : '<span style="font-size:1.3rem">📄</span>';
+        return '<div class="history-item">'
+          + imgTag
+          + '<a href="' + item.url + '" target="_blank" rel="noopener">' + displayName + '</a>'
+          + '<span class="badge">' + item.repo + '</span>'
+          + '<span class="date">' + dateStr + '</span>'
+          + '</div>';
+      }).join('');
+    }
+
+    // ── GitHub API ──────────────────────────────
+    async function uploadToGitHub(repo, filename, base64Content) {
+      var token = getToken();
+      if (!token) throw new Error('No hay token de GitHub');
+
+      var url = GITHUB_API + '/repos/' + REPO_OWNER + '/' + repo + '/contents/img/' + filename;
+
+      // Check if file already exists (need SHA to update)
+      var existingSha = null;
+      try {
+        var checkRes = await fetch(url + '?ref=' + BRANCH, {
+          headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (checkRes.ok) {
+          var existing = await checkRes.json();
+          existingSha = existing.sha;
+        }
+      } catch(e) { /* file doesn't exist, will create */ }
+
+      var body = {
+        message: 'Subir imagen ' + filename + ' desde dashboard docente',
+        content: base64Content,
+        branch: BRANCH
+      };
+      if (existingSha) body.sha = existingSha;
+
+      var res = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+
+      if (!res.ok) {
+        var err = await res.json().catch(function() { return { message: res.statusText }; });
+        throw new Error(err.message || 'Error HTTP ' + res.status);
+      }
+
+      var data = await res.json();
+      return {
+        url: 'https://' + REPO_OWNER + '.github.io/' + repo + '/img/' + filename,
+        rawUrl: 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + repo + '/' + BRANCH + '/img/' + filename,
+        sha: data.content.sha
+      };
+    }
+
+    // ── File handling ───────────────────────────
+    function toBase64(file) {
+      return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          // Strip data:image/...;base64, prefix
+          var base64 = reader.result.split(',')[1];
+          resolve(base64);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function sanitizeFilename(name) {
+      // Replace spaces/accented chars, keep only safe characters
+      var safe = name.toLowerCase()
+        .replace(/[áäâà]/g, 'a').replace(/[éëêè]/g, 'e').replace(/[íïîì]/g, 'i')
+        .replace(/[óöôò]/g, 'o').replace(/[úüûù]/g, 'u').replace(/ñ/g, 'n')
+        .replace(/ç/g, 'c')
+        .replace(/[^a-z0-9._-]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+      // Prefix with timestamp to avoid collisions
+      var ts = Date.now().toString(36);
+      return ts + '-' + safe;
+    }
+
+    // ── UI state ────────────────────────────────
+    var selectedFile = null;
+
+    function updateUploadBtn() {
+      var btn = document.getElementById('btnUpload');
+      btn.disabled = !selectedFile || !getToken();
+    }
+
+    // ── Init ────────────────────────────────────
+    function init() {
+      // TeacherAuth check
+      if (typeof TeacherAuth === 'undefined') {
+        document.getElementById('teacherLoginMsg').textContent = 'Error: teacher-auth.js no cargó. Recarga la página.';
+        document.getElementById('teacherLoginMsg').className = 'msg err';
+        return;
+      }
+
+      var session = TeacherAuth.getSession();
+      if (session && session.ok) {
+        document.getElementById('login').hidden = true;
+        document.getElementById('app').hidden = false;
+      }
+
+      TeacherAuth.bindLoginForm({
+        onSuccess: function(session) {
+          document.getElementById('login').hidden = true;
+          document.getElementById('app').hidden = false;
+          updateTokenUI();
+          renderHistory();
+        }
+      });
+
+      // Token UI
+      updateTokenUI();
+      document.getElementById('btnSaveToken').addEventListener('click', function() {
+        var val = document.getElementById('githubToken').value.trim();
+        if (val.length < 20) {
+          document.getElementById('tokenStatus').textContent = '❌ El token parece inválido (muy corto)';
+          document.getElementById('tokenStatus').className = 'token-status err';
+          return;
+        }
+        saveToken(val);
+        updateTokenUI();
+        updateUploadBtn();
+      });
+
+      // Drop zone
+      var dropZone = document.getElementById('dropZone');
+      var fileInput = document.getElementById('fileInput');
+
+      dropZone.addEventListener('click', function() { fileInput.click(); });
+
+      dropZone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        dropZone.classList.add('drag-over');
+      });
+      dropZone.addEventListener('dragleave', function() {
+        dropZone.classList.remove('drag-over');
+      });
+      dropZone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        var files = e.dataTransfer.files;
+        if (files.length > 0) handleFile(files[0]);
+      });
+
+      fileInput.addEventListener('change', function() {
+        if (fileInput.files.length > 0) handleFile(fileInput.files[0]);
+      });
+
+      function handleFile(file) {
+        if (!file.type.match(/^image\//)) {
+          document.getElementById('uploadStatus').textContent = '❌ Solo imágenes (PNG, JPG, GIF, WebP)';
+          document.getElementById('uploadStatus').className = 'msg err';
+          return;
+        }
+        if (file.size > 5 * 1024 * 1024) {
+          document.getElementById('uploadStatus').textContent = '❌ La imagen es muy grande (máx 5 MB)';
+          document.getElementById('uploadStatus').className = 'msg err';
+          return;
+        }
+        selectedFile = file;
+        var preview = document.getElementById('preview');
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = 'block';
+        dropZone.classList.add('has-file');
+        document.getElementById('uploadStatus').textContent = '✅ ' + file.name + ' (' + (file.size / 1024).toFixed(0) + ' KB)';
+        document.getElementById('uploadStatus').className = 'msg ok';
+        updateUploadBtn();
+      }
+
+      // Upload button
+      document.getElementById('btnUpload').addEventListener('click', async function() {
+        if (!selectedFile || !getToken()) return;
+
+        var btn = document.getElementById('btnUpload');
+        var status = document.getElementById('uploadStatus');
+        btn.disabled = true;
+        status.textContent = '⏳ Subiendo...';
+        status.className = 'msg';
+
+        try {
+          var base64 = await toBase64(selectedFile);
+          var repo = document.getElementById('repoSelect').value;
+          var filename = sanitizeFilename(selectedFile.name);
+
+          var result = await uploadToGitHub(repo, filename, base64);
+
+          // Show result
+          document.getElementById('resultPreview').src = result.url;
+          document.getElementById('resultUrl').value = result.url;
+          document.getElementById('resultPanel').hidden = false;
+
+          status.textContent = '✅ Subida exitosa';
+          status.className = 'msg ok';
+
+          // Add to history
+          addHistory(repo, filename, result.url);
+
+          // Reset file selection
+          selectedFile = null;
+          document.getElementById('preview').style.display = 'none';
+          document.getElementById('preview').src = '';
+          document.getElementById('fileInput').value = '';
+          dropZone.classList.remove('has-file');
+          updateUploadBtn();
+
+        } catch (err) {
+          status.textContent = '❌ Error: ' + err.message;
+          status.className = 'msg err';
+          btn.disabled = false;
+          updateUploadBtn();
+        }
+      });
+
+      // Copy URL button
+      document.getElementById('btnCopyUrl').addEventListener('click', function() {
+        var urlInput = document.getElementById('resultUrl');
+        urlInput.select();
+        document.execCommand('copy');
+        var msg = document.getElementById('copiedMsg');
+        msg.style.display = 'inline';
+        setTimeout(function() { msg.style.display = 'none'; }, 2500);
+      });
+
+      // History
+      renderHistory();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>
