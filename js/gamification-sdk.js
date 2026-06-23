@@ -208,18 +208,8 @@
       p_hti_done: !!(state.hti_entregado || state.hti_done),
       p_activity_done: !!(state.actividad_completada || state.activity_done),
     });
-    if (rpc.ok) return rpc;
-
-    var legacy = await syncLegacyProgress(state, config);
-    var unified = await syncUnifiedProgress(state, config);
-    return {
-      ok: legacy.ok || unified.ok,
-      status: rpc.status || legacy.status || unified.status,
-      reason: rpc.ok ? undefined : "rpc_failed",
-      rpc: rpc,
-      legacy: legacy,
-      unified: unified,
-    };
+    // Only use RPC — direct POST fallbacks removed (migrated to RPC only)
+    return rpc;
   }
 
   function adm18ReadingXp(weekNum) {
@@ -420,80 +410,9 @@
     localStorage.setItem(legacyProgressKey(cfg, semana), json);
   }
 
-  async function syncLegacyProgress(state, cfg) {
-    var url = sbUrl();
-    var key = sbKey();
-    if (!url || !key) return { ok: false, reason: "no_config" };
-    var res = await fetch(url + "/rest/v1/student_progress", {
-      method: "POST",
-      headers: {
-        apikey: key,
-        Authorization: "Bearer " + key,
-        "Content-Type": "application/json",
-        Prefer: "resolution=merge-duplicates",
-      },
-      body: JSON.stringify({
-        student_name: state.nombre || "Anónimo",
-        student_id: state.id_estudiante || state.cc || "desconocido",
-        semana: state.semana,
-        xp: state.xp || 0,
-        quiz_answers: state.quiz_respuestas || {},
-        quiz_score: state.quiz_puntaje || 0,
-        hti_done: !!(state.hti_entregado || state.hti_done),
-        activity_done: !!(state.actividad_completada || state.activity_done),
-        grupo: state.grupo || "",
-        horario: state.horario || "",
-        offering_code: cfg.offeringCode,
-        updated_at: new Date().toISOString(),
-      }),
-    });
-    return { ok: res.ok || res.status === 201, status: res.status };
-  }
-
-  async function syncUnifiedProgress(state, cfg) {
-    var url = sbUrl();
-    var key = sbKey();
-    if (!url || !key || !cfg.useUnified) return { ok: true, skipped: true };
-
-    var cc = state.id_estudiante || state.cc;
-    if (!cc) return { ok: false, reason: "no_cc" };
-
-    var offering = encodeURIComponent(cfg.offeringCode);
-    var enrollRes = await fetch(
-      url + "/rest/v1/v_legacy_students?select=cc,offering_code&id=not.is.null"
-      + "&cc=eq." + encodeURIComponent(cc)
-      + "&offering_code=eq." + offering
-      + "&limit=1",
-      { headers: { apikey: key, Authorization: "Bearer " + key } }
-    );
-    if (!enrollRes.ok) return { ok: false, status: enrollRes.status };
-
-    var payload = {
-      offering_code: cfg.offeringCode,
-      student_id: cc,
-      semana: state.semana,
-      xp: state.xp || 0,
-      quiz_score: state.quiz_puntaje || 0,
-      quiz_answers: state.quiz_respuestas || {},
-      hti_done: !!(state.hti_entregado || state.hti_done),
-      activity_done: !!(state.actividad_completada || state.activity_done),
-      student_name: state.nombre || "",
-      grupo: state.grupo || "",
-      horario: state.horario || "",
-    };
-
-    var res = await fetch(url + "/rest/v1/v_legacy_student_progress", {
-      method: "POST",
-      headers: {
-        apikey: key,
-        Authorization: "Bearer " + key,
-        "Content-Type": "application/json",
-        Prefer: "resolution=merge-duplicates",
-      },
-      body: JSON.stringify(payload),
-    });
-    return { ok: res.ok || res.status === 201, status: res.status, unified: true };
-  }
+  // ── syncLegacyProgress and syncUnifiedProgress removed ──────
+  // Both were direct-POST fallbacks migrated to RPC.
+  // All writes now go through upsertWeeklyProgress → callRpc("upsert_weekly_progress").
 
   async function callRpc(fn, payload) {
     var url = sbUrl();
